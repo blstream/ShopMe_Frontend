@@ -1,0 +1,12 @@
+{
+  "screens": {
+    "examples": {
+      "hello": {
+        "title": "Witaj, Świecie!"
+      },
+      "fetch": {
+        "title": "Twoje IP to"
+      }
+    }
+  }
+}

@@ -1,0 +1,456 @@
+swagger: "2.0"
+info:
+  version: "1.0"
+  title: httpbin
+  description: A Swagger wrapper for [httpbin.org](httpbin.org). Not all operations are listed here.
+
+schemes:
+  - https
+  - http
+host: httpbin.org
+
+produces:
+  - application/json
+
+securityDefinitions:
+  basicAuth:
+    type: basic
+
+tags:
+  - name: auth
+    description: Operations for testing Basic authentication
+
+paths:
+  # /:
+  #   get:
+  #     produces:
+  #       - application/json
+  #       - application/xml
+  #     responses:
+  #       200:
+  #         description: OK
+  #         examples: {
+  #           # application/json:
+  #           #   code: -1
+  #           #   message: The server encountered an unexpected condition which prevented it from fulfilling the request
+  #           # application/json: |
+  #           #   {
+  #           #     "answer": 42
+  #           #   }
+  #           "application/json": {
+  #               "code": -1,
+  #               "message": "The server encountered an unexpected condition which prevented it from fulfilling the request"
+  #             },
+  #           "application/xml": "<answer>42</answer>"
+  #           }
+  # /person/create:
+  #   post:
+  #     summary: Create a new account
+  #     responses:
+  #       201:
+  #         description: The new SQL ident and sport details 
+  #         examples:
+  #           application/json: |
+  #             [
+  #               12,
+  #               [
+  #                 {
+  #                   "sql_idnet" : 12,
+  #                   "name" : "Basketball"
+  #                 },
+  #                 {
+  #                   "sql_ident" : 13,
+  #                   "name" : "Ice Hockey"
+  #                 }
+  #               ]
+  #             ]
+
+  /get:
+    get:
+      parameters:
+        # - name: param1
+        #   type: boolean
+        #   in: query
+        # - name: quoteFieldNames
+        #   in: query
+        #   type: boolean
+        # - name: quoteNonNumerics
+        #   in: query
+        #   type: boolean
+        # - name: dataType
+        #   type: string
+        #   in: query
+        # - name: parts
+        #   in: query
+        #   required: true
+        #   description: Parts to retrieve
+        #   type: array
+        #   items:
+        #     type: string
+        #     # enum:
+        #     # - A
+        #     # - B
+        #     # - C
+        #     # - D
+        #     # - E
+        #     # - F
+        #   # enum:
+        #   #   - [A, B]
+        #   #   - [C, D]
+        #   #   - [E, F]
+        #   collectionFormat: multi
+        - in: header
+          name: Authorization
+          type: string
+          # default: Bearer 12345
+          x-example: Foo bar
+        - in: header
+          name: Date
+          type: string
+      summary: Gets something.
+      responses:
+        200:
+          description: OK
+          # schema:
+          #   type: object
+          # examples:
+          #   application/json:
+          #     id: 7
+          #     name: Arthur Dent
+
+  /uuid:
+    get:
+      summary: Returns UUID4
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              uuid:
+                type: string
+                format: uuid
+            required: 
+              - uuid
+
+  /ip:
+    get:
+      summary: Returns Origin IP.
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              origin:
+                type: string
+                description: 'The IP address, or a comma-separated list. E.g. "10.100.10.10, 10.100.20.254, 52.91.14.13"'
+                example: 10.100.10.10
+            required: 
+              - origin
+
+  /user-agent:
+    get:
+      summary: Returns the user agent.
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              user-agent:
+                type: string
+
+  /headers:
+    get:
+      summary: Returns the request headers.
+      # parameters:
+      #   - in: header
+      #     name: MyCustomHeader
+      #     type: string
+      #     required: true
+      #     #description: My custom header
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              headers:
+                type: object
+                additionalProperties:
+                  type: string
+            required:
+              - headers
+
+  # /post:
+  #   post:
+  #     summary: POSTs some JSON.
+  #     consumes:
+  #       - '*/*'
+  #     parameters:
+  #       - in: body
+  #         name: data
+  #         required: true
+  #         schema:
+  #           type: object
+  #     responses:
+  #       200:
+  #         description: OK
+
+  /post:
+    post:
+      summary: POSTs a pizza order and returns the POSTed data.
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - in: formData
+          name: custname
+          type: string
+        - in: formData
+          name: custtel
+          type: string
+        - in: formData
+          name: custemail
+          type: string
+          format: email
+        - in: formData
+          name: size
+          type: string
+          enum: [small, medium, large]
+        - in: formData
+          name: topping
+          type: array
+          items:
+            type: string
+            enum: [bacon, cheese,  mushroom, onion]
+          collectionFormat: multi
+        - in: formData
+          name: delivery
+          type: string
+          # format: 11:30
+        - in: formData
+          name: comments
+          type: string
+      responses:
+        200:
+          description: OK
+          # schema:
+          #   type: object
+
+  /delay/{n}:
+    get:
+      summary: Delays responding for min(n, 10) seconds.
+      parameters:
+        - name: n
+          in: path
+          required: true
+          type: integer
+          description: Response delay, in seconds.
+      responses:
+        200:
+          description: OK
+
+  #/basic-auth/{user}/{password}:
+  /basic-auth/foo/bar:
+    get:
+      summary: Challenges HTTPBasic Auth.
+      description: Use `foo`/`bar` to authorize.
+      tags:
+        - auth
+      security:
+        - basicAuth: []
+      # parameters:
+      #   - $ref: "#/parameters/user"
+      #   - $ref: "#/parameters/password"
+      responses:
+        200:
+          $ref: "#/responses/200BasicAuth"
+        401:
+          description: Unauthorized (The username and password used for Basic auth do not match those in the URL path.)
+
+  /hidden-basic-auth/{user}/{password}:
+    get:
+      summary: Hidden Basic authentication
+      tags:
+        - auth
+      description: Returns 404 Not Found unless the request is authenticated.
+      security:
+        - basicAuth: []
+      parameters:
+        - $ref: "#/parameters/user"
+        - $ref: "#/parameters/password"
+      responses:
+        200:
+          $ref: "#/responses/200BasicAuth"
+        404:
+          description: Unautorized (the username and password used for Basic auth do not match those in the URL path.)
+
+  /status/{statusCode}:
+    get:
+      summary: Returns the specified HTTP status code.
+      parameters:
+        - name: statusCode
+          in: path
+          required: true
+          type: integer
+          description: The status code to return.
+          #example:
+          #  $ref: '#/definitions/StatusCodeExample'
+      responses:
+        #418:
+        #  description: I'm a teapot
+        default:
+          description: A response with the requested status code.
+
+  /xml:
+    get:
+      summary: Returns some XML.
+      produces:
+        - application/xml
+      responses:
+        200:
+          description: OK
+          # schema:
+          #   type: object
+
+  /image/{format}:
+    get:
+      summary: Returns an image with the specified format.
+      tags:
+        - images
+      produces:
+        - image/png
+        - image/jpeg
+        - image/webp
+        - image/svg+xml
+      parameters:
+        - in: path
+          name: format
+          required: true
+          type: string
+          enum: [png, jpeg, webp, svg]
+      responses:
+        200:
+          $ref: "#/responses/200File"
+
+  /image:
+    get:
+      summary: Returns an image based on the Accept header.
+      tags:
+        - images
+      produces:
+        - image/png
+        - image/jpeg
+        - image/webp
+        - image/svg+xml
+        - image/*  # PNG
+        #- '*/*'
+      responses:
+        200:
+          $ref: "#/responses/200File"
+        406:
+          description: Client did not request a supported media type.
+
+  /cache:
+    get:
+      summary: Returns 200 unless an If-Modified-Since or If-None-Match header is provided, when it returns a 304.
+      parameters:
+        - in: header
+          name: If-Modified-Since
+          type: string
+          description: For testing purposes this header accepts any value.
+          #description: >-
+          #  A string in the format "<day-name>, <day> <month> <year> <hour>:<minute>:<second> GMT".
+          #  See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-Modified-Since.
+          #format: ^(Mon|Tue|Wed|Thu|Fri|Sat|Sun) [0-3][0-9] (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dev) \d{4} \d{2}:[0-6][0-9]:[0-6][0-9] GMT$
+        - in: header
+          name: If-None-Match 
+          type: string
+          description: For testing purposes this header accepts any value.
+          #description: >-
+          #  See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match.
+          #  Examples:
+          #    * `"bfc13a64729c4290ef5b2c2730249c88ca92d82d"`
+          #    * `W/"67ab43", "54ed21", "7892dd"`
+          #    * `*`
+      responses:
+        200:
+          description: Neigher If-Modified-Since nor If-None-Match header is provided
+          # schema:
+          #   type: object
+        304:
+          description: If-Modified-Since or If-None-Match header is provided
+
+parameters:
+  user:
+    name: user
+    in: path
+    type: string
+    required: true
+    description: Username. Use the same username in the path AND for authorization.
+  password:
+    name: password
+    in: path
+    type: string
+    required: true
+    description: Password. Use the same password in the path AND for authorization.
+
+#definitions:
+#   CommonResponse:
+#     description: >-
+#       Response returned by /get, /post, /head (???) endpoints.
+#       All data is key/value pairs.
+#     type: object
+#     properties:
+#       args:
+#         type: object
+#         description: Query string parameters used in the request.
+#       data:
+#         type: object
+#         description: ???
+#       files:
+#         type: object
+#         description: ???
+#       form:
+#         type: object
+#         description: 'Form parameters specified in "application/x-www-form-urlencoded" requests.'
+#       headers:
+#         type: object
+#         description: >-
+#           Headers used in the request. Some typical headers are:
+          
+#           - Accept
+#           - Accept-Encoding
+#           - Content-Length
+#           - Content-Type
+#           - Host
+#           - Origin
+#           - Referred
+#           - User-Agent
+#       #json:
+#       #  type: object  # Nope. It can be "null"
+#       origin:
+#         type: string
+#         description: The origin IP from which the request was made.
+#       url:
+#         type: string
+#         description: The endpoint URL to which the request was made.
+
+responses:
+  200BasicAuth:
+    description: OK
+    schema:
+      type: object
+      properties:
+        authenticated:
+          type: boolean
+          example: true
+        user:
+          type: string
+          description: The user name specified in the request.
+
+  200File:
+    description: OK
+    schema:
+      type: file
