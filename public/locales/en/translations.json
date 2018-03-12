@@ -1,12 +1,70 @@
 {
-    "screens": {
-      "examples": {
-        "hello": {
-          "title": "Hello, World!"
-        },
-        "fetch": {
-          "title": "Your IP is"
+  "components": {
+    "searchForm" : {
+      "button": "Search",
+      "input": "Enter the service",
+      "lengthError": "Enter longer phrase",
+      "numberError": "Phrase can't cotain only digits"
+    },
+    "searchResults": {
+      "resultsTitle": "Wyniki wyszukiwania"
+    },
+    "noSearchResults" : {
+      "noResultsTitle": "Brak wyników wyszukiwania."
+    },
+    "UI": {
+      "categorySelect": {
+        "name": "Category *",
+        "errorEmptyField": "This field is required!",
+        "categoryOptions": {
+          "architecture": "Architecture",
+          "garden": "Garden",
+          "workshop-services": "Workshop Services",
+          "transport": "Transport",
+          "photography": "Photography",
+          "graphics": "Graphics",
+          "marketing-and-advertising": "Marketing and Advertising",
+          "programming": "Programming",
+          "bookkeeping": "Bookkeeping",
+          "law": "Law",
+          "translations": "Translations",
+          "company-and-office": "Company and Office",
+          "repair-and-service": "Repair and Service",
+          "housework": "Housework",
+          "tutoring": "Tutoring",
+          "bands-and-music": "Bands and Music",
+          "others": "Others"
         }
+      },
+      "TitleInput": {
+        "name": "Title Offer *",
+        "errorEmptyField": "This field is required!",
+        "errorMaxLength": "The title should contains at most 30 characters",
+        "errorMinLength": "The title should contains at least 3 characters"
+      },
+      "firstNameInput": {
+        "name": "Name *",
+        "errorEmptyField": "This field is required",
+        "errorMinLength": "Too few characters",
+        "errorOnlyAlpha": "This field should contain only letters"
+      },
+      "emailInput": {
+        "name": "E-mail *",
+        "errorEmptyField": "This field is required",
+        "errorEmailRegex": "Please enter a valid email address"
+      },
+      "aboutMeTextarea": {
+        "name": "About me",
+        "errorEmptyField": "This field is required"
+      },
+      "phoneInput": {
+        "name": "Phone number *",
+        "errorEmptyField": "This field is required",
+        "errorPhoneRegex": "Please enter a valid phone number"
+      },
+      "add": {
+        "addOfferText": "Add offer"
       }
     }
   }
+}

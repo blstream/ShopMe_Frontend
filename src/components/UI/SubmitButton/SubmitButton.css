@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,700');
+
+.form__button--submit {
+  background-color: #000;
+  border: solid 3px #fade42;
+  color:#fade42;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 150px;
+  transition: all 0.5s;
+  padding: 15px;
+}
+.form__button--submit:hover {
+  background-color: #fada27;
+  border-color: #000;
+  color: #000;
+}
+.form__button--submit:focus {
+  outline: none;
+}

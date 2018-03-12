@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.add-offer {
+  margin-top: 10px;
+}
+
+.add-offer__link {
+  float: left;
+  margin-right: 15px;
+}
+
+.add-offer__text {
+  float: left;
+  font-size: 1.7em;
+  font-family: Arial, sans-serif;
+  line-height: 1.3em;
+}
+
+.add-offer__text--letter-spacing {
+    letter-spacing: .3px;
+}
+
+.add-offer__btn {
+  background-color: inherit;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 2em;
+  transition: all .3s ease-in;
+}
+
+.add-offer__btn:hover {
+  transform: scale(1.2);
+  color: #fade42;
+}
+
+.add-offer__btn--black {
+  color: #4F4F4F;
+}
