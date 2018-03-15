@@ -2,8 +2,9 @@ import React from 'react';
 
 export default class SearchInput extends React.Component {
     handleBlur = input => { 
-        let searchPhrase = input.target.value.trim();
-        console.log(searchPhrase);
+        const searchPhrase = input.target.value.trim();
+        const cleanedSearchPhrase = searchPhrase.replace(/[!@#$^&*()=+-_;:'"<>,.?/{}|`~[\]\\]/g, '');
+        console.log(cleanedSearchPhrase);
     };
     render () {
         return (
