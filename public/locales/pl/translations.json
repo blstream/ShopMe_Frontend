@@ -8,5 +8,12 @@
         "title": "Twoje oferty to"
       }
     }
-  }
+  },
+    "components": {
+      "searchForm" : {
+        "button": "Szukaj",
+        "input": "Wpisz szukaną usługę",
+        "lengthError": "Wpisana fraza jest za krótka"        
+      }
+    }
 }
