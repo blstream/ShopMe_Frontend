@@ -8,5 +8,13 @@
           "title": "Your offers are"
         }
       }
+    },
+    "components": {
+      "searchForm" : {
+        "button": "Search",
+        "input": "Enter the service",
+        "lengthError": "The phrase you are looking for is too short"
+      }
     }
   }
+  
