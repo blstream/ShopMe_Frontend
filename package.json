@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "concurrently": "^3.5.1",
     "cross-env": "^5.1.3",
     "i18next": "^10.5.0",
     "i18next-browser-languagedetector": "^2.1.0",
@@ -16,8 +15,6 @@
     "react-scripts": "1.1.1"
   },
   "scripts": {
-    "start:dev": "concurrently \"npm run server\" \"npm run client:dev\"",
-    "start:prod": "npm run client:prod",
     "client": "react-scripts start",
     "client:dev": "cross-env-shell REACT_APP_API=\"/mock-api\" npm run client",
     "client:prod": "cross-env-shell REACT_APP_API=\"/api\" npm run client",
