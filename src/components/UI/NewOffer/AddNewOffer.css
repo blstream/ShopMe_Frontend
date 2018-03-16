@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.row:after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.container {
+  margin: 100px auto;
+  max-width: 1000px;
+  padding: 10px 20px;
+  border: 2px solid #000;
+}
+
+.logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.5rem;
+}
+
+.wrapper {
+  position: relative;
+  float: left;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 100px auto;
+  padding: 0 20%;
+}
+
+.wrapper__btn {
+  float: left;
+  margin-right: 15px;
+}
+
+.wrapper__text {
+  float: left;
+  font-size: 1.7em;
+  font-family: Arial, sans-serif;
+  line-height: 1.3em;
+}
+
+.letter-spacing-0.3 {
+    letter-spacing: .3px;
+}
+
+.btn {
+  background-color: inherit;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 2em;
+  -webkit-transition: all .2s ease-in;
+  -moz-transition: all .2s ease-in;
+  -o-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+}
+
+.btn:hover {
+  transform: scale(1.2);
+  color: #4F4F4F;
+}

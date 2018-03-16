@@ -1,4 +1,11 @@
 {
+  "components": {
+    "ui": {
+      "newOffer": {
+        "addNewOffer": "Dodaj ofertę"
+      }
+    }
+  },
   "screens": {
     "examples": {
       "hello": {
