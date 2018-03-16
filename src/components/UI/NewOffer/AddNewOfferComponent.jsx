@@ -16,7 +16,7 @@ const RedirectButton = withRouter(({ history }) => (
   </button>
 ));
 
-const AddNewOffer = () => (
+const AddNewOffer = (props) => (
   <div className="container">
     <div className="logo">
       <span>Shop Me</span>
@@ -27,7 +27,7 @@ const AddNewOffer = () => (
           <RedirectButton />
         </div>
         <div className="wrapper__text">
-          <span className="letter-spacing-0.3">Dodaj ofertę</span>
+          <span className="letter-spacing-0.3">{props.t('components.ui.newOffer.addNewOffer')}</span>
         </div>
       </div>
     </div>
