@@ -1,0 +1,25 @@
+.search-results {
+  width: 80%;
+  margin: auto;
+  padding: 30px 0;
+}
+
+.search-results--title {
+  font-family: Comic Sans MS, cursive, sans-serif;
+  font-size: 70px;
+  text-align: left;
+}
+
+.search-results__results {
+  margin: 100px 0 0 0;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.search-results__results--title {
+  font-size: 30px;
+  text-align: center;
+}
+
+.search-results__results--list {
+  margin: 70px 20px;
+}
