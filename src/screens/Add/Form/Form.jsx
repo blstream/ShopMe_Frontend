@@ -14,13 +14,13 @@ const SreensAddForm = (props) => {
         <h1 className="add-form__title">{t('Dodaj Ofertę')}</h1>
         <fieldset className="add-form__fieldset add-form__fieldset-basic">
           <div className="add-form__fieldset-basic-item">
-            <label htmlFor="add-form__offer-title" className="a add-form__label">{t('Tytuł Oferty *')}</label>
+            <label htmlFor="add-form__offer-title" className="add-form__label">{t('Tytuł Oferty *')}</label>
             <div className="add-form__input add-form__input--M">
               <ExampleInput name="add-form__offer-title" />
             </div>
           </div>
           <div className="add-form__fieldset-basic-item">
-            <label htmlFor="add-form__category" className=" a add-form__label">{t('Categoria *')}</label>
+            <label htmlFor="add-form__category" className="add-form__label">{t('Kategoria *')}</label>
             <div className="add-form__input add-form__input--M">
               <ExampleInput name="add-form__category" />
             </div>
