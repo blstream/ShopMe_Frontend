@@ -1,19 +1,13 @@
 {
-  "screens": {
-    "examples": {
-      "hello": {
-        "title": "Witaj, Świecie!"
-      },
-      "fetch": {
-        "title": "Twoje oferty to"
-      }
-    }
-  },
   "components": {
     "searchForm" : {
       "button": "Szukaj",
       "input": "Wpisz szukaną usługę",
-      "lengthError": "Wpisana fraza jest za krótka"        
+      "lengthError": "Wpisana fraza jest za krótka"
+    },
+    "searchResults": {
+      "header": "Shop me",
+      "resultsTitle": "Wyniki wyszukiwania"
     },
     "UI": {
       "FirstNameInput":{
