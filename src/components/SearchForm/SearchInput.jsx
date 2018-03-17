@@ -9,18 +9,17 @@ class SearchInput extends React.Component {
             validPhrase: true
         }
     }
-    handleBlur = input => { 
+    handleBlur = input => {
         const searchPhrase = input.target.value.trim();
         const cleanedSearchPhrase = searchPhrase.replace(/[!@#$%^&*()=+-_;:'"<>,.?/{}|`~[\]\\]/g, '');
         const validPhrase = cleanedSearchPhrase.length <= 1  ? false : true;
-        console.log(cleanedSearchPhrase);
         this.setState({searchPhrase: cleanedSearchPhrase, validPhrase: validPhrase });
     };
     render () {
-        const { t } = this.props;        
+        const { t } = this.props;
         return (
             <div>
-                <input 
+                <input
                     type='text'
                     id='offer-search-input'
                     placeholder={t('components.searchForm.input')}
