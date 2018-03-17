@@ -133,6 +133,7 @@
   padding-left: 2px;
   margin-top: 10px;
   background-color: #221e1d;
+  position: relative;
 }
 
 .add-form__input--yellow {
@@ -146,18 +147,24 @@
   color: #221e1d;
 }
 
+.add-form__input--error {
+  border: 1px solid #81378e;
+}
+
+.add-form__input--error::after {
+  content: 'Pole wymagane!';
+  color: #81378e;
+  position: absolute;
+  font-size: 0.8rem;
+  bottom: -20px;
+  right: 0;
+}
+
 .add-form__input--XS {
   max-width: 15%;
   min-width: 15%;
   height: 30px;
   position: relative;
-}
-
-.add-form__input--XS::after {
-  content: 'zł';
-  top: 5px;
-  right: 10px;
-  position: absolute;
 }
 
 .add-form__input--S {
