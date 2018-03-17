@@ -13,6 +13,8 @@ class SubmitButton extends React.Component {
                 name='searchSubmit'
                 value={t('components.searchForm.button')}
                 onClick={this.handleSubmit}
+                className="search__form-item"
+                id="search__submit"
             />
         );
     }

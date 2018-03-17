@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchForm from 'components/SearchForm/SearchForm';
 
 export default class SearchInput extends React.Component {
   constructor(props) {
@@ -9,7 +10,9 @@ export default class SearchInput extends React.Component {
   }
   render() {
     return (
-      <div className="search" />
+      <div className="search">
+        <SearchForm />
+      </div>
     );
   }
 }

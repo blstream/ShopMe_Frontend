@@ -18,15 +18,16 @@ class SearchInput extends React.Component {
     render () {
         const { t } = this.props;
         return (
-            <div>
+            <div className="search__input-wrapper">
                 <input
                     type='text'
-                    id='offer-search-input'
+                    id='search__input'
                     placeholder={t('components.searchForm.input')}
                     name='searchPhrase'
                     onBlur={this.handleBlur}
+                    className="search__form-item"
                 />
-                <p>{ this.state.validPhrase ? '' : t('components.searchForm.lengthError') } </p>
+                <p className="search__message-error">{ this.state.validPhrase ? '' : t('components.searchForm.lengthError') } </p>
             </div>
         );
     }

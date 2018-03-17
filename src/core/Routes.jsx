@@ -8,7 +8,7 @@ import ScreensSearch from 'screens/Search/Search';
 export default() => (
   <BrowserRouter>
     <Switch>
-      <Route path="/" component={ScreensSearch} />
+      <Route exact path="/" component={ScreensSearch} />
       <Route path="/examples/hello" component={ScreensExamplesHello} />
       <Route path="/examples/fetch" component={ScreensExamplesFetch} />
     </Switch>

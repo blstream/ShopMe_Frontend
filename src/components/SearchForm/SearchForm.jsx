@@ -3,7 +3,7 @@ import SearchInput from 'components/SearchForm/SearchInput';
 import SubmitButton from 'components/SearchForm/SubmitButton';
 
 const SearchForm = () => (
-  <form>
+  <form className="search__form">
     <SearchInput />
     <SubmitButton />
   </form>

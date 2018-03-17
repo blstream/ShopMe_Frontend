@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchForm from 'components/SearchForm/SearchForm';
+import SearchInput from 'components/search/SearchInput';
 import Logo from 'components/UI/Logo';
 import 'components/search/Search.css';
 
@@ -18,7 +18,7 @@ export default class Search extends React.Component {
           <Logo />
         </header>
         <content>
-          <SearchForm />
+          <SearchInput />
         </content>
         <footer />
       </div>
