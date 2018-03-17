@@ -6,7 +6,12 @@
   },
   "rules": {
     "react/prop-types": "off",
-    "import/no-named-as-default": "off"
+    "import/no-named-as-default": "off",
+    "jsx-a11y/label-has-for": [ 2, {
+      "required": {
+          "every": [ "id" ]
+      }
+    }]
   },
   "settings": {
     "import/resolver": {
