@@ -8,5 +8,11 @@
         "title": "Twoje oferty to"
       }
     }
+  },
+  "components": {
+    "searchResults": {
+      "header": "Shop me",
+      "resultsTitle": "Wyniki wyszukiwania"
+    }
   }
 }

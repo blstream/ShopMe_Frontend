@@ -7,6 +7,12 @@
         "fetch": {
           "title": "Your offers are"
         }
+      },
+    "components": {
+      "searchResults": {
+        "header": "Shop me",
+        "resultsTitle": "Search results"
       }
     }
   }
+}
