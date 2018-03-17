@@ -3,12 +3,12 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import ScreensExamplesHello from 'screens/Examples/Hello';
 import ScreensExamplesFetch from 'screens/Examples/Fetch';
-import AddNewOffer from 'components/UI/NewOffer/AddNewOfferComponent';
+import ScreensSearch from 'screens/Search/Search';
 
-export default () => (
+export default() => (
   <BrowserRouter>
     <Switch>
-      <Route path="/add-new-offer" component={AddNewOffer} />
+      <Route exact path="/" component={ScreensSearch} />
       <Route path="/examples/hello" component={ScreensExamplesHello} />
       <Route path="/examples/fetch" component={ScreensExamplesFetch} />
     </Switch>
