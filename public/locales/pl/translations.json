@@ -1,11 +1,4 @@
 {
-  "components": {
-    "ui": {
-      "newOffer": {
-        "addNewOffer": "Dodaj ofertę"
-      }
-    }
-  },
   "screens": {
     "examples": {
       "hello": {
@@ -13,6 +6,11 @@
       },
       "fetch": {
         "title": "Twoje oferty to"
+      }
+    },
+    "offer": {
+      "add": {
+        "addOfferText": "Dodaj ofertę"
       }
     }
   }

@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 
 *, *:before, *:after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -57,9 +56,6 @@
   color: inherit;
   cursor: pointer;
   font-size: 2em;
-  -webkit-transition: all .2s ease-in;
-  -moz-transition: all .2s ease-in;
-  -o-transition: all .2s ease-in;
   transition: all .2s ease-in;
 }
 

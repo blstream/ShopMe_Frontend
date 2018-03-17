@@ -1,8 +1,8 @@
 import React from 'react';
 import { translate } from 'react-i18next';
-import { withRouter } from 'react-router-dom';
+import { withRouter, BrowserRouter as Router, Route } from 'react-router-dom';
 
-import './AddNewOffer.css';
+import './OfferAdd.css';
 
 const RedirectButton = withRouter(({ history }) => (
   <button
@@ -12,11 +12,11 @@ const RedirectButton = withRouter(({ history }) => (
       history.push('/examples/fetch');
     }}
   >
-    <i className="fas fa-plus-circle" />
+    <i className="fa fa-plus-circle" aria-hidden="true"></i>
   </button>
 ));
 
-const AddNewOffer = (props) => (
+const ScreenOfferAdd = (props) => (
   <div className="container">
     <div className="logo">
       <span>Shop Me</span>
@@ -24,15 +24,17 @@ const AddNewOffer = (props) => (
     <div className="row">
       <div className="wrapper">
         <div className="wrapper__btn">
-          <RedirectButton />
+          <Router>
+            <Route path="/" render={(props) => <RedirectButton {...props} title="Navigate to ScreenAddForm"/>}></Route>
+          </Router>
         </div>
         <div className="wrapper__text">
-          <span className="letter-spacing-0.3">{props.t('components.ui.newOffer.addNewOffer')}</span>
+          <span className="letter-spacing-0.3">{props.t('screens.offer.add.addOfferText')}</span>
         </div>
       </div>
     </div>
   </div>
 );
 
-export { AddNewOffer };
-export default translate()(AddNewOffer);
+export { ScreenOfferAdd };
+export default translate()(ScreenOfferAdd);
