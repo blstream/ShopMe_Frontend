@@ -8,5 +8,19 @@
         "title": "Twoje oferty to"
       }
     }
+  },
+  "components":{
+    "UI": {
+      "AddForm":{
+        "NameInput":{
+          "name": "Imię *",
+          "errorEmptyField": "Pole nie może być puste",
+          "errorMaxLength": "Imię musi się składać z co najwyżej 20 znaków",
+          "errorMinLength": "Imię musi się składać z co najmniej 3 znaków",
+          "errorOnlyAlpha": "Imię musi się składać wyłącznie z liter"
+        }
+      }
+    }
   }
 }
+
