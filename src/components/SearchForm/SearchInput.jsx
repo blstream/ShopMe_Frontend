@@ -13,6 +13,7 @@ class SearchInput extends React.Component {
         const searchPhrase = input.target.value.trim();
         const cleanedSearchPhrase = searchPhrase.replace(/[!@#$%^&*()=+-_;:'"<>,.?/{}|`~[\]\\]/g, '');
         const validPhrase = cleanedSearchPhrase.length <= 1  ? false : true;
+        console.log(cleanedSearchPhrase);
         this.setState({searchPhrase: cleanedSearchPhrase, validPhrase: validPhrase });
     };
     render () {
@@ -33,4 +34,8 @@ class SearchInput extends React.Component {
 }
 
 export { SearchInput };
+<<<<<<< HEAD
 export default translate()(SearchInput);
+=======
+export default translate()(SearchInput);
+>>>>>>> ee13f8520fa790ab997c178129743f1a0b9208f9
