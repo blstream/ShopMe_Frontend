@@ -1,14 +1,4 @@
 {
-  "screens": {
-    "examples": {
-      "hello": {
-        "title": "Hello, World!"
-      },
-      "fetch": {
-        "title": "Your offers are"
-      }
-    }
-  },
   "components": {
     "searchForm" : {
       "button": "Szukaj",

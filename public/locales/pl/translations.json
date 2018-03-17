@@ -1,14 +1,4 @@
 {
-  "screens": {
-    "examples": {
-      "hello": {
-        "title": "Witaj, Świecie!"
-      },
-      "fetch": {
-        "title": "Twoje oferty to"
-      }
-    }
-  },
   "components": {
     "searchForm" : {
       "button": "Szukaj",
