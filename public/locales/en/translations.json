@@ -10,11 +10,20 @@
       }
     },
     "components": {
-      "searchForm" : {
-        "button": "Search",
-        "input": "Enter the service",
-        "lengthError": "The phrase you are looking for is too short"
+    "searchForm" : {
+      "button": "Szukaj",
+      "input": "Wpisz szukaną usługę",
+      "lengthError": "Wpisana fraza jest za krótka"        
+    },
+    "UI": {
+      "FirstNameInput":{
+        "name": "Name *",
+        "errorEmptyField": "Field can not be empty",
+        "errorMaxLength": "The name should contain at most 20 characters",
+        "errorMinLength": "The name should contain at least 3 characters",
+        "errorOnlyAlpha": "The name must consist only of letters"
       }
     }
   }
+}
   
