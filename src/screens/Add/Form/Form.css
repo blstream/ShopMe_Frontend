@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Pacifico');
-
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -10,13 +8,7 @@
 .screens-add-form__wrapper {
   position: absolute;
   top: 0;
+  left: 0;
   width: 100%;
   background: #454545;
-}
-
-.screens-add-form__logo {
-  font-family: 'Pacifico', cursive;
-  font-size: 2.5rem;
-  color: #282828;
-  margin: 20px;
 }
