@@ -38,7 +38,7 @@ class AddForm extends Component {
             </div>
             <label htmlFor="add-form__price-basic" className="add-form__label add-form__label--hidden">{t('Cena')}</label>
             <div className="add-form__input add-form__input--XS">
-              <ExampleInput name="add-form__price-basic" />
+              <ExampleInput name="add-form__price-basic" required/>
             </div>
           </div>
           <label htmlFor="add-form__offer-additional" className="add-form__label">{t('Rozszerzony')}</label>

@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Rajdhani');
 
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -54,9 +53,7 @@
   border-radius: 50%;
   top: -35px;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   background-color: #fdde6b;
 }
 
@@ -68,9 +65,7 @@
   position: absolute;
   top: -25px;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 .add-form__fieldset-about {
@@ -80,25 +75,15 @@
 }
 
 .add-form__fieldset-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: flex-end;
+  justify-content: space-between;
   margin-bottom: 10px;
 }
 
 .add-form__fieldset-basic-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
   padding: 15px 0;
 }
 
@@ -204,9 +189,7 @@
 
 .add-form__submit:hover {
  cursor: pointer;
- -webkit-transform: scale(0.9);
-     -ms-transform: scale(0.9);
-         transform: scale(0.9);
+ transform: scale(0.9);
 }
 
 .add-form__caption {

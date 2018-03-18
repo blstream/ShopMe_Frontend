@@ -10,7 +10,7 @@ const SreensAddForm = (props) => {
   return (
     <div className="screens-add-form__wrapper">
       <Logo />
-      <AddForm>{t('Dodaje Ofertę')}</AddForm>
+      <AddForm>{t('Dodaj Ofertę')}</AddForm>
     </div>
   );
 };
