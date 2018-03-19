@@ -1,29 +1,28 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
 
-import './Price.css';
+import './PriceInput.css';
 
-class InputPrice extends Component {
+class PriceInput extends Component {
   constructor(props) {
     super(props);
+    const { t } = this.props;
     this.state = {
       value: '',
-      name: this.props.name,
-      errorMessage: this.props.required ? 'Pole wymagane' : '',
+      errorMessage: this.props.required ? t('components.UI.PriceInput.errorMessage') : '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
     this.validateInput = this.validateInput.bind(this);
-    this.returnValues = this.returnValues.bind(this);
   }
 
   validateInput() {
-    const { required } = this.props;
+    const { required, t } = this.props;
     const state = this.state.value;
     const empty = state === '';
-    if (required && empty) this.setState({ errorMessage: 'Pole wymagane!' });
+    if (required && empty) this.setState({ errorMessage: t('components.UI.PriceInput.errorMessage') });
     else this.setState({ errorMessage: '' });
   }
 
@@ -62,34 +61,30 @@ class InputPrice extends Component {
     if (state && !comma.test(value)) value += ',00';
     if (state && !currency.test(value)) value += ' zł';
     this.setState({ value });
-    this.returnValues();
-  }
-
-  returnValues() {
-    const { value, name, errorMessage } = this.state;
-    const returnValues = { value, name, errorMessage };
-    return returnValues;
-    // this.props.onBlur(this.state);
-    // this.props.onBlur(returnValues);
   }
 
   render() {
     return (
-      <input
-        className="input-price"
-        type="text"
-        value={this.state.value}
-        placeholder={this.props.placeholder}
-        name={this.props.name}
-        required={this.props.required}
-        disabled={this.props.disabled}
-        onFocus={this.handleFocus}
-        onChange={this.handleChange}
-        onKeyUp={this.handleKeyUp}
-        onBlur={this.handleBlur}
-      />
+      <div>
+        <input
+          className="input"
+          type="text"
+          value={this.state.value}
+          placeholder={this.props.placeholder}
+          name={this.props.name}
+          required={this.props.required}
+          disabled={this.props.disabled}
+          onFocus={this.handleFocus}
+          onChange={this.handleChange}
+          onKeyUp={this.handleKeyUp}
+          onBlur={this.handleBlur}
+        />
+        <div className="input__errorMessage">
+          {this.state.errorMessage}
+        </div>
+      </div>
     );
   }
 }
 
-export default translate()(InputPrice);
+export default translate()(PriceInput);

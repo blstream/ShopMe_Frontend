@@ -13,7 +13,7 @@
     "searchForm" : {
       "button": "Szukaj",
       "input": "Wpisz szukaną usługę",
-      "lengthError": "Wpisana fraza jest za krótka"        
+      "lengthError": "Wpisana fraza jest za krótka"
     },
     "UI": {
       "FirstNameInput":{
@@ -22,8 +22,10 @@
         "errorMaxLength": "Imię musi się składać z co najwyżej 20 znaków",
         "errorMinLength": "Imię musi się składać z co najmniej 3 znaków",
         "errorOnlyAlpha": "Imię musi się składać wyłącznie z liter"
+      },
+      "PriceInput":{
+        "errorMessage": "Pole wymagane!"
       }
     }
   }
 }
-
