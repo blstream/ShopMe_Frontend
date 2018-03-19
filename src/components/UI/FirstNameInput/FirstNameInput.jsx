@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
 
-class AddFormNameInput extends Component {
+class AddFormFirstNameInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +14,7 @@ class AddFormNameInput extends Component {
     const { t } = this.props;
     const isValid = true;
 
-    if (event.target.value.trim() === '' && isValid) {
+    if (event.target.value.trim() === '') {
       this.setState({ errorMessage: t('components.UI.AddForm.NameInput.errorEmptyField') });
       return false;
     }
@@ -56,5 +56,5 @@ class AddFormNameInput extends Component {
   }
 }
 
-export { AddFormNameInput };
-export default translate()(AddFormNameInput);
+export { AddFormFirstNameInput };
+export default translate()(AddFormFirstNameInput);
