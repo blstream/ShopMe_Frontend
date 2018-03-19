@@ -15,18 +15,18 @@ class AddFormFirstNameInput extends Component {
     const isValid = true;
 
     if (event.target.value.trim() === '') {
-      this.setState({ errorMessage: t('components.UI.FirstNameInput.errorEmptyField') });
+      this.setState({ errorMessage: t('components.UI.AddForm.NameInput.errorEmptyField') });
       return false;
     }
     if (event.target.value.length > 20) {
-      this.setState({ errorMessage: t('components.UI.FirstNameInput.errorMaxLength') });
+      this.setState({ errorMessage: t('components.UI.AddForm.NameInput.errorMaxLength') });
     }
     if (event.target.value.length < 3) {
-      this.setState({ errorMessage: t('components.UI.FirstNameInput.errorMinLength') });
+      this.setState({ errorMessage: t('components.UI.AddForm.NameInput.errorMinLength') });
     }
     const pattern = /^[a-zA-Z]+$/;
     if (!pattern.test(event.target.value)) {
-      this.setState({ errorMessage: t('components.UI.FirstNameInput.errorOnlyAlpha') });
+      this.setState({ errorMessage: t('components.UI.AddForm.NameInput.errorOnlyAlpha') });
     }
     return isValid;
   }
@@ -36,7 +36,7 @@ class AddFormFirstNameInput extends Component {
     return (
       <div className="AddFormName">
         <label htmlFor="name">
-          {t('components.UI.FirstNameInput.name')}
+          {t('components.UI.AddForm.NameInput.name')}
           <div>
             <input
               className="AddFormNameInput"
