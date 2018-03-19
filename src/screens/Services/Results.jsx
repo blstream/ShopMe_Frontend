@@ -37,14 +37,6 @@ class ScreensServicesResults extends Component {
     };
   }
 
-  /*
-  componentDidMount() {
-    fetch(`${process.env.REACT_APP_API}/offers`)
-      .then(response => response.json())
-      .then(body => this.setState({ services: body }));
-  }
-  */
-
   render() {
     return (
       <div>
