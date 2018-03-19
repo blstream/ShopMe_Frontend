@@ -1,0 +1,24 @@
+.services-item {
+  list-style-type: decimal;
+  margin: 15px 0;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: 19px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+.services-item_title {
+  width: 300px;
+  display: flex;
+  margin: auto;
+
+}
+
+.services-item_price {
+  width: 150px;
+  display: flex;
+  margin: auto;
+}
+
