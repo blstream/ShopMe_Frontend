@@ -22,6 +22,11 @@
         "errorMaxLength": "The name should contain at most 20 characters",
         "errorMinLength": "The name should contain at least 3 characters",
         "errorOnlyAlpha": "The name must consist only of letters"
+      },
+      "EmailInput": {
+        "name": "E-mail *",
+        "errorEmptyField": "Field can not be empty",
+        "errorEmailRegex": "Please enter a valid email address"
       }
     }
   }
