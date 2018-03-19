@@ -16,7 +16,7 @@
       "lengthError": "Wpisana fraza jest za krótka"        
     },
     "UI": {
-      "FirstNameInput":{
+      "FirstNameInput": {
         "name": "Imię *",
         "errorEmptyField": "Pole nie może być puste",
         "errorMaxLength": "Imię musi się składać z co najwyżej 20 znaków",
