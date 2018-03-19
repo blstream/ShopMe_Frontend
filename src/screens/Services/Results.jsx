@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
 import SearchResults from 'components/SearchResults/SearchResults';
