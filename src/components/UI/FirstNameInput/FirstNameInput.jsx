@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
 
-class AddFormFirstNameInput extends Component {
+class FirstNameInput extends Component {
   constructor(props) {
     super(props);
+
+    this.checkValidity = this.checkValidity.bind(this);
+
     this.state = {
       value: '',
       errorMessage: '',
     };
   }
 
-  checkValidity = (event) => {
+  checkValidity(event) {
     const { t } = this.props;
     const isValid = true;
 
@@ -34,12 +37,15 @@ class AddFormFirstNameInput extends Component {
   render() {
     const { t } = this.props;
     return (
-      <div className="AddFormName">
-        <label htmlFor="name">
-          {t('components.UI.AddForm.NameInput.name')}
+      <div className="add__container">
+        <label
+          className="add__label"
+          htmlFor="name"
+        >
+          {t('components.UI.FirstNameInput.name')}
           <div>
             <input
-              className="AddFormNameInput"
+              className="add__input"
               type="text"
               name={this.props.name}
               value={this.state.value}
@@ -48,7 +54,7 @@ class AddFormFirstNameInput extends Component {
             />
           </div>
         </label>
-        <div className="AddFormNameErrorMessage">
+        <div className="add__errorMessage">
           {this.state.errorMessage}
         </div>
       </div>
@@ -56,5 +62,5 @@ class AddFormFirstNameInput extends Component {
   }
 }
 
-export { AddFormFirstNameInput };
-export default translate()(AddFormFirstNameInput);
+export { FirstNameInput };
+export default translate()(FirstNameInput);
