@@ -28,7 +28,7 @@ class PriceInput extends Component {
 
   handleChange(e) {
     const { value } = e.target;
-    const price = /^([0-9]*)(,)?([0-9]{0,2})?$/;
+    const price = /^([0-9]*)([,])?([0-9]{0,2})?$/;
     if (price.test(value)) this.setState({ value });
     this.validateInput();
   }
@@ -52,13 +52,8 @@ class PriceInput extends Component {
   handleBlur(e) {
     let { value } = e.target;
     const state = this.state.value;
-    const oneLastDigit = /(,){1}([0-9]){1}$/;
-    const lastComma = /,$/;
-    const comma = /(,){1,}/;
     const currency = /zł$/;
-    if (oneLastDigit.test(value)) value += '0';
-    if (lastComma.test(value)) value += '00';
-    if (state && !comma.test(value)) value += ',00';
+    if (state) value = parseFloat(value.replace(',', '.')).toFixed(2).replace('.', ',');
     if (state && !currency.test(value)) value += ' zł';
     this.setState({ value });
   }
