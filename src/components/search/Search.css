@@ -40,18 +40,3 @@ body {
   border-color: #fade42;
   transition: all 0.5s;
 }
-#search__submit {
-  background-color: #000;
-  border: solid 3px #fade42;
-  color:#fade42;
-  font-weight: bold;
-  text-transform: uppercase;
-  cursor: pointer;
-  width: 150px;
-  transition: all 0.5s;
-}
-#search__submit:hover {
-  background-color: #fade42;
-  border-color: #000;
-  color: #000;
-}

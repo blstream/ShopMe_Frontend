@@ -26,6 +26,11 @@
         "name": "About me",
         "errorEmptyField": "Field can not be empty",
         "errorMaxLength": "This field should contain at most 800 characters"
+      },
+      "PhoneInput": {
+        "name": "Phone number *",
+        "errorEmptyField": "Field can not be empty",
+        "errorPhoneRegex": "Please enter a valid phone number e.g. 500500500 lub 914646464"
       }
     }
   }
