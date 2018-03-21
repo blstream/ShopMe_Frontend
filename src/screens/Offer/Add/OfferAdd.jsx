@@ -18,7 +18,7 @@ const ScreenOfferAdd = props => (
     <div className="row">
       <div className="wrapper">
         <div className="wrapper__btn">
-          <Link to="/examples/fetch"><RedirectButton /></Link>
+          <Link to="/add/form"><RedirectButton /></Link>
         </div>
         <div className="wrapper__text">
           <span className="letter-spacing">{props.t('screens.offer.add.addOfferText')}</span>
