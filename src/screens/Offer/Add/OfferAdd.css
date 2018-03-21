@@ -46,7 +46,7 @@
   line-height: 1.3em;
 }
 
-.letter-spacing-0.3 {
+.letter-spacing {
     letter-spacing: .3px;
 }
 
@@ -62,4 +62,8 @@
 .btn:hover {
   transform: scale(1.2);
   color: #4F4F4F;
+}
+
+.btn--black {
+  color: #000;
 }
