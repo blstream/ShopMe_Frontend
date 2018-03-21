@@ -60,7 +60,7 @@ class AddForm extends Component {
             </div>
             <label htmlFor="add-form__price-extra" className="add-form__label add-form__label--hidden">{t('Cena')}</label>
             <div className="add-form__input add-form__input--XS add-form__input--inactive">
-              <PriceInput ref={(input) => { this.priceInput = input; }} name="add-form__price-extra" placeholder="zł" disabled="disabled" />
+              <PriceInput name="add-form__price-extra" placeholder="zł" disabled="disabled" />
             </div>
           </div>
         </fieldset>
