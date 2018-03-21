@@ -1,16 +1,26 @@
 {
-  "screens": {
-    "examples": {
-      "hello": {
-        "title": "Hello, World!"
-      },
-      "fetch": {
-        "title": "Your offers are"
-      }
+  "components": {
+    "searchForm" : {
+      "button": "Szukaj",
+      "input": "Wpisz szukaną usługę",
+      "lengthError": "Wpisana fraza jest za krótka"
     },
-    "offer": {
-      "add": {
-        "addOfferText": "Add offer"
+    "searchResults": {
+      "header": "Shop me",
+      "resultsTitle": "Search results"
+    },
+    "UI": {
+      "FirstNameInput":{
+        "name": "Name *",
+        "errorEmptyField": "Field can not be empty",
+        "errorMaxLength": "The name should contain at most 20 characters",
+        "errorMinLength": "The name should contain at least 3 characters",
+        "errorOnlyAlpha": "The name must consist only of letters"
+      },
+      "EmailInput": {
+        "name": "E-mail *",
+        "errorEmptyField": "Field can not be empty",
+        "errorEmailRegex": "Please enter a valid email address"
       }
     }
   }

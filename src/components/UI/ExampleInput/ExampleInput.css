@@ -1,0 +1,12 @@
+.example-input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+}
+
+.example-input__label {
+  position: absolute;
+  left: -999em;
+}

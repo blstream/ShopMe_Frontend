@@ -1,0 +1,9 @@
+.example-button {
+  border: none;
+  outline: none;
+  height: 100%;
+  width: 100%;
+  color: inherit;
+  background-color: transparent;
+  font-size: inherit;
+}

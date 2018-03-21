@@ -1,11 +1,29 @@
 {
-  "screens": {
-    "examples": {
-      "hello": {
-        "title": "Witaj, Świecie!"
+  "components": {
+    "searchForm" : {
+      "button": "Szukaj",
+      "input": "Wpisz szukaną usługę",
+      "lengthError": "Wpisana fraza jest za krótka"
+    },
+    "searchResults": {
+      "header": "Shop me",
+      "resultsTitle": "Wyniki wyszukiwania"
+    },
+    "UI": {
+      "FirstNameInput": {
+        "name": "Imię *",
+        "errorEmptyField": "Pole nie może być puste",
+        "errorMaxLength": "Imię musi się składać z co najwyżej 20 znaków",
+        "errorMinLength": "Imię musi się składać z co najmniej 3 znaków",
+        "errorOnlyAlpha": "Imię musi się składać wyłącznie z liter"
       },
-      "fetch": {
-        "title": "Twoje oferty to"
+      "PriceInput":{
+        "errorMessage": "Pole wymagane!"
+      },
+      "EmailInput": {
+        "name": "E-mail *",
+        "errorEmptyField": "Pole nie może być puste",
+        "errorEmailRegex": "Podaj poprawny adres e-mail"
       }
     },
     "offer": {
@@ -15,3 +33,4 @@
     }
   }
 }
+
