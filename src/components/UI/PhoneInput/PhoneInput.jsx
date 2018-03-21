@@ -21,9 +21,10 @@ class PhoneInput extends Component {
       this.setState({ errorMessage: t('components.UI.PhoneInput.errorEmptyField') });
       return false;
     }
-    const pattern = /^\S+@\S+\.\S+$/;
+    const pattern = /^\d{8,9}[0-9]$/;
     if (!pattern.test(event.target.value)) {
-      this.setState({ errorMessage: t('components.UI.PhoneInput.errorEmailRegex') });
+      this.setState({ errorMessage: t('components.UI.PhoneInput.errorPhoneRegex') });
+      return false;
     }
     return isValid;
   }
@@ -40,7 +41,7 @@ class PhoneInput extends Component {
           <div>
             <input
               className="add__input"
-              type="number"
+              type="text"
               name={this.props.name}
               value={this.state.value}
               onChange={event => this.setState({ value: event.target.value, errorMessage: '' })}

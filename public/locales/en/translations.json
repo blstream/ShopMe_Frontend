@@ -21,6 +21,11 @@
         "name": "E-mail *",
         "errorEmptyField": "Field can not be empty",
         "errorEmailRegex": "Please enter a valid email address"
+      },
+      "PhoneInput": {
+        "name": "Phone number *",
+        "errorEmptyField": "Field can not be empty",
+        "errorPhoneRegex": "Please enter a valid phone number e.g. 500500500 lub 914646464"
       }
     }
   }
