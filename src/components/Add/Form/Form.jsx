@@ -3,6 +3,7 @@ import { translate } from 'react-i18next';
 import ExampleInput from 'components/UI/ExampleInput/ExampleInput';
 import ExampleButton from 'components/UI/ExampleButton/ExampleButton';
 import PriceInput from 'components/UI/PriceInput/PriceInput';
+import OfferInput from 'components/UI/OfferInput/OfferInput';
 
 import './Form.css';
 
@@ -35,7 +36,7 @@ class AddForm extends Component {
           <label htmlFor="add-form__offer-basic" className="add-form__label">{t('Podstawowy *')}</label>
           <div className="add-form__fieldset-item">
             <div className="add-form__input add-form__input--XL">
-              <ExampleInput name="add-form__offer-basic" required />
+              <OfferInput name="add-form__offer-basic" required />
             </div>
             <label htmlFor="add-form__price-basic" className="add-form__label add-form__label--hidden">{t('Cena')}</label>
             <div className="add-form__input add-form__input--XS">
@@ -45,7 +46,7 @@ class AddForm extends Component {
           <label htmlFor="add-form__offer-additional" className="add-form__label">{t('Rozszerzony')}</label>
           <div className="add-form__fieldset-item">
             <div className="add-form__input add-form__input--XL">
-              <ExampleInput name="add-form__offer-additional" />
+              <OfferInput name="add-form__offer-additional" />
             </div>
             <label htmlFor="add-form__price-additional" className="add-form__label add-form__label--hidden">{t('Cena')}</label>
             <div className="add-form__input add-form__input--XS">
@@ -55,11 +56,11 @@ class AddForm extends Component {
           <label htmlFor="add-form__offer-extra" className="add-form__label add-form__label--inactive">{t('Ekstra')}</label>
           <div className="add-form__fieldset-item">
             <div className="add-form__input add-form__input--XL add-form__input--inactive">
-              <ExampleInput name="add-form__offer-extra" disabled="disabled" />
+              <OfferInput name="add-form__offer-extra" disabled="disabled" />
             </div>
             <label htmlFor="add-form__price-extra" className="add-form__label add-form__label--hidden">{t('Cena')}</label>
             <div className="add-form__input add-form__input--XS add-form__input--inactive">
-              <PriceInput name="add-form__price-extra" placeholder="zł" disabled="disabled" />
+              <PriceInput ref={(input) => { this.priceInput = input; }} name="add-form__price-extra" placeholder="zł" disabled="disabled" />
             </div>
           </div>
         </fieldset>

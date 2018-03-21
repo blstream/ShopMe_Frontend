@@ -24,8 +24,10 @@
         "name": "E-mail *",
         "errorEmptyField": "Pole nie może być puste",
         "errorEmailRegex": "Podaj poprawny adres e-mail"
+      },
+      "OfferInput": {
+        "errorMessage": "Pole wymagane!"
       }
     }
   }
 }
-
