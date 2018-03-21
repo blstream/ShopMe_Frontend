@@ -18,18 +18,18 @@ class FirstNameInput extends Component {
     const isValid = true;
 
     if (event.target.value.trim() === '') {
-      this.setState({ errorMessage: t('components.UI.AddForm.NameInput.errorEmptyField') });
+      this.setState({ errorMessage: t('components.UI.FirstNameInput.errorEmptyField') });
       return false;
     }
     if (event.target.value.length > 20) {
-      this.setState({ errorMessage: t('components.UI.AddForm.NameInput.errorMaxLength') });
+      this.setState({ errorMessage: t('components.UI.FirstNameInput.errorMaxLength') });
     }
     if (event.target.value.length < 3) {
-      this.setState({ errorMessage: t('components.UI.AddForm.NameInput.errorMinLength') });
+      this.setState({ errorMessage: t('components.UI.FirstNameInput.errorMinLength') });
     }
     const pattern = /^[a-zA-Z]+$/;
     if (!pattern.test(event.target.value)) {
-      this.setState({ errorMessage: t('components.UI.AddForm.NameInput.errorOnlyAlpha') });
+      this.setState({ errorMessage: t('components.UI.FirstNameInput.errorOnlyAlpha') });
     }
     return isValid;
   }
