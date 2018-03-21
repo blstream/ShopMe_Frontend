@@ -1,6 +1,7 @@
 import React from 'react';
+import { translate } from 'react-i18next';
 import SearchInput from 'components/SearchForm/SearchInput';
-import SubmitButton from 'components/SearchForm/SubmitButton';
+import SubmitButton from 'components/UI/SubmitButton/SubmitButton';
 
 class SearchForm extends React.Component {
   constructor(props) {
@@ -17,13 +18,15 @@ class SearchForm extends React.Component {
   }
 
   render() {
+    const { t } = this.props;
     return (
       <form className="search__form">
         <SearchInput />
-        <SubmitButton />
+        <SubmitButton value={t('components.searchForm.button')} />
       </form>
     );
   }
 }
 
-export default SearchForm;
+export { SearchForm };
+export default translate()(SearchForm);
