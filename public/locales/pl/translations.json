@@ -24,6 +24,11 @@
         "name": "E-mail *",
         "errorEmptyField": "Pole nie może być puste",
         "errorEmailRegex": "Podaj poprawny adres e-mail"
+      },
+      "AboutMeTextarea": {
+        "name": "O mnie",
+        "errorEmptyField": "Pole nie może być puste",
+        "errorMaxLength": "W polu można umieścić co najwyżej 800 znaków"
       }
     }
   }

@@ -21,6 +21,11 @@
         "name": "E-mail *",
         "errorEmptyField": "Field can not be empty",
         "errorEmailRegex": "Please enter a valid email address"
+      },
+      "AboutMeTextarea": {
+        "name": "About me",
+        "errorEmptyField": "Field can not be empty",
+        "errorMaxLength": "This field should contain at most 800 characters"
       }
     }
   }
