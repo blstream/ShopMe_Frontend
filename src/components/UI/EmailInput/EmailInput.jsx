@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
 
-class FirstNameInput extends Component {
+class EmailInput extends Component {
   constructor(props) {
     super(props);
 
@@ -18,18 +18,12 @@ class FirstNameInput extends Component {
     const isValid = true;
 
     if (event.target.value.trim() === '') {
-      this.setState({ errorMessage: t('components.UI.FirstNameInput.errorEmptyField') });
+      this.setState({ errorMessage: t('components.UI.EmailInput.errorEmptyField') });
       return false;
     }
-    if (event.target.value.length > 20) {
-      this.setState({ errorMessage: t('components.UI.FirstNameInput.errorMaxLength') });
-    }
-    if (event.target.value.length < 3) {
-      this.setState({ errorMessage: t('components.UI.FirstNameInput.errorMinLength') });
-    }
-    const pattern = /^[a-zA-Z]+$/;
+    const pattern = /^\S+@\S+\.\S+$/;
     if (!pattern.test(event.target.value)) {
-      this.setState({ errorMessage: t('components.UI.FirstNameInput.errorOnlyAlpha') });
+      this.setState({ errorMessage: t('components.UI.EmailInput.errorEmailRegex') });
     }
     return isValid;
   }
@@ -40,13 +34,13 @@ class FirstNameInput extends Component {
       <div className="add__container">
         <label
           className="add__label"
-          htmlFor="name"
+          htmlFor="email"
         >
-          {t('components.UI.FirstNameInput.name')}
+          {t('components.UI.EmailInput.name')}
           <div>
             <input
               className="add__input"
-              type="text"
+              type="email"
               name={this.props.name}
               value={this.state.value}
               onChange={event => this.setState({ value: event.target.value, errorMessage: '' })}
@@ -62,5 +56,5 @@ class FirstNameInput extends Component {
   }
 }
 
-export { FirstNameInput };
-export default translate()(FirstNameInput);
+export { EmailInput };
+export default translate()(EmailInput);

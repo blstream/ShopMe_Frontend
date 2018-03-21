@@ -10,12 +10,20 @@
       "resultsTitle": "Wyniki wyszukiwania"
     },
     "UI": {
-      "FirstNameInput":{
+      "FirstNameInput": {
         "name": "Imię *",
         "errorEmptyField": "Pole nie może być puste",
         "errorMaxLength": "Imię musi się składać z co najwyżej 20 znaków",
         "errorMinLength": "Imię musi się składać z co najmniej 3 znaków",
         "errorOnlyAlpha": "Imię musi się składać wyłącznie z liter"
+      },
+      "PriceInput":{
+        "errorMessage": "Pole wymagane!"
+      },
+      "EmailInput": {
+        "name": "E-mail *",
+        "errorEmptyField": "Pole nie może być puste",
+        "errorEmailRegex": "Podaj poprawny adres e-mail"
       }
     }
   }

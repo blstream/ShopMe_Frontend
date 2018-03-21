@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { translate } from 'react-i18next';
 import ExampleInput from 'components/UI/ExampleInput/ExampleInput';
 import ExampleButton from 'components/UI/ExampleButton/ExampleButton';
+import PriceInput from 'components/UI/PriceInput/PriceInput';
 
 import './Form.css';
 
@@ -38,7 +39,7 @@ class AddForm extends Component {
             </div>
             <label htmlFor="add-form__price-basic" className="add-form__label add-form__label--hidden">{t('Cena')}</label>
             <div className="add-form__input add-form__input--XS">
-              <ExampleInput name="add-form__price-basic" required/>
+              <PriceInput name="add-form__price-basic" placeholder="zł" required />
             </div>
           </div>
           <label htmlFor="add-form__offer-additional" className="add-form__label">{t('Rozszerzony')}</label>
@@ -48,7 +49,7 @@ class AddForm extends Component {
             </div>
             <label htmlFor="add-form__price-additional" className="add-form__label add-form__label--hidden">{t('Cena')}</label>
             <div className="add-form__input add-form__input--XS">
-              <ExampleInput name="add-form__price-additional" />
+              <PriceInput name="add-form__price-additional" placeholder="zł" />
             </div>
           </div>
           <label htmlFor="add-form__offer-extra" className="add-form__label add-form__label--inactive">{t('Ekstra')}</label>
@@ -58,7 +59,7 @@ class AddForm extends Component {
             </div>
             <label htmlFor="add-form__price-extra" className="add-form__label add-form__label--hidden">{t('Cena')}</label>
             <div className="add-form__input add-form__input--XS add-form__input--inactive">
-              <ExampleInput name="add-form__price-extra" disabled="disabled" />
+              <PriceInput name="add-form__price-extra" placeholder="zł" disabled="disabled" />
             </div>
           </div>
         </fieldset>
