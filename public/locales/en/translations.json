@@ -12,7 +12,37 @@
       "noResultsTitle": "Brak wyników wyszukiwania."
     },
     "UI": {
+      "categorySelect": {
+        "name": "Category *",
+        "errorEmptyField": "This field is required!",
+        "categoryOptions": {
+          "architecture": "Architecture",
+          "garden": "Garden",
+          "workshop-services": "Workshop Services",
+          "transport": "Transport",
+          "photography": "Photography",
+          "graphics": "Graphics",
+          "marketing-and-advertising": "Marketing and Advertising",
+          "programming": "Programming",
+          "bookkeeping": "Bookkeeping",
+          "law": "Law",
+          "translations": "Translations",
+          "company-and-office": "Company and Office",
+          "repair-and-service": "Repair and Service",
+          "housework": "Housework",
+          "tutoring": "Tutoring",
+          "bands-and-music": "Bands and Music",
+          "others": "Others"
+        }
+      },
       "FirstNameInput":{
+      "TitleInput": {
+        "name": "Title Offer *",
+        "errorEmptyField": "This field is required!",
+        "errorMaxLength": "The title should contains at most 30 characters",
+        "errorMinLength": "The title should contains at least 3 characters"
+      },
+      "FirstNameInput": {
         "name": "Name *",
         "errorEmptyField": "Field can not be empty",
         "errorMaxLength": "The name should contain at most 20 characters",
@@ -33,6 +63,11 @@
         "name": "Phone number *",
         "errorEmptyField": "Field can not be empty",
         "errorPhoneRegex": "Please enter a valid phone number e.g. 500500500 lub 914646464"
+      }
+    },
+    "offer": {
+      "add": {
+        "addOfferText": "Add offer"
       }
     }
   }

@@ -1,0 +1,23 @@
+.input-select {
+	height: 100%;
+	width: 100%;
+	border: none;
+	background-color: transparent;
+	color: inherit;
+	outline: none;
+	padding-left: 10px;
+}
+
+.input-select__errorMessage {
+	position: absolute;
+	bottom: -20px;
+	right: 0;
+	font-size: 0.75rem;
+	color: #fdde6b;
+}
+
+.input-select__item-option {
+	color: #fdde6b;
+	background-color: #282828;
+	font-size: 1.25rem;
+}

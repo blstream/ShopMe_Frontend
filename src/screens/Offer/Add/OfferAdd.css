@@ -16,15 +16,9 @@
   margin: 100px auto;
   max-width: 1000px;
   padding: 10px 20px;
-  border: 2px solid #000;
 }
 
-.logo {
-  font-family: 'Pacifico', cursive;
-  font-size: 2.5rem;
-}
-
-.wrapper {
+.add-offer {
   position: relative;
   float: left;
   top: 50%;
@@ -34,36 +28,36 @@
   padding: 0 20%;
 }
 
-.wrapper__btn {
+.add-offer__link {
   float: left;
   margin-right: 15px;
 }
 
-.wrapper__text {
+.add-offer__text {
   float: left;
   font-size: 1.7em;
   font-family: Arial, sans-serif;
   line-height: 1.3em;
 }
 
-.letter-spacing {
+.add-offer__text--letter-spacing {
     letter-spacing: .3px;
 }
 
-.btn {
+.add-offer__btn {
   background-color: inherit;
   border: none;
   color: inherit;
   cursor: pointer;
   font-size: 2em;
-  transition: all .2s ease-in;
+  transition: all .3s ease-in;
 }
 
-.btn:hover {
+.add-offer__btn:hover {
   transform: scale(1.2);
-  color: #4F4F4F;
+  color: #fade42;
 }
 
-.btn--black {
-  color: #000;
+.add-offer__btn--black {
+  color: #4F4F4F;
 }

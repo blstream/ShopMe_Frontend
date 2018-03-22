@@ -12,6 +12,34 @@
       "noResultsTitle": "Brak wyników wyszukiwania."
     },
     "UI": {
+      "categorySelect": {
+        "name": "Kategoria *",
+        "errorEmptyField": "Pole wymagane!",
+        "categoryOptions": {
+          "architecture": "Budowa",
+          "garden": "Ogród",
+          "workshop-services": "Usługi Warszatatowe",
+          "transport": "Transport",
+          "photography": "Fotografia",
+          "graphics": "Grafika",
+          "marketing-and-advertising": "Marketing i Reklama",
+          "programming": "Programowanie",
+          "bookkeeping": "Księgowość",
+          "law": "Prawo",
+          "translations": "Tłumaczenia",
+          "company-and-office": "Firma i Biuro",
+          "repair-and-service": "Naprawa i Serwis",
+          "housework": "Prace Domowe",
+          "tutoring": "Korepetycje",
+          "bands-and-music": "Zespoły i Muzyka",
+          "others": "Inne"
+        }
+      "TitleInput": {
+        "name": "Tytuł Oferty *",
+        "errorEmptyField": "Pole wymagane!",
+        "errorMinLength": "Tytuł nie powinien być krótszy niż 2 znaki",
+        "errorMaxLength": "Tytuł nie powinien być dłuższy niż 30 znaków"
+      },
       "FirstNameInput": {
         "name": "Imię *",
         "errorEmptyField": "Pole nie może być puste",
@@ -39,6 +67,11 @@
         "name": "Telefon *",
         "errorEmptyField": "Pole nie może być puste",
         "errorPhoneRegex": "Podaj poprawny numer telefonu np. 500500500 lub 914646464"
+      }
+    },
+    "offer": {
+      "add": {
+        "addOfferText": "Dodaj ofertę"
       }
     },
     "offer": {
