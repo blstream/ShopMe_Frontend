@@ -1,11 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-
-import { ScreenOfferAdd } from './OfferAdd';
+import { OfferInput } from './OfferInput';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<ScreenOfferAdd t={key => key} />, div);
-
+  ReactDOM.render(<OfferInput />, div);
 });
