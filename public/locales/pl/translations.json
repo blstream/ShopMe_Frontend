@@ -9,6 +9,13 @@
       "header": "Shop me",
       "resultsTitle": "Wyniki wyszukiwania"
     },
+    "add": {
+      "form": {
+        "title": "Dodaj Ofertę",
+        "fieldsetTitle": "Zdefiniuj Oferowane Pakiety Usług",
+        "caption": "*Pola wymagane"
+      }
+    },
     "UI": {
       "categorySelect": {
         "name": "Kategoria *",
