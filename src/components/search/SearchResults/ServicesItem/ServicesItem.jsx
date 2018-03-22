@@ -4,10 +4,11 @@ import './ServicesItem.css';
 
 const ServicesItem = props => (
   <li className="services-item">
-    <span className="services-item services-item_title">
+    <span className="services-item services-item__title">
       {props.index + 1}. {props.value.title}
     </span>
-    <span className="services-item services-item_price">{props.value.price} zł</span>
+    <span className="services-item services-item__price">{props.value.bundle.price} zł</span>
+    <span className="services-item services-item__date">{props.value.date}</span>
   </li>
 );
 

@@ -1,0 +1,19 @@
+.search-results {
+  width: 80%;
+  margin: auto;
+  padding: 30px 0;
+}
+
+.search-results__results {
+  margin: 100px 0 0 0;
+  font-family: MaisonNeue, sans-serif;
+}
+
+.search-results__title {
+  font-size: 30px;
+  text-align: center;
+}
+
+.search-results__list {
+  margin: 70px 20px;
+}

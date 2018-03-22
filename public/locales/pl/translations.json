@@ -6,8 +6,10 @@
       "lengthError": "Wpisana fraza jest za krótka"
     },
     "searchResults": {
-      "header": "Shop me",
       "resultsTitle": "Wyniki wyszukiwania"
+    },
+    "noSearchResults" : {
+      "noResultsTitle": "Brak wyników wyszukiwania."
     },
     "UI": {
       "FirstNameInput": {

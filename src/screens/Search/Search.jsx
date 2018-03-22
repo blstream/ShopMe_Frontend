@@ -1,13 +1,12 @@
 import React from 'react';
-import SearchInput from 'components/search/SearchInput';
+import SearchInput from 'components/Search/SearchInput';
 import Logo from 'components/UI/Logo';
-import 'components/search/Search.css';
+import 'components/Search/Search.css';
 
 export default class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
     };
   }
   render() {
