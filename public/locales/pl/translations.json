@@ -34,6 +34,7 @@
           "bands-and-music": "Zespoły i Muzyka",
           "others": "Inne"
         }
+      },
       "TitleInput": {
         "name": "Tytuł Oferty *",
         "errorEmptyField": "Pole wymagane!",

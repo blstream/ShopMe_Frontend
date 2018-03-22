@@ -35,7 +35,6 @@
           "others": "Others"
         }
       },
-      "FirstNameInput":{
       "TitleInput": {
         "name": "Title Offer *",
         "errorEmptyField": "This field is required!",

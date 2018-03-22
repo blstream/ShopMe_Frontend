@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
-import SearchResults from 'components/SearchResults/SearchResults';
+import SearchResults from 'components/Search/SearchResults/SearchResults/SearchResults';
 
 class ScreensServicesResults extends Component {
   constructor(props) {
