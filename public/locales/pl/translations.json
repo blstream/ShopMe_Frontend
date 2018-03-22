@@ -32,6 +32,7 @@
           "bands-and-music": "Zespoły i Muzyka",
           "others": "Inne"
         }
+      },
       "TitleInput": {
         "name": "Tytuł Oferty *",
         "errorEmptyField": "Pole wymagane!",
@@ -65,11 +66,6 @@
         "name": "Telefon *",
         "errorEmptyField": "Pole nie może być puste",
         "errorPhoneRegex": "Podaj poprawny numer telefonu np. 500500500 lub 914646464"
-      }
-    },
-    "offer": {
-      "add": {
-        "addOfferText": "Dodaj ofertę"
       }
     },
     "offer": {
