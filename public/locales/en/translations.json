@@ -22,6 +22,11 @@
         "errorEmptyField": "Field can not be empty",
         "errorEmailRegex": "Please enter a valid email address"
       }
+    },
+    "offer": {
+      "add": {
+        "addOfferText": "Add offer"
+      }
     }
   }
 }
