@@ -10,6 +10,10 @@
       "resultsTitle": "Wyniki wyszukiwania"
     },
     "UI": {
+      "TitleInput": {
+        "errorEmptyField": "Pole wymagane!",
+        "warningMaxLength": "Tytuł nie powinien być dłuższy niż 30 znaków"
+      },
       "FirstNameInput": {
         "name": "Imię *",
         "errorEmptyField": "Pole nie może być puste",

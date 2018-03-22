@@ -10,7 +10,11 @@
       "resultsTitle": "Search results"
     },
     "UI": {
-      "FirstNameInput":{
+      "TitleInput": {
+        "errorEmptyField": "This field is required!",
+        "warningMaxLength": "The title should contains at most 30 characters"
+      },
+      "FirstNameInput": {
         "name": "Name *",
         "errorEmptyField": "Field can not be empty",
         "errorMaxLength": "The name should contain at most 20 characters",
