@@ -6,43 +6,49 @@ import './PriceInput.css';
 class PriceInput extends Component {
   constructor(props) {
     super(props);
-    const { t } = this.props;
     this.state = {
       value: '',
-      errorMessage: this.props.required ? t('components.UI.PriceInput.errorMessage') : '',
+      errorMessage: '',
+      isRequired: this.props.required,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
-    this.validateInput = this.validateInput.bind(this);
   }
 
-  validateInput() {
-    const { required, t } = this.props;
-    const state = this.state.value;
-    const empty = state === '';
-    if (required && empty) this.setState({ errorMessage: t('components.UI.PriceInput.errorMessage') });
-    else this.setState({ errorMessage: '' });
+  checkValidity(value) {
+    const { t } = this.props;
+    const isValid = true;
+
+    if (value.trim() === '' && this.state.isRequired) {
+      this.setState({ errorMessage: t('components.UI.PriceInput.errorMessage') });
+      return false;
+    }
+
+    this.setState({ errorMessage: '' });
+    return isValid;
   }
 
   handleChange(e) {
     const { value } = e.target;
-    const price = /^([0-9]*)([,])?([0-9]{0,2})?$/;
+    const price = /^([0-9]*)(,)?([0-9]{0,2})?$/;
+
     if (price.test(value)) this.setState({ value });
-    this.validateInput();
   }
 
   handleKeyUp(e) {
     let { value } = e.target;
     const onlyComma = /^,/;
+
     if (onlyComma.test(value)) value = '0,';
+
     this.setState({ value });
-    this.validateInput();
   }
 
   handleFocus(e) {
     const state = this.state.value;
+
     if (state) {
       const noCurrency = state.substr(0, state.length - 3);
       e.target.value = noCurrency;
@@ -53,31 +59,32 @@ class PriceInput extends Component {
     let { value } = e.target;
     const state = this.state.value;
     const currency = /zł$/;
+
     if (state) value = parseFloat(value.replace(',', '.')).toFixed(2).replace('.', ',');
     if (state && !currency.test(value)) value += ' zł';
     this.setState({ value });
   }
 
   render() {
+    const { t } = this.props;
     return (
-      <div>
+      <label htmlFor={this.props.name} className="add-form__label">
+        <div className="add-form__label--hidden">{t('components.UI.PriceInput.label')}</div>
         <input
-          className="input"
           type="text"
+          className="add-form__input add-form__input--XS"
+          name={this.props.name}
           value={this.state.value}
           placeholder={this.props.placeholder}
-          name={this.props.name}
-          required={this.props.required}
           disabled={this.props.disabled}
+          required={this.props.required}
           onFocus={this.handleFocus}
           onChange={this.handleChange}
           onKeyUp={this.handleKeyUp}
           onBlur={this.handleBlur}
         />
-        <div className="input__errorMessage">
-          {this.state.errorMessage}
-        </div>
-      </div>
+        <div className="add-form__error-message">{this.state.errorMessage}</div>
+      </label>
     );
   }
 }

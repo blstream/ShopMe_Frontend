@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
+import PriceInput from 'components/UI/PriceInput/PriceInput';
 
 import './Form.css';
 
@@ -44,11 +45,7 @@ class AddForm extends Component {
               </label>
             </div>
             <div className="add-form__fieldset-item">
-              <label htmlFor="add-form__price-basic" className="add-form__label">
-                <div className="add-form__label--hidden">{t('Cena')}</div>
-                <input className="add-form__input add-form__input--XS" name="add-form__price-basic" placeholder="zł" required />
-                <div className="add-form__error-message">Example Error</div>
-              </label>
+              <PriceInput name="add-form__price-basic" placeholder={t('components.add.form.currency')} required />
             </div>
           </div>
           <div className="add-form__fieldset-wrapper">
@@ -59,10 +56,7 @@ class AddForm extends Component {
               </label>
             </div>
             <div className="add-form__fieldset-item">
-              <label htmlFor="add-form__price-additional" className="add-form__label">
-                <div className="add-form__label--hidden">{t('Cena')}</div>
-                <input className="add-form__input add-form__input--XS" name="add-form__price-additional" placeholder="zł" disabled />
-              </label>
+              <PriceInput name="add-form__price-additional" placeholder={t('components.add.form.currency')} disabled />
             </div>
           </div>
           <div className="add-form__fieldset-wrapper">
@@ -73,10 +67,7 @@ class AddForm extends Component {
               </label>
             </div>
             <div className="add-form__fieldset-item">
-              <label htmlFor="add-form__price-extra" className="add-form__label">
-                <div className="add-form__label--hidden">{t('Cena')}</div>
-                <input className="add-form__input add-form__input--XS" name="add-form__price-extra" placeholder="zł" disabled="disabled" />
-              </label>
+              <PriceInput name="add-form__price-extra" placeholder={t('components.add.form.currency')} disabled />
             </div>
           </div>
         </fieldset>
@@ -123,5 +114,5 @@ class AddForm extends Component {
   }
 }
 
-// export { AddForm };
+export { AddForm };
 export default translate()(AddForm);

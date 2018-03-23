@@ -1,27 +1,32 @@
-.input {
-  height: 100%;
-  width: 100%;
-  border: none;
-  background-color: transparent;
+.add-form__label {
+  position: relative;
+}
+
+.add-form__label--hidden {
+  position: absolute;
+  left: -9999px;
+}
+
+.add-form__input {
   color: inherit;
-  padding: 5px;
-  font-size: 1rem;
-  outline: none;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #E0E0E0;
+  border: none;
 }
 
-.input__errorMessage {
+.add-form__error-message {
   position: absolute;
-  bottom: -20px;
+  bottom: -30px;
   right: 0;
-  font-size: 0.75rem;
-  color: #fdde6b;
+  font-size: 1rem;
+  color: red;
 }
 
-.input__label {
-  position: absolute;
-  left: -999em;
+.add-form__input--XS {
+  width: 150px;
 }
 
-::-webkit-input-placeholder {
+.add-form__input--XS::placeholder {
   text-align: right;
 }
