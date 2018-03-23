@@ -37,10 +37,10 @@
   },
   "proxy": {
     "/api": {
-      "target": "http://httpbin.org/",
+      "target": "http://patronage2018.intive-projects.com",
       "changeOrigin": true,
       "pathRewrite": {
-        "^/api": "/"
+        "^/api": "/api"
       }
     },
     "/mock-api": {
