@@ -7,7 +7,6 @@ class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      services: '',
       searchPhrase: null,
     };
 
@@ -15,11 +14,6 @@ class SearchForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-    fetch(`${process.env.REACT_APP_API}/offers`)
-      .then(response => response.json())
-      .then(services => this.setState({ services }));
-  }
 
   handleSearchInputChanged(searchPhrase) {
     this.setState({ searchPhrase });
@@ -27,9 +21,9 @@ class SearchForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const foundServices = this.state.services.filter(service =>
-      service.title.toLowerCase().includes(this.state.searchPhrase.toLowerCase()));
-    this.props.updateFoundServices(foundServices);
+    fetch(`${process.env.REACT_APP_API}/offers?title=${this.state.searchPhrase}`)
+      .then(response => response.json())
+      .then(services => this.props.updateFoundServices(services));
   }
 
   render() {
