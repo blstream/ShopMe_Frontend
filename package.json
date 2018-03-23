@@ -35,18 +35,20 @@
     "jest-fetch-mock": "^1.4.2",
     "pokemock": "^1.2.0"
   },
-  "/prod-api": {
+  "proxy": {
+    "/prod-api": {
       "target": "https://patronage2018.intive-projects.com",
       "changeOrigin": true,
       "pathRewrite": {
         "^/prod-api": "/api"
       }
     },
-  "/mock-api": {
-    "target": "http://localhost:3001/",
-    "changeOrigin": true,
-    "pathRewrite": {
-      "^/mock-api": "/"
+    "/mock-api": {
+      "target": "http://localhost:3001/",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/mock-api": "/"
+      }
     }
   }
 }
