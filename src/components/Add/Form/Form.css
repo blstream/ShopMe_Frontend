@@ -7,12 +7,13 @@
 }
 
 .add-form {
-  max-width: 70%;
+  max-width: 80%;
   margin: 30px auto;
-  background-color: #282828;
+  background-color: #FFFFFF;
   font-family: 'Rajdhani', sans-serif;
   font-size: 1rem;
-  color: #ffffff;
+  color: #00000;
+  border: 1px solid #A9A9A9;
 }
 
 @media screen and (max-width: 960px) {
@@ -33,7 +34,7 @@
 }
 
 .add-form__fieldset--offers {
-  border: 1px solid grey;
+  border: 1px solid #A9A9A9;
   border-radius: 5px;
   position: relative;
   margin: 30px;
@@ -66,7 +67,7 @@
 }
 
 .add-form__fieldset--about {
-  background-color: #dab413;
+  background-color: #FDDE6B;
   padding: 20px 50px;
   color: #282828;
   border: none;
@@ -102,6 +103,7 @@
 .add-form__fieldset-item--button {
     align-self: center;
     flex-grow: 2;
+    margin-top: 60px;
 }
 
 .add-form__caption {
@@ -123,15 +125,15 @@
 }
 
 .add-form__input {
-  background-color: #221e1d;
-  border: 1px solid #fdde6b;
   color: inherit;
   padding: 10px;
   margin-top: 10px;
+  background-color: #E0E0E0;
+  border: none;
 }
 
 .add-form__input--yellow {
-  background-color: #B4930E;
+  background-color: #FEECA5;
   border: none;
 }
 
@@ -188,7 +190,6 @@
   padding: 20px;
   font-size: 1.2rem;
   transition: all 0.2s ease-out;
-  margin-top: 60px;
 }
 
 .add-form__submit:hover {
