@@ -9,16 +9,22 @@
 
 }
 
-.services-item_title {
+.services-item__title {
   width: 300px;
-  display: flex;
+  flex-grow: 2;
   margin: auto;
 
 }
 
-.services-item_price {
+.services-item__price {
   width: 150px;
-  display: flex;
+  flex-grow: 1;
+  margin: auto;
+}
+
+.services-item__date {
+  width: 150px;
+  flex-grow: 1;
   margin: auto;
 }
 

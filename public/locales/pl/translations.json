@@ -5,8 +5,7 @@
       "input": "Wpisz szukaną usługę",
       "lengthError": "Wpisana fraza jest za krótka"
     },
-    "searchResults": {
-      "header": "Shop me",
+    "foundSearchResults": {
       "resultsTitle": "Wyniki wyszukiwania"
     },
     "add": {
@@ -22,6 +21,9 @@
         "offerAdditionalPlaceholder": "Rozszerzona Usługa",
         "offerExtraPlaceholder": "Ekstra Usługa"
       }
+    },
+    "noSearchResults" : {
+      "noResultsTitle": "Brak wyników wyszukiwania."
     },
     "UI": {
       "categorySelect": {
