@@ -14,7 +14,11 @@ class SearchInput extends React.Component {
     const cleanedSearchPhrase = searchPhrase.replace(/[!@#$%^&*()=+\-_;:'"<>,.?/{}|`~[\]\\]/g, '');
     const validPhrase = cleanedSearchPhrase.length > 1;
     this.setState({ validPhrase });
-    this.props.onSearchInputChanged(cleanedSearchPhrase);
+    if (validPhrase && cleanedSearchPhrase !== '') {
+      this.props.onSearchInputChanged(cleanedSearchPhrase);
+    } else {
+      this.props.onSearchInputChanged(null);
+    }
   }
 
   render() {
@@ -29,7 +33,7 @@ class SearchInput extends React.Component {
           onBlur={this.handleBlur}
           className="search__form-item"
         />
-        <p className="search__message-error">{ this.state.validPhrase === false ? t('components.searchForm.lengthError') : '' } </p>
+        {!this.state.validPhrase && (<p className="search__message-error">{t('components.searchForm.lengthError')}</p>)}
       </div>
     );
   }

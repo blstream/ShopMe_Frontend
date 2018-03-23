@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
-import SearchResults from 'components/Search/SearchResults/SearchResults/SearchResults';
+import FoundSearchResults from 'components/Search/SearchResults/FoundSearchResults/FoundSearchResults';
 
 class ScreensServicesResults extends Component {
   constructor(props) {
@@ -40,7 +40,7 @@ class ScreensServicesResults extends Component {
   render() {
     return (
       <div>
-        <SearchResults services={this.state.services} />
+        <FoundSearchResults services={this.state.services} />
       </div>
     );
   }
