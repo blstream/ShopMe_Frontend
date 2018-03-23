@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { translate } from 'react-i18next';
 import OfferInput from 'components/UI/OfferInput/OfferInput';
 import PriceInput from 'components/UI/PriceInput/PriceInput';
+import FirstNameInput from 'components/UI/FirstNameInput/FirstNameInput';
+import EmailInput from 'components/UI/EmailInput/EmailInput';
+import PhoneInput from 'components/UI/PhoneInput/PhoneInput';
+import AboutMeTextarea from 'components/UI/AboutMeTextarea/AboutMeTextarea';
 
 import './Form.css';
 
@@ -65,34 +69,18 @@ class AddForm extends Component {
         <fieldset className="add-form__fieldset add-form__fieldset--about">
           <div className="add-form__fieldset-wrapper">
             <div className="add-form__fieldset-item">
-              <label htmlFor="add-form__user-name" className="add-form__label add-form__label--yellow">
-                <div>{t('Imię *')}</div>
-                <input className="add-form__input add-form__input--S add-form__input--yellow" name="add-form__user-name" required />
-                <div className="add-form__error-message">Example Error</div>
-              </label>
+              <FirstNameInput name="add-form__user-name" isRequired="true" />
             </div>
             <div className="add-form__fieldset-item">
-              <label htmlFor="add-form__user-email" className="add-form__label add-form__label--yellow">
-                <div>{t('Email *')}</div>
-                <input className="add-form__input add-form__input--S add-form__input--yellow" name="add-form__user-email" required />
-                <div className="add-form__error-message">Example Error</div>
-              </label>
+              <EmailInput name="add-form__user-email" isRequired="true" />
             </div>
             <div className="add-form__fieldset-item">
-              <label htmlFor="add-form__user-telephone" className="add-form__label add-form__label--yellow">
-                <div> {t('Telefon *')}</div>
-                <input className="add-form__input add-form__input--S add-form__input--yellow" name="add-form__user-telephone" required />
-                <div className="add-form__error-message">Example Error</div>
-              </label>
+              <PhoneInput name="add-form__user-telephone" isRequired="true" />
             </div>
           </div>
           <div className="add-form__fieldset-wrapper">
             <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
-              <label htmlFor="add-form__user-about" className="add-form__label add-form__label--yellow">
-                <div className="add-form__label--block">{t('O mnie')}</div>
-                <textarea className="add-form__input add-form__input--yellow add-form__input--L" name="add-form__user-about" />
-                <div className="add-form__error-message">Example Error</div>
-              </label>
+              <AboutMeTextarea name="add-form__user-about" isRequired="true" />
             </div>
             <div className="add-form__fieldset-item add-form__fieldset-item--button">
               <button className="add-form__submit" type="submit">{t('Dodaj Ofertę')}</button>

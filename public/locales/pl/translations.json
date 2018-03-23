@@ -55,18 +55,17 @@
         "errorMinLength": "Tytuł nie powinien być krótszy niż 2 znaki",
         "errorMaxLength": "Tytuł nie powinien być dłuższy niż 30 znaków"
       },
-      "FirstNameInput": {
+      "firstNameInput": {
         "name": "Imię *",
         "errorEmptyField": "Pole nie może być puste",
-        "errorMaxLength": "Imię musi się składać z co najwyżej 20 znaków",
         "errorMinLength": "Imię musi się składać z co najmniej 3 znaków",
-        "errorOnlyAlpha": "Imię musi się składać wyłącznie z liter"
+        "errorOnlyAlpha": "Pole może zawierać tylko litery"
       },
       "PriceInput":{
         "errorMessage": "Pole wymagane!",
         "label": "Cena"
       },
-      "EmailInput": {
+      "emailInput": {
         "name": "E-mail *",
         "errorEmptyField": "Pole nie może być puste",
         "errorEmailRegex": "Podaj poprawny adres e-mail"
@@ -74,12 +73,11 @@
       "OfferInput": {
         "errorMessage": "Pole wymagane!"
       },
-      "AboutMeTextarea": {
+      "aboutMeTextarea": {
         "name": "O mnie",
-        "errorEmptyField": "Pole nie może być puste",
-        "errorMaxLength": "W polu można umieścić co najwyżej 800 znaków"
+        "errorEmptyField": "Pole nie może być puste"
       },
-      "PhoneInput": {
+      "phoneInput": {
         "name": "Telefon *",
         "errorEmptyField": "Pole nie może być puste",
         "errorPhoneRegex": "Podaj poprawny numer telefonu np. 500500500 lub 914646464"

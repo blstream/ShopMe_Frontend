@@ -41,27 +41,25 @@
         "errorMaxLength": "The title should contains at most 30 characters",
         "errorMinLength": "The title should contains at least 3 characters"
       },
-      "FirstNameInput": {
+      "firstNameInput": {
         "name": "Name *",
         "errorEmptyField": "Field can not be empty",
-        "errorMaxLength": "The name should contain at most 20 characters",
         "errorMinLength": "The name should contain at least 3 characters",
-        "errorOnlyAlpha": "The name must consist only of letters"
+        "errorOnlyAlpha": "This field should contain only letters"
       },
-      "EmailInput": {
+      "emailInput": {
         "name": "E-mail *",
         "errorEmptyField": "Field can not be empty",
         "errorEmailRegex": "Please enter a valid email address"
       },
-      "AboutMeTextarea": {
+      "aboutMeTextarea": {
         "name": "About me",
-        "errorEmptyField": "Field can not be empty",
-        "errorMaxLength": "This field should contain at most 800 characters"
+        "errorEmptyField": "Field can not be empty"
       },
-      "PhoneInput": {
+      "phoneInput": {
         "name": "Phone number *",
         "errorEmptyField": "Field can not be empty",
-        "errorPhoneRegex": "Please enter a valid phone number e.g. 500500500 lub 914646464"
+        "errorPhoneRegex": "Please enter a valid phone number e.g. 500500500 or 914646464"
       }
     },
     "offer": {
