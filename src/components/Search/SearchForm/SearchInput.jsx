@@ -10,7 +10,7 @@ class SearchInput extends React.Component {
     this.handleBlur = this.handleBlur.bind(this);
   }
   handleBlur(input) {
-    const searchPhrase = input.target.value.trim();
+    const searchPhrase = input.target.value.toLowerCase().trim();
     const cleanedSearchPhrase = searchPhrase.replace(/[!@#$%^&*()=+\-_;:'"<>,.?/{}|`~[\]\\]/g, '');
     const validPhrase = cleanedSearchPhrase.length > 1;
     this.setState({ validPhrase });
