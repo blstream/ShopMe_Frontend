@@ -23,7 +23,7 @@
     "client:prod": "cross-env-shell REACT_APP_API=\"/prod-api\" npm run client",
     "server": "pokemock swagger/swagger.json -p 3001",
     "test": "react-scripts test --env=jsdom",
-    "build": "cross-env-shell REACT_APP_API=\"/prod-api\" react-scripts build",
+    "build": "cross-env-shell REACT_APP_API=\"/api\" react-scripts build",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
