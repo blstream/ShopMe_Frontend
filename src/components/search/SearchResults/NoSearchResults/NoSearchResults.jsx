@@ -2,7 +2,7 @@ import React from 'react';
 import { translate } from 'react-i18next';
 import './NoSearchResults.css';
 
-const SearchResults = (props) => {
+const NoSearchResults = (props) => {
   const { t } = props;
   return (
     <div className="no-search-results">
@@ -11,5 +11,5 @@ const SearchResults = (props) => {
   );
 };
 
-export { SearchResults };
-export default translate()(SearchResults);
+export { NoSearchResults };
+export default translate()(NoSearchResults);

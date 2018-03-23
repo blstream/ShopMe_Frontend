@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SearchResults from './SearchResults';
+import FoundSearchResults from './FoundSearchResults';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<SearchResults services={[]} />, div);
+  ReactDOM.render(<FoundSearchResults services={[]} />, div);
 });

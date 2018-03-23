@@ -29,7 +29,7 @@ class SearchInput extends React.Component {
           onBlur={this.handleBlur}
           className="search__form-item"
         />
-        <p className="search__message-error">{ this.state.validPhrase ? '' : t('components.searchForm.lengthError') } </p>
+        <p className="search__message-error">{ this.state.validPhrase === false ? t('components.searchForm.lengthError') : '' } </p>
       </div>
     );
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchForm from 'components/Search/SearchForm/SearchForm';
-import SearchResults from 'components/Search/SearchResults/SearchResults/SearchResults';
+import FoundSearchResults from 'components/Search/SearchResults/FoundSearchResults/FoundSearchResults';
 import NoSearchResults from 'components/Search/SearchResults/NoSearchResults/NoSearchResults';
 
 export default class SearchInput extends React.Component {
@@ -24,7 +24,7 @@ export default class SearchInput extends React.Component {
   render() {
     let results;
     if (this.state.notFoundServices === false) {
-      results = (<SearchResults services={this.state.foundServices} />);
+      results = (<FoundSearchResults services={this.state.foundServices} />);
     } else if (this.state.notFoundServices === true) {
       results = (<NoSearchResults />);
     } else {
