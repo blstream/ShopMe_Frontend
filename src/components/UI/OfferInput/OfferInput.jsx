@@ -45,7 +45,6 @@ class OfferInput extends Component {
           disabled={this.props.disabled}
           required={this.props.required}
           onChange={this.handleChange}
-          onBlur={this.validateInput}
         />
         <div className="add-form__error-message">
           {this.state.errorMessage}
