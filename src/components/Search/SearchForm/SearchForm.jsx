@@ -28,7 +28,7 @@ class SearchForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const foundServices = this.state.services.filter(service =>
-      service.title.toLowerCase().includes(this.state.searchPhrase.toLowerCase()));
+      service.title.toLowerCase().includes(this.state.searchPhrase));
     this.props.updateFoundServices(foundServices);
   }
 
