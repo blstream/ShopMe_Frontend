@@ -1,6 +1,6 @@
 import React from 'react';
 import { translate } from 'react-i18next';
-import SearchInput from 'components/Search/SearchForm/SearchInput';
+import SearchInput from 'components/search/SearchForm/SearchInput';
 import SubmitButton from 'components/UI/SubmitButton/SubmitButton';
 
 class SearchForm extends React.Component {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { translate } from 'react-i18next';
-import ServicesItem from 'components/Search/SearchResults/ServicesItem/ServicesItem';
+import ServicesItem from 'components/search/SearchResults/ServicesItem/ServicesItem';
 import './FoundSearchResults.css';
 
 const SearchResults = (props) => {

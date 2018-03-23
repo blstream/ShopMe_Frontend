@@ -1,7 +1,7 @@
 import React from 'react';
-import SearchInput from 'components/Search/SearchInput';
+import SearchInput from 'components/search/SearchInput';
 import Logo from 'components/UI/Logo';
-import 'components/Search/Search.css';
+import 'components/search/Search.css';
 
 export default class Search extends React.Component {
   constructor(props) {
