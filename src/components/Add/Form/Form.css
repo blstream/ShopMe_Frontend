@@ -31,6 +31,7 @@
 .add-form__fieldset--basic {
   border: none;
   padding: 20px;
+  margin-right: 10px;
 }
 
 .add-form__fieldset--offers {
@@ -39,6 +40,7 @@
   position: relative;
   margin: 30px;
   padding: 20px;
+  padding-bottom: 40px;
 }
 
 .add-form__fieldset--offers::before {

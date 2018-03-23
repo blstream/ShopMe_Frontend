@@ -15,18 +15,18 @@
   border: none;
 }
 
-.add-form__error-message {
-  position: absolute;
-  bottom: -30px;
-  right: 0;
-  font-size: 1rem;
-  color: red;
-}
-
 .add-form__input--XS {
   width: 150px;
 }
 
 .add-form__input--XS::placeholder {
   text-align: right;
+}
+
+.add-form__error-message {
+  position: absolute;
+  bottom: -30px;
+  right: 0;
+  font-size: 1rem;
+  color: red;
 }

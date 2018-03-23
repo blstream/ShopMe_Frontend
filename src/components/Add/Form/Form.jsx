@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
+import OfferInput from 'components/UI/OfferInput/OfferInput';
 import PriceInput from 'components/UI/PriceInput/PriceInput';
 
 import './Form.css';
@@ -38,11 +39,7 @@ class AddForm extends Component {
           <h3 className="add-form__fieldset-title">{t('components.add.form.fieldsetTitle')}</h3>
           <div className="add-form__fieldset-wrapper">
             <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
-              <label htmlFor="add-form__offer-basic" className="add-form__label">
-                <div>{t('Podstawowy *')}</div>
-                <textarea className="add-form__input add-form__input--XL" name="add-form__offer-basic" placeholder="Podstawowa Usługa" required />
-                <div className="add-form__error-message">Example Error</div>
-              </label>
+              <OfferInput name="add-form__offer-basic" label={t('components.add.form.offerBasicLabel')} placeholder={t('components.add.form.offerBasicPlaceholder')} required />
             </div>
             <div className="add-form__fieldset-item">
               <PriceInput name="add-form__price-basic" placeholder={t('components.add.form.currency')} required />
@@ -50,10 +47,7 @@ class AddForm extends Component {
           </div>
           <div className="add-form__fieldset-wrapper">
             <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
-              <label htmlFor="add-form__offer-additional" className="add-form__label">
-                <div>{t('Rozszerzony')}</div>
-                <textarea className="add-form__input add-form__input--XL" name="add-form__offer-additional" placeholder="Rozszerzona Usługa" disabled />
-              </label>
+              <OfferInput name="add-form__offer-additional" label={t('components.add.form.offerAdditionalLabel')} placeholder={t('components.add.form.offerAdditionalPlaceholder')} disabled />
             </div>
             <div className="add-form__fieldset-item">
               <PriceInput name="add-form__price-additional" placeholder={t('components.add.form.currency')} disabled />
@@ -61,10 +55,7 @@ class AddForm extends Component {
           </div>
           <div className="add-form__fieldset-wrapper">
             <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
-              <label htmlFor="add-form__offer-extra" className="add-form__label">
-                <div>{t('Ekstra')}</div>
-                <textarea className="add-form__input add-form__input--XL" name="add-form__offer-extra" disabled="disabled" placeholder="Extra Usługa" />
-              </label>
+              <OfferInput name="add-form__offer-extra" label={t('components.add.form.offerExtraLabel')} placeholder={t('components.add.form.offerExtraPlaceholder')} disabled />
             </div>
             <div className="add-form__fieldset-item">
               <PriceInput name="add-form__price-extra" placeholder={t('components.add.form.currency')} disabled />

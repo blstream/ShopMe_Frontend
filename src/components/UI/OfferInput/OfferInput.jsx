@@ -9,16 +9,23 @@ class OfferInput extends Component {
     this.state = {
       value: '',
       errorMessage: '',
+      isRequired: this.props.required,
     };
+    this.checkValidity = this.checkValidity.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.validateInput = this.validateInput.bind(this);
   }
 
-  validateInput() {
-    const { required, t } = this.props;
-    const empty = this.state.value.trim() === '';
-    if (required && empty) this.setState({ errorMessage: t('components.UI.OfferInput.errorMessage') });
-    else this.setState({ errorMessage: '' });
+  checkValidity(value) {
+    const { t } = this.props;
+    const isValid = true;
+
+    if (value.trim() === '' && this.state.isRequired) {
+      this.setState({ errorMessage: t('components.UI.OfferInput.errorMessage') });
+      return false;
+    }
+
+    this.setState({ errorMessage: '' });
+    return isValid;
   }
 
   handleChange(e) {
@@ -28,17 +35,19 @@ class OfferInput extends Component {
 
   render() {
     return (
-      <label htmlFor="this.props.name">
+      <label htmlFor="this.props.name" className="add-form__label">
+        <div>{this.props.label}</div>
         <textarea
-          className="input-offer"
-          value={this.state.value}
+          className="add-form__input add-form__input--XL"
           name={this.props.name}
-          required={this.props.required}
+          value={this.state.value}
+          placeholder={this.props.placeholder}
           disabled={this.props.disabled}
+          required={this.props.required}
           onChange={this.handleChange}
           onBlur={this.validateInput}
         />
-        <div className="input__errorMessage">
+        <div className="add-form__error-message">
           {this.state.errorMessage}
         </div>
       </label>

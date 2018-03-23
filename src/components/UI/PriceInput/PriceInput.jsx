@@ -11,6 +11,7 @@ class PriceInput extends Component {
       errorMessage: '',
       isRequired: this.props.required,
     };
+    this.checkValidity = this.checkValidity.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);
     this.handleFocus = this.handleFocus.bind(this);

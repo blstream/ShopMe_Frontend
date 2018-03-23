@@ -1,23 +1,30 @@
-.input-offer {
-  height: 100%;
-  width: 100%;
-  padding: 5px;
-  border: none;
-  background-color: transparent;
+.add-form__label {
+  position: relative;
+}
+
+.add-form__input {
   color: inherit;
-  font-size: 1rem;
-  outline: none;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #E0E0E0;
+  border: none;
 }
 
-.input__errorMessage {
+.add-form__input--XL {
+  height: 150px;
+  width: 90%;
+  margin-bottom: -10px;
+}
+
+.add-form__input--XL::placeholder {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.add-form__error-message {
   position: absolute;
-  bottom: -20px;
+  bottom: -30px;
   right: 0;
-  font-size: 0.75rem;
-  color: #fdde6b;
-}
-
-.input__label {
-  position: absolute;
-  left: -999em;
+  font-size: 1rem;
+  color: red;
 }
