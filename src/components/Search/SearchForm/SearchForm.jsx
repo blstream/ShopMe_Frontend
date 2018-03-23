@@ -8,7 +8,7 @@ class SearchForm extends React.Component {
     super(props);
     this.state = {
       services: '',
-      searchPhrase: '',
+      searchPhrase: null,
     };
 
     this.handleSearchInputChanged = this.handleSearchInputChanged.bind(this);
