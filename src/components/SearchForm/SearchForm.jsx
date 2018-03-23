@@ -12,7 +12,7 @@ class SearchForm extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/offers')
+    fetch(`${process.env.REACT_APP_API}/offers`)
       .then(response => response.json())
       .then(services => this.setState({ services }));
   }
