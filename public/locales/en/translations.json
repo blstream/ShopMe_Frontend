@@ -1,9 +1,10 @@
 {
   "components": {
     "searchForm" : {
-      "button": "Szukaj",
-      "input": "Wpisz szukaną usługę",
-      "lengthError": "Wpisana fraza jest za krótka"
+      "button": "Search",
+      "input": "Enter the service",
+      "lengthError": "Enter longer phrase",
+      "numberError": "Phrase can't cotain only digits"
     },
     "searchResults": {
       "resultsTitle": "Wyniki wyszukiwania"

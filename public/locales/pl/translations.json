@@ -3,7 +3,8 @@
     "searchForm" : {
       "button": "Szukaj",
       "input": "Wpisz szukaną usługę",
-      "lengthError": "Wpisana fraza jest za krótka"
+      "lengthError": "Podaj frazę składającą się z większej liczby liter",
+      "numberError": "Podaj frazę nieskładającą się z samych liczb"
     },
     "foundSearchResults": {
       "resultsTitle": "Wyniki wyszukiwania"
@@ -23,7 +24,7 @@
       }
     },
     "noSearchResults" : {
-      "noResultsTitle": "Brak wyników wyszukiwania."
+      "noResultsTitle": "Niestety nie znaleziono ofert spełniających twoje kryteria."
     },
     "UI": {
       "categorySelect": {

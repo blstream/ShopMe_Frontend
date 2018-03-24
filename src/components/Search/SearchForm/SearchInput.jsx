@@ -6,18 +6,24 @@ class SearchInput extends React.Component {
     super(props);
     this.state = {
       validPhrase: true,
+      errorMessage: null,
     };
     this.handleBlur = this.handleBlur.bind(this);
   }
   handleBlur(input) {
     const searchPhrase = input.target.value.trim();
     const cleanedSearchPhrase = searchPhrase.replace(/[!@#$%^&*()=+\-_;:'"<>,.?/{}|`~[\]\\]/g, '');
-    const validPhrase = cleanedSearchPhrase.length > 1;
+    const validPhrase = cleanedSearchPhrase.length > 1 && Number.isNaN(Number(cleanedSearchPhrase));
     this.setState({ validPhrase });
-    if (validPhrase && cleanedSearchPhrase !== '') {
+    if (validPhrase && Number.isNaN(Number(cleanedSearchPhrase))) {
       this.props.onSearchInputChanged(cleanedSearchPhrase);
+      this.setState({ errorMessage: null });
+    } else if (!Number.isNaN(Number(cleanedSearchPhrase))) {
+      this.props.onSearchInputChanged(null);
+      this.setState({ errorMessage: 'components.searchForm.numberError' });
     } else {
       this.props.onSearchInputChanged(null);
+      this.setState({ errorMessage: 'components.searchForm.lengthError' });
     }
   }
 
@@ -33,7 +39,7 @@ class SearchInput extends React.Component {
           onBlur={this.handleBlur}
           className="search__form-item"
         />
-        {!this.state.validPhrase && (<p className="search__message-error">{t('components.searchForm.lengthError')}</p>)}
+        {!this.state.validPhrase && (<p className="search__message-error">{t(this.state.errorMessage)}</p>)}
       </div>
     );
   }
