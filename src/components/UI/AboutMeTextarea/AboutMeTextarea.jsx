@@ -13,7 +13,7 @@ class AboutMeTextArea extends Component {
     this.state = {
       value: '',
       errorMessage: '',
-      isRequired: this.props.isRequired,
+      isRequired: this.props.required,
     };
   }
 
@@ -26,11 +26,9 @@ class AboutMeTextArea extends Component {
     const { t } = this.props;
     const isValid = true;
 
-    if (this.state.isRequired === 'true') {
-      if (event.target.value.trim() === '') {
-        this.setState({ errorMessage: t('components.UI.aboutMeTextarea.errorEmptyField') });
-        return false;
-      }
+    if (this.state.isRequired && event.target.value.trim() === '') {
+      this.setState({ errorMessage: t('components.UI.aboutMeTextarea.errorEmptyField') });
+      return false;
     }
     return isValid;
   }

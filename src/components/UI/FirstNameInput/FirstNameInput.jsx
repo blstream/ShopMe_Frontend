@@ -13,7 +13,7 @@ class FirstNameInput extends Component {
     this.state = {
       value: '',
       errorMessage: '',
-      isRequired: this.props.isRequired,
+      isRequired: this.props.required,
     };
   }
 
@@ -26,20 +26,18 @@ class FirstNameInput extends Component {
     const { t } = this.props;
     const isValid = true;
 
-    if (this.state.isRequired === 'true') {
-      if (event.target.value.trim() === '') {
-        this.setState({ errorMessage: t('components.UI.firstNameInput.errorEmptyField') });
-        return false;
-      }
-      if (event.target.value.length < 3) {
-        this.setState({ errorMessage: t('components.UI.firstNameInput.errorMinLength') });
-        return false;
-      }
-      const pattern = /^[a-zA-Z]+$/;
-      if (!pattern.test(event.target.value)) {
-        this.setState({ errorMessage: t('components.UI.firstNameInput.errorOnlyAlpha') });
-        return false;
-      }
+    if (this.state.isRequired && event.target.value.trim() === '') {
+      this.setState({ errorMessage: t('components.UI.firstNameInput.errorEmptyField') });
+      return false;
+    }
+    if (this.state.isRequired && event.target.value.length < 3) {
+      this.setState({ errorMessage: t('components.UI.firstNameInput.errorMinLength') });
+      return false;
+    }
+    const pattern = /^[a-zA-Z]+$/;
+    if (this.state.isRequired && !pattern.test(event.target.value)) {
+      this.setState({ errorMessage: t('components.UI.firstNameInput.errorOnlyAlpha') });
+      return false;
     }
     return isValid;
   }

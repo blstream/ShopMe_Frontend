@@ -69,18 +69,18 @@ class AddForm extends Component {
         <fieldset className="add-form__fieldset add-form__fieldset--about">
           <div className="add-form__fieldset-wrapper">
             <div className="add-form__fieldset-item">
-              <FirstNameInput name="add-form__user-name" isRequired="true" />
+              <FirstNameInput name="add-form__user-name" required />
             </div>
             <div className="add-form__fieldset-item">
-              <EmailInput name="add-form__user-email" isRequired="true" />
+              <EmailInput name="add-form__user-email" required />
             </div>
             <div className="add-form__fieldset-item">
-              <PhoneInput name="add-form__user-telephone" isRequired="true" />
+              <PhoneInput name="add-form__user-telephone" required />
             </div>
           </div>
           <div className="add-form__fieldset-wrapper">
             <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
-              <AboutMeTextarea name="add-form__user-about" isRequired="true" />
+              <AboutMeTextarea name="add-form__user-about" required />
             </div>
             <div className="add-form__fieldset-item add-form__fieldset-item--button">
               <button className="add-form__submit" type="submit">{t('Dodaj Ofertę')}</button>

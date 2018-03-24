@@ -12,7 +12,7 @@ class EmailInput extends Component {
     this.state = {
       value: '',
       errorMessage: '',
-      isRequired: this.props.isRequired,
+      isRequired: this.props.required,
     };
   }
 
@@ -20,16 +20,14 @@ class EmailInput extends Component {
     const { t } = this.props;
     const isValid = true;
 
-    if (this.state.isRequired === 'true') {
-      if (event.target.value.trim() === '') {
-        this.setState({ errorMessage: t('components.UI.emailInput.errorEmptyField') });
-        return false;
-      }
-      const pattern = /^\S+@\S+\.\S+$/;
-      if (!pattern.test(event.target.value)) {
-        this.setState({ errorMessage: t('components.UI.emailInput.errorEmailRegex') });
-        return false;
-      }
+    if (this.state.isRequired && event.target.value.trim() === '') {
+      this.setState({ errorMessage: t('components.UI.emailInput.errorEmptyField') });
+      return false;
+    }
+    const pattern = /^\S+@\S+\.\S+$/;
+    if (this.state.isRequired && !pattern.test(event.target.value)) {
+      this.setState({ errorMessage: t('components.UI.emailInput.errorEmailRegex') });
+      return false;
     }
     return isValid;
   }
