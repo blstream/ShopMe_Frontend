@@ -11,7 +11,12 @@ body {
   max-width: 100%;
 }
 
-.logo {
+.logoContainer a {
+  text-decoration: none;
+  color: #000;
+}
+
+.logoContainer__logo {
   font-family: 'Pacifico', cursive;
   font-size: 2rem;
 }
