@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,700');
+
 .services-item {
   list-style-type: decimal;
   margin: 15px 0;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-family: "Fira Sans";
   font-size: 19px;
   display: flex;
   flex-direction: row;
@@ -10,6 +12,7 @@
 }
 
 .services-item__title {
+  font-weight: 700;
   width: 300px;
   flex-grow: 2;
   margin: auto;

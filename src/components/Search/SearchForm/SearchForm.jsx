@@ -8,6 +8,7 @@ class SearchForm extends React.Component {
     super(props);
     this.state = {
       searchPhrase: null,
+      validPhrase: false,
     };
 
     this.handleSearchInputChanged = this.handleSearchInputChanged.bind(this);
@@ -15,15 +16,21 @@ class SearchForm extends React.Component {
   }
 
 
-  handleSearchInputChanged(searchPhrase) {
-    this.setState({ searchPhrase });
+  handleSearchInputChanged(searchPhrase, validPhrase) {
+    this.setState({ searchPhrase, validPhrase });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    fetch(`${process.env.REACT_APP_API}/offers?title=${this.state.searchPhrase}`)
-      .then(response => response.json())
-      .then(services => this.props.updateFoundServices(services));
+    if (this.state.validPhrase === true) {
+      if (this.state.searchPhrase !== '' && this.state.searchPhrase !== null && this.state.validPhrase === true) {
+        fetch(`${process.env.REACT_APP_API}/offers?title=${this.state.searchPhrase}`)
+          .then(response => response.json())
+          .then(services => this.props.updateFoundServices(services));
+      } else {
+        this.props.updateFoundServices([]);
+      }
+    }
   }
 
   render() {
