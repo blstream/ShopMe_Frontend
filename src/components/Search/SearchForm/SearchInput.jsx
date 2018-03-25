@@ -18,7 +18,7 @@ class SearchInput extends React.Component {
     if (validPhrase && Number.isNaN(Number(cleanedSearchPhrase)) && cleanedSearchPhrase !== '') {
       this.props.onSearchInputChanged(cleanedSearchPhrase, validPhrase);
       this.setState({ errorMessage: null });
-    } else if (!Number.isNaN(Number(cleanedSearchPhrase))) {
+    } else if (!Number.isNaN(Number(cleanedSearchPhrase)) && cleanedSearchPhrase !== '') {
       this.props.onSearchInputChanged(null, validPhrase);
       this.setState({ errorMessage: 'components.searchForm.numberError' });
     } else {
