@@ -23,6 +23,15 @@
   text-align: right;
 }
 
+.add-form__input--disabled {
+  background-color: #FFFFFF;
+  border: 1px solid #D0D0D0;
+}
+
+.add-form__input--disabled::placeholder {
+  color: #D0D0D0;
+}
+
 .add-form__error-message {
   position: absolute;
   bottom: -30px;

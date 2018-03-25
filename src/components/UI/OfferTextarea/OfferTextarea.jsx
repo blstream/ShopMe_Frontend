@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
 
-import './OfferInput.css';
+import './OfferTextarea.css';
 
-class OfferInput extends Component {
+class OfferTextarea extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +20,7 @@ class OfferInput extends Component {
     const isValid = true;
 
     if (value.trim() === '' && this.state.isRequired) {
-      this.setState({ errorMessage: t('components.UI.OfferInput.errorMessage') });
+      this.setState({ errorMessage: t('components.UI.OfferTextarea.errorMessage') });
       return false;
     }
 
@@ -30,7 +30,19 @@ class OfferInput extends Component {
 
   handleChange(e) {
     const { value } = e.target;
+
     if (value.length <= 500) this.setState({ value });
+
+    this.activateNextField(value);
+  }
+
+  activateNextField(value) {
+    if (this.props.name === 'add-form__offer-basic' && value.trim() !== '') {
+      this.props.onOfferBasicChange();
+    }
+    if (this.props.name === 'add-form__offer-additional' && value.trim() !== '') {
+      this.props.onOfferAdditionalChange();
+    }
   }
 
   render() {
@@ -38,7 +50,10 @@ class OfferInput extends Component {
       <label htmlFor="this.props.name" className="add-form__label">
         <div>{this.props.label}</div>
         <textarea
-          className="add-form__input add-form__input--XL"
+          className={this.props.disabled
+            ? 'add-form__input add-form__input--XL add-form__input--disabled'
+            : 'add-form__input add-form__input--XL'
+          }
           name={this.props.name}
           value={this.state.value}
           placeholder={this.props.placeholder}
@@ -54,4 +69,4 @@ class OfferInput extends Component {
   }
 }
 
-export default translate()(OfferInput);
+export default translate()(OfferTextarea);
