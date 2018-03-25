@@ -11,22 +11,21 @@ body {
   max-width: 100%;
 }
 
-.logoContainer {
+header {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
-.logoContainer__addOffer {
-  grid-column: 2 / span 1;
+.add-offer {
   justify-self: end;
 }
 
-.logoContainer a {
+.logo-container a {
   text-decoration: none;
   color: #000;
 }
 
-.logoContainer__logo {
+.logo-container__logo {
   font-family: 'Pacifico', cursive;
   font-size: 2rem;
 }
