@@ -58,8 +58,8 @@
       },
       "firstNameInput": {
         "name": "Imię *",
-        "errorEmptyField": "Pole nie może być puste",
-        "errorMinLength": "Imię musi się składać z co najmniej 3 znaków",
+        "errorEmptyField": "Pole wymagane",
+        "errorMinLength": "Zbyt mała liczba znaków",
         "errorOnlyAlpha": "Pole może zawierać tylko litery"
       },
       "priceInput":{
@@ -68,7 +68,7 @@
       },
       "emailInput": {
         "name": "E-mail *",
-        "errorEmptyField": "Pole nie może być puste",
+        "errorEmptyField": "Pole wymagane",
         "errorEmailRegex": "Podaj poprawny adres e-mail"
       },
       "offerTextarea": {
@@ -76,12 +76,12 @@
       },
       "aboutMeTextarea": {
         "name": "O mnie",
-        "errorEmptyField": "Pole nie może być puste"
+        "errorEmptyField": "Pole wymagane"
       },
       "phoneInput": {
         "name": "Telefon *",
-        "errorEmptyField": "Pole nie może być puste",
-        "errorPhoneRegex": "Podaj poprawny numer telefonu np. 500500500 lub 914646464"
+        "errorEmptyField": "Pole wymagane",
+        "errorPhoneRegex": "Podaj poprawny numer telefonu"
       },
       "add": {
         "addOfferText": "Dodaj ofertę"

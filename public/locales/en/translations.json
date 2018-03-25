@@ -44,23 +44,23 @@
       },
       "firstNameInput": {
         "name": "Name *",
-        "errorEmptyField": "Field can not be empty",
-        "errorMinLength": "The name should contain at least 3 characters",
+        "errorEmptyField": "This field is required",
+        "errorMinLength": "Too few characters",
         "errorOnlyAlpha": "This field should contain only letters"
       },
       "emailInput": {
         "name": "E-mail *",
-        "errorEmptyField": "Field can not be empty",
+        "errorEmptyField": "This field is required",
         "errorEmailRegex": "Please enter a valid email address"
       },
       "aboutMeTextarea": {
         "name": "About me",
-        "errorEmptyField": "Field can not be empty"
+        "errorEmptyField": "This field is required"
       },
       "phoneInput": {
         "name": "Phone number *",
-        "errorEmptyField": "Field can not be empty",
-        "errorPhoneRegex": "Please enter a valid phone number e.g. 500500500 or 914646464"
+        "errorEmptyField": "This field is required",
+        "errorPhoneRegex": "Please enter a valid phone number"
       },
       "add": {
         "addOfferText": "Add offer"
