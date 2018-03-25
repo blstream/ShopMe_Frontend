@@ -13,8 +13,8 @@ export default class Search extends React.Component {
     return (
       <div>
         <header>
-          <nav />
           <Logo />
+          <nav />
         </header>
         <content>
           <SearchInput />
