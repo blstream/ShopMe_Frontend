@@ -23,7 +23,7 @@ class PriceInput extends Component {
     const isValid = true;
 
     if (value.trim() === '' && this.state.isRequired) {
-      this.setState({ errorMessage: t('components.UI.PriceInput.errorMessage') });
+      this.setState({ errorMessage: t('components.UI.priceInput.errorMessage') });
       return false;
     }
 

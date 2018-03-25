@@ -62,8 +62,8 @@
         "errorMinLength": "Imię musi się składać z co najmniej 3 znaków",
         "errorOnlyAlpha": "Pole może zawierać tylko litery"
       },
-      "PriceInput":{
-        "errorMessage": "Pole wymagane!",
+      "priceInput":{
+        "errorMessage": "Pole wymagane",
         "label": "Cena"
       },
       "emailInput": {
@@ -71,8 +71,8 @@
         "errorEmptyField": "Pole nie może być puste",
         "errorEmailRegex": "Podaj poprawny adres e-mail"
       },
-      "OfferInput": {
-        "errorMessage": "Pole wymagane!"
+      "offerTextarea": {
+        "errorMessage": "Pole wymagane"
       },
       "aboutMeTextarea": {
         "name": "O mnie",
