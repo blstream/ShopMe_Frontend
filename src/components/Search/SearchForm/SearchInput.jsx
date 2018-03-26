@@ -36,7 +36,7 @@ class SearchInput extends React.Component {
           id="search__input"
           placeholder={t('components.searchForm.input')}
           name="searchPhrase"
-          onBlur={this.handleBlur}
+          onKeyPress={this.handleBlur}
           className="search__form-item"
         />
         {!this.state.validPhrase && (<p className="search__message-error">{t(this.state.errorMessage)}</p>)}
