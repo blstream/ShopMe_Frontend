@@ -22,20 +22,20 @@ class FirstNameInput extends Component {
     if (event.target.value.length <= 30) this.setState({ value: event.target.value });
   }
 
-  checkValidity(event) {
+  checkValidity() {
     const { t } = this.props;
     const isValid = true;
 
-    if (this.state.isRequired && event.target.value.trim() === '') {
+    if (this.state.isRequired && this.state.value.trim() === '') {
       this.setState({ errorMessage: t('components.UI.firstNameInput.errorEmptyField') });
       return false;
     }
-    if (this.state.isRequired && event.target.value.length < 3) {
+    if (this.state.isRequired && this.state.value.length < 3) {
       this.setState({ errorMessage: t('components.UI.firstNameInput.errorMinLength') });
       return false;
     }
     const pattern = /^[a-zA-Z]+$/;
-    if (this.state.isRequired && !pattern.test(event.target.value)) {
+    if (this.state.isRequired && !pattern.test(this.state.value)) {
       this.setState({ errorMessage: t('components.UI.firstNameInput.errorOnlyAlpha') });
       return false;
     }
@@ -68,4 +68,4 @@ class FirstNameInput extends Component {
 }
 
 export { FirstNameInput };
-export default translate()(FirstNameInput);
+export default translate('translations', { withRef: true })(FirstNameInput);

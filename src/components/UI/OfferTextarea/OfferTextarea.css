@@ -30,10 +30,8 @@
   color: #D0D0D0;
 }
 
-.add-form__error-message {
-  position: absolute;
-  bottom: -30px;
-  right: 0;
-  font-size: 1rem;
+.input-category__errorMessage {
+  font-size: 0.75rem;
   color: red;
+  margin-top: 5px;
 }

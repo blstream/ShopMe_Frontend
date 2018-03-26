@@ -13,21 +13,22 @@ class TitleInput extends Component {
       isRequired: this.props.required,
     };
 
+    this.checkValidity = this.checkValidity.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  checkValidity(value) {
+  checkValidity() {
     const { t } = this.props;
     const isValid = true;
 
-    if (value.trim() === '' && this.state.isRequired) {
-      this.setState({ errorMessage: t('components.UI.TitleInput.errorEmptyField') });
+    if (this.state.value.trim() === '' && this.state.isRequired) {
+      this.setState({ errorMessage: t('components.UI.titleInput.errorEmptyField') });
       return false;
-    } else if (value.length <= 2) {
-      this.setState({ errorMessage: t('components.UI.TitleInput.errorMinLength') });
+    } else if (this.state.value.length <= 2) {
+      this.setState({ errorMessage: t('components.UI.titleInput.errorMinLength') });
       return false;
-    } else if (value.length > 30) {
-      this.setState({ errorMessage: t('components.UI.TitleInput.errorMaxLength') });
+    } else if (this.state.value.length > 30) {
+      this.setState({ errorMessage: t('components.UI.titleInput.errorMaxLength') });
       return false;
     }
 
@@ -41,10 +42,13 @@ class TitleInput extends Component {
   }
 
   render() {
+    const { t } = this.props;
     return (
       <label
         htmlFor={this.props.name}
+        className="add-form_label"
       >
+        {t('components.UI.titleInput.name')}
         <input
           className="input-title"
           type="text"
@@ -63,4 +67,4 @@ class TitleInput extends Component {
   }
 }
 
-export default translate()(TitleInput);
+export default translate('translations', { withRef: true })(TitleInput);

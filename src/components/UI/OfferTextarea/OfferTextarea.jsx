@@ -15,11 +15,11 @@ class OfferTextarea extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  checkValidity(value) {
+  checkValidity() {
     const { t } = this.props;
     const isValid = true;
 
-    if (value.trim() === '' && this.state.isRequired) {
+    if (this.state.value.trim() === '' && this.state.isRequired) {
       this.setState({ errorMessage: t('components.UI.offerTextarea.errorMessage') });
       return false;
     }
@@ -69,4 +69,4 @@ class OfferTextarea extends Component {
   }
 }
 
-export default translate()(OfferTextarea);
+export default translate('translations', { withRef: true })(OfferTextarea);

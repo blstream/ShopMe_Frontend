@@ -22,11 +22,11 @@ class AboutMeTextArea extends Component {
     if (event.target.value.length <= 800) this.setState({ value: event.target.value });
   }
 
-  checkValidity(event) {
+  checkValidity() {
     const { t } = this.props;
     const isValid = true;
 
-    if (this.state.isRequired && event.target.value.trim() === '') {
+    if (this.state.isRequired && this.state.value.trim() === '') {
       this.setState({ errorMessage: t('components.UI.aboutMeTextarea.errorEmptyField') });
       return false;
     }
@@ -58,4 +58,4 @@ class AboutMeTextArea extends Component {
 }
 
 export { AboutMeTextArea };
-export default translate()(AboutMeTextArea);
+export default translate('translations', { withRef: true })(AboutMeTextArea);

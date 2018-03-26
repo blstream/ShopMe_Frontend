@@ -16,16 +16,16 @@ class EmailInput extends Component {
     };
   }
 
-  checkValidity(event) {
+  checkValidity() {
     const { t } = this.props;
     const isValid = true;
 
-    if (this.state.isRequired && event.target.value.trim() === '') {
+    if (this.state.isRequired && this.state.value.trim() === '') {
       this.setState({ errorMessage: t('components.UI.emailInput.errorEmptyField') });
       return false;
     }
     const pattern = /^\S+@\S+\.\S+$/;
-    if (this.state.isRequired && !pattern.test(event.target.value)) {
+    if (this.state.isRequired && !pattern.test(this.state.value)) {
       this.setState({ errorMessage: t('components.UI.emailInput.errorEmailRegex') });
       return false;
     }
@@ -58,4 +58,4 @@ class EmailInput extends Component {
 }
 
 export { EmailInput };
-export default translate()(EmailInput);
+export default translate('translations', { withRef: true })(EmailInput);

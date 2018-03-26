@@ -18,11 +18,11 @@ class PriceInput extends Component {
     this.handleBlur = this.handleBlur.bind(this);
   }
 
-  checkValidity(value) {
+  checkValidity() {
     const { t } = this.props;
     const isValid = true;
 
-    if (value.trim() === '' && this.state.isRequired) {
+    if (this.state.value.trim() === '' && this.state.isRequired) {
       this.setState({ errorMessage: t('components.UI.priceInput.errorMessage') });
       return false;
     }
@@ -59,10 +59,10 @@ class PriceInput extends Component {
   handleBlur(e) {
     let { value } = e.target;
     const state = this.state.value;
-    const currency = /zł$/;
+    // const currency = /zł$/;
 
-    if (state) value = parseFloat(value.replace(',', '.')).toFixed(2).replace('.', ',');
-    if (state && !currency.test(value)) value += ' zł';
+    if (state) value = parseFloat(value.replace(',', '.')).toFixed(2);
+    // if (state && !currency.test(value)) value += ' zł';
     this.setState({ value });
   }
 
@@ -93,4 +93,4 @@ class PriceInput extends Component {
   }
 }
 
-export default translate()(PriceInput);
+export default translate('translations', { withRef: true })(PriceInput);
