@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Rajdhani');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,700,800,900&subset=latin-ext');
 
 * {
   box-sizing: border-box;
@@ -10,7 +10,7 @@
   max-width: 80%;
   margin: 30px auto;
   background-color: #FFFFFF;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   font-size: 1rem;
   color: #000000;
   border: 1px solid #A9A9A9;
@@ -23,10 +23,12 @@
 }
 
 .add-form__title {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   text-align: center;
-  margin-top: 30px;
+  padding-top: 30px;
+  /* margin-top: 30px;
   margin-bottom: 30px;
+  text-align: center; */
 }
 
 .add-form__fieldset--basic {
@@ -76,6 +78,12 @@
   border: none;
 }
 
+.add-form__fieldset-title {
+  font-size: 1.1rem;
+  margin-top: 50px;
+  text-align: center;
+}
+
 .add-form__fieldset-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -88,17 +96,18 @@
   justify-content: flex-end;
 }
 
-.add-form__fieldset-wrapper--basic:first-child {
+.add-form__fieldset-item--basic {
+  padding: 10px 20px;
+}
+
+.add-form__fieldset-item--margin-top {
   margin-top: 30px;
 }
 
-.add-form__fieldset-item--basic {
-  padding: 15px 0;
-}
-
 .add-form__fieldset-item--textarea {
-  flex-grow: 3;
-  padding: 20px 20px 20px 0;
+  align-self: center;
+  flex-grow: 2;
+  margin-top: 60px;
 }
 
 .add-form__fieldset-item--button {
@@ -154,7 +163,7 @@
 }
 
 .add-form__input--M {
-  width: 400px;
+  width: 300px;
   margin-left: 10px;
 }
 
@@ -164,11 +173,19 @@
 
 .add-form__input--XS {
   width: 150px;
-  margin-bottom: 15px;
 }
 
 .add-form__input--XS::placeholder {
   text-align: right;
+}
+
+.add-form__input--disabled {
+  background-color: #FFFFFF;
+  border: 1px solid #D0D0D0;
+}
+
+.add-form__input--disabled::placeholder {
+  color: #D0D0D0;
 }
 
 .add-form__error-message {
@@ -177,6 +194,20 @@
   right: 0;
   font-size: 1rem;
   color: red;
+}
+
+.add-form__error-message--temporary-priceInput {
+  font-size: 0.75rem;
+  color: red;
+  margin-top: 5px;
+  text-align: right;
+}
+
+.add-form__error-message--temporary-offerTextArea {
+  font-size: 0.75rem;
+  color: red;
+  margin: 10px 70px 0 0;
+  text-align: right;
 }
 
 /* Button Styles */

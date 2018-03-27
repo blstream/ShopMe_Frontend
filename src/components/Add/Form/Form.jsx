@@ -23,39 +23,23 @@ class AddForm extends Component {
     this.activateOfferAdditional = this.activateOfferAdditional.bind(this);
     this.activateOfferExtra = this.activateOfferExtra.bind(this);
     this.checkFormValidity = this.checkFormValidity.bind(this);
+    this.getInputReferences = this.getInputReferences.bind(this);
   }
 
   getInputReferences() {
-    const titleInput = this.titleInput;
-    const categorySelect = this.categorySelect;
-
-    const basicArea = this.basicArea;
-    const basicPrice = this.basicPrice;
-
-    const additionalArea = this.additionalArea;
-    const additionalPrice = this.additionalPrice;
-
-    const extraArea = this.extraArea;
-    const extraPrice = this.extraPrice;
-
-    const nameInput = this.nameInput;
-    const emailInput = this.emailInput;
-    const phoneInput = this.phoneInput;
-    const aboutMeArea = this.aboutMeArea;
-
     return [
-      titleInput,
-      categorySelect,
-      basicArea,
-      basicPrice,
-      additionalArea,
-      additionalPrice,
-      extraArea,
-      extraPrice,
-      nameInput,
-      emailInput,
-      phoneInput,
-      aboutMeArea,
+      this.titleInput,
+      this.categorySelect,
+      this.basicArea,
+      this.basicPrice,
+      this.additionalArea,
+      this.additionalPrice,
+      this.extraArea,
+      this.extraPrice,
+      this.nameInput,
+      this.emailInput,
+      this.phoneInput,
+      this.aboutMeArea,
     ];
   }
 
@@ -73,34 +57,31 @@ class AddForm extends Component {
 
   checkFormValidity(submit) {
     submit.preventDefault();
-
-    let isFormValid = true;
     const refs = this.getInputReferences();
+    const isRefsValid = refs.map(ref => ref.getWrappedInstance().checkValidity());
 
-    for (let i = 0; i < refs.length; i += 1) {
-      if (!refs[i].getWrappedInstance().checkValidity()) {
-        isFormValid = false;
-      }
-    }
+    if (!isRefsValid.includes(false)) {
+      let basePrice = this.basicPrice.getWrappedInstance().state.value;
+      let additionalPrice = this.additionalPrice.getWrappedInstance().state.value;
+      let extraPrice = this.extraPrice.getWrappedInstance().state.value;
 
-    if (isFormValid) {
       const data = {
-        title: `${refs[0].getWrappedInstance().state.value}`,
+        title: `${this.titleInput.getWrappedInstance().state.value}`,
         category: {
-          id: `${refs[1].getWrappedInstance().state.value.id}`,
-          name: `${refs[1].getWrappedInstance().state.value.name}`,
+          id: `${this.categorySelect.getWrappedInstance().state.value.id}`,
+          name: `${this.categorySelect.getWrappedInstance().state.value.name}`,
         },
-        baseDescription: `${refs[2].getWrappedInstance().state.value}`,
-        basePrice: refs[3].getWrappedInstance().state.value,
-        extendedDescription: `${refs[4].getWrappedInstance().state.value}`,
-        extendedPrice: refs[5].getWrappedInstance().state.value,
-        extraDescription: `${refs[6].getWrappedInstance().state.value}`,
-        extraPrice: refs[7].getWrappedInstance().state.value,
+        baseDescription: `${this.basicArea.getWrappedInstance().state.value}`,
+        basePrice: basePrice = basePrice.substring(0, basePrice.length - 3),
+        extendedDescription: `${this.additionalArea.getWrappedInstance().state.value}`,
+        extendedPrice: additionalPrice = additionalPrice.substring(0, additionalPrice.length - 3),
+        extraDescription: `${this.extraArea.getWrappedInstance().state.value}`,
+        extraPrice: extraPrice = extraPrice.substring(0, extraPrice.length - 3),
         user: {
-          name: `${refs[8].getWrappedInstance().state.value}`,
-          email: `${refs[9].getWrappedInstance().state.value}`,
-          phoneNumber: `${refs[10].getWrappedInstance().state.value}`,
-          additionalInfo: `${refs[11].getWrappedInstance().state.value}`,
+          name: `${this.nameInput.getWrappedInstance().state.value}`,
+          email: `${this.emailInput.getWrappedInstance().state.value}`,
+          phoneNumber: `${Number(this.phoneInput.getWrappedInstance().state.value)}`,
+          additionalInfo: `${this.aboutMeArea.getWrappedInstance().state.value}`,
         },
       };
 
@@ -118,7 +99,11 @@ class AddForm extends Component {
 
       fetch(url, myInit)
         .catch(error => console.error('Error:', error))
-        .then(response => console.log('Success', response));
+        .then(response => console.log('Success', response.status));
+
+      refs.forEach((ref) => {
+        ref.getWrappedInstance().resetInput();
+      });
     }
   }
 
@@ -126,7 +111,6 @@ class AddForm extends Component {
     const { t } = this.props;
     return (
       <form
-        id="add-offer-form"
         className="add-form"
         onSubmit={this.checkFormValidity}
         noValidate
@@ -134,7 +118,7 @@ class AddForm extends Component {
         <fieldset className="add-form__fieldset add-form__fieldset--basic">
           <h1 className="add-form__title">{t('components.add.form.title')}</h1>
           <div className="add-form__fieldset-wrapper--basic">
-            <div className="add-form__fieldset-item add-form__fieldset-item--basic">
+            <div className="add-form__fieldset-item add-form__fieldset-item--basic add-form__fieldset-item--margin-top">
               <TitleInput
                 name="offer-title"
                 ref={(v) => { this.titleInput = v; }}

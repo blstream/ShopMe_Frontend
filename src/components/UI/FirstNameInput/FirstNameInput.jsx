@@ -9,6 +9,7 @@ class FirstNameInput extends Component {
 
     this.checkValidity = this.checkValidity.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.resetInput = this.resetInput.bind(this);
 
     this.state = {
       value: '',
@@ -40,6 +41,10 @@ class FirstNameInput extends Component {
       return false;
     }
     return isValid;
+  }
+
+  resetInput() {
+    this.setState({ value: '' });
   }
 
   render() {

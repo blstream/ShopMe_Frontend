@@ -15,6 +15,7 @@ class TitleInput extends Component {
 
     this.checkValidity = this.checkValidity.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.resetInput = this.resetInput.bind(this);
   }
 
   checkValidity() {
@@ -39,6 +40,10 @@ class TitleInput extends Component {
   handleChange(event) {
     const { value } = event.target;
     this.setState({ value });
+  }
+
+  resetInput() {
+    this.setState({ value: '' });
   }
 
   render() {

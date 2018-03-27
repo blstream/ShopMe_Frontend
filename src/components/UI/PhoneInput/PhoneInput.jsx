@@ -8,6 +8,7 @@ class PhoneInput extends Component {
     super(props);
 
     this.checkValidity = this.checkValidity.bind(this);
+    this.resetInput = this.resetInput.bind(this);
 
     this.state = {
       value: '',
@@ -30,6 +31,10 @@ class PhoneInput extends Component {
       return false;
     }
     return isValid;
+  }
+
+  resetInput() {
+    this.setState({ value: '' });
   }
 
   render() {

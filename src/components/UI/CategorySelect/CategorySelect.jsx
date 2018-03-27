@@ -19,6 +19,7 @@ class CategorySelect extends Component {
 
     this.checkValidity = this.checkValidity.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.resetInput = this.resetInput.bind(this);
   }
 
   componentDidMount() {
@@ -31,7 +32,11 @@ class CategorySelect extends Component {
     const { t } = this.props;
     const isValid = true;
 
-    if (this.state.value === '' && this.state.isRequired) {
+    if (
+      this.state.value.id === '' &&
+      this.state.value.name === '' &&
+      this.state.isRequired
+    ) {
       this.setState({ errorMessage: t('components.UI.categorySelect.errorEmptyField') });
       return false;
     }
@@ -42,8 +47,12 @@ class CategorySelect extends Component {
 
   handleChange(event) {
     const { value } = event.target;
-    const categoryName = this.state.categories.filter(category => `${category.id}` === `${value}`);
-    this.setState({ value: { id: value, name: categoryName[0].name } });
+    const categoryName = this.state.categories.find(category => `${category.id}` === `${value}`);
+    this.setState({ value: { id: value, name: categoryName.name } });
+  }
+
+  resetInput() {
+    this.setState({ value: { id: '', name: '' } });
   }
 
   render() {
@@ -73,7 +82,7 @@ class CategorySelect extends Component {
               name={category.name}
               className={className}
             >
-              { (t(`components.UI.categorySelect.categoryOptions.${category.name}`)) }
+              {(t(`components.UI.categorySelect.categoryOptions.${category.name}`))}
             </option>
           ))}
         </select>

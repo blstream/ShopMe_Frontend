@@ -52,7 +52,7 @@
       },
       "TitleInput": {
         "name": "Tytuł Oferty *",
-        "errorEmptyField": "Pole wymagane!",
+        "errorEmptyField": "Pole wymagane",
         "errorMinLength": "Tytuł nie powinien być krótszy niż 2 znaki",
         "errorMaxLength": "Tytuł nie powinien być dłuższy niż 30 znaków"
       },
@@ -62,17 +62,10 @@
         "errorMinLength": "Zbyt mała liczba znaków",
         "errorOnlyAlpha": "Pole może zawierać tylko litery"
       },
-      "priceInput":{
-        "errorMessage": "Pole wymagane",
-        "label": "Cena"
-      },
       "emailInput": {
         "name": "E-mail *",
         "errorEmptyField": "Pole wymagane",
         "errorEmailRegex": "Podaj poprawny adres e-mail"
-      },
-      "offerTextarea": {
-        "errorMessage": "Pole wymagane"
       },
       "aboutMeTextarea": {
         "name": "O mnie",

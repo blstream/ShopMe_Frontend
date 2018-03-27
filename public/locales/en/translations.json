@@ -1,16 +1,30 @@
 {
   "components": {
-    "searchForm" : {
+    "searchForm": {
       "button": "Search",
       "input": "Enter the service",
       "lengthError": "Enter longer phrase",
       "numberError": "Phrase can't cotain only digits"
     },
-    "searchResults": {
+    "foundSearchResults": {
       "resultsTitle": "Wyniki wyszukiwania"
     },
-    "noSearchResults" : {
-      "noResultsTitle": "Brak wyników wyszukiwania."
+    "add": {
+      "form": {
+        "title": "Add offer",
+        "fieldsetTitle": "Define Your Service Packages",
+        "caption": "* Required fields",
+        "currency": "zł",
+        "offerBasicLabel": "Basic *",
+        "offerAdditionalLabel": "Additional",
+        "offerExtraLabel": "Extra",
+        "offerBasicPlaceholder": "Basic Service",
+        "offerAdditionalPlaceholder": "Additional Service",
+        "offerExtraPlaceholder": "Extra Service"
+      }
+    },
+    "noSearchResults": {
+      "noResultsTitle": "No results have been found match your criteria."
     },
     "UI": {
       "categorySelect": {
