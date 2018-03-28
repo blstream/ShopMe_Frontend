@@ -1,0 +1,40 @@
+.offer-profile__header, .offer-profile__category {
+  text-align: center;
+}
+
+.offer-profile__header {
+  margin-bottom: 20px;
+}
+
+.offer-profile__category {
+  margin-bottom: 40px;
+}
+
+.offer-profile__contact {
+  margin-top: 10px;
+  display: grid;
+  grid: repeat(3, 1fr) / 1fr 70%;
+  grid-gap: 10px;
+}
+
+.offer-profile__contact--additional-info {
+  grid-area: 1 / 2 / span 3 / span 1;
+}
+
+.offer-profile__offers {
+  margin: 70px 20px 0 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.offer-profile__offers--base, .offer-profile__offers--extended, .offer-profile__offers--extra {
+  width: 30%;
+}
+
+.offer-profile__offers--base--description, .offer-profile__offers--extended--description, .offer-profile__offers--extra--description {
+  margin-top: 20px;
+}
+
+.offer-profile__offers--base--price, .offer-profile__offers--extended--price, .offer-profile__offers--extra--price {
+  margin-top: 20px;
+}
