@@ -25,7 +25,11 @@ export default class OfferProfile extends React.Component {
       },
     };
   }
-
+  componentDidMount() {
+    fetch(`${process.env.REACT_APP_API}/offers/${this.props.offerId}`)
+      .then(response => response.json())
+      .then(service => this.setState({ service }));
+  }
   render() {
     return (
       <div className="offer-profile">

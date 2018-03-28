@@ -9,7 +9,7 @@ export default() => (
     <Switch>
       <Route exact path="/" component={ScreensSearch} />
       <Route path="/add/form" component={ScreensAddForm} />
-      <Route path="/offerprofile" component={ScreensOfferProfile} />
+      <Route path="/offer/:offerId" component={ScreensOfferProfile} />
     </Switch>
   </BrowserRouter>
 );

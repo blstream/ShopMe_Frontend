@@ -2,10 +2,10 @@ import React from 'react';
 import Logo from 'components/UI/Logo';
 import OfferProfile from 'components/OfferProfile/OfferProfile';
 
-const OfferProfileScreen = props => (
+const OfferProfileScreen = ({ match }) => (
   <div>
     <Logo />
-    <OfferProfile offerId={props.id} />
+    <OfferProfile offerId={match.params.offerId} />
   </div>
 );
 
