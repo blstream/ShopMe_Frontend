@@ -1,0 +1,406 @@
+{  
+    "swagger":"2.0",
+    "info":{  
+       "description":"Shop Me is a Web Application created during Intive Patronage `18 Project",
+       "version":"1.0",
+       "title":"ShopMe by Intive Patronage `18 team"
+    },
+    "host":"localhost:8080",
+    "basePath":"/",
+    "tags":[  
+       {  
+          "name":"Offer API",
+          "description":"Rest API for offers"
+       }
+    ],
+    "paths":{  
+       "/offers":{  
+          "get":{  
+             "tags":[  
+                "Offer API"
+             ],
+             "summary":"Returns all existing offers",
+             "operationId":"getAllOffersUsingGET",
+             "consumes":[  
+                "application/json"
+             ],
+             "produces":[  
+                "*/*"
+             ],
+             "responses":{  
+                "200":{  
+                   "description":"OK",
+                   "schema":{  
+                      "type":"array",
+                      "items":{  
+                         "$ref":"#/definitions/Offer"
+                      }
+                   }
+                },
+                "401":{  
+                   "description":"Unauthorized"
+                },
+                "403":{  
+                   "description":"Forbidden"
+                },
+                "404":{  
+                   "description":"Not Found"
+                }
+             }
+          },
+          "post":{  
+             "tags":[  
+                "Offer API"
+             ],
+             "summary":"Saves offer",
+             "operationId":"addUsingPOST",
+             "consumes":[  
+                "application/json"
+             ],
+             "produces":[  
+                "*/*"
+             ],
+             "parameters":[  
+                {  
+                   "in":"body",
+                   "name":"offer",
+                   "description":"offer",
+                   "required":true,
+                   "schema":{  
+                      "$ref":"#/definitions/Offer"
+                   }
+                }
+             ],
+             "responses":{  
+                "200":{  
+                   "description":"OK"
+                },
+                "201":{  
+                   "description":"Created"
+                },
+                "401":{  
+                   "description":"Unauthorized"
+                },
+                "403":{  
+                   "description":"Forbidden"
+                },
+                "404":{  
+                   "description":"Not Found"
+                }
+             }
+          }
+       },
+       "/offers/{id}":{  
+          "get":{  
+             "tags":[  
+                "Offer API"
+             ],
+             "summary":"Returns offer by id",
+             "operationId":"getUsingGET",
+             "consumes":[  
+                "application/json"
+             ],
+             "produces":[  
+                "*/*"
+             ],
+             "parameters":[  
+                {  
+                   "name":"id",
+                   "in":"path",
+                   "description":"id",
+                   "required":true,
+                   "type":"string"
+                }
+             ],
+             "responses":{  
+                "200":{  
+                   "description":"OK",
+                   "schema":{  
+                      "$ref":"#/definitions/Offer"
+                   }
+                },
+                "401":{  
+                   "description":"Unauthorized"
+                },
+                "403":{  
+                   "description":"Forbidden"
+                },
+                "404":{  
+                   "description":"Not Found"
+                }
+             }
+          },
+          "put":{  
+             "tags":[  
+                "Offer API"
+             ],
+             "summary":"Updates offer by id ",
+             "operationId":"updateUsingPUT",
+             "consumes":[  
+                "application/json"
+             ],
+             "produces":[  
+                "*/*"
+             ],
+             "parameters":[  
+                {  
+                   "name":"id",
+                   "in":"path",
+                   "description":"id",
+                   "required":true,
+                   "type":"string"
+                },
+                {  
+                   "name":"category.id",
+                   "in":"query",
+                   "description":"Represents category's id",
+                   "required":false,
+                   "type":"string"
+                },
+                {  
+                   "name":"category.name",
+                   "in":"query",
+                   "description":"Represents category's name",
+                   "required":false,
+                   "type":"string"
+                },
+                {  
+                   "name":"bundle.id",
+                   "in":"query",
+                   "description":"Represents bundle's id number",
+                   "required":false,
+                   "type":"string"
+                },
+                {  
+                   "name":"bundle.description",
+                   "in":"query",
+                   "description":"Represents bundle's description",
+                   "required":false,
+                   "type":"string"
+                },
+                {  
+                   "name":"bundle.price",
+                   "in":"query",
+                   "description":"Represents bundle's price",
+                   "required":false,
+                   "type":"string"
+                },
+                {  
+                   "name":"user.id",
+                   "in":"query",
+                   "description":"Represents user's id number",
+                   "required":false,
+                   "type":"string"
+                },
+                {  
+                   "name":"user.name",
+                   "in":"query",
+                   "description":"Represents user's name",
+                   "required":true,
+                   "type":"string"
+                },
+                {  
+                   "name":"user.email",
+                   "in":"query",
+                   "description":"Represents user's email",
+                   "required":true,
+                   "type":"string"
+                },
+                {  
+                   "name":"user.phoneNumber",
+                   "in":"query",
+                   "description":"Represents user's phone number",
+                   "required":true,
+                   "type":"string"
+                },
+                {  
+                   "name":"user.additionalInfo",
+                   "in":"query",
+                   "description":"Represents additional information typed by user",
+                   "required":false,
+                   "type":"string"
+                },
+                {  
+                   "name":"id",
+                   "in":"query",
+                   "description":"Represents offer's unique id number",
+                   "required":true,
+                   "type":"string"
+                },
+                {  
+                   "name":"date",
+                   "in":"query",
+                   "description":"Represents offer's date of submitting",
+                   "required":true,
+                   "type":"string",
+                   "format":"date-time"
+                },
+                {  
+                   "name":"title",
+                   "in":"query",
+                   "description":"Represents offer's title - passed by user",
+                   "required":true,
+                   "type":"string"
+                }
+             ],
+             "responses":{  
+                "200":{  
+                   "description":"OK"
+                },
+                "201":{  
+                   "description":"Created"
+                },
+                "401":{  
+                   "description":"Unauthorized"
+                },
+                "403":{  
+                   "description":"Forbidden"
+                },
+                "404":{  
+                   "description":"Not Found"
+                }
+             }
+          },
+          "delete":{  
+             "tags":[  
+                "Offer API"
+             ],
+             "summary":"Removes offer by id",
+             "operationId":"deleteUsingDELETE",
+             "consumes":[  
+                "application/json"
+             ],
+             "produces":[  
+                "*/*"
+             ],
+             "parameters":[  
+                {  
+                   "name":"id",
+                   "in":"path",
+                   "description":"id",
+                   "required":true,
+                   "type":"string"
+                }
+             ],
+             "responses":{  
+                "200":{  
+                   "description":"OK"
+                },
+                "204":{  
+                   "description":"No Content"
+                },
+                "401":{  
+                   "description":"Unauthorized"
+                },
+                "403":{  
+                   "description":"Forbidden"
+                }
+             }
+          }
+       }
+    },
+    "definitions":{  
+       "Offer":{  
+          "type":"object",
+          "required":[  
+             "bundle",
+             "category",
+             "date",
+             "id",
+             "title",
+             "user"
+          ],
+          "properties":{  
+             "bundle":{  
+                "description":"Represents offer's bundle",
+                "$ref":"#/definitions/Offer's Bundle"
+             },
+             "category":{  
+                "description":"Represents offer's category",
+                "$ref":"#/definitions/Offer's category"
+             },
+             "date":{  
+                "type":"string",
+                "format":"date-time",
+                "description":"Represents offer's date of submitting"
+             },
+             "id":{  
+                "type":"string",
+                "description":"Represents offer's unique id number"
+             },
+             "title":{  
+                "type":"string",
+                "description":"Represents offer's title - passed by user"
+             },
+             "user":{  
+                "description":"Represents the user who submits this offer",
+                "$ref":"#/definitions/Offer's user"
+             }
+          },
+          "description":"Represents the offer created by user"
+       },
+       "Offer's Bundle":{  
+          "type":"object",
+          "properties":{  
+             "description":{  
+                "type":"string",
+                "description":"Represents bundle's description"
+             },
+             "id":{  
+                "type":"string",
+                "description":"Represents bundle's id number"
+             },
+             "price":{  
+                "type":"string",
+                "description":"Represents bundle's price"
+             }
+          },
+          "description":"Represents different bundle types of offer"
+       },
+       "Offer's category":{  
+          "type":"object",
+          "properties":{  
+             "id":{  
+                "type":"string",
+                "description":"Represents category's id"
+             },
+             "name":{  
+                "type":"string",
+                "description":"Represents category's name"
+             }
+          },
+          "description":"Represents different category types of an offer"
+       },
+       "Offer's user":{  
+          "type":"object",
+          "required":[  
+             "email",
+             "name",
+             "phoneNumber"
+          ],
+          "properties":{  
+             "additionalInfo":{  
+                "type":"string",
+                "description":"Represents additional information typed by user"
+             },
+             "email":{  
+                "type":"string",
+                "description":"Represents user's email"
+             },
+             "id":{  
+                "type":"string",
+                "description":"Represents user's id number"
+             },
+             "name":{  
+                "type":"string",
+                "description":"Represents user's name"
+             },
+             "phoneNumber":{  
+                "type":"string",
+                "description":"Represents user's phone number"
+             }
+          },
+          "description":"Represents offer's owner."
+       }
+    }
+ }

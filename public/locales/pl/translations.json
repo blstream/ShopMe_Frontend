@@ -1,11 +1,90 @@
 {
-  "screens": {
-    "examples": {
-      "hello": {
-        "title": "Witaj, Świecie!"
+  "components": {
+    "searchForm" : {
+      "button": "Szukaj",
+      "input": "Wpisz szukaną usługę",
+      "lengthError": "Podaj frazę składającą się z większej liczby liter",
+      "numberError": "Podaj frazę nieskładającą się z samych liczb"
+    },
+    "foundSearchResults": {
+      "resultsTitle": "Wyniki wyszukiwania"
+    },
+    "add": {
+      "form": {
+        "title": "Dodaj Ofertę",
+        "fieldsetTitle": "Zdefiniuj Oferowane Pakiety Usług",
+        "caption": "*Pola wymagane",
+        "currency": "zł",
+        "offerBasicLabel": "Podstawowy *",
+        "offerAdditionalLabel": "Rozszerzony",
+        "offerExtraLabel": "Ekstra",
+        "offerBasicPlaceholder": "Podstawowa Usługa",
+        "offerAdditionalPlaceholder": "Rozszerzona Usługa",
+        "offerExtraPlaceholder": "Ekstra Usługa"
+      }
+    },
+    "noSearchResults" : {
+      "noResultsTitle": "Niestety nie znaleziono ofert spełniających twoje kryteria."
+    },
+    "UI": {
+      "categorySelect": {
+        "name": "Kategoria *",
+        "errorEmptyField": "Pole wymagane!",
+        "categoryOptions": {
+          "architecture": "Budowa",
+          "garden": "Ogród",
+          "workshop-services": "Usługi Warszatatowe",
+          "transport": "Transport",
+          "photography": "Fotografia",
+          "graphics": "Grafika",
+          "marketing-and-advertising": "Marketing i Reklama",
+          "programming": "Programowanie",
+          "bookkeeping": "Księgowość",
+          "law": "Prawo",
+          "translations": "Tłumaczenia",
+          "company-and-office": "Firma i Biuro",
+          "repair-and-service": "Naprawa i Serwis",
+          "housework": "Prace Domowe",
+          "tutoring": "Korepetycje",
+          "bands-and-music": "Zespoły i Muzyka",
+          "others": "Inne"
+        }
       },
-      "fetch": {
-        "title": "Twoje IP to"
+      "TitleInput": {
+        "name": "Tytuł Oferty *",
+        "errorEmptyField": "Pole wymagane!",
+        "errorMinLength": "Tytuł nie powinien być krótszy niż 2 znaki",
+        "errorMaxLength": "Tytuł nie powinien być dłuższy niż 30 znaków"
+      },
+      "firstNameInput": {
+        "name": "Imię *",
+        "errorEmptyField": "Pole wymagane",
+        "errorMinLength": "Zbyt mała liczba znaków",
+        "errorOnlyAlpha": "Pole może zawierać tylko litery"
+      },
+      "priceInput":{
+        "errorMessage": "Pole wymagane",
+        "label": "Cena"
+      },
+      "emailInput": {
+        "name": "E-mail *",
+        "errorEmptyField": "Pole wymagane",
+        "errorEmailRegex": "Podaj poprawny adres e-mail"
+      },
+      "offerTextarea": {
+        "errorMessage": "Pole wymagane"
+      },
+      "aboutMeTextarea": {
+        "name": "O mnie",
+        "errorEmptyField": "Pole wymagane"
+      },
+      "phoneInput": {
+        "name": "Telefon *",
+        "errorEmptyField": "Pole wymagane",
+        "errorPhoneRegex": "Podaj poprawny numer telefonu"
+      },
+      "add": {
+        "addOfferText": "Dodaj ofertę"
       }
     }
   }

@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,700');
+
+.services-item {
+  list-style-type: decimal;
+  margin: 15px 0;
+  font-family: "Fira Sans";
+  font-size: 19px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+.services-item__title {
+  font-weight: 700;
+  width: 300px;
+  flex-grow: 2;
+  margin: auto;
+
+}
+
+.services-item__price {
+  width: 150px;
+  flex-grow: 1;
+  margin: auto;
+}
+
+.services-item__date {
+  width: 150px;
+  flex-grow: 1;
+  margin: auto;
+}
+

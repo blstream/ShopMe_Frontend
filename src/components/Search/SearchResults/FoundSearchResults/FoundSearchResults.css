@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,700');
+
+.search-results {
+  width: 80%;
+  margin: auto;
+  padding: 30px 0;
+  border: 1px solid #A9A9A9;
+  box-shadow: 14px 12px 9px darkgrey;
+}
+
+.search-results__results {
+  font-family: 'Fira Sans', sans-serif;}
+
+.search-results__title {
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+}
+
+.search-results__list {
+  margin: 70px 20px;
+}
