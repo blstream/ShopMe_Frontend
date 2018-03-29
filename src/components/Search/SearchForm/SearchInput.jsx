@@ -45,6 +45,7 @@ class SearchInput extends React.Component {
           onBlur={this.validatePhrase}
           onKeyDown={this.handleEnter}
           className="search__form-item"
+          maxLength="30"
         />
         {!this.state.validPhrase && (<p className="search__message-error">{t(this.state.errorMessage)}</p>)}
       </div>
