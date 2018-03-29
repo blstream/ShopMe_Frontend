@@ -42,15 +42,8 @@ class CategorySelect extends Component {
     return isValid;
   }
 
-  // handleChange(event) {
-  //   const { value } = event.target;
-  //   const categoryName = this.state.categories.find(category => `${category.id}` === `${value}`);
-  //   this.setState({ value: { id: value, name: categoryName.name } });
-  // }
-
   handleChange(event) {
     this.setState({ value: event.target.value });
-    console.log(this.state.value);
   }
 
   resetInput() {
