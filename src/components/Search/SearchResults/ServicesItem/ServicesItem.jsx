@@ -1,5 +1,6 @@
 import React from 'react';
 import { translate } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import './ServicesItem.css';
 
 const ServicesItem = (props) => {
@@ -7,9 +8,12 @@ const ServicesItem = (props) => {
   const date = myDate.toLocaleDateString();
   return (
     <li className="services-item">
-      <span className="services-item services-item__title">
+      <Link
+        className="services-item services-item__title"
+        to={`/offer/${props.value.id}`}
+      >
         {props.index + 1}. {props.value.title}
-      </span>
+      </Link>
       <span className="services-item services-item__price">{props.value.basePrice} zł</span>
       <span className="services-item services-item__date">{date}</span>
     </li>
