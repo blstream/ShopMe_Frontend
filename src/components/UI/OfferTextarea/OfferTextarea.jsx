@@ -33,16 +33,28 @@ class OfferTextarea extends Component {
     const { value } = e.target;
 
     if (value.length <= 500) this.setState({ value });
-
-    this.activateNextField(value);
+    if (value.trim() !== '') this.activateNextField();
+    if (value.trim() === '') this.resetRequiredPrice();
   }
 
-  activateNextField(value) {
-    if (this.props.name === 'add-form__offer-basic' && value.trim() !== '') {
+  activateNextField() {
+    if (this.props.name === 'offer__base-description') {
       this.props.onOfferBasicChange();
     }
-    if (this.props.name === 'add-form__offer-additional' && value.trim() !== '') {
+    if (this.props.name === 'offer__extended-description') {
       this.props.onOfferAdditionalChange();
+    }
+    if (this.props.name === 'offer__extra-description') {
+      this.props.onOfferExtraChange();
+    }
+  }
+
+  resetRequiredPrice() {
+    if (this.props.name === 'offer__extended-description') {
+      this.props.onOfferAdditionalReset();
+    }
+    if (this.props.name === 'offer__extra-description') {
+      this.props.onOfferExtraReset();
     }
   }
 
