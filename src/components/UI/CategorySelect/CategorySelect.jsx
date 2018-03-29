@@ -8,10 +8,7 @@ class CategorySelect extends Component {
     super(props);
 
     this.state = {
-      value: {
-        id: '',
-        name: '',
-      },
+      value: '',
       errorMessage: '',
       isRequired: this.props.required,
       categories: [],
@@ -45,14 +42,19 @@ class CategorySelect extends Component {
     return isValid;
   }
 
+  // handleChange(event) {
+  //   const { value } = event.target;
+  //   const categoryName = this.state.categories.find(category => `${category.id}` === `${value}`);
+  //   this.setState({ value: { id: value, name: categoryName.name } });
+  // }
+
   handleChange(event) {
-    const { value } = event.target;
-    const categoryName = this.state.categories.find(category => `${category.id}` === `${value}`);
-    this.setState({ value: { id: value, name: categoryName.name } });
+    this.setState({ value: event.target.value });
+    console.log(this.state.value);
   }
 
   resetInput() {
-    this.setState({ value: { id: '', name: '' } });
+    this.setState({ value: '' });
   }
 
   render() {
@@ -67,7 +69,7 @@ class CategorySelect extends Component {
         <select
           className="input-select"
           name={this.props.name}
-          value={this.state.value.id}
+          value={this.state.value}
           placeholder={this.props.placeholder}
           disabled={this.props.disabled}
           required={this.props.required}
@@ -78,8 +80,7 @@ class CategorySelect extends Component {
           {this.state.categories.map((category, index) => (
             <option
               key={index.toString()}
-              value={category.id}
-              name={category.name}
+              value={category.name}
               className={className}
             >
               {(t(`components.UI.categorySelect.categoryOptions.${category.name}`))}

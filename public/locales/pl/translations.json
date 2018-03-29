@@ -50,7 +50,7 @@
           "others": "Inne"
         }
       },
-      "TitleInput": {
+      "titleInput": {
         "name": "Tytuł Oferty *",
         "errorEmptyField": "Pole wymagane",
         "errorMinLength": "Tytuł nie powinien być krótszy niż 2 znaki",

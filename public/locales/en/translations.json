@@ -50,7 +50,7 @@
           "others": "Others"
         }
       },
-      "TitleInput": {
+      "titleInput": {
         "name": "Title Offer *",
         "errorEmptyField": "This field is required!",
         "errorMaxLength": "The title should contains at most 30 characters",

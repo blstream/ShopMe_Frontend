@@ -32,8 +32,8 @@ class AddForm extends Component {
       this.categorySelect,
       this.basicArea,
       this.basicPrice,
-      this.additionalArea,
-      this.additionalPrice,
+      this.extendedArea,
+      this.extendedPrice,
       this.extraArea,
       this.extraPrice,
       this.nameInput,
@@ -62,26 +62,35 @@ class AddForm extends Component {
 
     if (!isRefsValid.includes(false)) {
       let basePrice = this.basicPrice.getWrappedInstance().state.value;
-      let additionalPrice = this.additionalPrice.getWrappedInstance().state.value;
+      basePrice = basePrice.substring(0, basePrice.length - 3);
+
+      let extendedPrice = this.extendedPrice.getWrappedInstance().state.value;
+      extendedPrice = extendedPrice.substring(0, extendedPrice.length - 3);
+
       let extraPrice = this.extraPrice.getWrappedInstance().state.value;
+      extraPrice = extraPrice.substring(0, extraPrice.length - 3);
+
+      const allCategories = this.categorySelect.getWrappedInstance().state.categories;
+      const categoryName = this.categorySelect.getWrappedInstance().state.value;
+      const targetCategory = allCategories.find(category => category.name === categoryName);
 
       const data = {
-        title: `${this.titleInput.getWrappedInstance().state.value}`,
+        title: this.titleInput.getWrappedInstance().state.value,
         category: {
-          id: `${this.categorySelect.getWrappedInstance().state.value.id}`,
-          name: `${this.categorySelect.getWrappedInstance().state.value.name}`,
+          id: targetCategory.id,
+          name: categoryName,
         },
-        baseDescription: `${this.basicArea.getWrappedInstance().state.value}`,
-        basePrice: basePrice = basePrice.substring(0, basePrice.length - 3),
-        extendedDescription: `${this.additionalArea.getWrappedInstance().state.value}`,
-        extendedPrice: additionalPrice = additionalPrice.substring(0, additionalPrice.length - 3),
-        extraDescription: `${this.extraArea.getWrappedInstance().state.value}`,
-        extraPrice: extraPrice = extraPrice.substring(0, extraPrice.length - 3),
+        baseDescription: this.basicArea.getWrappedInstance().state.value,
+        basePrice,
+        extendedDescription: this.extendedArea.getWrappedInstance().state.value,
+        extendedPrice,
+        extraDescription: this.extraArea.getWrappedInstance().state.value,
+        extraPrice,
         user: {
-          name: `${this.nameInput.getWrappedInstance().state.value}`,
-          email: `${this.emailInput.getWrappedInstance().state.value}`,
-          phoneNumber: `${Number(this.phoneInput.getWrappedInstance().state.value)}`,
-          additionalInfo: `${this.aboutMeArea.getWrappedInstance().state.value}`,
+          name: this.nameInput.getWrappedInstance().state.value,
+          email: this.emailInput.getWrappedInstance().state.value,
+          phoneNumber: this.phoneInput.getWrappedInstance().state.value,
+          additionalInfo: this.aboutMeArea.getWrappedInstance().state.value,
         },
       };
 
@@ -164,7 +173,7 @@ class AddForm extends Component {
             <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
               <OfferTextarea
                 name="offer-extended-description"
-                ref={(v) => { this.additionalArea = v; }}
+                ref={(v) => { this.extendedArea = v; }}
                 label={t('components.add.form.offerAdditionalLabel')}
                 placeholder={t('components.add.form.offerAdditionalPlaceholder')}
                 onOfferAdditionalChange={this.activateOfferExtra}
@@ -174,7 +183,7 @@ class AddForm extends Component {
             <div className="add-form__fieldset-item">
               <PriceInput
                 name="offer-extended-price"
-                ref={(v) => { this.additionalPrice = v; }}
+                ref={(v) => { this.extendedPrice = v; }}
                 placeholder={t('components.add.form.currency')}
                 disabled={this.state.offerAdditionalDisabled}
               />
