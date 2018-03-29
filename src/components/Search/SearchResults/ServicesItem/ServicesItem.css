@@ -16,7 +16,13 @@
   width: 300px;
   flex-grow: 2;
   margin: auto;
+  color: #000;
+  text-decoration: none;
+  transition: all 0.5s;
+}
 
+.services-item__title:hover, .services-item__title:focus {
+  color: #f89f00;
 }
 
 .services-item__price {
