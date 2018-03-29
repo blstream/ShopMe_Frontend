@@ -6,30 +6,29 @@ export default class Pagination extends React.Component {
     this.state = {
     };
   }
-
   render() {
     const page = [];
     const firstPage =
-      <div className="pagiantion--button__first">1</div>;
+      <div className="pagination__button pagiantion__button--first">1</div>;
 
     const lastPage =
-      <div className="pagiantion--button__last">last</div>;
+      <div className="pagination__button pagiantion__button--last">last</div>;
 
     const prevPage =
-      <div className="pagiantion--button__previous">prev</div>;
+      <div className="pagination__button pagiantion__button--previous">prev</div>;
 
     const nextPage =
-      <div className="pagiantion--button__next">next</div>;
+      <div className="pagination__button pagiantion__button--next">next</div>;
 
     const inactivePage =
-      <div className="pagination--button__inactive">...</div>;
+      <div className="pagination__button pagination__button--inactive">...</div>;
 
     return (
       <div className="pagination">
         {prevPage}
         {firstPage}
         {inactivePage}
-        <ul className="pagination--list">
+        <ul className="pagination__list">
           {page}
         </ul>
         {inactivePage}
