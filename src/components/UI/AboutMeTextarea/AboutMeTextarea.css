@@ -22,7 +22,7 @@
 
 .add-form__input--L {
   height: 150px;
-  width: 500px;
+  width: 90%;
   margin-bottom: -10px;
 }
 
@@ -30,6 +30,6 @@
   position: absolute;
   bottom: -30px;
   right: 0;
-  font-size: 1rem;
+  font-size: 0.75rem;
   color: red;
 }

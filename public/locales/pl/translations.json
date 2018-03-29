@@ -20,7 +20,8 @@
         "offerExtraLabel": "Ekstra",
         "offerBasicPlaceholder": "Podstawowa Usługa",
         "offerAdditionalPlaceholder": "Rozszerzona Usługa",
-        "offerExtraPlaceholder": "Ekstra Usługa"
+        "offerExtraPlaceholder": "Ekstra Usługa",
+        "submitButton": "Dodaj Ofertę"
       }
     },
     "noSearchResults" : {
@@ -75,6 +76,12 @@
         "name": "Telefon *",
         "errorEmptyField": "Pole wymagane",
         "errorPhoneRegex": "Podaj poprawny numer telefonu"
+      },
+      "priceInput": {
+        "errorEmptyField": "Pole wymagane"
+      },
+      "offerTextarea": {
+        "errorEmptyField": "Pole wymagane"
       },
       "add": {
         "addOfferText": "Dodaj ofertę"

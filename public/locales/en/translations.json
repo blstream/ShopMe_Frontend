@@ -20,7 +20,8 @@
         "offerExtraLabel": "Extra",
         "offerBasicPlaceholder": "Basic Service",
         "offerAdditionalPlaceholder": "Additional Service",
-        "offerExtraPlaceholder": "Extra Service"
+        "offerExtraPlaceholder": "Extra Service",
+        "submitButton": "Add Offer"
       }
     },
     "noSearchResults": {
@@ -75,6 +76,12 @@
         "name": "Phone number *",
         "errorEmptyField": "This field is required",
         "errorPhoneRegex": "Please enter a valid phone number"
+      },
+      "priceInput": {
+        "errorEmptyField": "This field is required"
+      },
+      "offerTextarea": {
+        "errorEmptyField": "This field is required"
       },
       "add": {
         "addOfferText": "Add offer"

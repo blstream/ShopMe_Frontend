@@ -24,9 +24,9 @@ class AddForm extends Component {
 
     this.activateOfferAdditional = this.activateOfferAdditional.bind(this);
     this.activateOfferExtra = this.activateOfferExtra.bind(this);
-    this.requirePriceExtra = this.requirePriceExtra.bind(this);
+    this.activatePriceExtra = this.activatePriceExtra.bind(this);
     this.disrequirePriceAdditional = this.disrequirePriceAdditional.bind(this);
-    this.disrequirePriceExtra = this.disrequirePriceExtra.bind(this);
+    this.disactivatePriceExtra = this.disactivatePriceExtra.bind(this);
 
     this.checkFormValidity = this.checkFormValidity.bind(this);
     this.getInputReferences = this.getInputReferences.bind(this);
@@ -68,7 +68,7 @@ class AddForm extends Component {
     }
   }
 
-  requirePriceExtra() {
+  activatePriceExtra() {
     if (!this.state.priceExtraRequired) {
       this.setState({ priceExtraRequired: true });
     }
@@ -80,7 +80,7 @@ class AddForm extends Component {
     }
   }
 
-  disrequirePriceExtra() {
+  disactivatePriceExtra() {
     if (this.state.priceExtraRequired) {
       this.setState({ priceExtraRequired: false });
     }
@@ -229,8 +229,8 @@ class AddForm extends Component {
                 ref={(v) => { this.extraArea = v; }}
                 label={t('components.add.form.offerExtraLabel')}
                 placeholder={t('components.add.form.offerExtraPlaceholder')}
-                onOfferExtraChange={this.requirePriceExtra}
-                onOfferExtraReset={this.disrequirePriceExtra}
+                onOfferExtraChange={this.activatePriceExtra}
+                onOfferExtraReset={this.disactivatePriceExtra}
                 disabled={this.state.offerExtraDisabled}
               />
             </div>
@@ -277,7 +277,7 @@ class AddForm extends Component {
               />
             </div>
             <div className="add-form__fieldset-item add-form__fieldset-item--button">
-              <button className="add-form__submit" type="submit">{t('Dodaj Ofertę')}</button>
+              <button className="add-form__submit" type="submit">{t('components.add.form.submitButton')}</button>
             </div>
           </div>
           <p className="add-form__caption">{t('components.add.form.caption')}</p>

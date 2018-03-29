@@ -24,7 +24,7 @@ class PriceInput extends Component {
     const isValid = true;
 
     if (this.state.value.trim() === '' && this.state.isRequired) {
-      this.setState({ errorMessage: t('components.UI.priceInput.errorMessage') });
+      this.setState({ errorMessage: t('components.UI.priceInput.errorEmptyField') });
       return false;
     }
 

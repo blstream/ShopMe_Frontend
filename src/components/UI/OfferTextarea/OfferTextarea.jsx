@@ -21,7 +21,7 @@ class OfferTextarea extends Component {
     const isValid = true;
 
     if (this.state.value.trim() === '' && this.state.isRequired) {
-      this.setState({ errorMessage: t('components.UI.offerTextarea.errorMessage') });
+      this.setState({ errorMessage: t('components.UI.offerTextarea.errorEmptyField') });
       return false;
     }
 

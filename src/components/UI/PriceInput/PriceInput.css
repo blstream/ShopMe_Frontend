@@ -34,8 +34,8 @@
 
 .add-form__error-message {
   position: absolute;
-  bottom: -30px;
+  bottom: -35px;
   right: 0;
-  font-size: 1rem;
+  font-size: 0.75rem;
   color: red;
 }
