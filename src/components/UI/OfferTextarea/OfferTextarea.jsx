@@ -9,7 +9,6 @@ class OfferTextarea extends Component {
     this.state = {
       value: '',
       errorMessage: '',
-      isRequired: this.props.required,
     };
     this.checkValidity = this.checkValidity.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -20,7 +19,7 @@ class OfferTextarea extends Component {
     const { t } = this.props;
     const isValid = true;
 
-    if (this.state.value.trim() === '' && this.state.isRequired) {
+    if (this.state.value.trim() === '' && this.props.required) {
       this.setState({ errorMessage: t('components.UI.offerTextarea.errorEmptyField') });
       return false;
     }

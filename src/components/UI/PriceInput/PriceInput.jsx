@@ -9,7 +9,6 @@ class PriceInput extends Component {
     this.state = {
       value: '',
       errorMessage: '',
-      isRequired: this.props.required,
     };
     this.checkValidity = this.checkValidity.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -23,7 +22,7 @@ class PriceInput extends Component {
     const { t } = this.props;
     const isValid = true;
 
-    if (this.state.value.trim() === '' && this.state.isRequired) {
+    if (this.state.value.trim() === '' && this.props.required) {
       this.setState({ errorMessage: t('components.UI.priceInput.errorEmptyField') });
       return false;
     }
@@ -62,7 +61,7 @@ class PriceInput extends Component {
     const state = this.state.value;
     const currency = /zł$/;
 
-    if (state) value = parseFloat(value.replace(',', '.')).toFixed(2);
+    if (state) value = parseFloat(value.replace(',', '.')).toFixed(2).replace('.', ',');
     if (state && !currency.test(value)) value += ' zł';
     this.setState({ value });
   }

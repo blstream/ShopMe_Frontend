@@ -24,9 +24,9 @@ class AddForm extends Component {
 
     this.activateOfferAdditional = this.activateOfferAdditional.bind(this);
     this.activateOfferExtra = this.activateOfferExtra.bind(this);
-    this.activatePriceExtra = this.activatePriceExtra.bind(this);
+    this.requirePriceExtra = this.requirePriceExtra.bind(this);
     this.disrequirePriceAdditional = this.disrequirePriceAdditional.bind(this);
-    this.disactivatePriceExtra = this.disactivatePriceExtra.bind(this);
+    this.disrequirePriceExtra = this.disrequirePriceExtra.bind(this);
 
     this.checkFormValidity = this.checkFormValidity.bind(this);
     this.getInputReferences = this.getInputReferences.bind(this);
@@ -68,7 +68,7 @@ class AddForm extends Component {
     }
   }
 
-  activatePriceExtra() {
+  requirePriceExtra() {
     if (!this.state.priceExtraRequired) {
       this.setState({ priceExtraRequired: true });
     }
@@ -80,7 +80,7 @@ class AddForm extends Component {
     }
   }
 
-  disactivatePriceExtra() {
+  disrequirePriceExtra() {
     if (this.state.priceExtraRequired) {
       this.setState({ priceExtraRequired: false });
     }
@@ -229,8 +229,8 @@ class AddForm extends Component {
                 ref={(v) => { this.extraArea = v; }}
                 label={t('components.add.form.offerExtraLabel')}
                 placeholder={t('components.add.form.offerExtraPlaceholder')}
-                onOfferExtraChange={this.activatePriceExtra}
-                onOfferExtraReset={this.disactivatePriceExtra}
+                onOfferExtraChange={this.requirePriceExtra}
+                onOfferExtraReset={this.disrequirePriceExtra}
                 disabled={this.state.offerExtraDisabled}
               />
             </div>
