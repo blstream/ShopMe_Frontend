@@ -13,19 +13,19 @@ class NameInput extends Component {
   render() {
     return (
       <GenericInput
-      type='text'
-      name={this.props.name}
-      label={this.props.label}
-      disabled={this.props.disabled}
-      required={this.props.required}
-      size= {this.props.size}
-      color={this.props.color}
-      validation={this.validator.validateName}
-      pattern={this.pattern.checkNamePattern}
+        type="text"
+        name={this.props.name}
+        label={this.props.label}
+        disabled={this.props.disabled}
+        required={this.props.required}
+        size={this.props.size}
+        color={this.props.color}
+        validation={this.validator.validateName}
+        pattern={this.pattern.checkNamePattern}
       />
     );
-    }
   }
+}
 
 export { NameInput };
 export default translate('translations', { withRef: true })(NameInput);
