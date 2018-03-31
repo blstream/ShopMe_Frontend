@@ -21,13 +21,16 @@ class GenericInput extends Component {
     }
   }
 
-  checkValidity(event) {
-    const { value } = event.target;
+  checkValidity() {
+    const { value } = this.state;
     const { validation, required, t } = this.props;
-    if (validation(required, value)) {
-      this.setState({ errorMessage: t(validation(required, value)) });
+    const error = validation(required, value);
+
+    if (error) {
+      this.setState({ errorMessage: t(error.message) });
       return false;
     }
+
     this.setState({ errorMessage: '' });
     return true;
   }
@@ -50,7 +53,6 @@ class GenericInput extends Component {
           required={this.props.required}
           value={this.state.value}
           onChange={this.handleChange}
-          onBlur={this.checkValidity}
         />
         <div className="input__error-message">
           {this.state.errorMessage}
