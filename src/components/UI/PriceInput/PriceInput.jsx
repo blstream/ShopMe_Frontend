@@ -19,10 +19,10 @@ class PriceInput extends Component {
   }
 
   checkValidity() {
-    const { t } = this.props;
+    const { required, disabled, t } = this.props;
     const isValid = true;
 
-    if (this.state.value.trim() === '' && this.props.required) {
+    if (this.state.value.trim() === '' && required && !disabled) {
       this.setState({ errorMessage: t('components.UI.priceInput.errorEmptyField') });
       return false;
     }

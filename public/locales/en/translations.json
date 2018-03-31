@@ -15,12 +15,12 @@
         "fieldsetTitle": "Define Your Service Packages",
         "caption": "* Required fields",
         "currency": "zł",
-        "offerBasicLabel": "Basic *",
-        "offerAdditionalLabel": "Additional",
+        "offerBaseLabel": "Base *",
+        "offerExtendedLabel": "Extended",
         "offerExtraLabel": "Extra",
-        "offerBasicPlaceholder": "Basic Service",
-        "offerAdditionalPlaceholder": "Additional Service",
-        "offerExtraPlaceholder": "Extra Service",
+        "offerBasePlaceholder": "Base Service Description",
+        "offerExtendedPlaceholder": "Extended Service Description",
+        "offerExtraPlaceholder": "Extra Service Description",
         "submitButton": "Add Offer"
       }
     },
@@ -52,7 +52,7 @@
         }
       },
       "titleInput": {
-        "name": "Title Offer *",
+        "name": "Offer Title *",
         "errorEmptyField": "This field is required!",
         "errorMaxLength": "The title should contains at most 30 characters",
         "errorMinLength": "The title should contains at least 3 characters"

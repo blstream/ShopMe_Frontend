@@ -15,11 +15,11 @@
         "fieldsetTitle": "Zdefiniuj Oferowane Pakiety Usług",
         "caption": "*Pola wymagane",
         "currency": "zł",
-        "offerBasicLabel": "Podstawowy *",
-        "offerAdditionalLabel": "Rozszerzony",
+        "offerBaseLabel": "Podstawowy *",
+        "offerExtendedLabel": "Rozszerzony",
         "offerExtraLabel": "Ekstra",
-        "offerBasicPlaceholder": "Podstawowa Usługa",
-        "offerAdditionalPlaceholder": "Rozszerzona Usługa",
+        "offerBasePlaceholder": "Podstawowa Usługa",
+        "offerExtendedPlaceholder": "Rozszerzona Usługa",
         "offerExtraPlaceholder": "Ekstra Usługa",
         "submitButton": "Dodaj Ofertę"
       }

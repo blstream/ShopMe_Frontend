@@ -24,6 +24,7 @@
 .add-form__input--disabled {
   background-color: #FFFFFF;
   border: 1px solid #D0D0D0;
+  color: #D0D0D0;
 }
 
 .add-form__input--disabled::placeholder {
