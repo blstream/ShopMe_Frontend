@@ -23,10 +23,10 @@ class AddForm extends Component {
     };
 
     this.activateOfferExtended = this.activateOfferExtended.bind(this);
-    this.disactivateOfferExtended = this.disactivateOfferExtended.bind(this);
+    this.deactivateOfferExtended = this.deactivateOfferExtended.bind(this);
 
     this.activateOfferExtra = this.activateOfferExtra.bind(this);
-    this.disactivateOfferExtra = this.disactivateOfferExtra.bind(this);
+    this.deactivateOfferExtra = this.deactivateOfferExtra.bind(this);
 
     this.requirePriceExtra = this.requirePriceExtra.bind(this);
     this.disrequirePriceExtra = this.disrequirePriceExtra.bind(this);
@@ -58,7 +58,7 @@ class AddForm extends Component {
     }
   }
 
-  disactivateOfferExtended() {
+  deactivateOfferExtended() {
     if (!this.state.offerExtendedDisabled) {
       this.setState({ offerExtendedDisabled: true });
     }
@@ -74,7 +74,7 @@ class AddForm extends Component {
     }
   }
 
-  disactivateOfferExtra() {
+  deactivateOfferExtra() {
     if (!this.state.offerExtraDisabled) {
       this.setState({ offerExtraDisabled: true });
     }
@@ -207,7 +207,7 @@ class AddForm extends Component {
                 label={t('components.add.form.offerBaseLabel')}
                 placeholder={t('components.add.form.offerBasePlaceholder')}
                 onOfferBaseChange={this.activateOfferExtended}
-                onOfferBaseReset={this.disactivateOfferExtended}
+                onOfferBaseReset={this.deactivateOfferExtended}
                 required
               />
             </div>
@@ -228,7 +228,7 @@ class AddForm extends Component {
                 label={t('components.add.form.offerExtendedLabel')}
                 placeholder={t('components.add.form.offerExtendedPlaceholder')}
                 onOfferExtendedChange={this.activateOfferExtra}
-                onOfferExtendedReset={this.disactivateOfferExtra}
+                onOfferExtendedReset={this.deactivateOfferExtra}
                 disabled={this.state.offerExtendedDisabled}
               />
             </div>

@@ -33,7 +33,7 @@ class OfferTextarea extends Component {
 
     if (value.length <= 500) this.setState({ value });
     if (value.trim() !== '') this.activateNextField();
-    if (value.trim() === '') this.disactivateNextFields();
+    if (value.trim() === '') this.deactivateNextFields();
   }
 
   activateNextField() {
@@ -48,7 +48,7 @@ class OfferTextarea extends Component {
     }
   }
 
-  disactivateNextFields() {
+  deactivateNextFields() {
     if (this.props.name === 'offer__base-description') {
       this.props.onOfferBaseReset();
     }
