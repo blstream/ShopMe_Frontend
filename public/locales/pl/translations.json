@@ -78,6 +78,9 @@
       },
       "add": {
         "addOfferText": "Dodaj ofertę"
+      },
+      "loginButton": {
+        "label": "Logowanie"
       }
     }
   }
