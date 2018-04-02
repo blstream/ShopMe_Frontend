@@ -4,7 +4,7 @@
       "button": "Search",
       "input": "Enter the service",
       "lengthError": "Enter longer phrase",
-      "numberError": "Phrase can't clotain only digits"
+      "numberError": "Phrase can't contain only digits"
     },
     "foundSearchResults": {
       "resultsTitle": "Wyniki wyszukiwania"
