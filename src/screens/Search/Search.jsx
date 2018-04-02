@@ -9,11 +9,12 @@ const Search = () => (
   <div>
     <header>
       <Logo />
-      <nav />
+      <nav>
+        <OfferAdd />
+      </nav>
       <LoginButton />
     </header>
     <content>
-      <OfferAdd />
       <SearchInput />
     </content>
     <footer />
