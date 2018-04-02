@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AddForm from './Form';
+import { TextInput } from './TextInput';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<AddForm t={key => key} />, div);
+  ReactDOM.render(<TextInput />, div);
 });

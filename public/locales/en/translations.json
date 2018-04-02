@@ -4,7 +4,7 @@
       "button": "Search",
       "input": "Enter the service",
       "lengthError": "Enter longer phrase",
-      "numberError": "Phrase can't cotain only digits"
+      "numberError": "Phrase can't clotain only digits"
     },
     "foundSearchResults": {
       "resultsTitle": "Wyniki wyszukiwania"
@@ -26,6 +26,19 @@
     },
     "noSearchResults": {
       "noResultsTitle": "No results have been found match your criteria."
+    },
+    "login": {
+      "login": {
+        "emailInputLabel": "E-mail:",
+        "passwordInputLabel": "Password:",
+        "submitButtonLabel": "Log In"
+      },
+      "signup": {
+        "firstNameInputLabel": "First Name:",
+        "lastNameInputLabel": "Last Name:",
+        "emailInputLabel": "E-mail:",
+        "submitButtonLabel": "Sign Up"
+      }
     },
     "UI": {
       "categorySelect": {

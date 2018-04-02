@@ -143,21 +143,3 @@
   margin: 10px 70px 0 0;
   text-align: right;
 }
-
-/* Button Styles */
-
-.add-form__submit {
-  height: 60px;
-  width: 200px;
-  background-color: #24313c;
-  border: none;
-  color: #ffffff;
-  padding: 20px;
-  font-size: 1.2rem;
-  transition: all 0.2s ease-out;
-}
-
-.add-form__submit:hover {
- cursor: pointer;
- transform: scale(0.9);
-}

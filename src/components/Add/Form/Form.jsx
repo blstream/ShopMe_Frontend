@@ -9,6 +9,7 @@ import FirstNameInput from 'components/UI/FirstNameInput/FirstNameInput';
 import EmailInput from 'components/UI/EmailInput/EmailInput';
 import PhoneInput from 'components/UI/PhoneInput/PhoneInput';
 import AboutMeTextarea from 'components/UI/AboutMeTextarea/AboutMeTextarea';
+import FormButton from 'components/UI/FormButton/FormButton';
 
 import './Form.css';
 
@@ -297,7 +298,11 @@ class AddForm extends Component {
               />
             </div>
             <div className="add-form__fieldset-item add-form__fieldset-item--button">
-              <button className="add-form__submit" type="submit">{t('components.add.form.submitButton')}</button>
+              <FormButton
+                id="add-form__submit"
+                type="submit"
+                value={t('components.add.form.submitButton')}
+              />
             </div>
           </div>
           <p className="add-form__caption">{t('components.add.form.caption')}</p>

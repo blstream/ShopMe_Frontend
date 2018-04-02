@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AddForm from './Form';
+import LoginForm from './LoginForm';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<AddForm t={key => key} />, div);
+  ReactDOM.render(<LoginForm t={key => key} />, div);
 });

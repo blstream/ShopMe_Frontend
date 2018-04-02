@@ -27,6 +27,19 @@
     "noSearchResults" : {
       "noResultsTitle": "Niestety nie znaleziono ofert spełniających twoje kryteria."
     },
+    "login": {
+      "login": {
+        "emailInputLabel": "E-mail:",
+        "passwordInputLabel": "Hasło:",
+        "submitButtonLabel": "Zaloguj"
+      },
+      "signup": {
+        "firstNameInputLabel": "Imię:",
+        "lastNameInputLabel": "Nazwisko:",
+        "emailInputLabel": "E-mail:",
+        "submitButtonLabel": "Rejestruj"
+      }
+    },
     "UI": {
       "categorySelect": {
         "name": "Kategoria *",
