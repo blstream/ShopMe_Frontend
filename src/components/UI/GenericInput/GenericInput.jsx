@@ -16,7 +16,8 @@ class GenericInput extends Component {
 
   handleChange(event) {
     const { value } = event.target;
-    if (this.props.pattern(value)) {
+    const maxLength = this.props.maxLength ? this.props.maxLength : Infinity;
+    if (value.length <= maxLength) {
       this.setState({ value });
     }
   }
