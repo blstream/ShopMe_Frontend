@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700,900&subset=latin-ext');
+
 .offer-details {
   width: 70%;
   margin: 0 auto;
@@ -11,7 +13,15 @@
 
 .offer-details__header {
   margin-bottom: 20px;
-  font-size: 2rem;
+  font-size: 3rem;
+  font-family: 'Merriweather', serif;
+  font-weight: bold;
+  border-bottom: solid 2px #fada27;
+}
+h3 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
 .offer-details__category {
@@ -30,24 +40,30 @@
 .offer-details__contact--container--email, .offer-details__contact--container--phone {
   height: 20px;
   margin-top: 10px;
+  margin-bottom: 20px;
+  line-height: 30px;
 }
 
 .offer-details__contact--button {
-  margin-left: 10px;
+  margin: 0 10px;
+  background-color: #000;
+  border: solid 3px #fade42;
+  color:#fade42;
+  font-family: 'Fira Sans', sans-serif;
+  cursor: pointer;
+  transition: all 0.5s;
+  padding: 5px 10px;
+  float: right;
 }
 
 .offer-details__contact--additional-info {
   grid-area: 1 / 2 / span 3 / span 1;
 }
 
-.offer-details__contact--additional-info--header {
-  font-size: 1rem;
-}
-
 .offer-details__offers {
   margin: 50px 20px 0 10px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .offer-details__offers--base, .offer-details__offers--extended, .offer-details__offers--extra {
@@ -56,8 +72,20 @@
   padding: 10px;
 }
 
+.offer-details__offers--base {
+  background-color: #fada2757;
+}
+.offer-details__offers--extended {
+  background-color: #fada27a6;
+}
+
+.offer-details__offers--extra {
+  background-color: #fada27;
+}
+
 .offer-details__offers--base--header, .offer-details__offers--extended--header, .offer-details__offers--extra--header {
   text-align: center;
+  font-family: 'Merriweather', serif;
 }
 
 .offer-details__offers--base--description, .offer-details__offers--extended--description, .offer-details__offers--extra--description {

@@ -66,9 +66,9 @@ export default class OfferDetails extends React.Component {
       <div className="offer-details">
         <h2 className="offer-details__header">{this.state.service.title}</h2>
         <p className="offer-details__category">{this.state.service.category.name}</p>
-        <h3 className="offer-details__header-small">Kontakt</h3>
         <div className="offer-details__contact">
           <div className="offer-details__contact--container">
+            <h3 className="offer-details__header-small">Kontakt</h3>
             <div className="offer-details__contact--container--name">{this.state.service.user.name}</div>
             <div className="offer-details__contact--container--email">{this.state.maskedEmail}
               {this.state.emailButton && <button className="offer-details__contact--button" onClick={this.handleUnmaskEmail}>Pokaż</button>}
@@ -78,9 +78,12 @@ export default class OfferDetails extends React.Component {
             </div>
           </div>
           {this.state.service.user.additionalInfo &&
-          <span className="offer-details__contact--additional-info">
-            <h3 className="offer-details__contact--additional-info--header">O mnie</h3>{this.state.service.user.additionalInfo}
-          </span>}
+            <div className="offer-details__contact--additional-info">
+              <h3 className="offer-details__contact--additional-info--header">O mnie</h3>
+              <p>
+                {this.state.service.user.additionalInfo}
+              </p>
+            </div>}
         </div>
         <div className="offer-details__offers">
           <div className="offer-details__offers--base">
