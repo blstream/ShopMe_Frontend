@@ -1,9 +1,15 @@
 .input__wrapper {
   position: relative;
+  display:flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
 }
 
 .input__label {
-  padding: 10px 5px;
+  margin: 10px;
+	display: inline-block;
+	width: 80px;
+	text-align: right;
 }
 
 .input__label--yellow {
@@ -18,13 +24,15 @@
 .input {
   color: inherit;
   padding: 10px;
-  background-color: #E0E0E0;
   border: none;
+}
+
+.input--grey {
+  background-color: #E0E0E0;
 }
 
 .input--yellow {
   background-color: #FEECA5;
-  border: none;
 }
 
 .input--XL {
@@ -52,7 +60,7 @@
 
 .input__error-message {
   position: absolute;
-  bottom: -30px;
+  bottom: -20px;
   right: 0;
   font-size: 0.75rem;
   color: #FF0000;
@@ -61,6 +69,7 @@
 .input--disabled {
   background-color: #FFFFFF;
   border: 1px solid #D0D0D0;
+  color: #D0D0D0;
 }
 
 .input--disabled::placeholder {

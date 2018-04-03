@@ -19,11 +19,14 @@ class LoginForm extends Component {
           <div className="login-form__icon-container">
             <i className="login-form__icon login-form__icon--login far fa-user" />
           </div>
+          <h1 className="login-form__title">{t('components.login.login.formTitle')}</h1>
           <div className="login-form__item">
             <TextInput
               name="login__user-email"
               type="email"
               label={t('components.login.login.emailInputLabel')}
+              color="yellow"
+              size="M"
               required
             />
           </div>
@@ -32,6 +35,8 @@ class LoginForm extends Component {
               name="login__user-password"
               type="password"
               label={t('components.login.login.passwordInputLabel')}
+              color="yellow"
+              size="M"
               required
             />
           </div>

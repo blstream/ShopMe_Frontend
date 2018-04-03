@@ -2,6 +2,7 @@ export default class Validator {
   constructor() {
     this.errorMessage = '';
     this.validateName = this.validateName.bind(this);
+    this.validateTextInput = this.validateTextInput.bind(this);
   }
 
   validateName(required, value) {
@@ -16,6 +17,14 @@ export default class Validator {
     const pattern = /^[a-zA-Z]+$/;
     if (!pattern.test(value)) {
       this.errorMessage = 'components.UI.firstNameInput.errorOnlyAlpha';
+      return this.errorMessage;
+    }
+    return false;
+  }
+
+  validateTextInput(required, value) {
+    if (required && value.trim() === '') {
+      this.errorMessage = 'components.UI.firstNameInput.errorEmptyField';
       return this.errorMessage;
     }
     return false;

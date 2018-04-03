@@ -11,7 +11,7 @@ class NameInput extends Component {
   render() {
     return (
       <GenericInput
-        type="text"
+        type={this.props.type}
         name={this.props.name}
         label={this.props.label}
         disabled={this.props.disabled}

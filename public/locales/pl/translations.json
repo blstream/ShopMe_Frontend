@@ -31,13 +31,15 @@
       "login": {
         "emailInputLabel": "E-mail:",
         "passwordInputLabel": "Hasło:",
-        "submitButtonLabel": "Zaloguj"
+        "submitButtonLabel": "Zaloguj",
+        "formTitle": "Logowanie"
       },
       "signup": {
         "firstNameInputLabel": "Imię:",
         "lastNameInputLabel": "Nazwisko:",
         "emailInputLabel": "E-mail:",
-        "submitButtonLabel": "Rejestruj"
+        "submitButtonLabel": "Rejestruj",
+        "formTitle": "Rejestracja"
       }
     },
     "UI": {

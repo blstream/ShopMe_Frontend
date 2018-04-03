@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
+import NameInput from 'components/UI/NameInput/NameInput';
 import TextInput from 'components/UI/TextInput/TextInput';
 import FormButton from 'components/UI/FormButton/FormButton';
 
@@ -19,11 +20,15 @@ class SignupForm extends Component {
           <div className="login-form__icon-container">
             <i className="login-form__icon login-form__icon--signup fas fa-user-plus" />
           </div>
+          <h1 className="login-form__title">{t('components.login.signup.formTitle')}</h1>
           <div className="login-form__item">
-            <TextInput
+            <NameInput
               name="signup__user-first-name"
               type="text"
               label={t('components.login.signup.firstNameInputLabel')}
+              color="yellow"
+              size="M"
+              maxLength="30"
               required
             />
           </div>
@@ -32,6 +37,9 @@ class SignupForm extends Component {
               name="signup__user-last-name"
               type="text"
               label={t('components.login.signup.lastNameInputLabel')}
+              color="yellow"
+              size="M"
+              maxLength="50"
               required
             />
           </div>
@@ -40,6 +48,8 @@ class SignupForm extends Component {
               name="signup__user-email"
               type="email"
               label={t('components.login.signup.emailInputLabel')}
+              color="yellow"
+              size="M"
               required
             />
           </div>

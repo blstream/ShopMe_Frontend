@@ -12,6 +12,7 @@ class GenericInput extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.checkValidity = this.checkValidity.bind(this);
+    this.resetInput = this.resetInput.bind(this);
   }
 
   handleChange(event) {
@@ -34,6 +35,10 @@ class GenericInput extends Component {
 
     this.setState({ errorMessage: '' });
     return true;
+  }
+
+  resetInput() {
+    this.setState({ value: '' });
   }
 
   render() {
