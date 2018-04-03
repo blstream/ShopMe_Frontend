@@ -2,7 +2,6 @@ import React from 'react';
 import SearchForm from 'components/Search/SearchForm/SearchForm';
 import FoundSearchResults from 'components/Search/SearchResults/FoundSearchResults/FoundSearchResults';
 import NoSearchResults from 'components/Search/SearchResults/NoSearchResults/NoSearchResults';
-import Pagination from 'components/Search/SearchResults/Pagination/Pagination';
 
 export default class SearchInput extends React.Component {
   constructor(props) {
@@ -38,7 +37,6 @@ export default class SearchInput extends React.Component {
           updateFoundServices={this.updateFoundServices}
         />
         {results}
-        <Pagination />
       </div>
     );
   }
