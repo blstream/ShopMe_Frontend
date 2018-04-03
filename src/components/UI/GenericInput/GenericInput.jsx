@@ -24,10 +24,10 @@ class GenericInput extends Component {
   checkValidity() {
     const { value } = this.state;
     const { validation, required, t } = this.props;
-    const error = validation(required, value);
+    const errorMessage = validation(required, value);
 
-    if (error) {
-      this.setState({ errorMessage: t(error.message) });
+    if (errorMessage) {
+      this.setState({ errorMessage: t(errorMessage) });
       return false;
     }
 

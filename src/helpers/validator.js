@@ -1,23 +1,22 @@
-class Error {
-  constructor(message) {
-    this.message = message;
-  }
-}
-
 export default class Validator {
+  constructor() {
+    this.errorMessage = '';
+    this.validateName = this.validateName.bind(this);
+  }
+
   validateName(required, value) {
     if (required && value.trim() === '') {
-      const error = new Error('components.UI.firstNameInput.errorEmptyField');
-      return error;
+      this.errorMessage = 'components.UI.firstNameInput.errorEmptyField';
+      return this.errorMessage;
     }
     if (value.length < 3) {
-      const error = new Error('components.UI.firstNameInput.errorMinLength');
-      return error;
+      this.errorMessage = 'components.UI.firstNameInput.errorMinLength';
+      return this.errorMessage;
     }
     const pattern = /^[a-zA-Z]+$/;
     if (!pattern.test(value)) {
-      const error = new Error('components.UI.firstNameInput.errorOnlyAlpha');
-      return error;
+      this.errorMessage = 'components.UI.firstNameInput.errorOnlyAlpha';
+      return this.errorMessage;
     }
     return false;
   }
