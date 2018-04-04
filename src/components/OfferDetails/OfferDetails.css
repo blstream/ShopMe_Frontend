@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700,900&subset=latin-ext');
-
 .offer-details {
   width: 70%;
   margin: 0 auto;
@@ -18,7 +16,7 @@
   font-weight: bold;
   border-bottom: solid 2px #fada27;
 }
-h3 {
+.offer-details h3 {
   font-family: 'Merriweather', serif;
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
@@ -38,7 +36,6 @@ h3 {
 }
 
 .offer-details__contact--container--email, .offer-details__contact--container--phone {
-  height: 20px;
   margin-top: 10px;
   margin-bottom: 20px;
   line-height: 30px;
@@ -49,7 +46,6 @@ h3 {
   background-color: #000;
   border: solid 3px #fade42;
   color:#fade42;
-  font-family: 'Fira Sans', sans-serif;
   cursor: pointer;
   transition: all 0.5s;
   padding: 5px 10px;
@@ -67,9 +63,12 @@ h3 {
 }
 
 .offer-details__offers--base, .offer-details__offers--extended, .offer-details__offers--extra {
-  width: 30%;
   box-shadow: 1px 1px 9px 5px #a9a9a994;
   padding: 0 0 15px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 15px;
 }
 
 .offer-details__offers--base--header {
@@ -87,6 +86,7 @@ h3 {
   text-align: center;
   font-family: 'Merriweather', serif;
   padding: 10px;
+  margin: 0;
 }
 
 .offer-details__offers--base--description, .offer-details__offers--extended--description, .offer-details__offers--extra--description {
