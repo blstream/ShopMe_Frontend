@@ -1,7 +1,7 @@
 import React from 'react';
 import { translate } from 'react-i18next';
 import RegisterForm from 'components/Register/RegisterForm/RegisterForm';
-import Logo from 'components/UI/Logo';
+import Logo from 'components/UI/Logo/Logo';
 
 const SreensRegister = () => (
   <div>
