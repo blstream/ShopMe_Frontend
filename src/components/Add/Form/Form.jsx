@@ -13,6 +13,20 @@ import AboutMeTextarea from 'components/UI/AboutMeTextarea/AboutMeTextarea';
 import './Form.css';
 
 class AddForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      offerAdditionalDisabled: true,
+      offerExtraDisabled: true,
+    };
+
+    this.activateOfferAdditional = this.activateOfferAdditional.bind(this);
+    this.activateOfferExtra = this.activateOfferExtra.bind(this);
+    this.checkFormValidity = this.checkFormValidity.bind(this);
+    this.getInputReferences = this.getInputReferences.bind(this);
+    this.gatherFormData = this.gatherFormData.bind(this);
+  }
+
   static resetFormInputs(refs) {
     refs.forEach((ref) => {
       ref.getWrappedInstance().resetInput();
@@ -37,18 +51,15 @@ class AddForm extends Component {
       .then(response => console.log('Success', response.status));
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      offerAdditionalDisabled: true,
-      offerExtraDisabled: true,
-    };
+  static removeEmpty(obj) {
+    const clearedFormData = obj;
+    Object.keys(clearedFormData).forEach((key) => {
+      if (obj[key] === null || obj[key] === '' || obj[key] === undefined) {
+        delete clearedFormData[key];
+      }
+    });
 
-    this.activateOfferAdditional = this.activateOfferAdditional.bind(this);
-    this.activateOfferExtra = this.activateOfferExtra.bind(this);
-    this.checkFormValidity = this.checkFormValidity.bind(this);
-    this.getInputReferences = this.getInputReferences.bind(this);
-    this.gatherFormData = this.gatherFormData.bind(this);
+    return clearedFormData;
   }
 
   getInputReferences() {
@@ -102,7 +113,8 @@ class AddForm extends Component {
       },
     };
 
-    return data;
+    const formattedData = AddForm.removeEmpty(data);
+    return formattedData;
   }
 
   activateOfferAdditional() {
