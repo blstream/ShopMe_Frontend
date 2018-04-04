@@ -81,13 +81,23 @@ class AddForm extends Component {
 
   gatherFormData() {
     let basePrice = this.basicPrice.getWrappedInstance().state.value;
-    basePrice = basePrice.substring(0, basePrice.length - 3);
-
     let extendedPrice = this.extendedPrice.getWrappedInstance().state.value;
-    extendedPrice = extendedPrice.substring(0, extendedPrice.length - 3);
-
     let extraPrice = this.extraPrice.getWrappedInstance().state.value;
-    extraPrice = extraPrice.substring(0, extraPrice.length - 3);
+
+    if (basePrice !== '') {
+      basePrice = basePrice.substring(0, basePrice.length - 3);
+      basePrice = parseFloat(basePrice.replace(',', '.')).toFixed(2);
+    }
+
+    if (extendedPrice !== '') {
+      extendedPrice = extendedPrice.substring(0, extendedPrice.length - 3);
+      extendedPrice = parseFloat(extendedPrice.replace(',', '.')).toFixed(2);
+    }
+
+    if (extraPrice !== '') {
+      extraPrice = extraPrice.substring(0, extraPrice.length - 3);
+      extraPrice = parseFloat(extraPrice.replace(',', '.')).toFixed(2);
+    }
 
     const allCategories = this.categorySelect.getWrappedInstance().state.categories;
     const categoryName = this.categorySelect.getWrappedInstance().state.value;
