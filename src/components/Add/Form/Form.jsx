@@ -14,29 +14,6 @@ import FormButton from 'components/UI/FormButton/FormButton';
 import './Form.css';
 
 class AddForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      offerExtendedDisabled: true,
-      offerExtraDisabled: true,
-      priceExtendedRequired: false,
-      priceExtraRequired: false,
-    };
-
-    this.activateOfferExtended = this.activateOfferExtended.bind(this);
-    this.deactivateOfferExtended = this.deactivateOfferExtended.bind(this);
-
-    this.activateOfferExtra = this.activateOfferExtra.bind(this);
-    this.deactivateOfferExtra = this.deactivateOfferExtra.bind(this);
-
-    this.requirePriceExtra = this.requirePriceExtra.bind(this);
-    this.disrequirePriceExtra = this.disrequirePriceExtra.bind(this);
-
-    this.checkFormValidity = this.checkFormValidity.bind(this);
-    this.getInputReferences = this.getInputReferences.bind(this);
-    this.gatherFormData = this.gatherFormData.bind(this);
-  }
-
   static resetFormInputs(refs) {
     refs.forEach((ref) => {
       ref.getWrappedInstance().resetInput();
@@ -62,14 +39,38 @@ class AddForm extends Component {
   }
 
   static removeEmpty(object) {
-    const clearedFormData = object;
+    const clearedFormData = Object.assign({}, object);
     Object.keys(clearedFormData).forEach((key) => {
-      if (object[key] === null || object[key] === '' || object[key] === undefined) {
+      if (!object[key]) {
         delete clearedFormData[key];
       }
     });
 
     return clearedFormData;
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      offerExtendedDisabled: true,
+      offerExtraDisabled: true,
+      priceExtendedRequired: false,
+      priceExtraRequired: false,
+    };
+
+    this.activateOfferExtended = this.activateOfferExtended.bind(this);
+    this.deactivateOfferExtended = this.deactivateOfferExtended.bind(this);
+
+    this.activateOfferExtra = this.activateOfferExtra.bind(this);
+    this.deactivateOfferExtra = this.deactivateOfferExtra.bind(this);
+
+    this.requirePriceExtra = this.requirePriceExtra.bind(this);
+    this.disrequirePriceExtra = this.disrequirePriceExtra.bind(this);
+
+    this.checkFormValidity = this.checkFormValidity.bind(this);
+    this.getInputReferences = this.getInputReferences.bind(this);
+    this.gatherFormData = this.gatherFormData.bind(this);
+    this.pricesFormatting = this.pricesFormatting.bind(this);
   }
 
   getInputReferences() {
@@ -89,7 +90,7 @@ class AddForm extends Component {
     ];
   }
 
-  gatherFormData() {
+  pricesFormatting() {
     let basePrice = this.basicPrice.getWrappedInstance().state.value;
     let extendedPrice = this.extendedPrice.getWrappedInstance().state.value;
     let extraPrice = this.extraPrice.getWrappedInstance().state.value;
@@ -109,9 +110,18 @@ class AddForm extends Component {
       extraPrice = parseFloat(extraPrice.replace(',', '.')).toFixed(2);
     }
 
+    return [
+      basePrice,
+      extendedPrice,
+      extraPrice,
+    ];
+  }
+
+  gatherFormData() {
     const allCategories = this.categorySelect.getWrappedInstance().state.categories;
     const categoryName = this.categorySelect.getWrappedInstance().state.value;
     const targetCategory = allCategories.find(category => category.name === categoryName);
+    const [basePrice, extendedPrice, extraPrice] = this.pricesFormatting();
 
     const data = {
       title: this.titleInput.getWrappedInstance().state.value,
