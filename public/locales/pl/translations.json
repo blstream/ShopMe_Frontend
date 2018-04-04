@@ -41,6 +41,23 @@
         "emailInputLabel": "E-mail:",
         "submitButtonLabel": "Rejestruj",
         "formTitle": "Rejestracja"
+      },
+      "register": {
+        "firstNameInputLabel": "Imię:",
+        "lastNameInputLabel": "Nazwisko:",
+        "emailInputLabel": "E-mail:",
+        "passwordInputLabel": "Hasło:",
+        "password2InputLabel": "Powtórz hasło:",
+        "phoneNumberInputLabel": "Numer telefonu:",
+        "bankAccountInputLabel": "Nr konta bankowego:",
+        "streetInputLabel": "Ulica:",
+        "houseNumberInputLabel": "Nr domu:",
+        "localityInputLabel": "Miejscowość:",
+        "zipCodeInputLabel": "Kod pocztowy:",
+        "companyNameInputLabel": "Nazwa firmy:",
+        "nipInputLabel": "NIP:",
+        "submitButtonLabel": "Rejestruj",
+        "formTitle": "Rejestracja użytkownika"
       }
     },
     "UI": {
