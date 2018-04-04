@@ -41,7 +41,23 @@
         "emailInputLabel": "E-mail:",
         "submitButtonLabel": "Sign Up",
         "formTitle": "Registration"
-      }
+      },
+      "register": {
+        "firstNameInputLabel": "First Name:",
+        "lastNameInputLabel": "Last Name:",
+        "emailInputLabel": "E-mail:",
+        "passwordInputLabel": "Password:",
+        "password2InputLabel": "Confirm Password:",
+        "phoneNumberInputLabel": "Phone Number:",
+        "bankAccountInputLabel": "Bank Account Number:",
+        "streetInputLabel": "Street:",
+        "houseNumberInputLabel": "House Number:",
+        "localityInputLabel": "City:",
+        "zipCodeInputLabel": "Zip Code:",
+        "companyNameInputLabel": "Company Name:",
+        "nipInputLabel": "Taxpayer Identification Number:",
+        "submitButtonLabel": "Sign Up",
+        "formTitle": "Register"
     },
     "UI": {
       "categorySelect": {

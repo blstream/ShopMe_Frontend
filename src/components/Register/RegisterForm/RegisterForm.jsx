@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { translate } from 'react-i18next';
 import TextInput from 'components/UI/TextInput/TextInput';
 import FormButton from 'components/UI/FormButton/FormButton';
+import InvoiceInputGroup from 'components/UI/InvoiceInputGroup/InvoiceInputGroup';
 
 import './Register.css';
 
@@ -97,7 +98,7 @@ class RegisterForm extends Component {
           </div>
           <div className="register-form__item">
             <TextInput
-              name="register__street"
+              name="register__user-street"
               type="text"
               label={t('components.login.register.streetInputLabel')}
               color="yellow"
@@ -139,12 +140,7 @@ class RegisterForm extends Component {
               required
             />
           </div>
-          {/* <div className="login-form__item">
-            <label htmlFor="billingRequired">Dane do faktury </label>
-            <input type="checkbox" name="billing" value="billingRequired" checked />
-          </div> */}
-
-
+          <InvoiceInputGroup />
           <div className="register-form__item register-form__item--button">
             <FormButton
               id="register-form__submit"

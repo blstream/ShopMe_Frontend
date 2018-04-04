@@ -55,7 +55,6 @@
 .register-form__item {
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: flex-end; */
   margin: 20px 40px;
 }
 
