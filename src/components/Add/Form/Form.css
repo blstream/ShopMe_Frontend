@@ -1,16 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,700,800,900&subset=latin-ext');
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 .add-form {
   max-width: 80%;
   margin: 30px auto;
   background-color: #FFFFFF;
-  font-family: 'Fira Sans', sans-serif;
   font-size: 1rem;
   color: #000000;
   border: 1px solid #A9A9A9;

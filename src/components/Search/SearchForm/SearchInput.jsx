@@ -46,6 +46,7 @@ class SearchInput extends React.Component {
           onKeyDown={this.handleEnter}
           className="search__form-item"
           maxLength="30"
+          aria-label={t('components.searchForm.label')}
         />
         {!this.state.validPhrase && (<p className="search__message-error">{t(this.state.errorMessage)}</p>)}
       </div>

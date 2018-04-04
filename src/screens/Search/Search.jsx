@@ -14,9 +14,9 @@ const Search = () => (
       </nav>
       <LoginButton />
     </header>
-    <content>
+    <main>
       <SearchInput />
-    </content>
+    </main>
     <footer />
   </div>
 );

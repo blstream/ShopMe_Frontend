@@ -1,13 +1,8 @@
 import React from 'react';
 import { translate } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import RedirectButton from 'components/UI/Add/RedirectButton';
 import './OfferAdd.css';
-
-const RedirectButton = () => (
-  <button type="button" className="add-offer__btn add-offer__btn--black">
-    <i className="fa fa-plus-circle" aria-hidden="true" />
-  </button>
-);
 
 const ScreenOfferAdd = props => (
   <div className="add-offer">

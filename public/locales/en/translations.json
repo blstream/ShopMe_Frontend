@@ -3,6 +3,7 @@
     "searchForm": {
       "button": "Search",
       "input": "Enter the service",
+      "label": "Service search engine",
       "lengthError": "Enter longer phrase",
       "numberError": "Phrase can't contain only digits"
     },
@@ -100,6 +101,9 @@
       },
       "add": {
         "addOfferText": "Add offer"
+      },
+      "redirectButton": {
+        "label": "Add offer"
       },
       "loginButton": {
         "label": "Log In"

@@ -1,16 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,700');
-@import url('https://fonts.googleapis.com/css?family=Pacifico');
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
-body {
-  width: 1180px;
-  margin: 0 auto;
-  max-width: 100%;
-  font-family: 'Fira Sans', sans-serif;}
 
 header {
   display: grid;
@@ -23,16 +15,6 @@ nav {
 
 .add-offer {
   justify-self: end;
-}
-
-.logo-container a {
-  text-decoration: none;
-  color: #000;
-}
-
-.logo-container__logo {
-  font-family: 'Pacifico', cursive;
-  font-size: 2rem;
 }
 
 .search__form {
@@ -50,7 +32,6 @@ nav {
   width: calc(100% - 165px);
 }
 .search__message-error {
-  font-family: 'Fira Sans', sans-serif;
   font-size: 15px;
   padding: 15px 0;
 }

@@ -3,6 +3,7 @@
     "searchForm" : {
       "button": "Szukaj",
       "input": "Wpisz szukaną usługę",
+      "label": "Wyszukiwarka usług",
       "lengthError": "Podaj frazę składającą się z większej liczby liter",
       "numberError": "Podaj frazę nieskładającą się z samych liczb"
     },
@@ -100,6 +101,9 @@
       },
       "add": {
         "addOfferText": "Dodaj ofertę"
+      },
+      "redirectButton": {
+        "label": "Dodaj ofertę"
       },
       "loginButton": {
         "label": "Logowanie"
