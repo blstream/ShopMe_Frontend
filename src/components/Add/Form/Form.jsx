@@ -158,8 +158,8 @@ class AddForm extends Component {
       const url = 'https://patronage2018.intive-projects.com/api/offers';
 
       fetch(url, myInit)
-        .catch(error => console.error('Error:', error))
-        .then(response => console.log('Success', response.status));
+        .catch(() => {})
+        .then(() => {});
 
       refs.forEach((ref) => {
         ref.getWrappedInstance().resetInput();
