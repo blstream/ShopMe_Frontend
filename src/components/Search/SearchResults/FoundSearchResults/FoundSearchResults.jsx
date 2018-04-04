@@ -16,7 +16,7 @@ class SearchResults extends React.Component {
   }
 
   handlePageChange(page) {
-    const foundServices = this.state.offers.slice((page - 1) * 10, ((page - 1) * 10) + 2);
+    const foundServices = this.state.foundServices.slice((page - 1) * 10, ((page - 1) * 10) + 2);
     this.setState({ page, foundServices });
   }
 

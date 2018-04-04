@@ -4,6 +4,8 @@ export default class Pagination extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      startPage: null,
+      endPage: null,
     };
     this.onPageChange = this.onPageChange.bind(this);
     this.goFirstPage = this.goFirstPage.bind(this);
@@ -11,16 +13,18 @@ export default class Pagination extends React.Component {
     this.goPrevPage = this.goPrevPage.bind(this);
     this.goNextPage = this.goNextPage.bind(this);
   }
-  onPageChange(event) {
-    const index = Array.protytype.indexOf.call(event.target.parentNode.children, event.target);
-    this.props.onPageChange(index + this.state.startPage);
-  }
-  getDerivedStateFromProps(newProps, prevState) {
-    if (newProps === prevState) return;
+
+  componentWillReceiveProps(newProps) {
+    if (newProps === this.props) return;
     const { margin, page, count } = newProps;
     const startPage = page > margin ? page - margin : 1;
     const endPage = page + margin > count ? count : page + margin;
     this.setState({ startPage, endPage, count });
+  }
+
+  onPageChange(event) {
+    const index = Array.prototype.indexOf.call(event.target.parentNode.children, event.target);
+    this.props.onPageChange(index + this.state.startPage);
   }
   goFirstPage() {
     this.props.onPageChange(1);
@@ -71,7 +75,7 @@ export default class Pagination extends React.Component {
       (
         <button
           className="pagination__button pagiantion__button--next"
-          onClik={this.goNextPage}
+          onClick={this.goNextPage}
         >next
         </button>
       );
