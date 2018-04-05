@@ -1,12 +1,13 @@
 .input-title {
 	width: 250px;
   border: none;
-  height: 27px;
+  height: 30px;
   background-color: #E0E0E0;
 	color: inherit;
 	outline: none;
   padding: 5px 5px 5px 10px;
   margin-left: 10px;
+  box-sizing: border-box;
 }
 
 .input-title__errorMessage {
