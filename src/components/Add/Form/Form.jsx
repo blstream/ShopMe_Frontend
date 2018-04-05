@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
-import { Redirect } from 'react-router'
+import { Redirect } from 'react-router';
 
 import TitleInput from 'components/UI/TitleInput/TitleInput';
 import CategorySelect from 'components/UI/CategorySelect/CategorySelect';
