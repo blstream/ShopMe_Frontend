@@ -6,7 +6,9 @@ export default class Pagination extends React.Component {
     this.state = {
       startPage: null,
       endPage: null,
+      pageCounter: this.props.count,
     };
+
     this.onPageChange = this.onPageChange.bind(this);
     this.goFirstPage = this.goFirstPage.bind(this);
     this.goLastPage = this.goLastPage.bind(this);
@@ -16,10 +18,10 @@ export default class Pagination extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (newProps === this.props) return;
-    const { margin, page, count } = newProps;
+    const { margin, page, pageCounter } = this.props;
     const startPage = page > margin ? page - margin : 1;
-    const endPage = page + margin > count ? count : page + margin;
-    this.setState({ startPage, endPage, count });
+    const endPage = page + margin > pageCounter ? pageCounter : page + margin;
+    this.setState({ startPage, endPage, pageCounter });
   }
 
   onPageChange(event) {
@@ -30,7 +32,7 @@ export default class Pagination extends React.Component {
     this.props.onPageChange(1);
   }
   goLastPage() {
-    this.props.onPageChange(this.state.count);
+    this.props.onPageChange(this.state.pageCounter);
   }
   goPrevPage() {
     this.props.onPageChange(this.props.page - 1);
@@ -39,7 +41,7 @@ export default class Pagination extends React.Component {
     this.props.onPageChange(this.props.page + 1);
   }
   render() {
-    const { startPage, endPage, count } = this.state;
+    const { startPage, endPage, pageCounter } = this.state;
     const { page, margin } = this.props;
     const pages = [];
     const firstPage = page - margin > 1 ?
@@ -52,12 +54,12 @@ export default class Pagination extends React.Component {
       ) :
       null;
 
-    const lastPage = page + margin < count ?
+    const lastPage = page + margin < pageCounter ?
       (
         <button
           className="pagination__button pagiantion__button--last"
           onClick={this.goLastPage}
-        >{count}
+        >{pageCounter}
         </button>
       ) :
       null;
@@ -71,7 +73,7 @@ export default class Pagination extends React.Component {
         </button>
       );
 
-    const nextPage = page === count ? null :
+    const nextPage = page === pageCounter ? null :
       (
         <button
           className="pagination__button pagiantion__button--next"
@@ -80,7 +82,7 @@ export default class Pagination extends React.Component {
         </button>
       );
 
-    const inactivePage = count >= 5 ?
+    const inactivePage = pageCounter >= 5 ?
       (
         <button
           className="pagination__button pagination__button--inactive"
