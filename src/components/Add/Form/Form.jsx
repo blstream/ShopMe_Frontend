@@ -41,9 +41,9 @@ class AddForm extends Component {
   static removeEmpty(object) {
     const clearedFormData = Object.assign({}, object);
     Object.keys(clearedFormData).forEach((key) => {
-      if (!object[key]) {
-        delete clearedFormData[key];
-      }
+      if (clearedFormData[key] && typeof clearedFormData[key] === 'object') {
+        clearedFormData[key] = AddForm.removeEmpty(clearedFormData[key]);
+      } else if (!clearedFormData[key]) delete clearedFormData[key];
     });
 
     return clearedFormData;
@@ -51,9 +51,9 @@ class AddForm extends Component {
 
   static getFormattedPrice(price) {
     let formattedPrice = price;
-    if (price !== '') {
-      formattedPrice = price.substring(0, price.length - 3);
-      formattedPrice = parseFloat(price.replace(',', '.')).toFixed(2);
+    if (formattedPrice !== '') {
+      formattedPrice = formattedPrice.substring(0, formattedPrice.length - 3);
+      formattedPrice = parseFloat(formattedPrice.replace(',', '.'));
     }
     return formattedPrice;
   }
@@ -103,14 +103,10 @@ class AddForm extends Component {
     const categoryName = this.categorySelect.getWrappedInstance().state.value;
     const targetCategory = allCategories.find(category => category.name === categoryName);
 
-    const basePrice =
-      AddForm.getFormattedPrice(this.basicPrice.getWrappedInstance().state.value);
-
+    const basePrice = AddForm.getFormattedPrice(this.basicPrice.getWrappedInstance().state.value);
     const extendedPrice =
       AddForm.getFormattedPrice(this.extendedPrice.getWrappedInstance().state.value);
-
-    const extraPrice =
-      AddForm.getFormattedPrice(this.extraPrice.getWrappedInstance().state.value);
+    const extraPrice = AddForm.getFormattedPrice(this.extraPrice.getWrappedInstance().state.value);
 
     const data = {
       title: this.titleInput.getWrappedInstance().state.value,
@@ -132,8 +128,7 @@ class AddForm extends Component {
       },
     };
 
-    const formattedData = AddForm.removeEmpty(data);
-    return formattedData;
+    return AddForm.removeEmpty(data);
   }
 
   activateOfferExtended() {
