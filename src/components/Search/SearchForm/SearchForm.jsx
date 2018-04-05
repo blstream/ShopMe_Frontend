@@ -14,6 +14,8 @@ class SearchForm extends React.Component {
 
     this.handleSearchInputChanged = this.handleSearchInputChanged.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    console.log('This shouldn\' be here...")
   }
 
 
