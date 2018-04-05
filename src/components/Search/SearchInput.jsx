@@ -15,8 +15,8 @@ export default class SearchInput extends React.Component {
   }
 
   updateFoundServices(foundServices) {
-    if (foundServices.length > 0) {
-      this.setState({ foundServices, notFoundServices: false });
+    if (foundServices.content) {
+      this.setState({ foundServices: foundServices.content, notFoundServices: false });
     } else {
       this.setState({ notFoundServices: true });
     }
