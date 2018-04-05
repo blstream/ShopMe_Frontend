@@ -23,6 +23,9 @@
         "offerExtendedPlaceholder": "Rozszerzona Usługa",
         "offerExtraPlaceholder": "Ekstra Usługa",
         "submitButton": "Dodaj Ofertę"
+      },
+      "successMessage": {
+        "text": "Pomyślnie dodano ofertę"
       }
     },
     "noSearchResults" : {
