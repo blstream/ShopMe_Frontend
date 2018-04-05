@@ -23,6 +23,9 @@
         "offerExtendedPlaceholder": "Extended Service Description",
         "offerExtraPlaceholder": "Extra Service Description",
         "submitButton": "Add Offer"
+      },
+      "successMessage": {
+        "text": "The offer has been successfully added"
       }
     },
     "noSearchResults": {
@@ -58,6 +61,7 @@
         "nipInputLabel": "Taxpayer Identification Number:",
         "submitButtonLabel": "Sign Up",
         "formTitle": "Register"
+      }
     },
     "UI": {
       "categorySelect": {

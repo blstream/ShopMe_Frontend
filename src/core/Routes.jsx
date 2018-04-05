@@ -5,11 +5,13 @@ import ScreensAddForm from 'screens/Add/Form/Form';
 import ScreensOfferDetails from 'screens/OfferDetails/OfferDetails';
 import ScreensLogin from 'screens/Login/Login';
 import ScreensRegister from 'screens/Register/Register';
+import ScreenSuccessAdd from 'screens/Add/SuccessAdd/SuccessAdd';
 
 export default() => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={ScreensSearch} />
+      <Route exact path="/add/form/success" component={ScreenSuccessAdd} />
       <Route path="/add/form" component={ScreensAddForm} />
       <Route path="/offer/:offerId" component={ScreensOfferDetails} />
       <Route path="/login" component={ScreensLogin} />
