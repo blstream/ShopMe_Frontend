@@ -31,7 +31,7 @@ class AddForm extends Component {
       body: JSON.stringify(data),
     };
 
-    const url = 'https://patronage2018.intive-projects.com/api/offers';
+    const url = `${process.env.REACT_APP_API}/offers/`;
 
     fetch(url, myInit)
       .catch(error => console.error('Error:', error))

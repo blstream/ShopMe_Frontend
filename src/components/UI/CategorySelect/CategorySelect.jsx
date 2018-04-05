@@ -20,7 +20,7 @@ class CategorySelect extends Component {
   }
 
   componentDidMount() {
-    fetch('https://patronage2018.intive-projects.com/api/categories')
+    fetch(`${process.env.REACT_APP_API}/categories`)
       .then(response => (response.json()))
       .then(categories => this.setState({ categories }));
   }
