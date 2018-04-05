@@ -205,7 +205,7 @@ class AddForm extends Component {
     const { t } = this.props;
     const { fireRedirect } = this.state;
     return (
-      <div>
+      <React.Fragment>
         <form
           className="add-form"
           onSubmit={this.checkFormValidity}
@@ -347,7 +347,7 @@ class AddForm extends Component {
         {fireRedirect && (
           <Redirect to="/add/form/success" />
         )}
-      </div>
+      </React.Fragment>
     );
   }
 }
