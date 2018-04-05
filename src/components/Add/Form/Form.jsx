@@ -49,6 +49,15 @@ class AddForm extends Component {
     return clearedFormData;
   }
 
+  static getFormattedPrice(price) {
+    let formattedPrice = price;
+    if (price !== '') {
+      formattedPrice = price.substring(0, price.length - 3);
+      formattedPrice = parseFloat(price.replace(',', '.')).toFixed(2);
+    }
+    return formattedPrice;
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -70,7 +79,6 @@ class AddForm extends Component {
     this.checkFormValidity = this.checkFormValidity.bind(this);
     this.getInputReferences = this.getInputReferences.bind(this);
     this.gatherFormData = this.gatherFormData.bind(this);
-    this.pricesFormatting = this.pricesFormatting.bind(this);
   }
 
   getInputReferences() {
@@ -90,38 +98,19 @@ class AddForm extends Component {
     ];
   }
 
-  pricesFormatting() {
-    let basePrice = this.basicPrice.getWrappedInstance().state.value;
-    let extendedPrice = this.extendedPrice.getWrappedInstance().state.value;
-    let extraPrice = this.extraPrice.getWrappedInstance().state.value;
-
-    if (basePrice !== '') {
-      basePrice = basePrice.substring(0, basePrice.length - 3);
-      basePrice = parseFloat(basePrice.replace(',', '.')).toFixed(2);
-    }
-
-    if (extendedPrice !== '') {
-      extendedPrice = extendedPrice.substring(0, extendedPrice.length - 3);
-      extendedPrice = parseFloat(extendedPrice.replace(',', '.')).toFixed(2);
-    }
-
-    if (extraPrice !== '') {
-      extraPrice = extraPrice.substring(0, extraPrice.length - 3);
-      extraPrice = parseFloat(extraPrice.replace(',', '.')).toFixed(2);
-    }
-
-    return [
-      basePrice,
-      extendedPrice,
-      extraPrice,
-    ];
-  }
-
   gatherFormData() {
     const allCategories = this.categorySelect.getWrappedInstance().state.categories;
     const categoryName = this.categorySelect.getWrappedInstance().state.value;
     const targetCategory = allCategories.find(category => category.name === categoryName);
-    const [basePrice, extendedPrice, extraPrice] = this.pricesFormatting();
+
+    const basePrice =
+      AddForm.getFormattedPrice(this.basicPrice.getWrappedInstance().state.value);
+
+    const extendedPrice =
+      AddForm.getFormattedPrice(this.extendedPrice.getWrappedInstance().state.value);
+
+    const extraPrice =
+      AddForm.getFormattedPrice(this.extraPrice.getWrappedInstance().state.value);
 
     const data = {
       title: this.titleInput.getWrappedInstance().state.value,
