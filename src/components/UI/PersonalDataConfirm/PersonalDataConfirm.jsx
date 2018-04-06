@@ -27,6 +27,7 @@ class PersonalDataConfirm extends Component {
       >
         {t('components.login.register.personalDataProcessing')}
         <input
+          id="users__personal-data-processing"
           name="users__personal-data-processing"
           type="checkbox"
           className="users__personal-data-processing--input"
