@@ -92,8 +92,9 @@
       "titleInput": {
         "name": "Offer Title *",
         "errorEmptyField": "This field is required!",
-        "errorMaxLength": "The title should contains at most 30 characters",
-        "errorMinLength": "The title should contains at least 3 characters"
+        "errorMinLength": "Too few characters",
+        "errorIllegalCharacters": "Illegal characters",
+        "errorOnlyAlpha": "This field should contain only letters"
       },
       "firstNameInput": {
         "name": "Name *",
@@ -113,7 +114,8 @@
       "phoneInput": {
         "name": "Phone number *",
         "errorEmptyField": "This field is required",
-        "errorPhoneRegex": "Please enter a valid phone number"
+        "errorPhoneRegex": "Please enter a valid phone number",
+        "errorOnlyNumeric": "This field should contain only numbers"
       },
       "priceInput": {
         "errorEmptyField": "This field is required"

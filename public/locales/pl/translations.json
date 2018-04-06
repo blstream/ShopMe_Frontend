@@ -92,8 +92,9 @@
       "titleInput": {
         "name": "Tytuł Oferty *",
         "errorEmptyField": "Pole wymagane",
-        "errorMinLength": "Tytuł nie powinien być krótszy niż 2 znaki",
-        "errorMaxLength": "Tytuł nie powinien być dłuższy niż 30 znaków"
+        "errorMinLength": "Zbyt mała liczba znaków",
+        "errorIllegalCharacters": "Niedozwolone znaki",
+        "errorOnlyAlpha": "Pole może zawierać tylko litery"
       },
       "firstNameInput": {
         "name": "Imię *",
@@ -113,7 +114,8 @@
       "phoneInput": {
         "name": "Telefon *",
         "errorEmptyField": "Pole wymagane",
-        "errorPhoneRegex": "Podaj poprawny numer telefonu"
+        "errorPhoneRegex": "Podaj poprawny numer telefonu",
+        "errorOnlyNumeric": "Pole może zawierać tylko cyfry"
       },
       "priceInput": {
         "errorEmptyField": "Pole wymagane"

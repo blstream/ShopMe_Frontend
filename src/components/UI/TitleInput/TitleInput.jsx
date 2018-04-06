@@ -25,11 +25,14 @@ class TitleInput extends Component {
     if (this.state.value.trim() === '' && this.state.isRequired) {
       this.setState({ errorMessage: t('components.UI.titleInput.errorEmptyField') });
       return false;
-    } else if (this.state.value.length <= 2) {
+    } else if (this.state.value.length <= 2 && this.state.isRequired) {
       this.setState({ errorMessage: t('components.UI.titleInput.errorMinLength') });
       return false;
-    } else if (this.state.value.length > 30) {
-      this.setState({ errorMessage: t('components.UI.titleInput.errorMaxLength') });
+    }
+    if (this.state.value.length <= 30) this.setState({ value: this.state.value.length });
+    const pattern = /^[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ0-9 ]*$/;
+    if (this.state.isRequired && !pattern.test(this.state.value)) {
+      this.setState({ errorMessage: t('components.UI.titleInput.errorIllegalCharacters') });
       return false;
     }
 
