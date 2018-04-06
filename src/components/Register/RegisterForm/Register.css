@@ -14,7 +14,7 @@
 .register-form {
   border: 1px solid #A9A9A9;
   border-radius: 5px;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
   margin: 30px;
   position: relative;
   width: 590px;
@@ -64,4 +64,10 @@
 
 .register-form__item--button {
   margin-left: 260px;
+}
+
+.register-form__item--checkbox{
+  position:absolute;
+  width: 20px;
+  bottom: 15px;
 }

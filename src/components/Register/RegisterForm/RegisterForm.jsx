@@ -3,6 +3,7 @@ import { translate } from 'react-i18next';
 import TextInput from 'components/UI/TextInput/TextInput';
 import FormButton from 'components/UI/FormButton/FormButton';
 import InvoiceInputGroup from 'components/UI/InvoiceInputGroup/InvoiceInputGroup';
+import PersonalDataConfirm from 'components/UI/PersonalDataConfirm/PersonalDataConfirm';
 
 import './Register.css';
 
@@ -21,7 +22,7 @@ class RegisterForm extends Component {
           </div>
           <div className="register-form__item">
             <TextInput
-              name="register__user-first-name"
+              name="users__name"
               type="text"
               label={t('components.login.register.firstNameInputLabel')}
               color="yellow"
@@ -32,7 +33,7 @@ class RegisterForm extends Component {
           </div>
           <div className="register-form__item">
             <TextInput
-              name="register__user-last-name"
+              name="users__surname"
               type="text"
               label={t('components.login.register.lastNameInputLabel')}
               color="yellow"
@@ -43,7 +44,7 @@ class RegisterForm extends Component {
           </div>
           <div className="register-form__item">
             <TextInput
-              name="register__user-email"
+              name="users__email"
               type="text"
               label={t('components.login.register.emailInputLabel')}
               color="yellow"
@@ -54,7 +55,7 @@ class RegisterForm extends Component {
           </div>
           <div className="register-form__item">
             <TextInput
-              name="register__user-password"
+              name="users__password"
               type="password"
               label={t('components.login.register.passwordInputLabel')}
               color="yellow"
@@ -65,9 +66,9 @@ class RegisterForm extends Component {
           </div>
           <div className="register-form__item">
             <TextInput
-              name="register__user-password2"
+              name="users__confirm-password"
               type="password"
-              label={t('components.login.register.password2InputLabel')}
+              label={t('components.login.register.confirmPasswordInputLabel')}
               color="yellow"
               size="M"
               maxLength="50"
@@ -76,7 +77,7 @@ class RegisterForm extends Component {
           </div>
           <div className="register-form__item">
             <TextInput
-              name="register__user-phone"
+              name="users__phone-number"
               type="text"
               label={t('components.login.register.phoneNumberInputLabel')}
               color="yellow"
@@ -87,7 +88,7 @@ class RegisterForm extends Component {
           </div>
           <div className="register-form__item">
             <TextInput
-              name="register__user-bank-account"
+              name="users__bank-account"
               type="text"
               label={t('components.login.register.bankAccountInputLabel')}
               color="yellow"
@@ -98,7 +99,7 @@ class RegisterForm extends Component {
           </div>
           <div className="register-form__item">
             <TextInput
-              name="register__user-street"
+              name="users__address-street"
               type="text"
               label={t('components.login.register.streetInputLabel')}
               color="yellow"
@@ -109,7 +110,7 @@ class RegisterForm extends Component {
           </div>
           <div className="register-form__item">
             <TextInput
-              name="register__user-house-number"
+              name="users__address-number"
               type="text"
               label={t('components.login.register.houseNumberInputLabel')}
               color="yellow"
@@ -120,7 +121,7 @@ class RegisterForm extends Component {
           </div>
           <div className="register-form__item">
             <TextInput
-              name="register__user-locality"
+              name="users__address-city"
               type="text"
               label={t('components.login.register.localityInputLabel')}
               color="yellow"
@@ -131,7 +132,7 @@ class RegisterForm extends Component {
           </div>
           <div className="register-form__item">
             <TextInput
-              name="register__user-zip-code"
+              name="users__address-zip-code"
               type="text"
               label={t('components.login.register.zipCodeInputLabel')}
               color="yellow"
@@ -143,10 +144,13 @@ class RegisterForm extends Component {
           <InvoiceInputGroup />
           <div className="register-form__item register-form__item--button">
             <FormButton
-              id="register-form__submit"
+              id="users__register-submit"
               type="submit"
               value={t('components.login.signup.submitButtonLabel')}
             />
+          </div>
+          <div className="register-form__item--checkbox">
+            <PersonalDataConfirm />
           </div>
         </fieldset>
       </form>

@@ -28,7 +28,7 @@ class InvoiceInputGroup extends Component {
         <div>
           <div className="register-form__item">
             <GenericInput
-              name="register__company-name"
+              name="users__invoice-company-name"
               type="text"
               label={t('components.login.register.companyNameInputLabel')}
               color="yellow"
@@ -40,7 +40,7 @@ class InvoiceInputGroup extends Component {
           </div>
           <div className="register-form__item">
             <GenericInput
-              name="register__company-nip"
+              name="users__invoice-nip"
               type="text"
               label={t('components.login.register.nipInputLabel')}
               color="yellow"
@@ -52,7 +52,7 @@ class InvoiceInputGroup extends Component {
           </div>
           <div className="register-form__item">
             <GenericInput
-              name="register__company-street"
+              name="users__invoice-address-street"
               type="text"
               label={t('components.login.register.streetInputLabel')}
               color="yellow"
@@ -64,7 +64,7 @@ class InvoiceInputGroup extends Component {
           </div>
           <div className="register-form__item">
             <GenericInput
-              name="register__company-house-number"
+              name="users__invoice-address-number"
               type="text"
               label={t('components.login.register.houseNumberInputLabel')}
               color="yellow"
@@ -76,7 +76,7 @@ class InvoiceInputGroup extends Component {
           </div>
           <div className="register-form__item">
             <GenericInput
-              name="register__company-zip-code"
+              name="users__invoice-address-zip-code"
               type="text"
               label={t('components.login.register.zipCodeInputLabel')}
               color="yellow"
@@ -88,7 +88,7 @@ class InvoiceInputGroup extends Component {
           </div>
           <div className="register-form__item">
             <GenericInput
-              name="register__company-locality"
+              name="users__invoice-address-city"
               type="text"
               label={t('components.login.register.localityInputLabel')}
               color="yellow"
@@ -107,7 +107,7 @@ class InvoiceInputGroup extends Component {
           htmlFor="invoiceCheckbox"
           style={{ margin: '0 0 0 325px' }}
         >
-          Dane do faktury
+          {t('components.login.register.invoiceDataLabel')}
           <input
             name="invoiceCheckbox"
             type="checkbox"

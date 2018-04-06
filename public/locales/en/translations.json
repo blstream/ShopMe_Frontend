@@ -50,7 +50,7 @@
         "lastNameInputLabel": "Last Name:",
         "emailInputLabel": "E-mail:",
         "passwordInputLabel": "Password:",
-        "password2InputLabel": "Confirm Password:",
+        "confirmPasswordInputLabel": "Confirm Password:",
         "phoneNumberInputLabel": "Phone Number:",
         "bankAccountInputLabel": "Bank Account Number:",
         "streetInputLabel": "Street:",
@@ -60,7 +60,9 @@
         "companyNameInputLabel": "Company Name:",
         "nipInputLabel": "Taxpayer Identification Number:",
         "submitButtonLabel": "Sign Up",
-        "formTitle": "Register"
+        "formTitle": "Register",
+        "personalDataProcessing": "I hereby agree for processing my personal data by ShopMe",
+        "invoiceDataLabel":"Invoice data"
       }
     },
     "UI": {

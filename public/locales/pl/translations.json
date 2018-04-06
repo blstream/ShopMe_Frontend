@@ -50,7 +50,7 @@
         "lastNameInputLabel": "Nazwisko:",
         "emailInputLabel": "E-mail:",
         "passwordInputLabel": "Hasło:",
-        "password2InputLabel": "Powtórz hasło:",
+        "confirmPasswordInputLabel": "Powtórz hasło:",
         "phoneNumberInputLabel": "Numer telefonu:",
         "bankAccountInputLabel": "Nr konta bankowego:",
         "streetInputLabel": "Ulica:",
@@ -60,7 +60,9 @@
         "companyNameInputLabel": "Nazwa firmy:",
         "nipInputLabel": "NIP:",
         "submitButtonLabel": "Rejestruj",
-        "formTitle": "Rejestracja użytkownika"
+        "formTitle": "Rejestracja użytkownika",
+        "personalDataProcessing": "Wyrażam zgodę na przetwarzanie moich danych osobowych przez ShopMe",
+        "invoiceDataLabel":"Dane do faktury"
       }
     },
     "UI": {

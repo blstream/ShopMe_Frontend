@@ -1,0 +1,18 @@
+.users__personal-data-processing--label{
+  display: block;
+  position: relative;
+  width: 180px;
+  padding-left: 35px;
+  text-justify: inter-word;
+  font-size: 0.85rem;
+}
+
+
+.users__personal-data-processing--input{
+  position: absolute;
+  top: 25px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
