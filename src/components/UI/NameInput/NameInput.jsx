@@ -1,29 +1,19 @@
-import React, { Component } from 'react';
-import { translate } from 'react-i18next';
-import Validator from 'helpers/validator';
+import React from 'react';
+import validator from 'helpers/validator';
 import GenericInput from 'components/UI/GenericInput/GenericInput';
 
-class NameInput extends Component {
-  constructor(props) {
-    super(props);
-    this.validator = new Validator();
-  }
-  render() {
-    return (
-      <GenericInput
-        type={this.props.type}
-        name={this.props.name}
-        label={this.props.label}
-        disabled={this.props.disabled}
-        required={this.props.required}
-        size={this.props.size}
-        color={this.props.color}
-        maxLength={this.props.maxLength}
-        validation={this.validator.validateName}
-      />
-    );
-  }
-}
+const NameInput = props => (
+  <GenericInput
+    type={props.type}
+    name={props.name}
+    label={props.label}
+    disabled={props.disabled}
+    required={props.required}
+    size={props.size}
+    color={props.color}
+    maxLength={props.maxLength}
+    validation={validator.validateNameInput}
+  />
+);
 
-export { NameInput };
-export default translate('translations', { withRef: true })(NameInput);
+export default (NameInput);

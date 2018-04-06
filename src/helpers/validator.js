@@ -1,35 +1,35 @@
-export default class Validator {
-  constructor() {
-    this.errorMessage = '';
-    this.validateName = this.validateName.bind(this);
-    this.validateTextInput = this.validateTextInput.bind(this);
-    this.validatePersonalDataConfirmCheckbox = this.validatePersonalDataConfirmCheckbox.bind(this);
-  }
-
-  validateName(required, value) {
+const validator = {
+  errorMessage: '',
+  validateRequired(required, value) {
     if (required && value.trim() === '') {
-      this.errorMessage = 'components.UI.firstNameInput.errorEmptyField';
-      return this.errorMessage;
-    }
-    if (value.length < 3) {
-      this.errorMessage = 'components.UI.firstNameInput.errorMinLength';
-      return this.errorMessage;
-    }
-    const pattern = /^[a-zA-Z]+$/;
-    if (!pattern.test(value)) {
-      this.errorMessage = 'components.UI.firstNameInput.errorOnlyAlpha';
-      return this.errorMessage;
+      validator.errorMessage = 'components.UI.firstNameInput.errorEmptyField';
     }
     return false;
-  }
+  },
+  validateMinLength(minLength, value) {
+    if (value.length < minLength) {
+      validator.errorMessage = 'components.UI.firstNameInput.errorMinLength';
+    }
+    return false;
+  },
+  validatePattern(pattern, value) {
+    if (!pattern.test(value)) {
+      validator.errorMessage = 'components.UI.firstNameInput.errorOnlyAlpha';
+    }
+    return false;
+  },
+
+  validateNameInput(required, value) {
+    validator.validatePattern(/^[a-zA-Z]+$/, value);
+    validator.validateMinLength(3, value);
+    validator.validateRequired(required, value);
+    return validator.errorMessage;
+  },
 
   validateTextInput(required, value) {
-    if (required && value.trim() === '') {
-      this.errorMessage = 'components.UI.firstNameInput.errorEmptyField';
-      return this.errorMessage;
-    }
-    return false;
-  }
+    validator.validateRequired(required, value);
+    return validator.errorMessage;
+  },
 
   validatePersonalDataConfirmCheckbox(checked) {
     if (checked === false) {
@@ -37,5 +37,7 @@ export default class Validator {
       return this.errorMessage;
     }
     return false;
-  }
-}
+  },
+};
+
+export default validator;
