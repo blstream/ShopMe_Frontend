@@ -59,10 +59,11 @@
 .offer-details__offers {
   margin: 50px 20px 0 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .offer-details__offers--base, .offer-details__offers--extended, .offer-details__offers--extra {
+  width: 33%;
   box-shadow: 1px 1px 9px 5px #a9a9a994;
   padding: 0 0 15px 0;
   display: flex;
