@@ -43,7 +43,7 @@ class SearchInput extends React.Component {
           id="search__input"
           placeholder={t('components.searchForm.input')}
           name="searchPhrase"
-          onBlur={this.validatePhrase}
+          onChange={this.validatePhrase}
           onKeyDown={this.handleEnter}
           className="search__form-item"
           maxLength="30"

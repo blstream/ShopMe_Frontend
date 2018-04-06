@@ -39,7 +39,7 @@ class SearchForm extends React.Component {
     return (
       <form className="search__form">
         <SearchInput onSearchInputChanged={this.handleSearchInputChanged} />
-        <SubmitButton value={t('components.searchForm.button')} onClick={this.handleSubmit} />
+        <SubmitButton value={t('components.searchForm.button')} onClick={this.handleSubmit} searchPhrase={this.state.searchPhrase} />
       </form>
     );
   }

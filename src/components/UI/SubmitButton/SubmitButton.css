@@ -18,3 +18,7 @@
 .form__button--submit:focus {
   outline: none;
 }
+
+.form__button--submit:disabled {
+  background-color: #777;
+}

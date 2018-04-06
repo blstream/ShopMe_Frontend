@@ -18,6 +18,7 @@ class SubmitButton extends React.Component {
         value={this.props.value}
         onClick={this.handleSubmit}
         className="form__button--submit"
+        disabled={this.props.searchPhrase < 2}
       />
     );
   }
