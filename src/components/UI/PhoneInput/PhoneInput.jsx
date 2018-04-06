@@ -25,8 +25,13 @@ class PhoneInput extends Component {
       this.setState({ errorMessage: t('components.UI.phoneInput.errorEmptyField') });
       return false;
     }
-    const pattern = /^\d{8,9}[0-9]$/;
-    if (this.state.isRequired && !pattern.test(this.state.value)) {
+    const patternOnlyNumeric = /^[0-9]*$/;
+    if (this.state.isRequired && !patternOnlyNumeric.test(this.state.value)) {
+      this.setState({ errorMessage: t('components.UI.phoneInput.errorOnlyNumeric') });
+      return false;
+    }
+    const patternLegitPhoneNumber = /^\d{8,9}[0-9]$/;
+    if (this.state.isRequired && !patternLegitPhoneNumber.test(this.state.value)) {
       this.setState({ errorMessage: t('components.UI.phoneInput.errorPhoneRegex') });
       return false;
     }
