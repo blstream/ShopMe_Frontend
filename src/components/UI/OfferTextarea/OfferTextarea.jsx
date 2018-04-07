@@ -38,25 +38,25 @@ class OfferTextarea extends Component {
 
   activateNextField() {
     if (this.props.name === 'offer__base-description') {
-      this.props.onOfferBaseChange();
+      this.props.onOfferBaseChange('offerExtendedDisabled', false);
     }
     if (this.props.name === 'offer__extended-description') {
-      this.props.onOfferExtendedChange();
+      this.props.onOfferExtendedChange('offerExtraDisabled', false, 'priceExtendedRequired', true);
     }
     if (this.props.name === 'offer__extra-description') {
-      this.props.onOfferExtraChange();
+      this.props.onOfferExtraChange('priceExtraRequired', true);
     }
   }
 
   deactivateNextFields() {
     if (this.props.name === 'offer__base-description') {
-      this.props.onOfferBaseReset();
+      this.props.onOfferBaseReset('offerExtendedDisabled', true, 'offerExtraDisabled', true);
     }
     if (this.props.name === 'offer__extended-description') {
-      this.props.onOfferExtendedReset();
+      this.props.onOfferExtendedReset('offerExtraDisabled', true, 'priceExtendedRequired', false);
     }
     if (this.props.name === 'offer__extra-description') {
-      this.props.onOfferExtraReset();
+      this.props.onOfferExtraReset('priceExtraRequired', false);
     }
   }
 
