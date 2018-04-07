@@ -42,9 +42,9 @@ export default class Pagination extends React.Component {
   }
   render() {
     const { startPage, endPage, pageCounter } = this.state;
-    const { page, margin } = this.props;
+    const { page } = this.props;
     const pages = [];
-    const firstPage = page - margin > 1 ?
+    const firstPage = this.props.first === true ?
       (
         <button
           className="pagination__button pagiantion__button--first"
@@ -54,7 +54,7 @@ export default class Pagination extends React.Component {
       ) :
       null;
 
-    const lastPage = page + margin < pageCounter ?
+    const lastPage = this.props.last === true ?
       (
         <button
           className="pagination__button pagiantion__button--last"
@@ -97,7 +97,10 @@ export default class Pagination extends React.Component {
           key={i}
           onClick={this.onPageChange}
           role="presentation"
-        >{i}
+        >
+          <button>
+            {i}
+          </button>
         </li>
       ));
     }

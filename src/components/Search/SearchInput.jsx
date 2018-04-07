@@ -24,7 +24,10 @@ export default class SearchInput extends React.Component {
   render() {
     let results;
     if (this.state.notFoundServices === false) {
-      results = (<FoundSearchResults services={this.state.foundServices} />);
+      results = (<FoundSearchResults
+        services={this.state.foundServices}
+        updateFoundServices={this.updateFoundServices}
+      />);
     } else if (this.state.notFoundServices === true) {
       results = (<NoSearchResults />);
     } else {

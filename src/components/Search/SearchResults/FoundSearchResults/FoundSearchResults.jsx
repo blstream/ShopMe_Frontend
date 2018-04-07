@@ -10,19 +10,31 @@ class SearchResults extends React.Component {
     this.state = {
       page: 1,
       foundServices: this.props.services,
+      first: false,
+      last: false,
     };
 
     this.handlePageChange = this.handlePageChange.bind(this);
   }
 
   handlePageChange(page) {
-    const foundServices = this.state.foundServices.slice((page - 1) * 10, ((page - 1) * 10) + 2);
-    this.setState({ page, foundServices });
+    fetch(`${process.env.REACT_APP_API}/offers?title=${this.state.searchPhrase}&page=${page}`)
+      .then(response => response.json())
+      .then((servicesResponse) => {
+        this.props.updateFoundServices(servicesResponse);
+        const foundServices = servicesResponse.content;
+        const { first, last } = servicesResponse;
+        this.setState({
+          page, foundServices, first, last,
+        });
+      });
   }
 
   render() {
     const { t } = this.props;
-    const { page, foundServices } = this.state;
+    const {
+      page, foundServices, first, last,
+    } = this.state;
 
     return (
       <div className="search-results">
@@ -38,6 +50,8 @@ class SearchResults extends React.Component {
         <Pagination
           margin={1}
           page={page}
+          first={first}
+          last={last}
           count={Math.ceil(foundServices.length / 10)}
           onPageChange={this.handlePageChange}
         />
