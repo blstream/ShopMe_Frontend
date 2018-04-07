@@ -30,8 +30,7 @@ class CategorySelect extends Component {
     const isValid = true;
 
     if (
-      this.state.value.id === '' &&
-      this.state.value.name === '' &&
+      this.state.value === '' &&
       this.state.isRequired
     ) {
       this.setState({ errorMessage: t('components.UI.categorySelect.errorEmptyField') });
