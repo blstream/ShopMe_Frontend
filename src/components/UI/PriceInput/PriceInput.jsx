@@ -36,6 +36,26 @@ class PriceInput extends Component {
     const price = /^([0-9]*)(,)?([0-9]{0,2})?$/;
 
     if (price.test(value)) this.setState({ value });
+    if (value.trim() !== '') this.activateNextField();
+    if (value.trim() === '') this.deactivateNextFields();
+  }
+
+  activateNextField() {
+    if (this.props.name === 'offer__extended-price') {
+      this.props.onPriceExtendedChange();
+    }
+    if (this.props.name === 'offer__extra-price') {
+      this.props.onPriceExtraChange();
+    }
+  }
+
+  deactivateNextFields() {
+    if (this.props.name === 'offer__extended-price') {
+      this.props.onPriceExtendedReset();
+    }
+    if (this.props.name === 'offer__extra-price') {
+      this.props.onPriceExtraReset();
+    }
   }
 
   handleKeyUp(e) {
@@ -91,7 +111,7 @@ class PriceInput extends Component {
           onKeyUp={this.handleKeyUp}
           onBlur={this.handleBlur}
         />
-        <div className="add-form__error-message--temporary-priceInput">{this.state.errorMessage}</div>
+        <div className="add-form__error-message">{this.state.errorMessage}</div>
       </label>
     );
   }

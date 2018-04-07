@@ -16,10 +16,10 @@ class OfferTextarea extends Component {
   }
 
   checkValidity() {
-    const { t } = this.props;
+    const { t, required, disabled } = this.props;
     const isValid = true;
 
-    if (this.state.value.trim() === '' && this.props.required) {
+    if (this.state.value.trim() === '' && required && !disabled) {
       this.setState({ errorMessage: t('components.UI.offerTextarea.errorEmptyField') });
       return false;
     }
@@ -80,7 +80,7 @@ class OfferTextarea extends Component {
           required={this.props.required}
           onChange={this.handleChange}
         />
-        <div className="add-form__error-message--temporary-offerTextArea">
+        <div className="add-form__error-message">
           {this.state.errorMessage}
         </div>
       </label>

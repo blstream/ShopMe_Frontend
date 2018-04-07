@@ -120,17 +120,3 @@
 .add-form__input--disabled::placeholder {
   color: #D0D0D0;
 }
-
-.add-form__error-message--temporary-priceInput {
-  font-size: 0.75rem;
-  color: red;
-  margin-top: 5px;
-  text-align: right;
-}
-
-.add-form__error-message--temporary-offerTextArea {
-  font-size: 0.75rem;
-  color: red;
-  margin: 10px 70px 0 0;
-  text-align: right;
-}
