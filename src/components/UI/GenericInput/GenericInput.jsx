@@ -6,8 +6,9 @@ import './GenericInput.css';
 class GenericInput extends Component {
   constructor(props) {
     super(props);
+    const imputValue = this.props.value ? this.props.value : '';
     this.state = {
-      value: '',
+      value: imputValue,
       errorMessage: '',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -20,6 +21,9 @@ class GenericInput extends Component {
     const maxLength = this.props.maxLength ? this.props.maxLength : Infinity;
     if (value.length <= maxLength) {
       this.setState({ value });
+    }
+    if (this.props.onChange) {
+      this.props.onChange(event, this.props.name);
     }
   }
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
-import TextInput from 'components/UI/TextInput/TextInput';
+import Validator from 'helpers/validator';
+import GenericInput from 'components/UI/GenericInput/GenericInput';
 import FormButton from 'components/UI/FormButton/FormButton';
 import InvoiceInputGroup from 'components/UI/InvoiceInputGroup/InvoiceInputGroup';
 import PersonalDataConfirm from 'components/UI/PersonalDataConfirm/PersonalDataConfirm';
@@ -11,6 +12,7 @@ class RegisterForm extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.validator = new Validator();
   }
   render() {
     const { t } = this.props;
@@ -21,7 +23,7 @@ class RegisterForm extends Component {
             <i className="register-form__icon register-form__icon--signup fas fa-user-plus" />
           </div>
           <div className="register-form__item">
-            <TextInput
+            <GenericInput
               name="users__name"
               type="text"
               label={t('components.login.register.firstNameInputLabel')}
@@ -29,10 +31,12 @@ class RegisterForm extends Component {
               size="M"
               maxLength="50"
               required
+              validation={this.validator.validateTextInput}
+              value={this.props.location.state.name}
             />
           </div>
           <div className="register-form__item">
-            <TextInput
+            <GenericInput
               name="users__surname"
               type="text"
               label={t('components.login.register.lastNameInputLabel')}
@@ -40,10 +44,12 @@ class RegisterForm extends Component {
               size="M"
               maxLength="50"
               required
+              validation={this.validator.validateTextInput}
+              value={this.props.location.state.surname}
             />
           </div>
           <div className="register-form__item">
-            <TextInput
+            <GenericInput
               name="users__email"
               type="text"
               label={t('components.login.register.emailInputLabel')}
@@ -51,10 +57,12 @@ class RegisterForm extends Component {
               size="M"
               maxLength="50"
               required
+              validation={this.validator.validateTextInput}
+              value={this.props.location.state.email}
             />
           </div>
           <div className="register-form__item">
-            <TextInput
+            <GenericInput
               name="users__password"
               type="password"
               label={t('components.login.register.passwordInputLabel')}
@@ -62,10 +70,11 @@ class RegisterForm extends Component {
               size="M"
               maxLength="50"
               required
+              validation={this.validator.validateTextInput}
             />
           </div>
           <div className="register-form__item">
-            <TextInput
+            <GenericInput
               name="users__confirm-password"
               type="password"
               label={t('components.login.register.confirmPasswordInputLabel')}
@@ -73,10 +82,11 @@ class RegisterForm extends Component {
               size="M"
               maxLength="50"
               required
+              validation={this.validator.validateTextInput}
             />
           </div>
           <div className="register-form__item">
-            <TextInput
+            <GenericInput
               name="users__phone-number"
               type="text"
               label={t('components.login.register.phoneNumberInputLabel')}
@@ -84,10 +94,11 @@ class RegisterForm extends Component {
               size="M"
               maxLength="50"
               required
+              validation={this.validator.validateTextInput}
             />
           </div>
           <div className="register-form__item">
-            <TextInput
+            <GenericInput
               name="users__bank-account"
               type="text"
               label={t('components.login.register.bankAccountInputLabel')}
@@ -95,10 +106,11 @@ class RegisterForm extends Component {
               size="M"
               maxLength="50"
               required
+              validation={this.validator.validateTextInput}
             />
           </div>
           <div className="register-form__item">
-            <TextInput
+            <GenericInput
               name="users__address-street"
               type="text"
               label={t('components.login.register.streetInputLabel')}
@@ -106,10 +118,11 @@ class RegisterForm extends Component {
               size="M"
               maxLength="50"
               required
+              validation={this.validator.validateTextInput}
             />
           </div>
           <div className="register-form__item">
-            <TextInput
+            <GenericInput
               name="users__address-number"
               type="text"
               label={t('components.login.register.houseNumberInputLabel')}
@@ -117,10 +130,11 @@ class RegisterForm extends Component {
               size="M"
               maxLength="50"
               required
+              validation={this.validator.validateTextInput}
             />
           </div>
           <div className="register-form__item">
-            <TextInput
+            <GenericInput
               name="users__address-city"
               type="text"
               label={t('components.login.register.localityInputLabel')}
@@ -128,10 +142,11 @@ class RegisterForm extends Component {
               size="M"
               maxLength="50"
               required
+              validation={this.validator.validateTextInput}
             />
           </div>
           <div className="register-form__item">
-            <TextInput
+            <GenericInput
               name="users__address-zip-code"
               type="text"
               label={t('components.login.register.zipCodeInputLabel')}
@@ -139,6 +154,7 @@ class RegisterForm extends Component {
               size="M"
               maxLength="50"
               required
+              validation={this.validator.validateTextInput}
             />
           </div>
           <InvoiceInputGroup />
@@ -160,4 +176,3 @@ class RegisterForm extends Component {
 
 export { RegisterForm };
 export default translate()(RegisterForm);
-
