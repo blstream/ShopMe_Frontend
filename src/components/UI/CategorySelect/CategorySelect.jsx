@@ -75,7 +75,7 @@ class CategorySelect extends Component {
               value={category.name}
               className={className}
             >
-              {(t(`components.UI.categorySelect.categoryOptions.${category.name}`))}
+              {(t(`components.UI.categorySelect.categoryOptions.${category.translateKey}`))}
             </option>
           ))}
         </select>
