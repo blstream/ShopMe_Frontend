@@ -78,8 +78,14 @@ class AddForm extends Component {
   }
 
   setStateValues(field, value, field2, value2) {
-    this.setState({ [field]: value });
-    if (field2 && value2) this.setState({ [field2]: value2 });
+    if (this.state[field] !== value) {
+      this.setState({ [field]: value });
+    }
+    if (field2 && value2) {
+      if (this.state[field2] !== value2) {
+        this.setState({ [field2]: value2 });
+      }
+    }
   }
 
   gatherFormData() {
