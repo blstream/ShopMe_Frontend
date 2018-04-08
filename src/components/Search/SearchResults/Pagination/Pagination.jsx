@@ -26,8 +26,8 @@ export default class Pagination extends React.Component {
   }
 
   onPageChange(event) {
-    const index = Array.prototype.indexOf.call(event.target.parentNode.children, event.target);
-    this.props.onPageChange(index + this.state.startPages);
+    const index = Array.prototype.indexOf.call(event.target.parentNode.parentNode.children, event.target.parentNode);
+    this.props.onPageChange(index + this.state.startPage);
   }
   goFirstPage() {
     this.props.onPageChange(1);
@@ -105,10 +105,9 @@ export default class Pagination extends React.Component {
       pages.push((
         <li
           key={i}
-          onClick={this.onPageChange}
           role="presentation"
         >
-          <button>
+          <button onClick={this.onPageChange}>
             {i}
           </button>
         </li>
