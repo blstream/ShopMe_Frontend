@@ -38,25 +38,28 @@ class OfferTextarea extends Component {
 
   activateNextField() {
     if (this.props.name === 'offer__base-description') {
-      this.props.onOfferBaseChange('offerExtendedDisabled', false);
+      this.props.onChange('offerExtendedDisabled', false);
     }
     if (this.props.name === 'offer__extended-description') {
-      this.props.onOfferExtendedChange('offerExtraDisabled', false, 'priceExtendedRequired', true);
+      this.props.onChange('offerExtraDisabled', false);
+      this.props.onChange('priceExtendedRequired', true);
     }
     if (this.props.name === 'offer__extra-description') {
-      this.props.onOfferExtraChange('priceExtraRequired', true);
+      this.props.onChange('priceExtraRequired', true);
     }
   }
 
   deactivateNextFields() {
     if (this.props.name === 'offer__base-description') {
-      this.props.onOfferBaseReset('offerExtendedDisabled', true, 'offerExtraDisabled', true);
+      this.props.onChange('offerExtendedDisabled', true);
+      this.props.onChange('offerExtraDisabled', true);
     }
     if (this.props.name === 'offer__extended-description') {
-      this.props.onOfferExtendedReset('offerExtraDisabled', true, 'priceExtendedRequired', false);
+      this.props.onChange('offerExtraDisabled', true);
+      this.props.onChange('priceExtendedRequired', false);
     }
     if (this.props.name === 'offer__extra-description') {
-      this.props.onOfferExtraReset('priceExtraRequired', false);
+      this.props.onChange('priceExtraRequired', false);
     }
   }
 

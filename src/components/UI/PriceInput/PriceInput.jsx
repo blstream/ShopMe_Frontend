@@ -42,19 +42,19 @@ class PriceInput extends Component {
 
   activateNextField() {
     if (this.props.name === 'offer__extended-price') {
-      this.props.onPriceExtendedChange('offerExtendedRequired', true);
+      this.props.onChange('offerExtendedRequired', true);
     }
     if (this.props.name === 'offer__extra-price') {
-      this.props.onPriceExtraChange('offerExtraRequired', true);
+      this.props.onChange('offerExtraRequired', true);
     }
   }
 
   deactivateNextFields() {
     if (this.props.name === 'offer__extended-price') {
-      this.props.onPriceExtendedReset('offerExtendedRequired', false);
+      this.props.onChange('offerExtendedRequired', false);
     }
     if (this.props.name === 'offer__extra-price') {
-      this.props.onPriceExtraReset('offerExtraRequired', false);
+      this.props.onChange('offerExtraRequired', false);
     }
   }
 
