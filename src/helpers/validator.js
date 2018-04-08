@@ -1,34 +1,23 @@
 const validator = {
-  errorMessage: '',
-  validateRequired(required, value) {
-    if (required && value.trim() === '') {
-      validator.errorMessage = 'components.UI.firstNameInput.errorEmptyField';
-    }
-    return false;
+  isRequired(required, value) {
+    return (value.trim() === '' && required) ? 'components.UI.firstNameInput.errorEmptyField' : undefined;
   },
-  validateMinLength(minLength, value) {
-    if (value.length < minLength) {
-      validator.errorMessage = 'components.UI.firstNameInput.errorMinLength';
-    }
-    return false;
+  hasMinLength(minLength, value) {
+    return value.length < minLength ? 'components.UI.firstNameInput.errorMinLength' : undefined;
   },
-  validatePattern(pattern, value) {
-    if (!pattern.test(value)) {
-      validator.errorMessage = 'components.UI.firstNameInput.errorOnlyAlpha';
-    }
-    return false;
+  useOnlyAlpha(value) {
+    const pattern = /^[a-zA-Z]+$/;
+    return !pattern.test(value) ? 'components.UI.firstNameInput.errorOnlyAlpha' : undefined;
   },
-
   validateNameInput(required, value) {
-    validator.validatePattern(/^[a-zA-Z]+$/, value);
-    validator.validateMinLength(3, value);
-    validator.validateRequired(required, value);
-    return validator.errorMessage;
+    return validator.isRequired(required, value) ||
+      validator.hasMinLength(3, value) ||
+      validator.useOnlyAlpha(value) ||
+      undefined;
   },
-
   validateTextInput(required, value) {
-    validator.validateRequired(required, value);
-    return validator.errorMessage;
+    return validator.isRequired(required, value) ||
+      undefined;
   },
 
   validatePersonalDataConfirmCheckbox(checked) {
