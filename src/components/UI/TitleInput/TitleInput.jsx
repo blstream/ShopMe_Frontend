@@ -26,7 +26,7 @@ class TitleInput extends Component {
     if (this.state.value.trim() === '' && this.state.isRequired) {
       this.setState({ errorMessage: t('components.UI.titleInput.errorEmptyField') });
       return false;
-    } else if (this.state.value.length <= 1 && this.state.isRequired) {
+    } else if (this.state.value.length <= 2 && this.state.isRequired) {
       this.setState({ errorMessage: t('components.UI.titleInput.errorMinLength') });
       return false;
     } else if (this.state.isRequired && !pattern.test(this.state.value)) {
@@ -40,7 +40,13 @@ class TitleInput extends Component {
 
   handleChange(event) {
     const { value } = event.target;
+<<<<<<< HEAD
     if (value.length <= 30) this.setState({ value });
+=======
+    if (value.length <= 30) {
+      this.setState({ value });
+    }
+>>>>>>> Fix bug requested by QA in TitleInput to allow at most 30 characters in add form title
   }
 
   resetInput() {
