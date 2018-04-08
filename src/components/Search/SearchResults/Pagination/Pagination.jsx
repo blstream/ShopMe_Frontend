@@ -26,7 +26,8 @@ export default class Pagination extends React.Component {
   }
 
   onPageChange(event) {
-    const index = Array.prototype.indexOf.call(event.target.parentNode.parentNode.children, event.target.parentNode);
+    const index = Array.prototype.indexOf
+      .call(event.target.parentNode.parentNode.children, event.target.parentNode);
     this.props.onPageChange(index + this.state.startPage);
   }
   goFirstPage() {
