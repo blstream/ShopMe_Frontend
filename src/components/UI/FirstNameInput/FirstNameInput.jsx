@@ -20,7 +20,7 @@ class FirstNameInput extends Component {
 
   handleChange(event) {
     this.setState({ errorMessage: '' });
-    if (event.target.value.length <= 30) this.setState({ value: event.target.value });
+    if (event.target.value.length <= 20) this.setState({ value: event.target.value });
   }
 
   checkValidity() {
