@@ -9,6 +9,7 @@ class PhoneInput extends Component {
 
     this.checkValidity = this.checkValidity.bind(this);
     this.resetInput = this.resetInput.bind(this);
+    this.handleChange = this.handleChange.bind(this);
 
     this.state = {
       value: '',
@@ -30,12 +31,21 @@ class PhoneInput extends Component {
       this.setState({ errorMessage: t('components.UI.phoneInput.errorOnlyNumeric') });
       return false;
     }
-    const patternLegitPhoneNumber = /^\d{8,9}[0-9]$/;
-    if (this.state.isRequired && !patternLegitPhoneNumber.test(this.state.value)) {
-      this.setState({ errorMessage: t('components.UI.phoneInput.errorPhoneRegex') });
-      return false;
-    }
+    // const patternLegitPhoneNumber = /^\d{8,9}[0-9]$/;
+    // if (this.state.isRequired && !patternLegitPhoneNumber.test(this.state.value)) {
+    //   this.setState({ errorMessage: t('components.UI.phoneInput.errorPhoneRegex') });
+    //   return false;
+    // }
+
+    this.setState({ errorMessage: '' });
     return isValid;
+  }
+
+  handleChange(event) {
+    const { value } = event.target;
+    if (value.length <= 9) {
+      this.setState({ value });
+    }
   }
 
   resetInput() {
@@ -57,7 +67,8 @@ class PhoneInput extends Component {
           type="text"
           name={this.props.name}
           value={this.state.value}
-          onChange={event => this.setState({ value: event.target.value, errorMessage: '' })}
+          // onChange={event => this.setState({ value: event.target.value, errorMessage: '' })}
+          onChange={this.handleChange}
         />
         <div className="add-form__error-message">
           {this.state.errorMessage}
