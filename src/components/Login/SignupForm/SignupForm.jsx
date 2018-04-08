@@ -69,7 +69,7 @@ class SignupForm extends Component {
                 maxLength="30"
                 required
                 validation={this.validator.validateTextInput}
-                onChange={this.setValues}
+                onChange={this.setFieldStateValues}
                 isValid={this.state.isValid}
                 checkValidity={this.checkValidity}
                 ref={(v) => { this.nameInput = v; }}
@@ -85,7 +85,7 @@ class SignupForm extends Component {
                 maxLength="50"
                 required
                 validation={this.validator.validateTextInput}
-                onChange={this.setValues}
+                onChange={this.setFieldStateValues}
                 isValid={this.state.isValid}
                 checkValidity={this.checkValidity}
                 ref={(v) => { this.surnameInput = v; }}
@@ -100,7 +100,7 @@ class SignupForm extends Component {
                 size="M"
                 required
                 validation={this.validator.validateTextInput}
-                onChange={this.setValues}
+                onChange={this.setFieldStateValues}
                 isValid={this.state.isValid}
                 checkValidity={this.checkValidity}
                 ref={(v) => { this.emailInput = v; }}
