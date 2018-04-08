@@ -16,11 +16,11 @@ class SignupForm extends Component {
       users__email: '',
     };
     this.validator = new Validator();
-    this.setValues = this.setValues.bind(this);
+    this.setFieldStateValues = this.setFieldStateValues.bind(this);
   }
 
-  setValues(event, field) {
-    this.setState({ [field]: event.target.value });
+  setFieldStateValues(field, value) {
+    this.setState({ [field]: value });
   }
 
   render() {
@@ -45,7 +45,7 @@ class SignupForm extends Component {
               maxLength="30"
               required
               validation={this.validator.validateTextInput}
-              onChange={this.setValues}
+              onChange={this.setFieldStateValues}
             />
           </div>
           <div className="login-form__item">
@@ -58,7 +58,7 @@ class SignupForm extends Component {
               maxLength="50"
               required
               validation={this.validator.validateTextInput}
-              onChange={this.setValues}
+              onChange={this.setFieldStateValues}
             />
           </div>
           <div className="login-form__item">
@@ -70,7 +70,7 @@ class SignupForm extends Component {
               size="M"
               required
               validation={this.validator.validateTextInput}
-              onChange={this.setValues}
+              onChange={this.setFieldStateValues}
             />
           </div>
           <div className="login-form__item login-form__item--button">

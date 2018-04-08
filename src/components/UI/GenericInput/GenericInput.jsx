@@ -6,9 +6,8 @@ import './GenericInput.css';
 class GenericInput extends Component {
   constructor(props) {
     super(props);
-    const imputValue = this.props.value ? this.props.value : '';
     this.state = {
-      value: imputValue,
+      value: this.props.value ? this.props.value : '',
       errorMessage: '',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -23,7 +22,7 @@ class GenericInput extends Component {
       this.setState({ value });
     }
     if (this.props.onChange) {
-      this.props.onChange(event, this.props.name);
+      this.props.onChange(this.props.name, value);
     }
   }
 
