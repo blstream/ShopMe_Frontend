@@ -1,10 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import { MemoryRouter } from 'react-router-dom';
 
 import { ScreenOfferAdd } from './OfferAdd';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<ScreenOfferAdd t={key => key} />, div);
+  const element = (
+    <MemoryRouter>
+      <ScreenOfferAdd t={key => key} />
+    </MemoryRouter>
+  );
+  ReactDOM.render(element, div);
 });

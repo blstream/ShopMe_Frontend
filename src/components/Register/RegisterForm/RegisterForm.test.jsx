@@ -4,5 +4,10 @@ import RegisterForm from './RegisterForm';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<RegisterForm t={key => key} />, div);
+  const props = {
+    location: {
+      state: {},
+    },
+  };
+  ReactDOM.render(<RegisterForm t={key => key} location={props.location} />, div);
 });

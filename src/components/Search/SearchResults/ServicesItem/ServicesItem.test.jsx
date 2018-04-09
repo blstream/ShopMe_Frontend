@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { MemoryRouter } from 'react-router-dom';
 import ServicesItem from './ServicesItem';
 
 it('renders without crashing', () => {
@@ -11,7 +12,11 @@ it('renders without crashing', () => {
     },
     data: '01-04-2016',
     id: 1,
-
   };
-  ReactDOM.render(<ServicesItem value={service} />, div);
+  const element = (
+    <MemoryRouter>
+      <ServicesItem value={service} />
+    </MemoryRouter>
+  );
+  ReactDOM.render(element, div);
 });
