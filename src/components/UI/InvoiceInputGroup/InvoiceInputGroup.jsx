@@ -36,6 +36,7 @@ class InvoiceInputGroup extends Component {
               maxLength="50"
               required
               validation={this.validator.validateTextInput}
+              ref={(v) => { this.users_invoiceCompanyName = v; }}
             />
           </div>
           <div className="register-form__item">
@@ -48,6 +49,7 @@ class InvoiceInputGroup extends Component {
               maxLength="50"
               required
               validation={this.validator.validateTextInput}
+              ref={(v) => { this.users_invoiceNip = v; }}
             />
           </div>
           <div className="register-form__item">
@@ -60,6 +62,7 @@ class InvoiceInputGroup extends Component {
               maxLength="50"
               required
               validation={this.validator.validateTextInput}
+              ref={(v) => { this.users_invoiceAddressStreet = v; }}
             />
           </div>
           <div className="register-form__item">
@@ -72,6 +75,7 @@ class InvoiceInputGroup extends Component {
               maxLength="50"
               required
               validation={this.validator.validateTextInput}
+              ref={(v) => { this.users_invoiceAddressNumber = v; }}
             />
           </div>
           <div className="register-form__item">
@@ -84,6 +88,7 @@ class InvoiceInputGroup extends Component {
               maxLength="50"
               required
               validation={this.validator.validateTextInput}
+              ref={(v) => { this.users_invoiceAddressZipCode = v; }}
             />
           </div>
           <div className="register-form__item">
@@ -96,6 +101,7 @@ class InvoiceInputGroup extends Component {
               maxLength="50"
               required
               validation={this.validator.validateTextInput}
+              ref={(v) => { this.users_invoiceAddressCity = v; }}
             />
           </div>
         </div>)
@@ -114,6 +120,7 @@ class InvoiceInputGroup extends Component {
             checked={this.state.checked}
             onChange={this.handleChange}
             style={{ margin: '0 0 0 10px', cursor: 'pointer' }}
+            ref={(v) => { this.invoiceCheckbox = v; }}
           />
         </label>
         {content}

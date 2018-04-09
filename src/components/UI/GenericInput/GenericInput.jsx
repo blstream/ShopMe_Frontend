@@ -24,6 +24,7 @@ class GenericInput extends Component {
     if (this.props.onChange) {
       this.props.onChange(this.props.name, value);
     }
+    this.setState({ errorMessage: '' });
   }
 
   checkValidity() {
