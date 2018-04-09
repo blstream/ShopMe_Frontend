@@ -1,12 +1,17 @@
 .add-offer__link {
-  float: left;
   margin-right: 15px;
+}
+.add-offer__link a {
+  text-decoration: none;
+  color: #000;
+  float: left;
 }
 
 .add-offer__text {
-  float: left;
   font-size: 1.7em;
   line-height: 1.3em;
+  padding-left: 0.5em;
+  float: left;
 }
 
 .add-offer__text--letter-spacing {
@@ -20,6 +25,7 @@
   cursor: pointer;
   font-size: 2em;
   transition: all .3s ease-in;
+  float: left;
 }
 
 .add-offer__btn:hover {
