@@ -26,9 +26,7 @@ export default class SearchInput extends React.Component {
   }
 
   updatePaginationData(paginationData) {
-    this.setState({
-      paginationData,
-    });
+    this.setState({ paginationData });
   }
 
   updateSearchPhrase(searchPhrase) {
@@ -43,7 +41,6 @@ export default class SearchInput extends React.Component {
         updateFoundServices={this.updateFoundServices}
         searchPhrase={this.state.searchPhrase}
         paginationData={this.state.paginationData}
-
       />);
     } else if (this.state.notFoundServices === true) {
       results = (<NoSearchResults />);

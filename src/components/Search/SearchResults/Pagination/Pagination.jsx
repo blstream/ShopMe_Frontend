@@ -5,8 +5,9 @@ export default class Pagination extends React.Component {
     super(props);
     this.state = {
       startPage: this.props.page > this.props.margin ? this.props.page - this.props.margin : 1,
-      endPage: (this.props.page + this.props.margin > this.props.totalPages ?
-        this.props.totalPages : this.props.page + this.props.margin),
+      endPage: (this.props.page + this.props.margin > this.props.totalPages
+        ? this.props.totalPages
+        : this.props.page + this.props.margin),
       totalPages: this.props.totalPages,
     };
 
@@ -46,28 +47,29 @@ export default class Pagination extends React.Component {
     const { startPage, endPage, totalPages } = this.state;
     const { page } = this.props;
     const pages = [];
-    const firstPage = totalPages > 1 && page > 3 ?
-      (
+    const firstPage = totalPages > 1 && page > 3
+      ? (
         <button
           className="pagination__button pagiantion__button--first"
           onClick={this.goFirstPage}
         >1
         </button>
-      ) :
-      null;
+      )
+      : null;
 
-    const lastPage = totalPages > 1 && page < totalPages - 2 ?
-      (
+    const lastPage = totalPages > 1 && page < totalPages - 2
+      ? (
         <button
           className="pagination__button pagiantion__button--last"
           onClick={this.goLastPage}
         >{totalPages}
         </button>
-      ) :
-      null;
+      )
+      : null;
 
-    const prevPage = page === 1 ? null :
-      (
+    const prevPage = page === 1
+      ? null
+      : (
         <button
           className="pagination__button pagiantion__button--previous"
           onClick={this.goPrevPage}
@@ -75,8 +77,9 @@ export default class Pagination extends React.Component {
         </button>
       );
 
-    const nextPage = page === totalPages ? null :
-      (
+    const nextPage = page === totalPages
+      ? null
+      : (
         <button
           className="pagination__button pagiantion__button--next"
           onClick={this.goNextPage}
@@ -84,23 +87,23 @@ export default class Pagination extends React.Component {
         </button>
       );
 
-    const inactivePageBefore = totalPages >= 5 && page > 4 ?
-      (
+    const inactivePageBefore = totalPages >= 5 && page > 4
+      ? (
         <button
           className="pagination__button pagination__button--inactive"
         >...
         </button>
-      ) :
-      null;
+      )
+      : null;
 
-    const inactivePageAfter = totalPages >= 5 && page < totalPages - 3 ?
-      (
+    const inactivePageAfter = totalPages >= 5 && page < totalPages - 3
+      ? (
         <button
           className="pagination__button pagination__button--inactive"
         >...
         </button>
-      ) :
-      null;
+      )
+      : null;
 
     for (let i = startPage; i <= endPage; i += 1) {
       pages.push((

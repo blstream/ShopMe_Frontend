@@ -9,8 +9,6 @@ class SearchResults extends React.Component {
     super(props);
     this.state = {
       page: 1,
-      first: this.props.paginationData.first,
-      last: this.props.paginationData.last,
       totalPages: this.props.paginationData.totalPages,
     };
 
@@ -21,9 +19,9 @@ class SearchResults extends React.Component {
     fetch(`${process.env.REACT_APP_API}/offers?title=${this.props.searchPhrase}&page=${page}`)
       .then(response => response.json())
       .then((servicesResponse) => {
-        const { first, last, totalPages } = servicesResponse;
+        const { totalPages } = servicesResponse;
         this.setState({
-          page, totalPages, first, last,
+          page, totalPages,
         });
         this.props.updateFoundServices(servicesResponse);
       });
@@ -31,9 +29,7 @@ class SearchResults extends React.Component {
 
   render() {
     const { t } = this.props;
-    const {
-      page, first, last, totalPages,
-    } = this.state;
+    const { page, totalPages } = this.state;
 
     return (
       <div className="search-results">
@@ -49,8 +45,6 @@ class SearchResults extends React.Component {
         <Pagination
           margin={2}
           page={page}
-          first={first}
-          last={last}
           totalPages={totalPages}
           onPageChange={this.handlePageChange}
         />
