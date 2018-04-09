@@ -17,7 +17,7 @@ class SignupForm extends Component {
       fireRedirect: false,
     };
     this.validator = new Validator();
-    this.setFieldStateValues = this.setFieldStateValues.bind(this);
+    this.setFieldStateValue = this.setFieldStateValue.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.getInputReferences = this.getInputReferences.bind(this);
   }
@@ -30,7 +30,7 @@ class SignupForm extends Component {
     ];
   }
 
-  setFieldStateValues(field, value) {
+  setFieldStateValue(field, value) {
     this.setState({ [field]: value });
   }
 
@@ -69,7 +69,7 @@ class SignupForm extends Component {
                 maxLength="30"
                 required
                 validation={this.validator.validateTextInput}
-                onChange={this.setFieldStateValues}
+                onChange={this.setFieldStateValue}
                 isValid={this.state.isValid}
                 checkValidity={this.checkValidity}
                 ref={(v) => { this.nameInput = v; }}
@@ -85,7 +85,7 @@ class SignupForm extends Component {
                 maxLength="50"
                 required
                 validation={this.validator.validateTextInput}
-                onChange={this.setFieldStateValues}
+                onChange={this.setFieldStateValue}
                 isValid={this.state.isValid}
                 checkValidity={this.checkValidity}
                 ref={(v) => { this.surnameInput = v; }}
@@ -100,7 +100,7 @@ class SignupForm extends Component {
                 size="M"
                 required
                 validation={this.validator.validateTextInput}
-                onChange={this.setFieldStateValues}
+                onChange={this.setFieldStateValue}
                 isValid={this.state.isValid}
                 checkValidity={this.checkValidity}
                 ref={(v) => { this.emailInput = v; }}

@@ -39,6 +39,9 @@ class OfferTextarea extends Component {
   activateNextField() {
     if (this.props.name === 'offer__base-description') {
       this.props.onChange('offerExtendedDisabled', false);
+      if (this.props.offerExtraFilled) {
+        this.props.onChange('offerExtraDisabled', false);
+      }
     }
     if (this.props.name === 'offer__extended-description') {
       this.props.onChange('offerExtraDisabled', false);
@@ -46,6 +49,7 @@ class OfferTextarea extends Component {
     }
     if (this.props.name === 'offer__extra-description') {
       this.props.onChange('priceExtraRequired', true);
+      this.props.onChange('offerExtraFilled', true);
     }
   }
 
@@ -60,6 +64,7 @@ class OfferTextarea extends Component {
     }
     if (this.props.name === 'offer__extra-description') {
       this.props.onChange('priceExtraRequired', false);
+      this.props.onChange('offerExtraFilled', false);
     }
   }
 
