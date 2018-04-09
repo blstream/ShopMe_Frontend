@@ -25,7 +25,7 @@ class TitleInput extends Component {
     if (this.state.value.trim() === '' && this.state.isRequired) {
       this.setState({ errorMessage: t('components.UI.titleInput.errorEmptyField') });
       return false;
-    } else if (this.state.value.length <= 2 && this.state.isRequired) {
+    } else if (this.state.value.length <= 1 && this.state.isRequired) {
       this.setState({ errorMessage: t('components.UI.titleInput.errorMinLength') });
       return false;
     }
