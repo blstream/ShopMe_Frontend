@@ -3,6 +3,7 @@ export default class Validator {
     this.errorMessage = '';
     this.validateName = this.validateName.bind(this);
     this.validateTextInput = this.validateTextInput.bind(this);
+    this.validatePersonalDataConfirmCheckbox = this.validatePersonalDataConfirmCheckbox.bind(this);
   }
 
   validateName(required, value) {
@@ -24,6 +25,14 @@ export default class Validator {
 
   validateTextInput(required, value) {
     if (required && value.trim() === '') {
+      this.errorMessage = 'components.UI.firstNameInput.errorEmptyField';
+      return this.errorMessage;
+    }
+    return false;
+  }
+
+  validatePersonalDataConfirmCheckbox(checked) {
+    if (checked === false) {
       this.errorMessage = 'components.UI.firstNameInput.errorEmptyField';
       return this.errorMessage;
     }

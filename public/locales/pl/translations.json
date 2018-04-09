@@ -94,7 +94,7 @@
         "name": "Tytuł Oferty *",
         "errorEmptyField": "Pole wymagane",
         "errorMinLength": "Zbyt mała liczba znaków",
-        "errorIllegalCharacters": "Niedozwolone znaki",
+        "errorIllegalCharacters": "Niedozwolone znaki specjalne",
         "errorOnlyAlpha": "Pole może zawierać tylko litery"
       },
       "firstNameInput": {
