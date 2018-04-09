@@ -21,6 +21,7 @@ class TitleInput extends Component {
   checkValidity() {
     const { t } = this.props;
     const isValid = true;
+    const pattern = /^[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ0-9 ]*$/;
 
     if (this.state.value.trim() === '' && this.state.isRequired) {
       this.setState({ errorMessage: t('components.UI.titleInput.errorEmptyField') });
@@ -28,10 +29,7 @@ class TitleInput extends Component {
     } else if (this.state.value.length <= 2 && this.state.isRequired) {
       this.setState({ errorMessage: t('components.UI.titleInput.errorMinLength') });
       return false;
-    }
-    if (this.state.value.length <= 30) this.setState({ value: this.state.value.length });
-    const pattern = /^[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ0-9 ]*$/;
-    if (this.state.isRequired && !pattern.test(this.state.value)) {
+    } else if (this.state.isRequired && !pattern.test(this.state.value)) {
       this.setState({ errorMessage: t('components.UI.titleInput.errorIllegalCharacters') });
       return false;
     }
@@ -42,7 +40,7 @@ class TitleInput extends Component {
 
   handleChange(event) {
     const { value } = event.target;
-    this.setState({ value });
+    if (value.length <= 30) this.setState({ value });
   }
 
   resetInput() {
