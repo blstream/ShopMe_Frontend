@@ -23,20 +23,18 @@ class SearchForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    if (this.state.validPhrase === true) {
-      if (this.state.searchPhrase !== '' && this.state.searchPhrase !== null && this.state.validPhrase === true) {
-        this.props.updateSearchPhrase(this.state.searchPhrase);
-        fetch(`${process.env.REACT_APP_API}/offers?title=${this.state.searchPhrase}`)
-          .then(response => response.json())
-          .then((services) => {
-            this.props.updatePaginationData({
-              first: services.first, last: services.last, totalPages: services.totalPages,
-            });
-            this.props.updateFoundServices(services);
+    if (this.state.validPhrase === true && this.state.searchPhrase !== '' && this.state.searchPhrase !== null) {
+      this.props.updateSearchPhrase(this.state.searchPhrase);
+      fetch(`${process.env.REACT_APP_API}/offers?title=${this.state.searchPhrase}`)
+        .then(response => response.json())
+        .then((services) => {
+          this.props.updatePaginationData({
+            first: services.first, last: services.last, totalPages: services.totalPages,
           });
-      } else {
-        this.props.updateFoundServices([]);
-      }
+          this.props.updateFoundServices(services);
+        });
+    } else {
+      this.props.updateFoundServices([]);
     }
   }
 
