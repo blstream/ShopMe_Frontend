@@ -1,4 +1,5 @@
 import React from 'react';
+import './Pagination.css';
 
 export default class Pagination extends React.Component {
   constructor(props) {
@@ -73,7 +74,7 @@ export default class Pagination extends React.Component {
         <button
           className="pagination__button pagiantion__button--previous"
           onClick={this.goPrevPage}
-        >prev
+        >&lt;
         </button>
       );
 
@@ -83,7 +84,7 @@ export default class Pagination extends React.Component {
         <button
           className="pagination__button pagiantion__button--next"
           onClick={this.goNextPage}
-        >next
+        >&gt;
         </button>
       );
 
@@ -111,8 +112,10 @@ export default class Pagination extends React.Component {
           key={i}
           role="presentation"
         >
-          <button onClick={this.onPageChange}>
-            {i}
+          <button
+            onClick={this.onPageChange}
+            className={i === page ? 'pagination__button--active' : 'pagination__button'}
+          >{i}
           </button>
         </li>
       ));

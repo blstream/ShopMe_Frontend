@@ -12,7 +12,7 @@ const ServicesItem = (props) => {
         className="services-item services-item__title"
         to={`/offer/${props.value.id}`}
       >
-        {props.index + 1}. {props.value.title}
+        {((props.page - 1) * 10) + props.index + 1}. {props.value.title}
       </Link>
       <span className="services-item services-item__price">{props.value.basePrice} zł</span>
       <span className="services-item services-item__date">{date}</span>

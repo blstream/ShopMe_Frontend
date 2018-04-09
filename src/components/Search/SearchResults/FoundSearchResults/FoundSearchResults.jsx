@@ -39,7 +39,7 @@ class SearchResults extends React.Component {
           </h3>
           <ol className="search-results__list">
             {this.props.services.map((service, i) => (
-              <ServicesItem key={service.id} value={service} index={i} />))}
+              <ServicesItem key={service.id} value={service} index={i} page={page} />))}
           </ol>
         </div>
         <Pagination
