@@ -31,13 +31,16 @@ class PhoneInput extends Component {
       this.setState({ errorMessage: t('components.UI.phoneInput.errorOnlyNumeric') });
       return false;
     }
-
-    this.setState({ errorMessage: '' });
+    if (this.state.isRequired && this.state.value.length < 9) {
+      this.setState({ errorMessage: t('components.UI.phoneInput.errorPhoneRegex') });
+      return false;
+    }
     return isValid;
   }
 
   handleChange(event) {
     const { value } = event.target;
+    this.setState({ errorMessage: '' });
     if (value.length <= 9) {
       this.setState({ value });
     }

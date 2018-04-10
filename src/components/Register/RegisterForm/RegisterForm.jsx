@@ -37,11 +37,11 @@ class RegisterForm extends Component {
 
   checkFormValidity(e) {
     e.preventDefault();
-    const isInvoiceValid = this.users__invoiceInputGroup.getWrappedInstance().handleSubmit();
     const isInvoiceChecked = this.users__invoiceInputGroup.getWrappedInstance().state.checked;
     const refs = this.getInputReferences();
     const isRefsValid = refs.map(ref => ref.getWrappedInstance().checkValidity());
     if (isInvoiceChecked) {
+      const isInvoiceValid = this.users__invoiceInputGroup.getWrappedInstance().handleSubmit();
       if (!isRefsValid.includes(false) && isInvoiceValid) {
       // Miejsce na POST
       }

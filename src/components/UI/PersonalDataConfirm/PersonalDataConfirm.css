@@ -18,7 +18,6 @@
 
 .users__personal-data-processing-error-message {
   position: absolute;
-  /* bottom: -20px; */
   left: 35px;
   bottom: -13px;
   font-size: 0.75rem;

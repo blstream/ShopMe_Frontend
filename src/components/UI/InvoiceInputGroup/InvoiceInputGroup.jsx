@@ -19,7 +19,7 @@ class InvoiceInputGroup extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
-    this.formInvoiceData = this.formInvoiceData.bind(this);
+    this.getFormInvoiceData = this.getFormInvoiceData.bind(this);
   }
 
   getInputReferences() {
@@ -33,7 +33,7 @@ class InvoiceInputGroup extends Component {
     ];
   }
 
-  formInvoiceData() {
+  getFormInvoiceData() {
     const invoice = {
       companyName: this.state.users_invoiceCompanyName,
       nip: this.state.users_invoiceNip,
