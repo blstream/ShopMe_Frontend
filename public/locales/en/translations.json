@@ -62,7 +62,8 @@
         "submitButtonLabel": "Sign Up",
         "formTitle": "Register",
         "personalDataProcessing": "I hereby agree for processing my personal data by ShopMe",
-        "invoiceDataLabel":"Invoice data"
+        "invoiceDataLabel": "Invoice data",
+        "successRegisterMessage": "Registration has been completed successfully"
       }
     },
     "UI": {

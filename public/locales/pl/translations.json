@@ -62,7 +62,8 @@
         "submitButtonLabel": "Rejestruj",
         "formTitle": "Rejestracja użytkownika",
         "personalDataProcessing": "Wyrażam zgodę na przetwarzanie moich danych osobowych przez ShopMe",
-        "invoiceDataLabel":"Dane do faktury"
+        "invoiceDataLabel": "Dane do faktury",
+        "successRegisterMessage": "Rejestracja zakończona pomyślnie"
       }
     },
     "UI": {
