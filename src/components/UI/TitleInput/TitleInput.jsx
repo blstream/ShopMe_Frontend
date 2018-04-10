@@ -40,13 +40,9 @@ class TitleInput extends Component {
 
   handleChange(event) {
     const { value } = event.target;
-<<<<<<< HEAD
-    if (value.length <= 30) this.setState({ value });
-=======
     if (value.length <= 30) {
       this.setState({ value });
     }
->>>>>>> Fix bug requested by QA in TitleInput to allow at most 30 characters in add form title
   }
 
   resetInput() {

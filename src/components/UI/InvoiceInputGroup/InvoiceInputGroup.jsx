@@ -52,10 +52,10 @@ class InvoiceInputGroup extends Component {
       const refs = this.getInputReferences();
       const isRefsValid = refs.map(ref => ref.getWrappedInstance().checkValidity());
       if (!isRefsValid.includes(false)) {
-        return false;
+        return true;
       }
     }
-    return true;
+    return false;
   }
 
   handleChange(field, value) {
