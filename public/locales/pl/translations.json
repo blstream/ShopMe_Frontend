@@ -22,7 +22,8 @@
         "offerBasePlaceholder": "Podstawowa Usługa",
         "offerExtendedPlaceholder": "Rozszerzona Usługa",
         "offerExtraPlaceholder": "Ekstra Usługa",
-        "submitButton": "Dodaj Ofertę"
+        "submitButton": "Dodaj Ofertę",
+        "errorMessage": "* Proszę wypełnić wszystkie wymagane pola"
       },
       "successMessage": {
         "text": "Pomyślnie dodano ofertę"
@@ -69,7 +70,7 @@
     "UI": {
       "categorySelect": {
         "name": "Kategoria *",
-        "errorEmptyField": "Pole wymagane!",
+        "errorEmptyField": "Pole wymagane",
         "categoryOptions": {
           "building": "Budowa",
           "garden": "Ogród",

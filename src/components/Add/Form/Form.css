@@ -19,6 +19,18 @@
   padding-top: 30px;
 }
 
+.add-form__fieldset{
+  position: relative;
+}
+
+.add-form__error {
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+  font-size: 1rem;
+  color: #FF0000;
+}
+
 .add-form__fieldset--basic {
   border: none;
   padding: 20px;

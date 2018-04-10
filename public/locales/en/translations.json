@@ -22,7 +22,8 @@
         "offerBasePlaceholder": "Base Service Description",
         "offerExtendedPlaceholder": "Extended Service Description",
         "offerExtraPlaceholder": "Extra Service Description",
-        "submitButton": "Add Offer"
+        "submitButton": "Add Offer",
+        "errorMessage": "* Please fill out all required fields"
       },
       "successMessage": {
         "text": "The offer has been successfully added"
