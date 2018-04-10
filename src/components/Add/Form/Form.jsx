@@ -52,6 +52,7 @@ class AddForm extends Component {
       priceExtendedRequired: false,
       priceExtraRequired: false,
       fireRedirect: false,
+      errorMessage: false,
     };
 
     this.setFieldStateValue = this.setFieldStateValue.bind(this);
@@ -142,7 +143,12 @@ class AddForm extends Component {
     const refs = this.getInputReferences();
     const isRefsValid = refs.map(ref => ref.getWrappedInstance().checkValidity());
 
+    if (isRefsValid.includes(false)) {
+      this.setState({ errorMessage: true });
+    }
+
     if (!isRefsValid.includes(false)) {
+      this.setState({ errorMessage: false });
       this.sendFormData(this.gatherFormData());
       AddForm.resetFormInputs(refs);
     }
@@ -150,7 +156,7 @@ class AddForm extends Component {
 
   render() {
     const { t } = this.props;
-    const { fireRedirect } = this.state;
+    const { fireRedirect, errorMessage } = this.state;
     return (
       <React.Fragment>
         <form
@@ -160,6 +166,7 @@ class AddForm extends Component {
         >
           <fieldset className="add-form__fieldset add-form__fieldset--basic">
             <h1 className="add-form__title">{t('components.add.form.title')}</h1>
+            {errorMessage && <p className="add-form__error">{t('components.add.form.errorMessage')}</p>}
             <div className="add-form__fieldset-wrapper--basic">
               <div className="add-form__fieldset-item add-form__fieldset-item--basic add-form__fieldset-item--margin-top">
                 <TitleInput

@@ -22,7 +22,8 @@
         "offerBasePlaceholder": "Base Service Description",
         "offerExtendedPlaceholder": "Extended Service Description",
         "offerExtraPlaceholder": "Extra Service Description",
-        "submitButton": "Add Offer"
+        "submitButton": "Add Offer",
+        "errorMessage": "* Please fill out all required fields"
       },
       "successMessage": {
         "text": "The offer has been successfully added"
@@ -62,7 +63,8 @@
         "submitButtonLabel": "Sign Up",
         "formTitle": "Register",
         "personalDataProcessing": "I hereby agree for processing my personal data by ShopMe",
-        "invoiceDataLabel":"Invoice data"
+        "invoiceDataLabel": "Invoice data",
+        "successRegisterMessage": "Registration has been completed successfully"
       }
     },
     "UI": {
@@ -114,7 +116,7 @@
       "phoneInput": {
         "name": "Phone number *",
         "errorEmptyField": "This field is required",
-        "errorPhoneRegex": "Please enter a valid phone number",
+        "errorPhoneRegex": "Too few characters",
         "errorOnlyNumeric": "This field should contain only numbers"
       },
       "priceInput": {

@@ -8,12 +8,61 @@ class InvoiceInputGroup extends Component {
     super(props);
     this.state = {
       checked: false,
+      users_invoiceCompanyName: '',
+      users_invoiceNip: '',
+      users_invoiceAddressStreet: '',
+      users_invoiceAddressNumber: '',
+      users_invoiceAddressZipCode: '',
+      users_invoiceAddressCity: '',
     };
     this.validator = new Validator();
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
+    this.getFormInvoiceData = this.getFormInvoiceData.bind(this);
   }
 
-  handleChange() {
+  getInputReferences() {
+    return [
+      this.users_invoiceCompanyName,
+      this.users_invoiceNip,
+      this.users_invoiceAddressStreet,
+      this.users_invoiceAddressNumber,
+      this.users_invoiceAddressZipCode,
+      this.users_invoiceAddressCity,
+    ];
+  }
+
+  getFormInvoiceData() {
+    const invoice = {
+      companyName: this.state.users_invoiceCompanyName,
+      nip: this.state.users_invoiceNip,
+      invoiceAddress: {
+        street: this.state.users_invoiceAddressStreet,
+        number: this.state.users_invoiceAddressNumber,
+        city: this.state.users_invoiceAddressCity,
+        zipCode: this.state.users_invoiceAddressZipCode,
+      },
+    };
+    return invoice;
+  }
+
+  handleSubmit() {
+    if (this.state.checked) {
+      const refs = this.getInputReferences();
+      const isRefsValid = refs.map(ref => ref.getWrappedInstance().checkValidity());
+      if (!isRefsValid.includes(false)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  handleChange(field, value) {
+    this.setState({ [field]: value });
+  }
+
+  handleCheckboxChange() {
     this.setState({
       checked: !this.state.checked,
     });
@@ -28,7 +77,7 @@ class InvoiceInputGroup extends Component {
         <div>
           <div className="register-form__item">
             <GenericInput
-              name="users__invoice-company-name"
+              name="users_invoiceCompanyName"
               type="text"
               label={t('components.login.register.companyNameInputLabel')}
               color="yellow"
@@ -36,11 +85,14 @@ class InvoiceInputGroup extends Component {
               maxLength="50"
               required
               validation={this.validator.validateTextInput}
+              ref={(v) => { this.users_invoiceCompanyName = v; }}
+              onChange={this.handleChange}
+              value={this.state.value}
             />
           </div>
           <div className="register-form__item">
             <GenericInput
-              name="users__invoice-nip"
+              name="users_invoiceNip"
               type="text"
               label={t('components.login.register.nipInputLabel')}
               color="yellow"
@@ -48,11 +100,13 @@ class InvoiceInputGroup extends Component {
               maxLength="50"
               required
               validation={this.validator.validateTextInput}
+              ref={(v) => { this.users_invoiceNip = v; }}
+              onChange={this.handleChange}
             />
           </div>
           <div className="register-form__item">
             <GenericInput
-              name="users__invoice-address-street"
+              name="users_invoiceAddressStreet"
               type="text"
               label={t('components.login.register.streetInputLabel')}
               color="yellow"
@@ -60,11 +114,13 @@ class InvoiceInputGroup extends Component {
               maxLength="50"
               required
               validation={this.validator.validateTextInput}
+              ref={(v) => { this.users_invoiceAddressStreet = v; }}
+              onChange={this.handleChange}
             />
           </div>
           <div className="register-form__item">
             <GenericInput
-              name="users__invoice-address-number"
+              name="users_invoiceAddressNumber"
               type="text"
               label={t('components.login.register.houseNumberInputLabel')}
               color="yellow"
@@ -72,11 +128,13 @@ class InvoiceInputGroup extends Component {
               maxLength="50"
               required
               validation={this.validator.validateTextInput}
+              ref={(v) => { this.users_invoiceAddressNumber = v; }}
+              onChange={this.handleChange}
             />
           </div>
           <div className="register-form__item">
             <GenericInput
-              name="users__invoice-address-zip-code"
+              name="users_invoiceAddressZipCode"
               type="text"
               label={t('components.login.register.zipCodeInputLabel')}
               color="yellow"
@@ -84,11 +142,13 @@ class InvoiceInputGroup extends Component {
               maxLength="50"
               required
               validation={this.validator.validateTextInput}
+              ref={(v) => { this.users_invoiceAddressZipCode = v; }}
+              onChange={this.handleChange}
             />
           </div>
           <div className="register-form__item">
             <GenericInput
-              name="users__invoice-address-city"
+              name="users_invoiceAddressCity"
               type="text"
               label={t('components.login.register.localityInputLabel')}
               color="yellow"
@@ -96,6 +156,8 @@ class InvoiceInputGroup extends Component {
               maxLength="50"
               required
               validation={this.validator.validateTextInput}
+              ref={(v) => { this.users_invoiceAddressCity = v; }}
+              onChange={this.handleChange}
             />
           </div>
         </div>)
@@ -112,8 +174,9 @@ class InvoiceInputGroup extends Component {
             name="invoiceCheckbox"
             type="checkbox"
             checked={this.state.checked}
-            onChange={this.handleChange}
+            onChange={this.handleCheckboxChange}
             style={{ margin: '0 0 0 10px', cursor: 'pointer' }}
+            ref={(v) => { this.invoiceCheckbox = v; }}
           />
         </label>
         {content}

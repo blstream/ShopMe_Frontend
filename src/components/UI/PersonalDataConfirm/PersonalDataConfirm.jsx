@@ -8,14 +8,31 @@ class PersonalDataConfirm extends Component {
     super(props);
     this.state = {
       checked: false,
+      errorMessage: '',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.checkValidity = this.checkValidity.bind(this);
   }
 
   handleChange() {
     this.setState({
       checked: !this.state.checked,
+      errorMessage: '',
     });
+  }
+
+  checkValidity() {
+    const { checked } = this.state;
+    const { validation, t } = this.props;
+    const errorMessage = validation(checked);
+
+    if (errorMessage) {
+      this.setState({ errorMessage: t(errorMessage) });
+      return false;
+    }
+
+    this.setState({ errorMessage: '' });
+    return true;
   }
 
   render() {
@@ -34,6 +51,9 @@ class PersonalDataConfirm extends Component {
           checked={this.state.checked}
           onChange={this.handleChange}
         />
+        <div className="users__personal-data-processing-error-message">
+          {this.state.errorMessage}
+        </div>
       </label>
     );
   }

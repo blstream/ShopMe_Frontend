@@ -22,7 +22,8 @@
         "offerBasePlaceholder": "Podstawowa Usługa",
         "offerExtendedPlaceholder": "Rozszerzona Usługa",
         "offerExtraPlaceholder": "Ekstra Usługa",
-        "submitButton": "Dodaj Ofertę"
+        "submitButton": "Dodaj Ofertę",
+        "errorMessage": "* Proszę wypełnić wszystkie wymagane pola"
       },
       "successMessage": {
         "text": "Pomyślnie dodano ofertę"
@@ -62,13 +63,14 @@
         "submitButtonLabel": "Rejestruj",
         "formTitle": "Rejestracja użytkownika",
         "personalDataProcessing": "Wyrażam zgodę na przetwarzanie moich danych osobowych przez ShopMe",
-        "invoiceDataLabel":"Dane do faktury"
+        "invoiceDataLabel": "Dane do faktury",
+        "successRegisterMessage": "Rejestracja zakończona pomyślnie"
       }
     },
     "UI": {
       "categorySelect": {
         "name": "Kategoria *",
-        "errorEmptyField": "Pole wymagane!",
+        "errorEmptyField": "Pole wymagane",
         "categoryOptions": {
           "building": "Budowa",
           "garden": "Ogród",
@@ -93,7 +95,7 @@
         "name": "Tytuł Oferty *",
         "errorEmptyField": "Pole wymagane",
         "errorMinLength": "Zbyt mała liczba znaków",
-        "errorIllegalCharacters": "Niedozwolone znaki",
+        "errorIllegalCharacters": "Niedozwolone znaki specjalne",
         "errorOnlyAlpha": "Pole może zawierać tylko litery"
       },
       "firstNameInput": {
@@ -114,8 +116,8 @@
       "phoneInput": {
         "name": "Telefon *",
         "errorEmptyField": "Pole wymagane",
-        "errorPhoneRegex": "Podaj poprawny numer telefonu",
-        "errorOnlyNumeric": "Pole może zawierać tylko cyfry"
+        "errorPhoneRegex": "Zbyt mała liczba znaków",
+        "errorOnlyNumeric": "Pole powinno zawierać tylko cyfry"
       },
       "priceInput": {
         "errorEmptyField": "Pole wymagane"

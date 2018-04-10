@@ -40,7 +40,9 @@ class TitleInput extends Component {
 
   handleChange(event) {
     const { value } = event.target;
-    if (value.length <= 30) this.setState({ value });
+    if (value.length <= 30) {
+      this.setState({ value });
+    }
   }
 
   resetInput() {

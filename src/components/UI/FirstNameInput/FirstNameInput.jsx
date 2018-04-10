@@ -20,7 +20,7 @@ class FirstNameInput extends Component {
 
   handleChange(event) {
     this.setState({ errorMessage: '' });
-    if (event.target.value.length <= 30) this.setState({ value: event.target.value });
+    if (event.target.value.length <= 20) this.setState({ value: event.target.value });
   }
 
   checkValidity() {
@@ -35,7 +35,7 @@ class FirstNameInput extends Component {
       this.setState({ errorMessage: t('components.UI.firstNameInput.errorMinLength') });
       return false;
     }
-    const pattern = /^[a-zA-Z]+$/;
+    const pattern = /^[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]*$/;
     if (this.state.isRequired && !pattern.test(this.state.value)) {
       this.setState({ errorMessage: t('components.UI.firstNameInput.errorOnlyAlpha') });
       return false;

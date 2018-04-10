@@ -7,7 +7,6 @@
   font-size: 0.85rem;
 }
 
-
 .users__personal-data-processing--input{
   position: absolute;
   top: 25px;
@@ -15,4 +14,12 @@
   height: 20px;
   width: 20px;
   cursor: pointer;
+}
+
+.users__personal-data-processing-error-message {
+  position: absolute;
+  left: 35px;
+  bottom: -13px;
+  font-size: 0.75rem;
+  color: #FF0000;
 }
