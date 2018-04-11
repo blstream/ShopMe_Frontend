@@ -10,6 +10,9 @@
   text-transform: uppercase;
   float: right;
   transition: all 0.2s ease-out;
+  color: #000;
+  text-decoration: none;
+  text-align: center;
 }
 
 .login-button:hover {

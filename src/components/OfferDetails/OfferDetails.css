@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather&subset=latin-ext');
+
 .offer-details {
   width: 70%;
   margin: 0 auto;
@@ -88,6 +90,7 @@
   font-family: 'Merriweather', serif;
   padding: 10px;
   margin: 0;
+  height: 70px;
 }
 
 .offer-details__offers--base--description, .offer-details__offers--extended--description, .offer-details__offers--extra--description {
@@ -98,4 +101,8 @@
 .offer-details__offers--base--price, .offer-details__offers--extended--price, .offer-details__offers--extra--price {
   margin-top: 20px;
   text-align: center;
+}
+
+.line-break {
+  display: block;
 }
