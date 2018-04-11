@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans&subset=latin-ext');
+@font-face {
+  font-family: 'Fira Sans';
+  src: local('Fira Sans'),
+  url('./fonts/FiraSans-Regular.ttf')
+}
 
 *, *:before, *:after {
   box-sizing: border-box;

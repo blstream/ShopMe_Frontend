@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@font-face {
+  font-family: 'Pacifico';
+  src: local('Pacifico'),
+  url('./fonts/Pacifico-Regular.ttf')
+}
 
 .logo-container a {
   text-decoration: none;

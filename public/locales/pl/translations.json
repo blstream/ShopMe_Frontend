@@ -67,6 +67,15 @@
         "successRegisterMessage": "Rejestracja zakończona pomyślnie"
       }
     },
+    "offerDetails": {
+        "contact": "Kontakt",
+        "show": "Pokaż",
+        "aboutMe": "O mnie",
+        "baseOffer": "Oferta podstawowa",
+        "extendedOffer": "Oferta rozszerzona",
+        "extraOffer": "Oferta ekstra",
+        "price": "cena"
+      },
     "UI": {
       "categorySelect": {
         "name": "Kategoria *",
