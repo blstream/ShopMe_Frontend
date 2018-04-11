@@ -137,9 +137,6 @@
       "add": {
         "addOfferText": "Dodaj ofertę"
       },
-      "redirectButton": {
-        "label": "Dodaj ofertę"
-      },
       "loginButton": {
         "label": "Logowanie"
       }
