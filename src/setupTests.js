@@ -12,7 +12,10 @@ global.fetch = require('jest-fetch-mock'); // eslint-disable-line import/no-extr
 // Make sure that all components receive function `t` in props. See https://react.i18next.com/misc/testing for more details.
 jest.mock('react-i18next', () => ({
   translate: () => (Component) => {
-    Component.defaultProps = { ...Component.defaultProps, t: () => '' }; // eslint-disable-line no-param-reassign
+    Component.defaultProps = { // eslint-disable-line no-param-reassign
+      ...Component.defaultProps,
+      t: key => key,
+    };
     return Component;
   },
 }));
