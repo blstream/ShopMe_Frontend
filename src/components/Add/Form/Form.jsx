@@ -141,13 +141,11 @@ class AddForm extends Component {
     submit.preventDefault();
     const refs = this.getInputReferences();
     const isRefsValid = refs.map(ref => ref.getWrappedInstance().checkValidity());
+    const isFormValid = isRefsValid.includes(false);
 
-    if (isRefsValid.includes(false)) {
-      this.setState({ errorMessage: true });
-    }
+    this.setState({ errorMessage: isFormValid });
 
     if (!isRefsValid.includes(false)) {
-      this.setState({ errorMessage: false });
       this.sendFormData(this.gatherFormData());
       AddForm.resetFormInputs(refs);
     }
