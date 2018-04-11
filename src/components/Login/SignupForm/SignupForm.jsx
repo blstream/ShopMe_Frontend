@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
 import { Redirect } from 'react-router';
-import Validator from 'helpers/validator';
+import validator from 'helpers/validator';
 import GenericInput from 'components/UI/GenericInput/GenericInput';
 import FormButton from 'components/UI/FormButton/FormButton';
 
@@ -16,7 +16,6 @@ class SignupForm extends Component {
       users__email: '',
       fireRedirect: false,
     };
-    this.validator = new Validator();
     this.setFieldStateValue = this.setFieldStateValue.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.getInputReferences = this.getInputReferences.bind(this);
@@ -68,7 +67,7 @@ class SignupForm extends Component {
                 size="M"
                 maxLength="30"
                 required
-                validation={this.validator.validateTextInput}
+                validation={validator.validateTextInput}
                 onChange={this.setFieldStateValue}
                 isValid={this.state.isValid}
                 checkValidity={this.checkValidity}
@@ -84,7 +83,7 @@ class SignupForm extends Component {
                 size="M"
                 maxLength="50"
                 required
-                validation={this.validator.validateTextInput}
+                validation={validator.validateTextInput}
                 onChange={this.setFieldStateValue}
                 isValid={this.state.isValid}
                 checkValidity={this.checkValidity}
@@ -99,7 +98,7 @@ class SignupForm extends Component {
                 color="yellow"
                 size="M"
                 required
-                validation={this.validator.validateTextInput}
+                validation={validator.validateTextInput}
                 onChange={this.setFieldStateValue}
                 isValid={this.state.isValid}
                 checkValidity={this.checkValidity}

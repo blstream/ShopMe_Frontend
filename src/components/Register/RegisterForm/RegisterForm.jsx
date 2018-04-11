@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
-import Validator from 'helpers/validator';
+import validator from 'helpers/validator';
 import GenericInput from 'components/UI/GenericInput/GenericInput';
 import FormButton from 'components/UI/FormButton/FormButton';
 import InvoiceInputGroup from 'components/UI/InvoiceInputGroup/InvoiceInputGroup';
@@ -12,7 +12,6 @@ class RegisterForm extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.validator = new Validator();
 
     this.checkFormValidity = this.checkFormValidity.bind(this);
     this.getInputReferences = this.getInputReferences.bind(this);
@@ -72,7 +71,7 @@ class RegisterForm extends Component {
                 size="M"
                 maxLength="50"
                 required
-                validation={this.validator.validateTextInput}
+                validation={validator.validateTextInput}
                 value={this.props.location.state.name}
                 ref={(v) => { this.users__name = v; }}
               />
@@ -86,7 +85,7 @@ class RegisterForm extends Component {
                 size="M"
                 maxLength="50"
                 required
-                validation={this.validator.validateTextInput}
+                validation={validator.validateTextInput}
                 value={this.props.location.state.surname}
                 ref={(v) => { this.users__surname = v; }}
               />
@@ -100,7 +99,7 @@ class RegisterForm extends Component {
                 size="M"
                 maxLength="50"
                 required
-                validation={this.validator.validateTextInput}
+                validation={validator.validateTextInput}
                 value={this.props.location.state.email}
                 ref={(v) => { this.users__email = v; }}
               />
@@ -114,7 +113,7 @@ class RegisterForm extends Component {
                 size="M"
                 maxLength="50"
                 required
-                validation={this.validator.validateTextInput}
+                validation={validator.validateTextInput}
                 ref={(v) => { this.users__password = v; }}
               />
             </div>
@@ -127,7 +126,7 @@ class RegisterForm extends Component {
                 size="M"
                 maxLength="50"
                 required
-                validation={this.validator.validateTextInput}
+                validation={validator.validateTextInput}
                 ref={(v) => { this.users__confirmPassword = v; }}
               />
             </div>
@@ -140,7 +139,7 @@ class RegisterForm extends Component {
                 size="M"
                 maxLength="50"
                 required
-                validation={this.validator.validateTextInput}
+                validation={validator.validateTextInput}
                 ref={(v) => { this.users__phoneNumber = v; }}
               />
             </div>
@@ -153,7 +152,7 @@ class RegisterForm extends Component {
                 size="M"
                 maxLength="50"
                 required
-                validation={this.validator.validateTextInput}
+                validation={validator.validateTextInput}
                 ref={(v) => { this.users__bankAccount = v; }}
               />
             </div>
@@ -166,7 +165,7 @@ class RegisterForm extends Component {
                 size="M"
                 maxLength="50"
                 required
-                validation={this.validator.validateTextInput}
+                validation={validator.validateTextInput}
                 ref={(v) => { this.users__addressStreet = v; }}
               />
             </div>
@@ -179,7 +178,7 @@ class RegisterForm extends Component {
                 size="M"
                 maxLength="50"
                 required
-                validation={this.validator.validateTextInput}
+                validation={validator.validateTextInput}
                 ref={(v) => { this.users__addressNumber = v; }}
               />
             </div>
@@ -192,7 +191,7 @@ class RegisterForm extends Component {
                 size="M"
                 maxLength="50"
                 required
-                validation={this.validator.validateTextInput}
+                validation={validator.validateTextInput}
                 ref={(v) => { this.users__addressCity = v; }}
               />
             </div>
@@ -205,7 +204,7 @@ class RegisterForm extends Component {
                 size="M"
                 maxLength="50"
                 required
-                validation={this.validator.validateTextInput}
+                validation={validator.validateTextInput}
                 ref={(v) => { this.users__addressZipCode = v; }}
               />
             </div>
@@ -221,7 +220,7 @@ class RegisterForm extends Component {
             </div>
             <div className="register-form__item--checkbox">
               <PersonalDataConfirm
-                validation={this.validator.validatePersonalDataConfirmCheckbox}
+                validation={validator.validateCheckbox}
                 ref={(v) => { this.users__personalDataProcessing = v; }}
               />
             </div>

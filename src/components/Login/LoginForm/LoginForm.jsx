@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
-import Validator from 'helpers/validator';
+import validator from 'helpers/validator';
 import GenericInput from 'components/UI/GenericInput/GenericInput';
 import FormButton from 'components/UI/FormButton/FormButton';
 
@@ -10,7 +10,6 @@ class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.validator = new Validator();
   }
 
   render() {
@@ -30,7 +29,7 @@ class LoginForm extends Component {
               color="yellow"
               size="M"
               required
-              validation={this.validator.validateTextInput}
+              validation={validator.validateTextInput}
             />
           </div>
           <div className="login-form__item">
@@ -41,7 +40,7 @@ class LoginForm extends Component {
               color="yellow"
               size="M"
               required
-              validation={this.validator.validateTextInput}
+              validation={validator.validateTextInput}
             />
           </div>
           <div className="login-form__item login-form__item--button">

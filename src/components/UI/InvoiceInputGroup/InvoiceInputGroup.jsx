@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
-import Validator from 'helpers/validator';
+import validator from 'helpers/validator';
 import GenericInput from 'components/UI/GenericInput/GenericInput';
 
 class InvoiceInputGroup extends Component {
@@ -15,7 +15,6 @@ class InvoiceInputGroup extends Component {
       users_invoiceAddressZipCode: '',
       users_invoiceAddressCity: '',
     };
-    this.validator = new Validator();
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
@@ -84,7 +83,7 @@ class InvoiceInputGroup extends Component {
               size="M"
               maxLength="50"
               required
-              validation={this.validator.validateTextInput}
+              validation={validator.validateTextInput}
               ref={(v) => { this.users_invoiceCompanyName = v; }}
               onChange={this.handleChange}
               value={this.state.value}
@@ -99,7 +98,7 @@ class InvoiceInputGroup extends Component {
               size="M"
               maxLength="50"
               required
-              validation={this.validator.validateTextInput}
+              validation={validator.validateTextInput}
               ref={(v) => { this.users_invoiceNip = v; }}
               onChange={this.handleChange}
             />
@@ -113,7 +112,7 @@ class InvoiceInputGroup extends Component {
               size="M"
               maxLength="50"
               required
-              validation={this.validator.validateTextInput}
+              validation={validator.validateTextInput}
               ref={(v) => { this.users_invoiceAddressStreet = v; }}
               onChange={this.handleChange}
             />
@@ -127,7 +126,7 @@ class InvoiceInputGroup extends Component {
               size="M"
               maxLength="50"
               required
-              validation={this.validator.validateTextInput}
+              validation={validator.validateTextInput}
               ref={(v) => { this.users_invoiceAddressNumber = v; }}
               onChange={this.handleChange}
             />
@@ -141,7 +140,7 @@ class InvoiceInputGroup extends Component {
               size="M"
               maxLength="50"
               required
-              validation={this.validator.validateTextInput}
+              validation={validator.validateTextInput}
               ref={(v) => { this.users_invoiceAddressZipCode = v; }}
               onChange={this.handleChange}
             />
@@ -155,7 +154,7 @@ class InvoiceInputGroup extends Component {
               size="M"
               maxLength="50"
               required
-              validation={this.validator.validateTextInput}
+              validation={validator.validateTextInput}
               ref={(v) => { this.users_invoiceAddressCity = v; }}
               onChange={this.handleChange}
             />
