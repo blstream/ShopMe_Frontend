@@ -37,7 +37,7 @@
 .offer-details__contact {
   margin-top: 10px;
   display: grid;
-  grid-template-columns: 30% 60%;
+  grid-template-columns: 40% 55%;
   grid-column-gap: 60px;
 }
 
@@ -55,7 +55,6 @@
   cursor: pointer;
   transition: all 0.5s;
   padding: 5px 10px;
-  float: right;
 }
 
 .offer-details__offers {
