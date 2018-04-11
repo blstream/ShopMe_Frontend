@@ -117,7 +117,7 @@
         "name": "Telefon *",
         "errorEmptyField": "Pole wymagane",
         "errorPhoneRegex": "Zbyt mała liczba znaków",
-        "errorOnlyNumeric": "Pole powinno zawierać tylko cyfry"
+        "errorOnlyNumeric": "Pole powinno zawierać jedynie cyfry"
       },
       "priceInput": {
         "errorEmptyField": "Pole wymagane"

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
+import { Redirect } from 'react-router';
+
 import validator from 'helpers/validator';
 import GenericInput from 'components/UI/GenericInput/GenericInput';
 import FormButton from 'components/UI/FormButton/FormButton';
@@ -11,10 +13,14 @@ import './Register.css';
 class RegisterForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      fireRedirect: false,
+    };
 
     this.checkFormValidity = this.checkFormValidity.bind(this);
     this.getInputReferences = this.getInputReferences.bind(this);
+    this.setFormData = this.setFormData.bind(this);
+    this.sendFormData = this.sendFormData.bind(this);
   }
 
   getInputReferences() {
@@ -34,6 +40,78 @@ class RegisterForm extends Component {
     ];
   }
 
+  setFormData(isInvoiceRequired) {
+    let formData;
+    if (isInvoiceRequired) {
+      const invoceData = this.users__invoiceInputGroup.getWrappedInstance().getFormInvoiceData();
+
+      formData =
+      {
+        name: this.users__name.getWrappedInstance().state.value,
+        surname: this.users__surname.getWrappedInstance().state.value,
+        email: this.users__email.getWrappedInstance().state.value,
+        password: this.users__password.getWrappedInstance().state.value,
+        phoneNumber: this.users__phoneNumber.getWrappedInstance().state.value,
+        bankAccount: this.users__bankAccount.getWrappedInstance().state.value,
+        address: {
+          street: this.users__addressStreet.getWrappedInstance().state.value,
+          number: this.users__addressNumber.getWrappedInstance().state.value,
+          city: this.users__addressCity.getWrappedInstance().state.value,
+          zipCode: this.users__addressZipCode.getWrappedInstance().state.value,
+        },
+        invoiceRequest: true,
+        invoice: {
+          companyName: invoceData.companyName,
+          nip: invoceData.nip,
+          invoiceAddress: {
+            street: invoceData.invoiceAddress.street,
+            number: invoceData.invoiceAddress.number,
+            city: invoceData.invoiceAddress.city,
+            zipCode: invoceData.invoiceAddress.zipCode,
+          },
+        },
+      };
+    } else {
+      formData =
+      {
+        name: this.users__name.getWrappedInstance().state.value,
+        surname: this.users__surname.getWrappedInstance().state.value,
+        email: this.users__email.getWrappedInstance().state.value,
+        password: this.users__password.getWrappedInstance().state.value,
+        phoneNumber: this.users__phoneNumber.getWrappedInstance().state.value,
+        bankAccount: this.users__bankAccount.getWrappedInstance().state.value,
+        address: {
+          street: this.users__addressStreet.getWrappedInstance().state.value,
+          number: this.users__addressNumber.getWrappedInstance().state.value,
+          city: this.users__addressCity.getWrappedInstance().state.value,
+          zipCode: this.users__addressZipCode.getWrappedInstance().state.value,
+        },
+        invoiceRequest: false,
+      };
+    }
+    return formData;
+  }
+
+  sendFormData(data) {
+    const myHeaders = new Headers({
+      'Content-Type': 'application/json',
+    });
+
+    const myInit = {
+      method: 'POST',
+      headers: myHeaders,
+      body: JSON.stringify(data),
+    };
+
+    const url = `${process.env.REACT_APP_API}/users`;
+
+    fetch(url, myInit)
+      .catch()
+      .then(() => {
+        this.setState({ fireRedirect: true });
+      });
+  }
+
   checkFormValidity(e) {
     e.preventDefault();
     const isInvoiceChecked = this.users__invoiceInputGroup.getWrappedInstance().state.checked;
@@ -42,15 +120,18 @@ class RegisterForm extends Component {
     if (isInvoiceChecked) {
       const isInvoiceValid = this.users__invoiceInputGroup.getWrappedInstance().handleSubmit();
       if (!isRefsValid.includes(false) && isInvoiceValid) {
-      // Miejsce na POST
+        const postData = this.setFormData(true);
+        this.sendFormData(postData);
       }
     } else if (!isRefsValid.includes(false)) {
-      // Miejsce na POST
+      const postData = this.setFormData();
+      this.sendFormData(postData);
     }
   }
 
   render() {
     const { t } = this.props;
+    const { fireRedirect } = this.state;
     return (
       <React.Fragment>
         <form
@@ -226,6 +307,9 @@ class RegisterForm extends Component {
             </div>
           </fieldset>
         </form>
+        {fireRedirect && (
+          <Redirect to="/register/success" />
+        )}
       </React.Fragment>
     );
   }

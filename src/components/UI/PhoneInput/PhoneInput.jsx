@@ -41,7 +41,7 @@ class PhoneInput extends Component {
   handleChange(event) {
     const { value } = event.target;
     this.setState({ errorMessage: '' });
-    if (value.length <= 9) {
+    if (value.length <= 10) {
       this.setState({ value });
     }
   }
