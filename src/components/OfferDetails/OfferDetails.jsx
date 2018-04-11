@@ -64,6 +64,10 @@ class OfferDetails extends React.Component {
 
   render() {
     const { t } = this.props;
+    const extendedHeader = t('components.offerDetails.extendedOffer').split(' ');
+    extendedHeader.splice(1, 0, <br key={1} />);
+    const extraHeader = t('components.offerDetails.extraOffer').split(' ');
+    extraHeader.splice(1, 0, <br key={2} />);
     return (
       <div className="offer-details">
         <h2 className="offer-details__header">{this.state.service.title}</h2>
@@ -95,13 +99,13 @@ class OfferDetails extends React.Component {
           </div>
           {this.state.service.extendedDescription &&
             <div className="offer-details__offers--extended">
-              <h3 className="offer-details__offers--extended--header">{t('components.offerDetails.extendedOffer')}</h3>
+              <h3 className="offer-details__offers--extended--header">{extendedHeader}</h3>
               <p className="offer-details__offers--extended--description">{this.state.service.extendedDescription}</p>
               <p className="offer-details__offers--extended--price">{t('components.offerDetails.price')}: {this.state.service.extendedPrice}zł</p>
             </div>}
           {this.state.service.extraDescription &&
             <div className="offer-details__offers--extra">
-              <h3 className="offer-details__offers--extra--header">{t('components.offerDetails.extraOffer')}</h3>
+              <h3 className="offer-details__offers--extra--header">{extraHeader}</h3>
               <p className="offer-details__offers--extra--description">{this.state.service.extraDescription}</p>
               <p className="offer-details__offers--extra--price">{t('components.offerDetails.price')}: {this.state.service.extraPrice}zł</p>
             </div>}
