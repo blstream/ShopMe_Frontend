@@ -37,7 +37,7 @@
 .offer-details__contact {
   margin-top: 10px;
   display: grid;
-  grid-template-columns: 25% 60%;
+  grid-template-columns: 30% 60%;
   grid-column-gap: 60px;
 }
 
@@ -90,7 +90,6 @@
   font-family: 'Merriweather', serif;
   padding: 10px;
   margin: 0;
-  height: 70px;
 }
 
 .offer-details__offers--base--description, .offer-details__offers--extended--description, .offer-details__offers--extra--description {
