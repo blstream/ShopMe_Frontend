@@ -64,10 +64,12 @@ class OfferDetails extends React.Component {
 
   render() {
     const { t } = this.props;
+    const baseHeader = t('components.offerDetails.baseOffer').split(' ');
+    baseHeader.splice(1, 0, <br key={1} />);
     const extendedHeader = t('components.offerDetails.extendedOffer').split(' ');
-    extendedHeader.splice(1, 0, <br key={1} />);
+    extendedHeader.splice(1, 0, <br key={2} />);
     const extraHeader = t('components.offerDetails.extraOffer').split(' ');
-    extraHeader.splice(1, 0, <br key={2} />);
+    extraHeader.splice(1, 0, <br key={3} />);
     return (
       <div className="offer-details">
         <h2 className="offer-details__header">{this.state.service.title}</h2>
@@ -93,7 +95,7 @@ class OfferDetails extends React.Component {
         </div>
         <div className="offer-details__offers">
           <div className="offer-details__offers--base">
-            <h3 className="offer-details__offers--base--header">{t('components.offerDetails.baseOffer')}</h3>
+            <h3 className="offer-details__offers--base--header">{baseHeader}</h3>
             <p className="offer-details__offers--base--description">{this.state.service.baseDescription}</p>
             <p className="offer-details__offers--base--price">{t('components.offerDetails.price')}: {this.state.service.basePrice}zł</p>
           </div>
