@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { MemoryRouter } from 'react-router-dom';
-import SreensRegister from './Register';
+import { SreensRegister } from './Register';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

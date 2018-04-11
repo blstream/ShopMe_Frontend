@@ -117,4 +117,5 @@ class PriceInput extends Component {
   }
 }
 
+export { PriceInput };
 export default translate('translations', { withRef: true })(PriceInput);

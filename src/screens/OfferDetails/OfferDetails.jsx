@@ -12,4 +12,5 @@ const OfferDetailsScreen = ({ match }) => (
   </div>
 );
 
+export { OfferDetailsScreen };
 export default OfferDetailsScreen;

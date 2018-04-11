@@ -96,4 +96,5 @@ class OfferTextarea extends Component {
   }
 }
 
+export { OfferTextarea };
 export default translate('translations', { withRef: true })(OfferTextarea);

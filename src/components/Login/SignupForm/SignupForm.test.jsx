@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-
 import { SignupForm } from './SignupForm';
 
 configure({ adapter: new Adapter() });

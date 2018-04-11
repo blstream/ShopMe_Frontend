@@ -75,4 +75,5 @@ class TitleInput extends Component {
   }
 }
 
+export { TitleInput };
 export default translate('translations', { withRef: true })(TitleInput);

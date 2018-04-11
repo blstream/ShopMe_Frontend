@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { MemoryRouter } from 'react-router-dom';
-import OfferDetailsScreen from './OfferDetails';
+import { OfferDetailsScreen } from './OfferDetails';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -12,7 +12,7 @@ it('renders without crashing', () => {
   };
   const element = (
     <MemoryRouter>
-      <OfferDetailsScreen match={match} />
+      <OfferDetailsScreen t={key => key} match={match} />
     </MemoryRouter>
   );
 
