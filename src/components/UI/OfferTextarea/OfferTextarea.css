@@ -1,0 +1,40 @@
+.add-form__label {
+  position: relative;
+}
+
+.add-form__input {
+  color: inherit;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #E0E0E0;
+  border: none;
+}
+
+.add-form__input--XL {
+  height: 150px;
+  width: 90%;
+  margin-bottom: -10px;
+}
+
+.add-form__input--XL::placeholder {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.add-form__input--disabled {
+  background-color: #FFFFFF;
+  border: 1px solid #D0D0D0;
+  color: #D0D0D0;
+}
+
+.add-form__input--disabled::placeholder {
+  color: #D0D0D0;
+}
+
+.add-form__error-message {
+  position: absolute;
+  bottom: -30px;
+  right: 0;
+  font-size: 0.75rem;
+  color: red;
+}

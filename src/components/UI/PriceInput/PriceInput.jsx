@@ -9,21 +9,21 @@ class PriceInput extends Component {
     this.state = {
       value: '',
       errorMessage: '',
-      isRequired: this.props.required,
     };
     this.checkValidity = this.checkValidity.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+    this.resetInput = this.resetInput.bind(this);
   }
 
-  checkValidity(value) {
-    const { t } = this.props;
+  checkValidity() {
+    const { required, disabled, t } = this.props;
     const isValid = true;
 
-    if (value.trim() === '' && this.state.isRequired) {
-      this.setState({ errorMessage: t('components.UI.PriceInput.errorMessage') });
+    if (this.state.value.trim() === '' && required && !disabled) {
+      this.setState({ errorMessage: t('components.UI.priceInput.errorEmptyField') });
       return false;
     }
 
@@ -36,6 +36,26 @@ class PriceInput extends Component {
     const price = /^([0-9]*)(,)?([0-9]{0,2})?$/;
 
     if (price.test(value)) this.setState({ value });
+    if (value.trim() !== '') this.activateNextField();
+    if (value.trim() === '') this.deactivateNextFields();
+  }
+
+  activateNextField() {
+    if (this.props.name === 'offer__extended-price') {
+      this.props.onChange('offerExtendedRequired', true);
+    }
+    if (this.props.name === 'offer__extra-price') {
+      this.props.onChange('offerExtraRequired', true);
+    }
+  }
+
+  deactivateNextFields() {
+    if (this.props.name === 'offer__extended-price') {
+      this.props.onChange('offerExtendedRequired', false);
+    }
+    if (this.props.name === 'offer__extra-price') {
+      this.props.onChange('offerExtraRequired', false);
+    }
   }
 
   handleKeyUp(e) {
@@ -66,6 +86,10 @@ class PriceInput extends Component {
     this.setState({ value });
   }
 
+  resetInput() {
+    this.setState({ value: '' });
+  }
+
   render() {
     const { t } = this.props;
     return (
@@ -73,7 +97,10 @@ class PriceInput extends Component {
         <div className="add-form__label--hidden">{t('components.UI.PriceInput.label')}</div>
         <input
           type="text"
-          className="add-form__input add-form__input--XS"
+          className={this.props.disabled
+            ? 'add-form__input add-form__input--XS add-form__input--disabled'
+            : 'add-form__input add-form__input--XS'
+          }
           name={this.props.name}
           value={this.state.value}
           placeholder={this.props.placeholder}
@@ -90,4 +117,4 @@ class PriceInput extends Component {
   }
 }
 
-export default translate()(PriceInput);
+export default translate('translations', { withRef: true })(PriceInput);

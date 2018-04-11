@@ -2,14 +2,12 @@
   width: 80%;
   margin: auto;
   padding: 30px 0;
-}
-
-.search-results__results {
-  margin: 100px 0 0 0;
-  font-family: MaisonNeue, sans-serif;
+  border: 1px solid #A9A9A9;
+  box-shadow: 14px 12px 9px darkgrey;
 }
 
 .search-results__title {
+  font-weight: 700;
   font-size: 30px;
   text-align: center;
 }

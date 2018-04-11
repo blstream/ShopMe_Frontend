@@ -1,0 +1,24 @@
+.search__input-wrapper {
+  float: left;
+  margin-right: 15px;
+  width: calc(100% - 165px);
+}
+
+#search__input {
+  border: solid 3px #9c9b9b;
+  width: 100%;
+}
+#search__input:focus {
+  outline: none;
+  border-color: #fade42;
+  transition: all 0.5s;
+}
+
+.search__form-item {
+  padding: 15px;
+}
+
+.search__message-error {
+  font-size: 15px;
+  padding: 15px 0;
+}

@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+.logo-container a {
+  text-decoration: none;
+  color: #000;
+}
+
+.logo-container__logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+}

@@ -1,0 +1,82 @@
+.input__wrapper {
+  position: relative;
+  display:flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+}
+
+.input__label {
+  margin: 15px;
+	display: inline-block;
+	width: 90px;
+	text-align: right;
+}
+
+.input__label--yellow {
+  color: #000000;
+}
+
+.input__label--XS {
+  position: absolute;
+  left: -9999px;
+}
+
+.input {
+  color: inherit;
+  padding: 10px;
+  border: none;
+}
+
+.input--grey {
+  background-color: #E0E0E0;
+}
+
+.input--yellow {
+  background-color: #FEECA5;
+}
+
+.input--XL {
+  height: 150px;
+  width: 90%;
+  margin-bottom: -10px;
+}
+
+.input--XL::placeholder {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.input--M {
+  width: 250px;
+}
+
+.input--XS {
+  width: 150px;
+}
+
+.input--XS::placeholder {
+  text-align: right;
+}
+
+.input__error-message {
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+  font-size: 0.75rem;
+  color: #FF0000;
+}
+
+.input--disabled {
+  background-color: #FFFFFF;
+  border: 1px solid #D0D0D0;
+  color: #D0D0D0;
+}
+
+.input--disabled::placeholder {
+  color: #D0D0D0;
+}
+
+p{
+  display: block;
+  margin: 20px;
+}

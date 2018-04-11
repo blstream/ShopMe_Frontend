@@ -1,17 +1,18 @@
 .input-title {
-	height: 100%;
-	width: 100%;
-	border: none;
-	background-color: transparent;
+	width: 250px;
+  border: none;
+  height: 30px;
+  background-color: #E0E0E0;
 	color: inherit;
-  outline: none;
-  padding-left: 10px;
+	outline: none;
+  padding: 5px 5px 5px 10px;
+  margin-left: 10px;
+  box-sizing: border-box;
 }
 
 .input-title__errorMessage {
-  position: absolute;
-  bottom: -20px;
-  right: 0;
   font-size: 0.75rem;
-  color: #fdde6b;
+  color: red;
+  margin-top: 5px;
+  text-align: right;
 }

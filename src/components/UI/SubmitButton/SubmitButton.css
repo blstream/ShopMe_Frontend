@@ -2,7 +2,8 @@
   background-color: #000;
   border: solid 3px #fade42;
   color:#fade42;
-  font-weight: bold;
+  font-weight: 400;
+  font-size: 15px;
   text-transform: uppercase;
   cursor: pointer;
   width: 150px;
@@ -16,4 +17,8 @@
 }
 .form__button--submit:focus {
   outline: none;
+}
+
+.form__button--submit:disabled {
+  background-color: #777;
 }

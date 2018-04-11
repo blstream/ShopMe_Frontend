@@ -1,0 +1,25 @@
+.login-button {
+  width: 140px;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: transparent;
+  border:none;
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  float: right;
+  transition: all 0.2s ease-out;
+}
+
+.login-button:hover {
+  color:#FFFFFF;
+  background-color: #000000;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-button:focus {
+  outline: none;
+  transform: scale(0.9);
+}

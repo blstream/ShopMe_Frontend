@@ -1,0 +1,29 @@
+section {
+  display: block;
+}
+
+.success-register-message__main-wrapper {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1200px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-register-message__text-wrapper {
+  max-width: 50%;
+  border: 2px solid #000;
+  padding: 15px 25px;
+  border-radius: 15px;
+}
+
+.success-register-message__text {
+  font-size: 1.4rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.success-register-message__text--green {
+  color: #5CB85C;
+}

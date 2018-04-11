@@ -13,21 +13,24 @@ class TitleInput extends Component {
       isRequired: this.props.required,
     };
 
+    this.checkValidity = this.checkValidity.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.resetInput = this.resetInput.bind(this);
   }
 
-  checkValidity(value) {
+  checkValidity() {
     const { t } = this.props;
     const isValid = true;
+    const pattern = /^[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ0-9 ]*$/;
 
-    if (value.trim() === '' && this.state.isRequired) {
-      this.setState({ errorMessage: t('components.UI.TitleInput.errorEmptyField') });
+    if (this.state.value.trim() === '' && this.state.isRequired) {
+      this.setState({ errorMessage: t('components.UI.titleInput.errorEmptyField') });
       return false;
-    } else if (value.length <= 2) {
-      this.setState({ errorMessage: t('components.UI.TitleInput.errorMinLength') });
+    } else if (this.state.value.length <= 1 && this.state.isRequired) {
+      this.setState({ errorMessage: t('components.UI.titleInput.errorMinLength') });
       return false;
-    } else if (value.length > 30) {
-      this.setState({ errorMessage: t('components.UI.TitleInput.errorMaxLength') });
+    } else if (this.state.isRequired && !pattern.test(this.state.value)) {
+      this.setState({ errorMessage: t('components.UI.titleInput.errorIllegalCharacters') });
       return false;
     }
 
@@ -37,14 +40,23 @@ class TitleInput extends Component {
 
   handleChange(event) {
     const { value } = event.target;
-    this.setState({ value });
+    if (value.length <= 30) {
+      this.setState({ value });
+    }
+  }
+
+  resetInput() {
+    this.setState({ value: '' });
   }
 
   render() {
+    const { t } = this.props;
     return (
       <label
         htmlFor={this.props.name}
+        className="add-form_label"
       >
+        {t('components.UI.titleInput.name')}
         <input
           className="input-title"
           type="text"
@@ -63,4 +75,4 @@ class TitleInput extends Component {
   }
 }
 
-export default translate()(TitleInput);
+export default translate('translations', { withRef: true })(TitleInput);

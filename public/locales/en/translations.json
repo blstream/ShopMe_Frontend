@@ -1,72 +1,138 @@
 {
   "components": {
-    "searchForm" : {
-      "button": "Szukaj",
-      "input": "Wpisz szukaną usługę",
-      "lengthError": "Wpisana fraza jest za krótka"
+    "searchForm": {
+      "button": "Search",
+      "input": "Enter the service",
+      "label": "Service search engine",
+      "lengthError": "Enter longer phrase",
+      "numberError": "Phrase can't contain only digits"
     },
-    "searchResults": {
+    "foundSearchResults": {
       "resultsTitle": "Wyniki wyszukiwania"
     },
-    "noSearchResults" : {
-      "noResultsTitle": "Brak wyników wyszukiwania."
+    "add": {
+      "form": {
+        "title": "Add offer",
+        "fieldsetTitle": "Define Your Service Packages",
+        "caption": "* Required fields",
+        "currency": "zł",
+        "offerBaseLabel": "Base *",
+        "offerExtendedLabel": "Extended",
+        "offerExtraLabel": "Extra",
+        "offerBasePlaceholder": "Base Service Description",
+        "offerExtendedPlaceholder": "Extended Service Description",
+        "offerExtraPlaceholder": "Extra Service Description",
+        "submitButton": "Add Offer",
+        "errorMessage": "* Please fill out all required fields"
+      },
+      "successMessage": {
+        "text": "The offer has been successfully added"
+      }
+    },
+    "noSearchResults": {
+      "noResultsTitle": "No results have been found match your criteria."
+    },
+    "login": {
+      "login": {
+        "emailInputLabel": "E-mail:",
+        "passwordInputLabel": "Password:",
+        "submitButtonLabel": "Log In",
+        "formTitle": "Login"
+      },
+      "signup": {
+        "firstNameInputLabel": "First Name:",
+        "lastNameInputLabel": "Last Name:",
+        "emailInputLabel": "E-mail:",
+        "submitButtonLabel": "Sign Up",
+        "formTitle": "Registration"
+      },
+      "register": {
+        "firstNameInputLabel": "First Name:",
+        "lastNameInputLabel": "Last Name:",
+        "emailInputLabel": "E-mail:",
+        "passwordInputLabel": "Password:",
+        "confirmPasswordInputLabel": "Confirm Password:",
+        "phoneNumberInputLabel": "Phone Number:",
+        "bankAccountInputLabel": "Bank Account Number:",
+        "streetInputLabel": "Street:",
+        "houseNumberInputLabel": "House Number:",
+        "localityInputLabel": "City:",
+        "zipCodeInputLabel": "Zip Code:",
+        "companyNameInputLabel": "Company Name:",
+        "nipInputLabel": "Taxpayer Identification Number:",
+        "submitButtonLabel": "Sign Up",
+        "formTitle": "Register",
+        "personalDataProcessing": "I hereby agree for processing my personal data by ShopMe",
+        "invoiceDataLabel": "Invoice data",
+        "successRegisterMessage": "Registration has been completed successfully"
+      }
     },
     "UI": {
       "categorySelect": {
         "name": "Category *",
         "errorEmptyField": "This field is required!",
         "categoryOptions": {
-          "architecture": "Architecture",
+          "building": "Architecture",
           "garden": "Garden",
-          "workshop-services": "Workshop Services",
+          "workshopServices": "Workshop Services",
           "transport": "Transport",
           "photography": "Photography",
           "graphics": "Graphics",
-          "marketing-and-advertising": "Marketing and Advertising",
+          "marketingAndAdvertising": "Marketing and Advertising",
           "programming": "Programming",
           "bookkeeping": "Bookkeeping",
           "law": "Law",
           "translations": "Translations",
-          "company-and-office": "Company and Office",
-          "repair-and-service": "Repair and Service",
+          "companyAndOffice": "Company and Office",
+          "repairAndService": "Repair and Service",
           "housework": "Housework",
           "tutoring": "Tutoring",
-          "bands-and-music": "Bands and Music",
+          "bandsAndMusic": "Bands and Music",
           "others": "Others"
         }
       },
-      "TitleInput": {
-        "name": "Title Offer *",
+      "titleInput": {
+        "name": "Offer Title *",
         "errorEmptyField": "This field is required!",
-        "errorMaxLength": "The title should contains at most 30 characters",
-        "errorMinLength": "The title should contains at least 3 characters"
+        "errorMinLength": "Too few characters",
+        "errorIllegalCharacters": "Illegal characters",
+        "errorOnlyAlpha": "This field should contain only letters"
       },
-      "FirstNameInput": {
+      "firstNameInput": {
         "name": "Name *",
-        "errorEmptyField": "Field can not be empty",
-        "errorMaxLength": "The name should contain at most 20 characters",
-        "errorMinLength": "The name should contain at least 3 characters",
-        "errorOnlyAlpha": "The name must consist only of letters"
+        "errorEmptyField": "This field is required",
+        "errorMinLength": "Too few characters",
+        "errorOnlyAlpha": "This field should contain only letters"
       },
-      "EmailInput": {
+      "emailInput": {
         "name": "E-mail *",
-        "errorEmptyField": "Field can not be empty",
+        "errorEmptyField": "This field is required",
         "errorEmailRegex": "Please enter a valid email address"
       },
-      "AboutMeTextarea": {
+      "aboutMeTextarea": {
         "name": "About me",
-        "errorEmptyField": "Field can not be empty",
-        "errorMaxLength": "This field should contain at most 800 characters"
+        "errorEmptyField": "This field is required"
       },
-      "PhoneInput": {
+      "phoneInput": {
         "name": "Phone number *",
-        "errorEmptyField": "Field can not be empty",
-        "errorPhoneRegex": "Please enter a valid phone number e.g. 500500500 lub 914646464"
-      }
-    },
-    "offer": {
+        "errorEmptyField": "This field is required",
+        "errorPhoneRegex": "Too few characters",
+        "errorOnlyNumeric": "This field should contain only numbers"
+      },
+      "priceInput": {
+        "errorEmptyField": "This field is required"
+      },
+      "offerTextarea": {
+        "errorEmptyField": "This field is required"
+      },
       "add": {
         "addOfferText": "Add offer"
+      },
+      "redirectButton": {
+        "label": "Add offer"
+      },
+      "loginButton": {
+        "label": "Log In"
       }
     }
   }

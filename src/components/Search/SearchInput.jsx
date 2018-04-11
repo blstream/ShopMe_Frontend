@@ -9,22 +9,39 @@ export default class SearchInput extends React.Component {
     this.state = {
       foundServices: [],
       notFoundServices: null,
+      searchPhrase: null,
+      paginationData: {},
     };
     this.updateFoundServices = this.updateFoundServices.bind(this);
+    this.updateSearchPhrase = this.updateSearchPhrase.bind(this);
+    this.updatePaginationData = this.updatePaginationData.bind(this);
   }
 
   updateFoundServices(foundServices) {
-    if (foundServices.length > 0) {
-      this.setState({ foundServices, notFoundServices: false });
+    if (foundServices.content) {
+      this.setState({ foundServices: foundServices.content, notFoundServices: false });
     } else {
       this.setState({ notFoundServices: true });
     }
   }
 
+  updatePaginationData(paginationData) {
+    this.setState({ paginationData });
+  }
+
+  updateSearchPhrase(searchPhrase) {
+    this.setState({ searchPhrase });
+  }
+
   render() {
     let results;
     if (this.state.notFoundServices === false) {
-      results = (<FoundSearchResults services={this.state.foundServices} />);
+      results = (<FoundSearchResults
+        services={this.state.foundServices}
+        updateFoundServices={this.updateFoundServices}
+        searchPhrase={this.state.searchPhrase}
+        paginationData={this.state.paginationData}
+      />);
     } else if (this.state.notFoundServices === true) {
       results = (<NoSearchResults />);
     } else {
@@ -35,6 +52,8 @@ export default class SearchInput extends React.Component {
       <div className="search">
         <SearchForm
           updateFoundServices={this.updateFoundServices}
+          updateSearchPhrase={this.updateSearchPhrase}
+          updatePaginationData={this.updatePaginationData}
         />
         {results}
       </div>
