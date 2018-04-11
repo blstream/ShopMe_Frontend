@@ -87,19 +87,19 @@ export default class OfferDetails extends React.Component {
         </div>
         <div className="offer-details__offers">
           <div className="offer-details__offers--base">
-            <h3 className="offer-details__offers--base--header">Oferta podstawowa</h3>
+            <h3 className="offer-details__offers--base--header">Oferta <span className="line-break">podstawowa</span></h3>
             <p className="offer-details__offers--base--description">{this.state.service.baseDescription}</p>
             <p className="offer-details__offers--base--price">Cena: {this.state.service.basePrice}zł</p>
           </div>
           {this.state.service.extendedDescription &&
             <div className="offer-details__offers--extended">
-              <h3 className="offer-details__offers--extended--header">Oferta rozszerzona</h3>
+              <h3 className="offer-details__offers--extended--header">Oferta <span className="line-break">rozszerzona</span></h3>
               <p className="offer-details__offers--extended--description">{this.state.service.extendedDescription}</p>
               <p className="offer-details__offers--extended--price">Cena: {this.state.service.extendedPrice}zł</p>
             </div>}
           {this.state.service.extraDescription &&
             <div className="offer-details__offers--extra">
-              <h3 className="offer-details__offers--extra--header">Oferta ekstra</h3>
+              <h3 className="offer-details__offers--extra--header">Oferta <span className="line-break">ekstra</span></h3>
               <p className="offer-details__offers--extra--description">{this.state.service.extraDescription}</p>
               <p className="offer-details__offers--extra--price">Cena: {this.state.service.extraPrice}zł</p>
             </div>}
