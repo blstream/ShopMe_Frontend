@@ -15,7 +15,6 @@
         "title": "Dodaj Ofertę",
         "fieldsetTitle": "Zdefiniuj Oferowane Pakiety Usług",
         "caption": "*Pola wymagane",
-        "currency": "zł",
         "offerBaseLabel": "Podstawowy *",
         "offerExtendedLabel": "Rozszerzony",
         "offerExtraLabel": "Ekstra",
@@ -120,7 +119,8 @@
         "errorOnlyNumeric": "Pole powinno zawierać tylko cyfry"
       },
       "priceInput": {
-        "errorEmptyField": "Pole wymagane"
+        "errorEmptyField": "Pole wymagane",
+        "currency": "zł"
       },
       "offerTextarea": {
         "errorEmptyField": "Pole wymagane"

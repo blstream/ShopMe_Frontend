@@ -35,7 +35,6 @@ class AddForm extends Component {
   static getFormattedPrice(price) {
     let formattedPrice = price;
     if (formattedPrice !== '') {
-      formattedPrice = formattedPrice.substring(0, formattedPrice.length - 3);
       formattedPrice = parseFloat(formattedPrice.replace(',', '.'));
     }
     return formattedPrice;
@@ -206,7 +205,6 @@ class AddForm extends Component {
                 <PriceInput
                   name="offer__base-price"
                   ref={(v) => { this.basicPrice = v; }}
-                  placeholder={t('components.add.form.currency')}
                   required
                 />
               </div>
@@ -227,7 +225,6 @@ class AddForm extends Component {
                 <PriceInput
                   name="offer__extended-price"
                   ref={(v) => { this.extendedPrice = v; }}
-                  placeholder={t('components.add.form.currency')}
                   onChange={this.setFieldStateValue}
                   disabled={this.state.offerExtendedDisabled}
                   required={this.state.priceExtendedRequired}
@@ -250,7 +247,6 @@ class AddForm extends Component {
                 <PriceInput
                   name="offer__extra-price"
                   ref={(v) => { this.extraPrice = v; }}
-                  placeholder={t('components.add.form.currency')}
                   onChange={this.setFieldStateValue}
                   disabled={this.state.offerExtraDisabled}
                   required={this.state.priceExtraRequired}

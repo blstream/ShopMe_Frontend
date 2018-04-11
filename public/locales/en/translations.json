@@ -15,7 +15,6 @@
         "title": "Add offer",
         "fieldsetTitle": "Define Your Service Packages",
         "caption": "* Required fields",
-        "currency": "zł",
         "offerBaseLabel": "Base *",
         "offerExtendedLabel": "Extended",
         "offerExtraLabel": "Extra",
@@ -120,7 +119,8 @@
         "errorOnlyNumeric": "This field should contain only numbers"
       },
       "priceInput": {
-        "errorEmptyField": "This field is required"
+        "errorEmptyField": "This field is required",
+        "currency": "zł"
       },
       "offerTextarea": {
         "errorEmptyField": "This field is required"

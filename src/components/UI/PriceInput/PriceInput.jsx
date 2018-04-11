@@ -13,7 +13,6 @@ class PriceInput extends Component {
     this.checkValidity = this.checkValidity.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);
-    this.handleFocus = this.handleFocus.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
     this.resetInput = this.resetInput.bind(this);
   }
@@ -67,22 +66,11 @@ class PriceInput extends Component {
     this.setState({ value });
   }
 
-  handleFocus(e) {
-    const state = this.state.value;
-
-    if (state) {
-      const noCurrency = state.substr(0, state.length - 3);
-      e.target.value = noCurrency;
-    }
-  }
-
   handleBlur(e) {
     let { value } = e.target;
     const state = this.state.value;
-    const currency = /zł$/;
 
     if (state) value = parseFloat(value.replace(',', '.')).toFixed(2).replace('.', ',');
-    if (state && !currency.test(value)) value += ' zł';
     this.setState({ value });
   }
 
@@ -103,15 +91,14 @@ class PriceInput extends Component {
           }
           name={this.props.name}
           value={this.state.value}
-          placeholder={this.props.placeholder}
           disabled={this.props.disabled}
           required={this.props.required}
-          onFocus={this.handleFocus}
           onChange={this.handleChange}
           onKeyUp={this.handleKeyUp}
           onBlur={this.handleBlur}
         />
         <div className="add-form__error-message">{this.state.errorMessage}</div>
+        <div className="add-form__input-currency">{t('components.UI.priceInput.currency')}</div>
       </label>
     );
   }
