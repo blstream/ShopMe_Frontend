@@ -4,5 +4,5 @@ import { PersonalDataConfirm } from './PersonalDataConfirm';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<PersonalDataConfirm t={key => key} />, div);
+  ReactDOM.render(<PersonalDataConfirm />, div);
 });

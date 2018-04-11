@@ -9,5 +9,5 @@ it('renders without crashing', () => {
       state: {},
     },
   };
-  ReactDOM.render(<RegisterForm t={key => key} location={props.location} />, div);
+  ReactDOM.render(<RegisterForm location={props.location} />, div);
 });

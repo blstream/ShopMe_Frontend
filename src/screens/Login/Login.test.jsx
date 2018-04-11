@@ -7,7 +7,7 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   const element = (
     <MemoryRouter>
-      <SreensLogin t={key => key} />
+      <SreensLogin />
     </MemoryRouter>
   );
   ReactDOM.render(element, div);

@@ -4,5 +4,5 @@ import { TitleInput } from './TitleInput';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<TitleInput t={key => key} />, div);
+  ReactDOM.render(<TitleInput />, div);
 });

@@ -8,7 +8,7 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   const element = (
     <MemoryRouter>
-      <ScreenOfferAdd t={key => key} />
+      <ScreenOfferAdd />
     </MemoryRouter>
   );
   ReactDOM.render(element, div);

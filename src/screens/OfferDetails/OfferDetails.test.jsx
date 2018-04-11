@@ -12,7 +12,7 @@ it('renders without crashing', () => {
   };
   const element = (
     <MemoryRouter>
-      <OfferDetailsScreen t={key => key} match={match} />
+      <OfferDetailsScreen match={match} />
     </MemoryRouter>
   );
 

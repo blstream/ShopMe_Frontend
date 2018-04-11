@@ -5,7 +5,6 @@ import { PriceInput } from './PriceInput';
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<PriceInput
-    t={key => key}
     name="offer__base-price"
     placeholder="mockPlaceHolder"
     required

@@ -7,7 +7,7 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   const element = (
     <MemoryRouter>
-      <SreensAddForm t={key => key} />
+      <SreensAddForm />
     </MemoryRouter>
   );
 

@@ -4,5 +4,5 @@ import { SuccessMessage } from './SuccessMessage';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<SuccessMessage t={key => key} />, div);
+  ReactDOM.render(<SuccessMessage />, div);
 });

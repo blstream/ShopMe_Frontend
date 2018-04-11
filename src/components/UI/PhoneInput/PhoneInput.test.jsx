@@ -4,5 +4,5 @@ import { PhoneInput } from './PhoneInput';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<PhoneInput t={key => key} />, div);
+  ReactDOM.render(<PhoneInput />, div);
 });

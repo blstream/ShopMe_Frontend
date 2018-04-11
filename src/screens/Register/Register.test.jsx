@@ -16,7 +16,7 @@ it('renders without crashing', () => {
   };
   const element = (
     <MemoryRouter>
-      <SreensRegister t={key => key} {...props} />
+      <SreensRegister {...props} />
     </MemoryRouter>
   );
   ReactDOM.render(element, div);

@@ -4,5 +4,5 @@ import { AddForm } from './Form';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<AddForm t={key => key} />, div);
+  ReactDOM.render(<AddForm />, div);
 });

@@ -1,26 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { configure, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { mount } from 'enzyme';
 import { SignupForm } from './SignupForm';
 
-configure({ adapter: new Adapter() });
-
 describe('SignupForm Component', () => {
-  beforeAll(() => {
-    console.error = jest.fn(); // ugly way of hiding error in console
-  });
-
   it('should render without waringns', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<SignupForm t={key => key} />, div);
+    ReactDOM.render(<SignupForm />, div);
   });
 
   describe('methods', () => {
     let wrapper;
     beforeEach(() => {
       SignupForm.prototype.handleSubmit = jest.fn();
-      wrapper = mount(<SignupForm t={key => key} />);
+      wrapper = mount(<SignupForm />);
     });
 
     describe('render', () => {
