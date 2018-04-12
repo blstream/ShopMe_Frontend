@@ -42,37 +42,8 @@ class RegisterForm extends Component {
 
   setFormData(isInvoiceRequired) {
     let formData;
-    if (isInvoiceRequired) {
-      const invoceData = this.users__invoiceInputGroup.getWrappedInstance().getFormInvoiceData();
 
-      formData =
-      {
-        name: this.users__name.getWrappedInstance().state.value,
-        surname: this.users__surname.getWrappedInstance().state.value,
-        email: this.users__email.getWrappedInstance().state.value,
-        password: this.users__password.getWrappedInstance().state.value,
-        phoneNumber: this.users__phoneNumber.getWrappedInstance().state.value,
-        bankAccount: this.users__bankAccount.getWrappedInstance().state.value,
-        address: {
-          street: this.users__addressStreet.getWrappedInstance().state.value,
-          number: this.users__addressNumber.getWrappedInstance().state.value,
-          city: this.users__addressCity.getWrappedInstance().state.value,
-          zipCode: this.users__addressZipCode.getWrappedInstance().state.value,
-        },
-        invoiceRequest: true,
-        invoice: {
-          companyName: invoceData.companyName,
-          nip: invoceData.nip,
-          invoiceAddress: {
-            street: invoceData.invoiceAddress.street,
-            number: invoceData.invoiceAddress.number,
-            city: invoceData.invoiceAddress.city,
-            zipCode: invoceData.invoiceAddress.zipCode,
-          },
-        },
-      };
-    } else {
-      formData =
+    formData =
       {
         name: this.users__name.getWrappedInstance().state.value,
         surname: this.users__surname.getWrappedInstance().state.value,
@@ -88,6 +59,24 @@ class RegisterForm extends Component {
         },
         invoiceRequest: false,
       };
+
+    if (isInvoiceRequired) {
+      formData.invoiceRequest = true;
+      const invoceData = this.users__invoiceInputGroup.getWrappedInstance().getFormInvoiceData();
+      const invoicePostData =
+        {
+          invoice: {
+            companyName: invoceData.companyName,
+            nip: invoceData.nip,
+            invoiceAddress: {
+              street: invoceData.invoiceAddress.street,
+              number: invoceData.invoiceAddress.number,
+              city: invoceData.invoiceAddress.city,
+              zipCode: invoceData.invoiceAddress.zipCode,
+            },
+          },
+        };
+      formData = Object.assign({}, formData, invoicePostData);
     }
     return formData;
   }
