@@ -16,8 +16,11 @@ class SearchResults extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.searchPhrase !== prevProps.searchPhrase ||
-      this.props.paginationData.totalPages !== prevProps.paginationData.totalPages) {
+    const isDifferentPhrase = this.props.searchPhrase !== prevProps.searchPhrase;
+    const hasTotalPagesChangend =
+      this.props.paginationData.totalPages !== prevProps.paginationData.totalPages;
+
+    if (isDifferentPhrase || hasTotalPagesChangend) {
       this.updatePagination(1, this.props.paginationData.totalPages);
     }
   }
