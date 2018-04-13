@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
+import { Redirect } from 'react-router';
 import validator from 'helpers/validator';
 import GenericInput from 'components/UI/GenericInput/GenericInput';
 import FormButton from 'components/UI/FormButton/FormButton';
@@ -9,13 +10,22 @@ import '../Login.css';
 class LoginForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      fireRedirect: false,
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    localStorage.setItem('isLogged', true);
+    this.setState({ fireRedirect: true });
   }
 
   render() {
     const { t } = this.props;
     return (
-      <form className="login-form">
+      <form className="login-form" onSubmit={this.handleSubmit}>
         <fieldset className="login-form__fieldset">
           <div className="login-form__icon-container">
             <i className="login-form__icon login-form__icon--login far fa-user" />
@@ -51,6 +61,9 @@ class LoginForm extends Component {
             />
           </div>
         </fieldset>
+        {this.state.fireRedirect && (
+          <Redirect to="/" />
+        )}
       </form>
     );
   }
