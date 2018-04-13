@@ -18,8 +18,8 @@ class LoginForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    document.cookie = 'userCookie=test';
-    const isUserLogged = !!document.cookie.replace(/(?:(?:^|.*;\s*)userCookie\s*=\s*([^;]*).*$)|^.*$/, '$1');
+    document.cookie = 'userToken=test';
+    const isUserLogged = !!document.cookie.replace(/(?:(?:^|.*;\s*)userToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
     if (isUserLogged) {
       this.setState({ fireRedirect: true });
     }
