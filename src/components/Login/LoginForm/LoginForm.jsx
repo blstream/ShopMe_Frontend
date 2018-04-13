@@ -18,7 +18,7 @@ class LoginForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    localStorage.setItem('isLogged', true);
+    document.cookie = 'isLogged=true';
     this.setState({ fireRedirect: true });
   }
 
