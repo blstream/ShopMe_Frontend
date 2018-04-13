@@ -7,9 +7,9 @@ import './Header.css';
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.userCookie = document.cookie.replace(/(?:(?:^|.*;\s*)userCookie\s*=\s*([^;]*).*$)|^.*$/, '$1');
+    this.isLogged = !!document.cookie.replace(/(?:(?:^|.*;\s*)userToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
     this.state = {
-      isLogged: !!this.userCookie,
+      isLogged: !!this.isLogged,
     };
   }
 
