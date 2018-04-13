@@ -5,7 +5,7 @@ import './LoginButton.css';
 
 const LoginButton = props => (
   <Link href="/login" to="/login" className="login-button">
-    {props.t('components.UI.loginButton.label')}
+    {props.isLogged ? props.t('components.UI.loginButton.labelLogged') : props.t('components.UI.loginButton.label')}
   </Link>
 );
 

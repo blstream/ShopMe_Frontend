@@ -138,7 +138,8 @@
         "addOfferText": "Add offer"
       },
       "loginButton": {
-        "label": "Log In"
+        "label": "Log In",
+        "labelLogged": "Logout"
       }
     }
   }

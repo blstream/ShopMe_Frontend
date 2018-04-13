@@ -4,14 +4,26 @@ import AddOfferLink from 'components/UI/AddOfferLink/AddOfferLink';
 import LoginButton from 'components/UI/LoginButton/LoginButton';
 import './Header.css';
 
-const Header = props => (
-  <header>
-    <Logo />
-    <nav>
-      {!props.isInvisible && <AddOfferLink />}
-    </nav>
-    <LoginButton />
-  </header>
-);
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    const cookie = document.cookie.replace(/(?:(?:^|.*;\s*)isLogged\s*=\s*([^;]*).*$)|^.*$/, '$1');
+    this.state = {
+      isLogged: !!cookie,
+    };
+  }
+
+  render() {
+    return (
+      <header>
+        <Logo />
+        <nav>
+          {this.state.isLogged && <AddOfferLink />}
+        </nav>
+        <LoginButton isLogged={this.state.isLogged} />
+      </header>
+    );
+  }
+}
 
 export default Header;
