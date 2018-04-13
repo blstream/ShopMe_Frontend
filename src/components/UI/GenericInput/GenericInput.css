@@ -6,9 +6,9 @@
 }
 
 .input__label {
-  margin: 15px;
+  margin: 1.5rem;
 	display: inline-block;
-	width: 90px;
+	width: 9rem;
 	text-align: right;
 }
 
@@ -23,7 +23,7 @@
 
 .input {
   color: inherit;
-  padding: 10px;
+  padding: 1rem;
   border: none;
 }
 
@@ -36,22 +36,22 @@
 }
 
 .input--XL {
-  height: 150px;
+  height: 15rem;
   width: 90%;
-  margin-bottom: -10px;
+  margin-bottom: -1rem;
 }
 
 .input--XL::placeholder {
   text-align: center;
-  padding: 50px 0;
+  padding: 5rem 0;
 }
 
 .input--M {
-  width: 250px;
+  width: 25rem;
 }
 
 .input--XS {
-  width: 150px;
+  width: 15rem;
 }
 
 .input--XS::placeholder {
@@ -60,9 +60,9 @@
 
 .input__error-message {
   position: absolute;
-  bottom: -20px;
+  bottom: -2rem;
   right: 0;
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   color: #FF0000;
 }
 
@@ -78,5 +78,5 @@
 
 p{
   display: block;
-  margin: 20px;
+  margin: 2rem;
 }

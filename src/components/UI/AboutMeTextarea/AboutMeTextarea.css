@@ -9,8 +9,8 @@
 
 .add-form__input {
   color: inherit;
-  padding: 10px;
-  margin-top: 10px;
+  padding: 1rem;
+  margin-top: 1rem;
   background-color: #E0E0E0;
   border: none;
 }
@@ -21,15 +21,15 @@
 }
 
 .add-form__input--L {
-  height: 150px;
+  height: 15rem;
   width: 90%;
-  margin-bottom: -10px;
+  margin-bottom: -1rem;
 }
 
 .add-form__error-message {
   position: absolute;
-  bottom: -30px;
+  bottom: -3rem;
   right: 0;
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   color: red;
 }

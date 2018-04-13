@@ -1,11 +1,11 @@
 .form__button {
-  height: 60px;
-  width: 200px;
+  height: 6rem;
+  width: 20rem;
   background-color: #24313c;
   border: none;
   color: #ffffff;
-  padding: 20px;
-  font-size: 1.2rem;
+  padding: 2rem;
+  font-size: 1.92rem;
   transition: all 0.2s ease-out;
 }
 

@@ -10,8 +10,13 @@
   padding: 0;
 }
 
+html {
+  font-size: 10px;
+}
+
 body {
-  width: 1180px;
+  width: 118rem;
   margin: 0 auto;
   font-family: 'Fira Sans', sans-serif;
+  font-size: 1.6rem;
 }

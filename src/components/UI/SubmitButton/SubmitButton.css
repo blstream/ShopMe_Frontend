@@ -1,14 +1,14 @@
 .form__button--submit {
   background-color: #000;
-  border: solid 3px #fade42;
+  border: solid 0.3rem #fade42;
   color:#fade42;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 1.5rem;
   text-transform: uppercase;
   cursor: pointer;
-  width: 150px;
+  width: 15rem;
   transition: all 0.5s;
-  padding: 15px;
+  padding: 1.5rem;
 }
 .form__button--submit:hover {
   background-color: #fada27;

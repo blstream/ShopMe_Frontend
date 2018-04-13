@@ -1,5 +1,5 @@
 .add-offer__link {
-  margin-right: 15px;
+  margin-right: 1.5rem;
 }
 .add-offer__link a {
   text-decoration: none;
@@ -15,7 +15,7 @@
 }
 
 .add-offer__text--letter-spacing {
-    letter-spacing: .3px;
+    letter-spacing: 0.03rem;
 }
 
 .add-offer__btn {

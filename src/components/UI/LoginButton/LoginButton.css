@@ -1,12 +1,12 @@
 .login-button {
-  width: 140px;
-  margin: 20px 0;
-  padding: 10px;
+  width: 14rem;
+  margin: 2rem 0;
+  padding: 1rem;
   background-color: transparent;
   border:none;
-  font-size: 0.7rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.15rem;
   text-transform: uppercase;
   float: right;
   transition: all 0.2s ease-out;
@@ -18,7 +18,7 @@
 .login-button:hover {
   color:#FFFFFF;
   background-color: #000000;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   cursor: pointer;
 }
 

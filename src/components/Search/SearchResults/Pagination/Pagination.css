@@ -16,24 +16,24 @@
   border: solid 3px #fade42;
   color:#fade42;
   cursor: pointer;
-  font-size: 15px;
-  padding: 3px;
-  margin: 2px;
+  font-size: 1.5rem;
+  padding: 0.3rem;
+  margin: 0.2rem;
 }
 
 .pagination__button:hover {
   background-color: #fade42;
-  border: solid 3px #000;
+  border: solid 0.3rem #000;
   color: #000;
 }
 
 .pagination__button--active {
   background-color: #fade42;
-  border: solid 3px #000;
+  border: solid 0.3rem #000;
   color: #000;
   cursor: pointer;
-  font-size: 15px;
-  padding: 3px;
-  margin: 2px;
+  font-size: 1.5rem;
+  padding: 0.3rem;
+  margin: 0.2rem;
   font-weight: bold;
 }
