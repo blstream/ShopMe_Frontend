@@ -12,7 +12,7 @@
 }
 
 .login-form {
-  border: 1px solid #A9A9A9;
+  border: 0.1rem solid #A9A9A9;
   border-radius: 0.5rem;
   margin: 3rem;
   padding: 2rem;
@@ -25,7 +25,7 @@
   position: absolute;
   width: 7rem;
   height: 7rem;
-  border: 1px solid #A9A9A9;
+  border: 0.1rem solid #A9A9A9;
   border-radius: 50%;
   top: -5%;
   left: 50%;

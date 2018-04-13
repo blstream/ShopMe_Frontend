@@ -14,7 +14,7 @@ section {
 
 .success-register-message__text-wrapper {
   max-width: 50%;
-  border: 2px solid #000;
+  border: 0.2rem solid #000;
   padding: 1.5rem 2.5rem;
   border-radius: 1.5rem;
 }

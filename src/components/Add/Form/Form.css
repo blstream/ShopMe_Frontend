@@ -4,7 +4,7 @@
   background-color: #FFFFFF;
   font-size: 1.6rem;
   color: #000000;
-  border: 1px solid #A9A9A9;
+  border: 0.1rem solid #A9A9A9;
 }
 
 @media screen and (max-width: 960px) {
@@ -38,7 +38,7 @@
 }
 
 .add-form__fieldset--offers {
-  border: 1px solid #A9A9A9;
+  border: 0.1rem solid #A9A9A9;
   border-radius: 0.5rem;
   position: relative;
   margin: 3rem;
@@ -52,7 +52,7 @@
   position: absolute;
   width: 7rem;
   height: 7rem;
-  border: 1px solid grey;
+  border: 0.1rem solid grey;
   border-radius: 50%;
   top: -5%;
   left: 50%;
@@ -125,7 +125,7 @@
 
 .add-form__input--disabled {
   background-color: #FFFFFF;
-  border: 1px solid #D0D0D0;
+  border: 0.1rem solid #D0D0D0;
   color: #D0D0D0;
 }
 

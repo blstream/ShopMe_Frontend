@@ -13,7 +13,7 @@
 
 .pagination__button {
   background-color: #000;
-  border: solid 3px #fade42;
+  border: solid 0.3rem #fade42;
   color:#fade42;
   cursor: pointer;
   font-size: 1.5rem;
