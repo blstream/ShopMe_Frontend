@@ -77,7 +77,7 @@ describe('PriceInput', () => {
       it('does not set value if an incorrect pattern was entered in the input', () => {
         const input = priceInput.find('input');
         input.simulate('change', { target: { value: '9.900' } });
-        expect(priceInput.state().value).not.toEqual('9.000');
+        expect(priceInput.state().value).toEqual('');
       });
 
       it('calls activateNextField method if there was a value entered in the input', () => {
