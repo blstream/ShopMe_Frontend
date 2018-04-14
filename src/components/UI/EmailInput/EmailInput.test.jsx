@@ -57,7 +57,7 @@ describe('EmailInput', () => {
         expect(emailInput.find('.add-form__error-message').text()).not.toEqual('');
       });
 
-      it('does not display an error if value value in the input is a correct email address', () => {
+      it('does not display an error if value in the input is a correct email address', () => {
         const input = emailInput.find('input');
         input.simulate('change', { target: { value: 'test@test.com' } });
         emailInput.instance().checkValidity();

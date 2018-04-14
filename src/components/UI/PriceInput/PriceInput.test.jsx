@@ -1,12 +1,114 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { mount } from 'enzyme';
 import { PriceInput } from './PriceInput';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<PriceInput
-    name="offer__base-price"
-    placeholder="mockPlaceHolder"
-    required
-  />, div);
+describe('PriceInput', () => {
+  it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<PriceInput
+      name="offer__base-price"
+      required
+    />, div);
+  });
+
+  describe('component', () => {
+    let priceInput;
+
+    beforeEach(() => {
+      priceInput = mount(<PriceInput name="test" />);
+    });
+
+    it('displays a label', () => {
+      expect(priceInput.find('label').length).toEqual(1);
+    });
+
+    it('displays a text input', () => {
+      expect(priceInput.find('input[type="text"]').length).toEqual(1);
+    });
+
+    it('displays a currency symbol', () => {
+      expect(priceInput.find('.add-form__input-currency').text()).toEqual('components.UI.priceInput.currency');
+    });
+
+    it('does not display an error after render', () => {
+      expect(priceInput.find('.add-form__error-message').text()).toEqual('');
+    });
+
+    it('does not display an error if incorrect value is entered to the input', () => {
+      const input = priceInput.find('input');
+      input.simulate('change', { target: { value: '9.900' } });
+      expect(priceInput.find('.add-form__error-message').text()).toEqual('');
+    });
+  });
+
+  describe('method', () => {
+    let priceInput;
+
+    beforeEach(() => {
+      PriceInput.prototype.activateNextField = jest.fn();
+      PriceInput.prototype.deactivateNextFields = jest.fn();
+      priceInput = mount(<PriceInput required name="test" />);
+    });
+
+    describe('checkValidity', () => {
+      it('displays an error if there is no value in the input', () => {
+        const input = priceInput.find('input');
+        input.simulate('change', { target: { value: '' } });
+        priceInput.instance().checkValidity();
+        expect(priceInput.find('.add-form__error-message').text()).not.toEqual('');
+      });
+
+      it('does not display an error if there is a value in the input', () => {
+        const input = priceInput.find('input');
+        input.simulate('change', { target: { value: '9,99' } });
+        priceInput.instance().checkValidity();
+        expect(priceInput.find('.add-form__error-message').text()).toEqual('');
+      });
+    });
+
+    describe('handleChange', () => {
+      it('sets value if a correct pattern was entered in the input', () => {
+        const input = priceInput.find('input');
+        input.simulate('change', { target: { value: '9,99' } });
+        expect(priceInput.state().value).toEqual('9,99');
+      });
+
+      it('does not set value if an incorrect pattern was entered in the input', () => {
+        const input = priceInput.find('input');
+        input.simulate('change', { target: { value: '9.900' } });
+        expect(priceInput.state().value).not.toEqual('9.000');
+      });
+
+      it('calls activateNextField method if there was a value entered in the input', () => {
+        const input = priceInput.find('input');
+        input.simulate('change', { target: { value: '9.99' } });
+        expect(PriceInput.prototype.activateNextField).toHaveBeenCalled();
+      });
+
+      it('calls deactivateNextFields method if a value was deleted from the input', () => {
+        const input = priceInput.find('input');
+        input.simulate('change', { target: { value: '' } });
+        expect(PriceInput.prototype.deactivateNextFields).toHaveBeenCalled();
+      });
+    });
+
+    describe('handleKeyUp', () => {
+      it('adds zero before the first comma', () => {
+        const input = priceInput.find('input');
+        input.simulate('change', { target: { value: ',' } });
+        input.simulate('keyUp');
+        expect(priceInput.state().value).toEqual('0,');
+      });
+    });
+
+    describe('handleBlur', () => {
+      it('parses price to the floating-point number with two decimal places after comma', () => {
+        const input = priceInput.find('input');
+        input.simulate('change', { target: { value: '9,9' } });
+        input.simulate('blur');
+        expect(priceInput.state().value).toEqual('9,90');
+      });
+    });
+  });
 });

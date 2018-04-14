@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import { SignupForm } from './SignupForm';
 
 describe('SignupForm Component', () => {
-  it('should render without waringns', () => {
+  it('should render without warnigns', () => {
     const div = document.createElement('div');
     ReactDOM.render(<SignupForm />, div);
   });
@@ -23,7 +23,7 @@ describe('SignupForm Component', () => {
     });
 
     describe('handleSubmit', () => {
-      it('should call aftere click', () => {
+      it('should call handleSubmit after click', () => {
         const formButton = wrapper.find('.login-form');
 
         formButton.simulate('submit');
