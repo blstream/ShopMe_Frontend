@@ -17,10 +17,7 @@ class GenericInput extends Component {
 
   handleChange(event) {
     const { value } = event.target;
-    const maxLength = this.props.maxLength ? this.props.maxLength : Infinity;
-    if (value.length <= maxLength) {
-      this.setState({ value });
-    }
+    this.setState({ value });
     if (this.props.onChange) {
       this.props.onChange(this.props.name, value);
     }
@@ -51,14 +48,15 @@ class GenericInput extends Component {
         className="input__wrapper"
         htmlFor={this.props.name}
       >
-        <p className={`input__label input__label--${this.props.color}`}>
+        <span className={`input__label input__label--${this.props.size}`}>
           {this.props.label}
-        </p>
+        </span>
         <input
           className={`input  input--${this.props.size} input--${this.props.color}`}
           type={this.props.type}
           name={this.props.name}
           placeholder={this.props.placeholder}
+          maxLength={this.props.maxLength}
           disabled={this.props.disabled}
           required={this.props.required}
           value={this.state.value}

@@ -141,5 +141,15 @@
         "label": "Log In"
       }
     }
+  },
+  "helpers": {
+    "validator": {
+      "errorEmptyField": "This field is required",
+      "errorMinLength": "Too few characters",
+      "errorIllegalCharacters": "Illegal characters",
+      "errorOnlyAlpha": "This field should contain only letters",
+      "errorOnlyNumeric": "This field should contain only numbers",
+      "errorEmailRegex": "Please enter a valid email address",
+    }
   }
 }

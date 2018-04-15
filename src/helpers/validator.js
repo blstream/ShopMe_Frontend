@@ -1,26 +1,44 @@
 const validator = {
 
   isRequired(required, value) {
-    return (value.trim() === '' && required) ? 'components.UI.firstNameInput.errorEmptyField' : undefined;
+    return (value.trim() === '' && required) ? 'helpers.validator.errorEmptyField' : undefined;
   },
 
   hasMinLength(minLength, value) {
-    return value.length < minLength ? 'components.UI.firstNameInput.errorMinLength' : undefined;
+    return value.length < minLength ? 'helpers.validator.errorMinLength' : undefined;
   },
 
   useOnlyAlpha(value) {
     const pattern = /^[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]*$/;
-    return !pattern.test(value) ? 'components.UI.firstNameInput.errorOnlyAlpha' : undefined;
+    return !pattern.test(value) ? 'helpers.validator.errorOnlyAlpha' : undefined;
+  },
+
+  isValidEmail(value) {
+    const pattern = /^\S+@\S+\.\S+$/;
+    return !pattern.test(value) ? 'helpers.validator.errorEmailRegex' : undefined;
   },
 
   isChecked(checked) {
-    return (!checked) ? 'components.UI.firstNameInput.errorEmptyField' : undefined;
+    return !checked ? 'helpers.validator.errorEmptyField' : undefined;
   },
 
   validateNameInput(required, value) {
     return validator.isRequired(required, value) ||
+      validator.hasMinLength(3, value) ||
+      validator.useOnlyAlpha(value) ||
+      undefined;
+  },
+
+  validateSurnameInput(required, value) {
+    return validator.isRequired(required, value) ||
       validator.hasMinLength(2, value) ||
       validator.useOnlyAlpha(value) ||
+      undefined;
+  },
+
+  validateEmailInput(required, value) {
+    return validator.isRequired(required, value) ||
+      validator.isValidEmail(value) ||
       undefined;
   },
 

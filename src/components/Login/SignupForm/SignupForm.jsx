@@ -65,12 +65,10 @@ class SignupForm extends Component {
                 label={t('components.login.signup.firstNameInputLabel')}
                 color="yellow"
                 size="M"
-                maxLength="30"
+                maxLength="20"
                 required
-                validation={validator.validateTextInput}
+                validation={validator.validateNameInput}
                 onChange={this.setFieldStateValue}
-                isValid={this.state.isValid}
-                checkValidity={this.checkValidity}
                 ref={(v) => { this.nameInput = v; }}
               />
             </div>
@@ -83,10 +81,8 @@ class SignupForm extends Component {
                 size="M"
                 maxLength="50"
                 required
-                validation={validator.validateTextInput}
+                validation={validator.validateSurnameInput}
                 onChange={this.setFieldStateValue}
-                isValid={this.state.isValid}
-                checkValidity={this.checkValidity}
                 ref={(v) => { this.surnameInput = v; }}
               />
             </div>
@@ -98,10 +94,8 @@ class SignupForm extends Component {
                 color="yellow"
                 size="M"
                 required
-                validation={validator.validateTextInput}
+                validation={validator.validateEmailInput}
                 onChange={this.setFieldStateValue}
-                isValid={this.state.isValid}
-                checkValidity={this.checkValidity}
                 ref={(v) => { this.emailInput = v; }}
               />
             </div>
