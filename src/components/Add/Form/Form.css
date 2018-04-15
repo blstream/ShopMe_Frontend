@@ -9,7 +9,7 @@
 
 @media screen and (max-width: 960px) {
   .add-form {
-    max-width: 96rem;
+    max-width: 100%;
   }
 }
 
