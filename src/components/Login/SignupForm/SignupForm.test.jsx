@@ -23,7 +23,7 @@ describe('SignupForm Component', () => {
     });
 
     describe('handleSubmit', () => {
-      it('should call handleSubmit after click', () => {
+      it('should call after click', () => {
         const formButton = wrapper.find('.login-form');
 
         formButton.simulate('submit');

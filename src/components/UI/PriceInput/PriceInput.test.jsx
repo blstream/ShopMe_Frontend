@@ -46,8 +46,6 @@ describe('PriceInput', () => {
     let priceInput;
 
     beforeEach(() => {
-      PriceInput.prototype.activateNextField = jest.fn();
-      PriceInput.prototype.deactivateNextFields = jest.fn();
       priceInput = mount(<PriceInput required name="test" />);
     });
 
@@ -68,13 +66,23 @@ describe('PriceInput', () => {
     });
 
     describe('handleChange', () => {
-      it('sets value if a correct pattern was entered in the input', () => {
+      beforeEach(() => {
+        jest.spyOn(PriceInput.prototype, 'activateNextField');
+        jest.spyOn(PriceInput.prototype, 'deactivateNextFields');
+      });
+
+      afterEach(() => {
+        PriceInput.prototype.activateNextField.mockRestore();
+        PriceInput.prototype.deactivateNextFields.mockRestore();
+      });
+
+      it('sets a value if a correct pattern was entered in the input', () => {
         const input = priceInput.find('input');
         input.simulate('change', { target: { value: '9,99' } });
         expect(priceInput.state().value).toEqual('9,99');
       });
 
-      it('does not set value if an incorrect pattern was entered in the input', () => {
+      it('does not set a value if an incorrect pattern was entered in the input', () => {
         const input = priceInput.find('input');
         input.simulate('change', { target: { value: '9.900' } });
         expect(priceInput.state().value).toEqual('');
