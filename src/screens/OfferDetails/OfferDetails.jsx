@@ -1,8 +1,11 @@
 import React from 'react';
 import OfferDetails from 'components/OfferDetails/OfferDetails';
+import Layout from 'core/Layout';
 
 const OfferDetailsScreen = ({ match }) => (
-  <OfferDetails offerId={match.params.offerId} />
+  <Layout>
+    <OfferDetails offerId={match.params.offerId} />
+  </Layout>
 );
 
 export { OfferDetailsScreen };

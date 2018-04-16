@@ -1,9 +1,12 @@
 import React from 'react';
 import { translate } from 'react-i18next';
 import AddForm from 'components/Add/Form/Form';
+import Layout from 'core/Layout';
 
 const SreensAddForm = () => (
-  <AddForm />
+  <Layout>
+    <AddForm />
+  </Layout>
 );
 
 export { SreensAddForm };

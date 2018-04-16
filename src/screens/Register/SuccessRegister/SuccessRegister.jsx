@@ -1,9 +1,12 @@
 import React from 'react';
 import { translate } from 'react-i18next';
 import SuccessRegisterMessage from 'components/Register/SuccessRegisterMessage/SuccessRegisterMessage';
+import Layout from 'core/Layout';
 
 const ScreenSuccessRegister = () => (
-  <SuccessRegisterMessage />
+  <Layout>
+    <SuccessRegisterMessage />
+  </Layout>
 );
 
 export { ScreenSuccessRegister };
