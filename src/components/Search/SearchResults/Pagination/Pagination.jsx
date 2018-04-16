@@ -52,7 +52,7 @@ export default class Pagination extends React.Component {
     const firstPage = totalPages > 1 && page > 3
       ? (
         <button
-          className="pagination__button pagiantion__button--first"
+          className="pagination__button pagination__button--first"
           onClick={this.goFirstPage}
         >1
         </button>
@@ -62,7 +62,7 @@ export default class Pagination extends React.Component {
     const lastPage = totalPages > 1 && page < totalPages - 2
       ? (
         <button
-          className="pagination__button pagiantion__button--last"
+          className="pagination__button pagination__button--last"
           onClick={this.goLastPage}
         >{totalPages}
         </button>
@@ -73,7 +73,7 @@ export default class Pagination extends React.Component {
       ? null
       : (
         <button
-          className="pagination__button pagiantion__button--previous"
+          className="pagination__button pagination__button--previous"
           onClick={this.goPrevPage}
         >&lt;
         </button>
@@ -83,7 +83,7 @@ export default class Pagination extends React.Component {
       ? null
       : (
         <button
-          className="pagination__button pagiantion__button--next"
+          className="pagination__button pagination__button--next"
           onClick={this.goNextPage}
         >&gt;
         </button>
