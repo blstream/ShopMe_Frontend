@@ -44,21 +44,21 @@ describe('PriceInput', () => {
 
   describe('method', () => {
     let priceInput;
+    let input;
 
     beforeEach(() => {
       priceInput = mount(<PriceInput required name="test" />);
+      input = priceInput.find('input');
     });
 
     describe('checkValidity', () => {
       it('displays an error if there is no value in the input', () => {
-        const input = priceInput.find('input');
         input.simulate('change', { target: { value: '' } });
         priceInput.instance().checkValidity();
         expect(priceInput.find('.add-form__error-message').text()).not.toEqual('');
       });
 
       it('does not display an error if there is a value in the input', () => {
-        const input = priceInput.find('input');
         input.simulate('change', { target: { value: '9,99' } });
         priceInput.instance().checkValidity();
         expect(priceInput.find('.add-form__error-message').text()).toEqual('');
@@ -77,25 +77,21 @@ describe('PriceInput', () => {
       });
 
       it('sets a value if a correct pattern was entered in the input', () => {
-        const input = priceInput.find('input');
         input.simulate('change', { target: { value: '9,99' } });
         expect(priceInput.state().value).toEqual('9,99');
       });
 
       it('does not set a value if an incorrect pattern was entered in the input', () => {
-        const input = priceInput.find('input');
         input.simulate('change', { target: { value: '9.900' } });
         expect(priceInput.state().value).toEqual('');
       });
 
       it('calls activateNextField method if there was a value entered in the input', () => {
-        const input = priceInput.find('input');
-        input.simulate('change', { target: { value: '9.99' } });
+        input.simulate('change', { target: { value: '9,99' } });
         expect(PriceInput.prototype.activateNextField).toHaveBeenCalled();
       });
 
       it('calls deactivateNextFields method if a value was deleted from the input', () => {
-        const input = priceInput.find('input');
         input.simulate('change', { target: { value: '' } });
         expect(PriceInput.prototype.deactivateNextFields).toHaveBeenCalled();
       });
@@ -103,7 +99,6 @@ describe('PriceInput', () => {
 
     describe('handleKeyUp', () => {
       it('adds zero before the first comma', () => {
-        const input = priceInput.find('input');
         input.simulate('change', { target: { value: ',' } });
         input.simulate('keyUp');
         expect(priceInput.state().value).toEqual('0,');
@@ -112,7 +107,6 @@ describe('PriceInput', () => {
 
     describe('handleBlur', () => {
       it('parses price to the floating-point number with two decimal places after comma', () => {
-        const input = priceInput.find('input');
         input.simulate('change', { target: { value: '9,9' } });
         input.simulate('blur');
         expect(priceInput.state().value).toEqual('9,90');
