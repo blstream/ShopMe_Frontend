@@ -1,0 +1,38 @@
+.add-offer__link {
+  margin-right: 1.5rem;
+}
+.add-offer__link a {
+  text-decoration: none;
+  color: #000;
+  float: left;
+}
+
+.add-offer__text {
+  font-size: 1.7em;
+  line-height: 1.3em;
+  padding-left: 0.5em;
+  float: left;
+}
+
+.add-offer__text--letter-spacing {
+    letter-spacing: 0.03rem;
+}
+
+.add-offer__btn {
+  background-color: inherit;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 2em;
+  transition: all .3s ease-in;
+  float: left;
+}
+
+.add-offer__btn:hover {
+  transform: scale(1.2);
+  color: #fade42;
+}
+
+.add-offer__btn--black {
+  color: #4F4F4F;
+}

@@ -1,0 +1,37 @@
+.services-item {
+  list-style-type: decimal;
+  margin: 1.5rem 0;
+  font-family: "Fira Sans";
+  font-size: 1.9rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+.services-item__title {
+  font-weight: 700;
+  width: 30rem;
+  flex-grow: 2;
+  margin: auto;
+  color: #000;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+
+.services-item__title:hover, .services-item__title:focus {
+  color: #f89f00;
+}
+
+.services-item__price {
+  width: 15rem;
+  flex-grow: 1;
+  margin: auto;
+}
+
+.services-item__date {
+  width: 15rem;
+  flex-grow: 1;
+  margin: auto;
+}
+

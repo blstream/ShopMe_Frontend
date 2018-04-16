@@ -1,0 +1,61 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:9.8.0
+
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - repo
+
+  eslint:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: yarn run eslint
+
+  tests:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: yarn test
+
+workflows:
+  version: 2
+  build-and-test:
+    jobs:
+      - build
+      - eslint:
+          requires:
+            - build
+      - tests:
+          requires:
+            - build

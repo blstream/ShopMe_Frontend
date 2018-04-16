@@ -1,0 +1,33 @@
+.add-form__label {
+  position: relative;
+}
+
+.add-form__input--yellow {
+  background-color: #FEECA5;
+  border: none;
+}
+
+.add-form__input {
+  color: inherit;
+  padding: 1rem;
+  margin-top: 1rem;
+  background-color: #E0E0E0;
+  border: none;
+}
+
+.add-form__input--yellow {
+  background-color: #FEECA5;
+  border: none;
+}
+
+.add-form__input--S {
+  width: 25rem;
+}
+
+.add-form__error-message {
+  position: absolute;
+  bottom: -3rem;
+  right: 0;
+  font-size: 1.2rem;
+  color: red;
+}

@@ -1,6 +1,7 @@
 # ShopeME Front-end
 
 - [Quickstart](#quickstart)
+- [Wymagania](#wymagania)
 - [Stack technologiczny](#stack-technologiczny)
 - [Struktura projektu](#struktura-projektu)
 - [Skrypty](#skrypty)
@@ -8,15 +9,23 @@
 
 ## Quickstart
 
-Wersja deweloperska: `npm run start:dev` lub `npm run server` i `npm run client:dev`
+Jednorazowo: `yarn install`
 
-Wersja produkcyjna: `npm run start:prod` lub `npm run client:prod`
+Wersja deweloperska: `yarn run server` i `yarn run client:dev`
+
+Wersja produkcyjna: `yarn run client:prod`
 
 Dostępne adresy:
 
 - [http://localhost:3000](http://localhost:3000) aplikacja frontowa
 - [http://localhost:3001](http://localhost:3001) serwer mockowy
 - [http://localhost:3001/ui](http://localhost:3001/ui) przeglądarka Swaggera (z serwer mockowy)
+
+
+## Wymagania
+
+- [Node.js](https://nodejs.org)
+- [Yarn](https://yarnpkg.com)
 
 
 ## Stack technologiczny 
@@ -98,34 +107,34 @@ shop-me-frontend/
 
 W katalogu projektu można uruchomić:
 
-### `npm run start:dev`
+### `yarn run start:dev`
 
 Uruchamia jednocześnie serwer mockowy oraz aplikację kliencką.
 
-### `npm run start:prod`
+### `yarn run start:prod`
 
 Uruchamia aplikację kliencką z dostępem do serwera produkcyjnego
 
-### `npm run client`
+### `yarn run client`
 
 Uruchamia aplikację kliencką. Wymaga ustawienia zmiennej środowiskowej REACT_APP_API
 
-### `npm run client:dev`
+### `yarn run client:dev`
 
 Uruchamia aplikację kliencką z dostępem do serwera mockowego
 
-### `npm run client:prod`
+### `yarn run client:prod`
 
 Uruchamia aplikację kliencką z dostępem do serwera produkcyjnego
 
-### `npm run server`
+### `yarn run server`
 
 Uruchamia serwer mockowy
 
-### `npm run test`
+### `yarn run test`
 
 Uruchamia testy jednostkowe.
 
-### `npm build`
+### `yarn run build`
 
 Tworzy build produkcyjny w katalogu `build`

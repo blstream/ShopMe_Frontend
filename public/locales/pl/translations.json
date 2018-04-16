@@ -1,12 +1,156 @@
 {
-  "screens": {
-    "examples": {
-      "hello": {
-        "title": "Witaj, Świecie!"
+  "components": {
+    "searchForm" : {
+      "button": "Szukaj",
+      "input": "Wpisz szukaną usługę",
+      "label": "Wyszukiwarka usług",
+      "lengthError": "Podaj frazę składającą się z większej liczby liter",
+      "numberError": "Podaj frazę nieskładającą się z samych liczb"
+    },
+    "foundSearchResults": {
+      "resultsTitle": "Wyniki wyszukiwania"
+    },
+    "add": {
+      "form": {
+        "title": "Dodaj Ofertę",
+        "fieldsetTitle": "Zdefiniuj Oferowane Pakiety Usług",
+        "caption": "*Pola wymagane",
+        "offerBaseLabel": "Podstawowy *",
+        "offerExtendedLabel": "Rozszerzony",
+        "offerExtraLabel": "Ekstra",
+        "offerBasePlaceholder": "Podstawowa Usługa",
+        "offerExtendedPlaceholder": "Rozszerzona Usługa",
+        "offerExtraPlaceholder": "Ekstra Usługa",
+        "submitButton": "Dodaj Ofertę",
+        "errorMessage": "* Proszę wypełnić wszystkie wymagane pola"
       },
-      "fetch": {
-        "title": "Twoje IP to"
+      "successMessage": {
+        "text": "Pomyślnie dodano ofertę"
       }
+    },
+    "noSearchResults" : {
+      "noResultsTitle": "Niestety nie znaleziono ofert spełniających Twoje kryteria"
+    },
+    "login": {
+      "login": {
+        "emailInputLabel": "E-mail:",
+        "passwordInputLabel": "Hasło:",
+        "submitButtonLabel": "Zaloguj",
+        "formTitle": "Logowanie"
+      },
+      "signup": {
+        "firstNameInputLabel": "Imię:",
+        "lastNameInputLabel": "Nazwisko:",
+        "emailInputLabel": "E-mail:",
+        "submitButtonLabel": "Rejestruj",
+        "formTitle": "Rejestracja"
+      },
+      "register": {
+        "firstNameInputLabel": "Imię:",
+        "lastNameInputLabel": "Nazwisko:",
+        "emailInputLabel": "E-mail:",
+        "passwordInputLabel": "Hasło:",
+        "confirmPasswordInputLabel": "Powtórz hasło:",
+        "phoneNumberInputLabel": "Numer telefonu:",
+        "bankAccountInputLabel": "Nr konta bankowego:",
+        "streetInputLabel": "Ulica:",
+        "houseNumberInputLabel": "Nr domu:",
+        "localityInputLabel": "Miejscowość:",
+        "zipCodeInputLabel": "Kod pocztowy:",
+        "companyNameInputLabel": "Nazwa firmy:",
+        "nipInputLabel": "NIP:",
+        "submitButtonLabel": "Rejestruj",
+        "formTitle": "Rejestracja użytkownika",
+        "personalDataProcessing": "Wyrażam zgodę na przetwarzanie moich danych osobowych przez ShopMe",
+        "invoiceDataLabel": "Dane do faktury",
+        "successRegisterMessage": "Rejestracja zakończona pomyślnie"
+      }
+    },
+    "offerDetails": {
+        "contact": "Kontakt",
+        "show": "Pokaż",
+        "aboutMe": "O mnie",
+        "baseOffer": "Oferta podstawowa",
+        "extendedOffer": "Oferta rozszerzona",
+        "extraOffer": "Oferta ekstra",
+        "price": "cena"
+      },
+    "UI": {
+      "categorySelect": {
+        "name": "Kategoria *",
+        "errorEmptyField": "Pole wymagane",
+        "categoryOptions": {
+          "building": "Budowa",
+          "garden": "Ogród",
+          "workshopServices": "Usługi Warszatatowe",
+          "transport": "Transport",
+          "photography": "Fotografia",
+          "graphics": "Grafika",
+          "marketingAndAdvertising": "Marketing i Reklama",
+          "programming": "Programowanie",
+          "bookkeeping": "Księgowość",
+          "law": "Prawo",
+          "translations": "Tłumaczenia",
+          "companyAndOffice": "Firma i Biuro",
+          "repairAndService": "Naprawa i Serwis",
+          "housework": "Prace Domowe",
+          "tutoring": "Korepetycje",
+          "bandsAndMusic": "Zespoły i Muzyka",
+          "others": "Inne"
+        }
+      },
+      "titleInput": {
+        "name": "Tytuł Oferty *",
+        "errorEmptyField": "Pole wymagane",
+        "errorMinLength": "Zbyt mała liczba znaków",
+        "errorIllegalCharacters": "Niedozwolone znaki specjalne",
+        "errorOnlyAlpha": "Pole może zawierać tylko litery"
+      },
+      "firstNameInput": {
+        "name": "Imię *",
+        "errorEmptyField": "Pole wymagane",
+        "errorMinLength": "Zbyt mała liczba znaków",
+        "errorOnlyAlpha": "Pole może zawierać tylko litery"
+      },
+      "emailInput": {
+        "name": "E-mail *",
+        "errorEmptyField": "Pole wymagane",
+        "errorEmailRegex": "Podaj poprawny adres e-mail"
+      },
+      "aboutMeTextarea": {
+        "name": "O mnie",
+        "errorEmptyField": "Pole wymagane"
+      },
+      "phoneInput": {
+        "name": "Telefon *",
+        "errorEmptyField": "Pole wymagane",
+        "errorPhoneRegex": "Zbyt mała liczba znaków",
+        "errorOnlyNumeric": "Pole powinno zawierać jedynie cyfry"
+      },
+      "priceInput": {
+        "errorEmptyField": "Pole wymagane",
+        "currency": "zł"
+      },
+      "offerTextarea": {
+        "errorEmptyField": "Pole wymagane"
+      },
+      "add": {
+        "addOfferText": "Dodaj ofertę"
+      },
+      "loginButton": {
+        "label": "Logowanie",
+        "labelLogged": "Wyloguj"
+      }
+    }
+  },
+  "helpers": {
+    "validator": {
+      "errorEmptyField": "Pole wymagane",
+      "errorMinLength": "Zbyt mała liczba znaków",
+      "errorIllegalCharacters": "Niedozwolone znaki specjalne",
+      "errorOnlyAlpha": "Pole może zawierać tylko litery",
+      "errorOnlyNumeric": "Pole powinno zawierać jedynie cyfry",
+      "errorEmailRegex": "Podaj poprawny adres e-mail"
     }
   }
 }

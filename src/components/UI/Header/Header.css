@@ -1,0 +1,12 @@
+header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+nav {
+  align-self: center;
+}
+
+.add-offer {
+  justify-self: end;
+}
