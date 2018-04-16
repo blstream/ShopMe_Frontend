@@ -24,21 +24,13 @@ class SuccessMessage extends Component {
   render() {
     const { t } = this.props;
     const { fireRedirect } = this.state;
+    if (fireRedirect) return (<Redirect to={{ pathname: '/' }} />);
     return (
-      <React.Fragment>
-        <section className="success-message__main-wrapper">
-          <div className="success-message__text-wrapper">
-            <h1 className="success-message__text success-message__text--green">{t('components.add.successMessage.text')}</h1>
-          </div>
-        </section>
-        {fireRedirect && (
-          <Redirect
-            to={{
-              pathname: '/',
-            }}
-          />
-      )}
-      </React.Fragment>
+      <section className="success-message__main-wrapper">
+        <div className="success-message__text-wrapper">
+          <h1 className="success-message__text success-message__text--green">{t('components.add.successMessage.text')}</h1>
+        </div>
+      </section>
     );
   }
 }

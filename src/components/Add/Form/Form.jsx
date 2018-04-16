@@ -154,150 +154,146 @@ class AddForm extends Component {
   render() {
     const { t } = this.props;
     const { fireRedirect, errorMessage } = this.state;
+    if (fireRedirect) return <Redirect to="/add/form/success" />;
     return (
-      <React.Fragment>
-        <form
-          className="add-form"
-          onSubmit={this.checkFormValidity}
-          noValidate
-        >
-          <fieldset className="add-form__fieldset add-form__fieldset--basic">
-            <h1 className="add-form__title">{t('components.add.form.title')}</h1>
-            {errorMessage && <p className="add-form__error">{t('components.add.form.errorMessage')}</p>}
-            <div className="add-form__fieldset-wrapper--basic">
-              <div className="add-form__fieldset-item add-form__fieldset-item--basic add-form__fieldset-item--margin-top">
-                <TitleInput
-                  name="offer__title"
-                  ref={(v) => { this.titleInput = v; }}
-                  label={t('components.UI.TitleInput.name')}
-                  required
-                />
-              </div>
+      <form
+        className="add-form"
+        onSubmit={this.checkFormValidity}
+        noValidate
+      >
+        <fieldset className="add-form__fieldset add-form__fieldset--basic">
+          <h1 className="add-form__title">{t('components.add.form.title')}</h1>
+          {errorMessage && <p className="add-form__error">{t('components.add.form.errorMessage')}</p>}
+          <div className="add-form__fieldset-wrapper--basic">
+            <div className="add-form__fieldset-item add-form__fieldset-item--basic add-form__fieldset-item--margin-top">
+              <TitleInput
+                name="offer__title"
+                ref={(v) => { this.titleInput = v; }}
+                label={t('components.UI.TitleInput.name')}
+                required
+              />
             </div>
-            <div className="add-form__fieldset-wrapper--basic">
-              <div className="add-form__fieldset-item add-form__fieldset-item--basic">
-                <CategorySelect
-                  name="offer__category"
-                  ref={(v) => { this.categorySelect = v; }}
-                  label={t('components.UI.TitleInput.name')}
-                  required
-                />
-              </div>
+          </div>
+          <div className="add-form__fieldset-wrapper--basic">
+            <div className="add-form__fieldset-item add-form__fieldset-item--basic">
+              <CategorySelect
+                name="offer__category"
+                ref={(v) => { this.categorySelect = v; }}
+                label={t('components.UI.TitleInput.name')}
+                required
+              />
             </div>
-          </fieldset>
-          <fieldset className="add-form__fieldset add-form__fieldset--offers">
-            <h3 className="add-form__fieldset-title">{t('components.add.form.fieldsetTitle')}</h3>
-            <div className="add-form__fieldset-wrapper">
-              <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
-                <OfferTextarea
-                  name="offer__base-description"
-                  ref={(v) => { this.basicArea = v; }}
-                  label={t('components.add.form.offerBaseLabel')}
-                  placeholder={t('components.add.form.offerBasePlaceholder')}
-                  offerExtraFilled={this.state.offerExtraFilled}
-                  onChange={this.setFieldStateValue}
-                  required
-                />
-              </div>
-              <div className="add-form__fieldset-item">
-                <PriceInput
-                  name="offer__base-price"
-                  ref={(v) => { this.basicPrice = v; }}
-                  required
-                />
-              </div>
+          </div>
+        </fieldset>
+        <fieldset className="add-form__fieldset add-form__fieldset--offers">
+          <h3 className="add-form__fieldset-title">{t('components.add.form.fieldsetTitle')}</h3>
+          <div className="add-form__fieldset-wrapper">
+            <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
+              <OfferTextarea
+                name="offer__base-description"
+                ref={(v) => { this.basicArea = v; }}
+                label={t('components.add.form.offerBaseLabel')}
+                placeholder={t('components.add.form.offerBasePlaceholder')}
+                offerExtraFilled={this.state.offerExtraFilled}
+                onChange={this.setFieldStateValue}
+                required
+              />
             </div>
-            <div className="add-form__fieldset-wrapper">
-              <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
-                <OfferTextarea
-                  name="offer__extended-description"
-                  ref={(v) => { this.extendedArea = v; }}
-                  label={t('components.add.form.offerExtendedLabel')}
-                  placeholder={t('components.add.form.offerExtendedPlaceholder')}
-                  onChange={this.setFieldStateValue}
-                  disabled={this.state.offerExtendedDisabled}
-                  required={this.state.offerExtendedRequired}
-                />
-              </div>
-              <div className="add-form__fieldset-item">
-                <PriceInput
-                  name="offer__extended-price"
-                  ref={(v) => { this.extendedPrice = v; }}
-                  onChange={this.setFieldStateValue}
-                  disabled={this.state.offerExtendedDisabled}
-                  required={this.state.priceExtendedRequired}
-                />
-              </div>
+            <div className="add-form__fieldset-item">
+              <PriceInput
+                name="offer__base-price"
+                ref={(v) => { this.basicPrice = v; }}
+                required
+              />
             </div>
-            <div className="add-form__fieldset-wrapper">
-              <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
-                <OfferTextarea
-                  name="offer__extra-description"
-                  ref={(v) => { this.extraArea = v; }}
-                  label={t('components.add.form.offerExtraLabel')}
-                  placeholder={t('components.add.form.offerExtraPlaceholder')}
-                  onChange={this.setFieldStateValue}
-                  disabled={this.state.offerExtraDisabled}
-                  required={this.state.offerExtraRequired}
-                />
-              </div>
-              <div className="add-form__fieldset-item">
-                <PriceInput
-                  name="offer__extra-price"
-                  ref={(v) => { this.extraPrice = v; }}
-                  onChange={this.setFieldStateValue}
-                  disabled={this.state.offerExtraDisabled}
-                  required={this.state.priceExtraRequired}
-                />
-              </div>
+          </div>
+          <div className="add-form__fieldset-wrapper">
+            <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
+              <OfferTextarea
+                name="offer__extended-description"
+                ref={(v) => { this.extendedArea = v; }}
+                label={t('components.add.form.offerExtendedLabel')}
+                placeholder={t('components.add.form.offerExtendedPlaceholder')}
+                onChange={this.setFieldStateValue}
+                disabled={this.state.offerExtendedDisabled}
+                required={this.state.offerExtendedRequired}
+              />
             </div>
-          </fieldset>
-          <fieldset className="add-form__fieldset add-form__fieldset--about">
-            <div className="add-form__fieldset-wrapper">
-              <div className="add-form__fieldset-item">
-                <FirstNameInput
-                  name="offer__user-name"
-                  ref={(v) => { this.nameInput = v; }}
-                  required
-                />
-              </div>
-              <div className="add-form__fieldset-item">
-                <EmailInput
-                  name="offer__user-email"
-                  ref={(v) => { this.emailInput = v; }}
-                  required
-                />
-              </div>
-              <div className="add-form__fieldset-item">
-                <PhoneInput
-                  name="offer__user-phone-number"
-                  ref={(v) => { this.phoneInput = v; }}
-                  required
-                />
-              </div>
+            <div className="add-form__fieldset-item">
+              <PriceInput
+                name="offer__extended-price"
+                ref={(v) => { this.extendedPrice = v; }}
+                onChange={this.setFieldStateValue}
+                disabled={this.state.offerExtendedDisabled}
+                required={this.state.priceExtendedRequired}
+              />
             </div>
-            <div className="add-form__fieldset-wrapper">
-              <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
-                <AboutMeTextarea
-                  name="offer__user-additional-info"
-                  ref={(v) => { this.aboutMeArea = v; }}
-                />
-              </div>
-              <div className="add-form__fieldset-item add-form__fieldset-item--button">
-                <FormButton
-                  id="add-form__submit"
-                  type="submit"
-                  value={t('components.add.form.submitButton')}
-                />
-              </div>
+          </div>
+          <div className="add-form__fieldset-wrapper">
+            <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
+              <OfferTextarea
+                name="offer__extra-description"
+                ref={(v) => { this.extraArea = v; }}
+                label={t('components.add.form.offerExtraLabel')}
+                placeholder={t('components.add.form.offerExtraPlaceholder')}
+                onChange={this.setFieldStateValue}
+                disabled={this.state.offerExtraDisabled}
+                required={this.state.offerExtraRequired}
+              />
             </div>
-            <p className="add-form__caption">{t('components.add.form.caption')}</p>
-          </fieldset>
-        </form>
-        {fireRedirect && (
-          <Redirect to="/add/form/success" />
-        )}
-      </React.Fragment>
+            <div className="add-form__fieldset-item">
+              <PriceInput
+                name="offer__extra-price"
+                ref={(v) => { this.extraPrice = v; }}
+                onChange={this.setFieldStateValue}
+                disabled={this.state.offerExtraDisabled}
+                required={this.state.priceExtraRequired}
+              />
+            </div>
+          </div>
+        </fieldset>
+        <fieldset className="add-form__fieldset add-form__fieldset--about">
+          <div className="add-form__fieldset-wrapper">
+            <div className="add-form__fieldset-item">
+              <FirstNameInput
+                name="offer__user-name"
+                ref={(v) => { this.nameInput = v; }}
+                required
+              />
+            </div>
+            <div className="add-form__fieldset-item">
+              <EmailInput
+                name="offer__user-email"
+                ref={(v) => { this.emailInput = v; }}
+                required
+              />
+            </div>
+            <div className="add-form__fieldset-item">
+              <PhoneInput
+                name="offer__user-phone-number"
+                ref={(v) => { this.phoneInput = v; }}
+                required
+              />
+            </div>
+          </div>
+          <div className="add-form__fieldset-wrapper">
+            <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
+              <AboutMeTextarea
+                name="offer__user-additional-info"
+                ref={(v) => { this.aboutMeArea = v; }}
+              />
+            </div>
+            <div className="add-form__fieldset-item add-form__fieldset-item--button">
+              <FormButton
+                id="add-form__submit"
+                type="submit"
+                value={t('components.add.form.submitButton')}
+              />
+            </div>
+          </div>
+          <p className="add-form__caption">{t('components.add.form.caption')}</p>
+        </fieldset>
+      </form>
     );
   }
 }
