@@ -10,7 +10,7 @@ describe('Pagination component', () => {
   });
 
   describe('simulate click on button', () => {
-    it('simulate click on button', () => {
+    it('Pagination component should call passed onPageChange function after click on button', () => {
       const handleClick = jest.fn();
       const wrapper = shallow(<Pagination
         margin={2}
