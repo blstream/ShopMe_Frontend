@@ -1,12 +1,156 @@
 {
-    "screens": {
-      "examples": {
-        "hello": {
-          "title": "Hello, World!"
-        },
-        "fetch": {
-          "title": "Your IP is"
+  "components": {
+    "searchForm": {
+      "button": "Search",
+      "input": "Enter the service",
+      "label": "Service search engine",
+      "lengthError": "Enter longer phrase",
+      "numberError": "Phrase can't contain only digits"
+    },
+    "foundSearchResults": {
+      "resultsTitle": "Wyniki wyszukiwania"
+    },
+    "add": {
+      "form": {
+        "title": "Add offer",
+        "fieldsetTitle": "Define Your Service Packages",
+        "caption": "* Required fields",
+        "offerBaseLabel": "Base *",
+        "offerExtendedLabel": "Extended",
+        "offerExtraLabel": "Extra",
+        "offerBasePlaceholder": "Base Service Description",
+        "offerExtendedPlaceholder": "Extended Service Description",
+        "offerExtraPlaceholder": "Extra Service Description",
+        "submitButton": "Add Offer",
+        "errorMessage": "* Please fill out all required fields"
+      },
+      "successMessage": {
+        "text": "The offer has been successfully added"
+      }
+    },
+    "noSearchResults": {
+      "noResultsTitle": "No results have been found match your criteria."
+    },
+    "login": {
+      "login": {
+        "emailInputLabel": "E-mail:",
+        "passwordInputLabel": "Password:",
+        "submitButtonLabel": "Log In",
+        "formTitle": "Login"
+      },
+      "signup": {
+        "firstNameInputLabel": "First Name:",
+        "lastNameInputLabel": "Last Name:",
+        "emailInputLabel": "E-mail:",
+        "submitButtonLabel": "Sign Up",
+        "formTitle": "Registration"
+      },
+      "register": {
+        "firstNameInputLabel": "First Name:",
+        "lastNameInputLabel": "Last Name:",
+        "emailInputLabel": "E-mail:",
+        "passwordInputLabel": "Password:",
+        "confirmPasswordInputLabel": "Confirm Password:",
+        "phoneNumberInputLabel": "Phone Number:",
+        "bankAccountInputLabel": "Bank Account Number:",
+        "streetInputLabel": "Street:",
+        "houseNumberInputLabel": "House Number:",
+        "localityInputLabel": "City:",
+        "zipCodeInputLabel": "Zip Code:",
+        "companyNameInputLabel": "Company Name:",
+        "nipInputLabel": "Taxpayer Identification Number:",
+        "submitButtonLabel": "Sign Up",
+        "formTitle": "Register",
+        "personalDataProcessing": "I hereby agree for processing my personal data by ShopMe",
+        "invoiceDataLabel": "Invoice data",
+        "successRegisterMessage": "Registration has been completed successfully"
+      }
+    },
+    "offerDetails": {
+        "contact": "Contact",
+        "show": "Show",
+        "aboutMe": "About me",
+        "baseOffer": "Base offer",
+        "extendedOffer": "Extended offer",
+        "extraOffer": "Extra offer",
+        "price": "price"
+      },
+    "UI": {
+      "categorySelect": {
+        "name": "Category *",
+        "errorEmptyField": "This field is required!",
+        "categoryOptions": {
+          "building": "Architecture",
+          "garden": "Garden",
+          "workshopServices": "Workshop Services",
+          "transport": "Transport",
+          "photography": "Photography",
+          "graphics": "Graphics",
+          "marketingAndAdvertising": "Marketing and Advertising",
+          "programming": "Programming",
+          "bookkeeping": "Bookkeeping",
+          "law": "Law",
+          "translations": "Translations",
+          "companyAndOffice": "Company and Office",
+          "repairAndService": "Repair and Service",
+          "housework": "Housework",
+          "tutoring": "Tutoring",
+          "bandsAndMusic": "Bands and Music",
+          "others": "Others"
         }
+      },
+      "titleInput": {
+        "name": "Offer Title *",
+        "errorEmptyField": "This field is required!",
+        "errorMinLength": "Too few characters",
+        "errorIllegalCharacters": "Illegal characters",
+        "errorOnlyAlpha": "This field should contain only letters"
+      },
+      "firstNameInput": {
+        "name": "Name *",
+        "errorEmptyField": "This field is required",
+        "errorMinLength": "Too few characters",
+        "errorOnlyAlpha": "This field should contain only letters"
+      },
+      "emailInput": {
+        "name": "E-mail *",
+        "errorEmptyField": "This field is required",
+        "errorEmailRegex": "Please enter a valid email address"
+      },
+      "aboutMeTextarea": {
+        "name": "About me",
+        "errorEmptyField": "This field is required"
+      },
+      "phoneInput": {
+        "name": "Phone number *",
+        "errorEmptyField": "This field is required",
+        "errorPhoneRegex": "Too few characters",
+        "errorOnlyNumeric": "This field should contain only numbers"
+      },
+      "priceInput": {
+        "errorEmptyField": "This field is required",
+        "currency": "zł"
+      },
+      "offerTextarea": {
+        "errorEmptyField": "This field is required"
+      },
+      "add": {
+        "addOfferText": "Add offer"
+      },
+      "loginButton": {
+        "label": "Log In",
+        "labelLogged": "Logout"
       }
     }
+  },
+  "helpers": {
+    "validator": {
+      "errorEmptyField": "This field is required",
+      "errorMinLength": "Too few characters",
+      "errorIllegalCharacters": "Illegal characters",
+      "errorOnlyAlpha": "This field should contain only letters",
+      "errorOnlyNumeric": "This field should contain only numbers",
+      "errorEmailRegex": "Please enter a valid email address",
+    }
   }
+}

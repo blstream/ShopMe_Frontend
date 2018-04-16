@@ -1,18 +1,46 @@
 {
-  "extends": "airbnb",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "airbnb"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+        "jsx": true
+    }
+  },
   "env": {
     "browser": true,
     "jest": true
   },
   "rules": {
     "react/prop-types": "off",
-    "import/no-named-as-default": "off"
+    "import/no-named-as-default": "off",
+    "jsx-a11y/label-has-for": [ 2, {
+      "required": {
+          "every": [ "id" ]
+      }
+    }],
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "to" ]
+    }],
+    "comma-dangle": ["error", "always-multiline", {
+      "functions": "never"
+    }]
   },
   "settings": {
     "import/resolver": {
       "node": {
         "moduleDirectory": ["node_modules", "src/"]
       }
+    },
+    "react": {
+      "version": "16.2"
     }
-  }
+  },
+  "plugins": [
+    "react"
+  ]
 }

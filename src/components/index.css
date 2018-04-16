@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'Fira Sans';
+  src: local('Fira Sans'),
+  url('./fonts/FiraSans-Regular.ttf')
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  width: 118rem;
+  margin: 0 auto;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 1.6rem;
+}
