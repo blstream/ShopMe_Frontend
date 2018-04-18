@@ -50,7 +50,6 @@ class AddForm extends Component {
       offerExtraFilled: false,
       priceExtendedRequired: false,
       priceExtraRequired: false,
-      fireRedirect: false,
       errorMessage: false,
     };
 
@@ -130,11 +129,7 @@ class AddForm extends Component {
 
     const url = `${process.env.REACT_APP_API}/offers`;
 
-    fetch(url, myInit)
-      .catch()
-      .then(() => {
-        this.setState({ fireRedirect: true });
-      });
+    this.props.fetchData(url, myInit);
   }
 
   checkFormValidity(submit) {
@@ -153,8 +148,8 @@ class AddForm extends Component {
 
   render() {
     const { t } = this.props;
-    const { fireRedirect, errorMessage } = this.state;
-    if (fireRedirect) return <Redirect to="/add/form/success" />;
+    const { errorMessage } = this.state;
+    if (this.props.fireRedirect) return <Redirect to="/add/form/success" />;
     return (
       <form
         className="add-form"
