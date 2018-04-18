@@ -24,7 +24,7 @@ describe('Pagination component', () => {
   });
 
   describe('check class name of buttons', () => {
-    it('has active button', () => {
+    it('Pagination component should have an active button to show page', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={3}
@@ -34,7 +34,7 @@ describe('Pagination component', () => {
       expect(nbButtons).toEqual(1);
     });
 
-    it('has last button', () => {
+    it('Pagination component should have the last page button if total page > 1 and page < total page - 2', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={5}
@@ -44,7 +44,7 @@ describe('Pagination component', () => {
       expect(nbButtons).toEqual(1);
     });
 
-    it('has prev button', () => {
+    it('Pagination component should have the prev button if total page > 1 and page > 1', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={2}
@@ -54,7 +54,7 @@ describe('Pagination component', () => {
       expect(nbButtons).toEqual(1);
     });
 
-    it('has next button', () => {
+    it('Pagination component should have the next button if total page > page', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={2}
@@ -64,7 +64,7 @@ describe('Pagination component', () => {
       expect(nbButtons).toEqual(1);
     });
 
-    it('has inactive button', () => {
+    it('Pagination component should have an inactive button if total page >= 5 and if page > 4 or if page < total page - 3', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={6}
@@ -74,7 +74,7 @@ describe('Pagination component', () => {
       expect(nbButton).toEqual(1);
     });
 
-    it('has double inactive button', () => {
+    it('Pagination component should have two inactive buttons if total page >= 5 and if page > 4 and if page < total page - 3', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={6}
@@ -85,8 +85,8 @@ describe('Pagination component', () => {
     });
   });
 
-  describe('has number of buttons', () => {
-    it('has one button', () => {
+  describe('have number of buttons', () => {
+    it('Pagination component should have one button if total page = 1', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={1}
@@ -96,38 +96,38 @@ describe('Pagination component', () => {
       expect(nbButtons).toEqual(1);
     });
 
-    // prev 1 2 3
-    it('has four button', () => {
+    // prev 1 2
+    it('Pagination component should have three buttons if total page = 2 and page = 2', () => {
       const wrapper = shallow(<Pagination
         margin={2}
-        page={3}
-        totalPages={3}
+        page={2}
+        totalPages={2}
       />);
       const paginationButtons = wrapper.find('.pagination__button').length;
       const activeButton = wrapper.find('.pagination__button--active').length;
       const nbButtons = paginationButtons + activeButton;
-      expect(nbButtons).toEqual(4);
+      expect(nbButtons).toEqual(3);
     });
 
-    // 1 2 3 next
-    it('has four button', () => {
+    // 1 2 next
+    it('Pagination component should have three buttons if total page = 2 and page = 1', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={1}
-        totalPages={3}
+        totalPages={2}
       />);
       const paginationButtons = wrapper.find('.pagination__button').length;
       const activeButton = wrapper.find('.pagination__button--active').length;
       const nbButtons = paginationButtons + activeButton;
-      expect(nbButtons).toEqual(4);
+      expect(nbButtons).toEqual(3);
     });
 
     // prev 1 2 3 next
-    it('has five button', () => {
+    it('Pagination component should have five buttons if total page = 3 and page = 2', () => {
       const wrapper = shallow(<Pagination
         margin={2}
-        page={1}
-        totalPages={4}
+        page={2}
+        totalPages={3}
       />);
       const paginationButtons = wrapper.find('.pagination__button').length;
       const activeButton = wrapper.find('.pagination__button--active').length;
@@ -136,7 +136,7 @@ describe('Pagination component', () => {
     });
 
     // prev 1 2 3 4 5 6 7 next
-    it('has nine button', () => {
+    it('Pagination component should have nine buttons if total page = 7 and page = 4', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={4}
@@ -148,38 +148,38 @@ describe('Pagination component', () => {
       expect(nbButtons).toEqual(9);
     });
 
-    // prev 1 ... 4 5 6 7 8 next
-    it('has nine button', () => {
+    // prev 1 ... 4 5 6 7 8 9 next
+    it('Pagination component should have ten buttons if total page = 9 and page = 6', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={6}
+        totalPages={9}
+      />);
+      const paginationButtons = wrapper.find('.pagination__button').length;
+      const activeButton = wrapper.find('.pagination__button--active').length;
+      const nbButtons = paginationButtons + activeButton;
+      expect(nbButtons).toEqual(10);
+    });
+
+    // prev 1 2 3 4 5 6 ... 8 next
+    it('Pagination component should have ten buttons if total page = 8 and page = 4', () => {
+      const wrapper = shallow(<Pagination
+        margin={2}
+        page={4}
         totalPages={8}
       />);
       const paginationButtons = wrapper.find('.pagination__button').length;
       const activeButton = wrapper.find('.pagination__button--active').length;
       const nbButtons = paginationButtons + activeButton;
-      expect(nbButtons).toEqual(9);
+      expect(nbButtons).toEqual(10);
     });
 
-    // prev 1 2 3 4 5 ... 8 next
-    it('has nine button', () => {
-      const wrapper = shallow(<Pagination
-        margin={2}
-        page={3}
-        totalPages={8}
-      />);
-      const paginationButtons = wrapper.find('.pagination__button').length;
-      const activeButton = wrapper.find('.pagination__button--active').length;
-      const nbButtons = paginationButtons + activeButton;
-      expect(nbButtons).toEqual(9);
-    });
-
-    // prev 1 ... 4 5 6 7 8 ... 15 next
-    it('has eleven button', () => {
+    // prev 1 ... 4 5 6 7 8 ... 10 next
+    it('Pagination component should have eleven buttons if total page = 10 and page = 6', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={6}
-        totalPages={15}
+        totalPages={10}
       />);
       const paginationButtons = wrapper.find('.pagination__button').length;
       const activeButton = wrapper.find('.pagination__button--active').length;
