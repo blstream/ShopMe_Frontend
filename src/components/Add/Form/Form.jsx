@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
-import { Redirect } from 'react-router';
 
 import TitleInput from 'components/UI/TitleInput/TitleInput';
 import CategorySelect from 'components/UI/CategorySelect/CategorySelect';
@@ -50,7 +49,6 @@ class AddForm extends Component {
       offerExtraFilled: false,
       priceExtendedRequired: false,
       priceExtraRequired: false,
-      fireRedirect: false,
       errorMessage: false,
     };
 
@@ -130,11 +128,7 @@ class AddForm extends Component {
 
     const url = `${process.env.REACT_APP_API}/offers`;
 
-    fetch(url, myInit)
-      .catch()
-      .then(() => {
-        this.setState({ fireRedirect: true });
-      });
+    this.props.fetchData(url, myInit);
   }
 
   checkFormValidity(submit) {
@@ -153,8 +147,7 @@ class AddForm extends Component {
 
   render() {
     const { t } = this.props;
-    const { fireRedirect, errorMessage } = this.state;
-    if (fireRedirect) return <Redirect to="/add/form/success" />;
+    const { errorMessage } = this.state;
     return (
       <form
         className="add-form"
