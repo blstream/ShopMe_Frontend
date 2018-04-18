@@ -13,11 +13,11 @@ const validator = {
     return !pattern.test(value) ? 'helpers.validator.errorOnlyAlpha' : undefined;
   },
 
-  useOnlyLegalCharacters(value, pattern) {
+  useOnlyLegalCharacters(pattern, value) {
     return !pattern.test(value) ? 'helpers.validator.errorIllegalCharacters' : undefined;
   },
 
-  useAlpha(value) {
+  mustUseAlpha(value) {
     const pattern = /^[^A-ZĄĆŁŃÓŚŹŻ]*$/i;
     return pattern.test(value) ? 'helpers.validator.errorIllegalCharacters' : undefined;
   },
@@ -41,8 +41,8 @@ const validator = {
   validateSurnameInput(required, value) {
     return validator.isRequired(required, value) ||
       validator.hasMinLength(2, value) ||
-      validator.useOnlyLegalCharacters(value, /^[A-ZĄĆŁŃÓŚŹŻ-\s]*$/i) ||
-      validator.useAlpha(value) ||
+      validator.useOnlyLegalCharacters(/^[A-ZĄĆŁŃÓŚŹŻ-\s]*$/i, value) ||
+      validator.mustUseAlpha(value) ||
       undefined;
   },
 
