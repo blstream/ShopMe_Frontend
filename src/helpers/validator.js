@@ -9,8 +9,17 @@ const validator = {
   },
 
   useOnlyAlpha(value) {
-    const pattern = /^[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ]*$/;
+    const pattern = /^[A-ZĄĆŁŃÓŚŹŻ]*$/i;
     return !pattern.test(value) ? 'helpers.validator.errorOnlyAlpha' : undefined;
+  },
+
+  useOnlyLegalCharacters(value, pattern) {
+    return !pattern.test(value) ? 'helpers.validator.errorIllegalCharacters' : undefined;
+  },
+
+  useAlpha(value) {
+    const pattern = /^[^A-ZĄĆŁŃÓŚŹŻ]*$/i;
+    return pattern.test(value) ? 'helpers.validator.errorIllegalCharacters' : undefined;
   },
 
   isValidEmail(value) {
@@ -32,7 +41,8 @@ const validator = {
   validateSurnameInput(required, value) {
     return validator.isRequired(required, value) ||
       validator.hasMinLength(2, value) ||
-      validator.useOnlyAlpha(value) ||
+      validator.useOnlyLegalCharacters(value, /^[A-ZĄĆŁŃÓŚŹŻ-\s]*$/i) ||
+      validator.useAlpha(value) ||
       undefined;
   },
 
