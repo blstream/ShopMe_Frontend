@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
-import { Redirect } from 'react-router';
 
 import TitleInput from 'components/UI/TitleInput/TitleInput';
 import CategorySelect from 'components/UI/CategorySelect/CategorySelect';
@@ -149,7 +148,6 @@ class AddForm extends Component {
   render() {
     const { t } = this.props;
     const { errorMessage } = this.state;
-    if (this.props.fireRedirect) return <Redirect to="/add/form/success" />;
     return (
       <form
         className="add-form"
