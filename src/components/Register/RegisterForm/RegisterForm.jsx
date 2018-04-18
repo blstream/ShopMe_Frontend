@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
-import { Redirect } from 'react-router';
 
 import validator from 'helpers/validator';
 import GenericInput from 'components/UI/GenericInput/GenericInput';
@@ -289,8 +288,6 @@ class RegisterForm extends Component {
             </fieldset>
           </form>
         </div>
-        {this.props.fireRedirect && <Redirect to="/register/success" />
-        }
       </React.Fragment>
     );
   }
