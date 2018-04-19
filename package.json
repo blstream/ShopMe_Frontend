@@ -10,6 +10,7 @@
     "i18next-browser-languagedetector": "^2.1.0",
     "i18next-xhr-backend": "^1.5.1",
     "jest": "^20.0.3",
+    "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-i18next": "^7.4.0",
@@ -30,19 +31,19 @@
     "build-storybook": "build-storybook -s public"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.4.2",
+    "@storybook/addon-links": "^3.4.2",
+    "@storybook/addons": "^3.4.2",
+    "@storybook/react": "^3.4.2",
+    "babel-core": "^6.26.0",
+    "babel-runtime": "^6.26.0",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
     "jest-fetch-mock": "^1.4.2",
-    "pokemock": "^1.2.0",
-    "@storybook/react": "^3.4.2",
-    "@storybook/addon-actions": "^3.4.2",
-    "@storybook/addon-links": "^3.4.2",
-    "@storybook/addons": "^3.4.2",
-    "babel-core": "^6.26.0",
-    "babel-runtime": "^6.26.0"
+    "pokemock": "^1.2.0"
   },
   "proxy": {
     "/prod-api": {
