@@ -36,6 +36,7 @@
 }
 
 .offer-details__contact {
+  height: 20rem;
   margin-top: 1rem;
   display: grid;
   grid-template-columns: 40% 55%;

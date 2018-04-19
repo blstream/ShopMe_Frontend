@@ -1,6 +1,6 @@
 import React from 'react';
 import { translate } from 'react-i18next';
-import './OfferDetails.css';
+import OfferRender from './OfferRender';
 
 class OfferDetails extends React.Component {
   constructor(props) {
@@ -41,57 +41,15 @@ class OfferDetails extends React.Component {
   }
 
   render() {
-    const { t } = this.props;
-    const baseHeader = t('components.offerDetails.baseOffer').split(' ');
-    baseHeader.splice(1, 0, <br key={1} />);
-    const extendedHeader = t('components.offerDetails.extendedOffer').split(' ');
-    extendedHeader.splice(1, 0, <br key={2} />);
-    const extraHeader = t('components.offerDetails.extraOffer').split(' ');
-    extraHeader.splice(1, 0, <br key={3} />);
-    return (
-      <div className="offer-details">
-        <h2 className="offer-details__header">{this.props.service.title}</h2>
-        <p className="offer-details__category">{this.props.service.category.name}</p>
-        <div className="offer-details__contact">
-          <div className="offer-details__contact--container">
-            <h3 className="offer-details__header-small">{t('components.offerDetails.contact')}</h3>
-            <div className="offer-details__contact--container--name">{this.props.service.user.name}</div>
-            <div className="offer-details__contact--container--email">{this.state.maskedEmail}
-              {this.state.emailButton && <button className="offer-details__contact--button" onClick={this.handleUnmaskEmail}>{t('components.offerDetails.show')}</button>}
-            </div>
-            <div className="offer-details__contact--container--phone">{this.state.maskedPhone}
-              {this.state.phoneButton && <button className="offer-details__contact--button" onClick={this.handleUnmaskPhone}>{t('components.offerDetails.show')}</button>}
-            </div>
-          </div>
-          {this.props.service.user.additionalInfo &&
-            <div className="offer-details__contact--additional-info">
-              <h3 className="offer-details__contact--additional-info--header">{t('components.offerDetails.aboutMe')}</h3>
-              <p>
-                {this.props.service.user.additionalInfo}
-              </p>
-            </div>}
-        </div>
-        <div className="offer-details__offers">
-          <div className="offer-details__offers--base">
-            <h3 className="offer-details__offers--base--header">{baseHeader}</h3>
-            <p className="offer-details__offers--base--description">{this.props.service.baseDescription}</p>
-            <p className="offer-details__offers--base--price">{t('components.offerDetails.price')}: {this.props.service.basePrice}zł</p>
-          </div>
-          {this.props.service.extendedDescription &&
-            <div className="offer-details__offers--extended">
-              <h3 className="offer-details__offers--extended--header">{extendedHeader}</h3>
-              <p className="offer-details__offers--extended--description">{this.props.service.extendedDescription}</p>
-              <p className="offer-details__offers--extended--price">{t('components.offerDetails.price')}: {this.props.service.extendedPrice}zł</p>
-            </div>}
-          {this.props.service.extraDescription &&
-            <div className="offer-details__offers--extra">
-              <h3 className="offer-details__offers--extra--header">{extraHeader}</h3>
-              <p className="offer-details__offers--extra--description">{this.props.service.extraDescription}</p>
-              <p className="offer-details__offers--extra--price">{t('components.offerDetails.price')}: {this.props.service.extraPrice}zł</p>
-            </div>}
-        </div>
-      </div>
-    );
+    return (<OfferRender
+      service={this.props.service}
+      maskedEmail={this.state.maskedEmail}
+      maskedPhone={this.state.maskedPhone}
+      phoneButton={this.state.phoneButton}
+      emailButton={this.state.emailButton}
+      handleUnmaskPhone={this.handleUnmaskPhone}
+      handleUnmaskEmail={this.handleUnmaskEmail}
+    />);
   }
 }
 
