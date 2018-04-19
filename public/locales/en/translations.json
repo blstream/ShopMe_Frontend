@@ -150,7 +150,7 @@
       "errorIllegalCharacters": "Illegal characters",
       "errorOnlyAlpha": "This field should contain only letters",
       "errorOnlyNumeric": "This field should contain only numbers",
-      "errorEmailRegex": "Please enter a valid email address",
+      "errorEmailRegex": "Please enter a valid email address"
     }
   }
 }

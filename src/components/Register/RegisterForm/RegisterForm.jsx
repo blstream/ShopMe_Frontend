@@ -129,8 +129,6 @@ class RegisterForm extends Component {
                   name="users__name"
                   type="text"
                   label={t('components.login.register.firstNameInputLabel')}
-                  color="yellow"
-                  size="M"
                   maxLength="20"
                   required
                   validation={validator.validateNameInput}

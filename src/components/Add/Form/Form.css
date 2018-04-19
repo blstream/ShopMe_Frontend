@@ -7,6 +7,14 @@
   border: 0.1rem solid #A9A9A9;
 }
 
+.add-form_span--block{
+  display: block;
+}
+
+.add-form_span--inline{
+  display: inline;
+}
+
 @media screen and (max-width: 960px) {
   .add-form {
     max-width: 100%;
@@ -89,6 +97,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-end;
+  margin-bottom: 2rem;
 }
 
 .add-form__fieldset-wrapper--basic {
@@ -107,7 +116,7 @@
 .add-form__fieldset-item--textarea {
   align-self: center;
   flex-grow: 2;
-  margin-top: 6rem;
+  margin-top: 1.5rem;
 }
 
 .add-form__fieldset-item--button {

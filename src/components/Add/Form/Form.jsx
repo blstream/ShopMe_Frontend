@@ -10,6 +10,7 @@ import EmailInput from 'components/UI/EmailInput/EmailInput';
 import PhoneInput from 'components/UI/PhoneInput/PhoneInput';
 import AboutMeTextarea from 'components/UI/AboutMeTextarea/AboutMeTextarea';
 import FormButton from 'components/UI/FormButton/FormButton';
+import GenericInput from '../../UI/GenericInput/GenericInput';
 
 import './Form.css';
 
@@ -159,11 +160,16 @@ class AddForm extends Component {
           {errorMessage && <p className="add-form__error">{t('components.add.form.errorMessage')}</p>}
           <div className="add-form__fieldset-wrapper--basic">
             <div className="add-form__fieldset-item add-form__fieldset-item--basic add-form__fieldset-item--margin-top">
-              <TitleInput
+              <GenericInput
+                type="text"
                 name="offer__title"
-                ref={(v) => { this.titleInput = v; }}
-                label={t('components.UI.TitleInput.name')}
+                label={t('components.UI.titleInput.name')}
+                labelClassName="add-form_label"
+                spanClassName="add-form_span--inline"
+                inputClassName="input-title"
+                maxLength="20"
                 required
+                ref={(v) => { this.titleInput = v; }}
               />
             </div>
           </div>
@@ -248,24 +254,70 @@ class AddForm extends Component {
         <fieldset className="add-form__fieldset add-form__fieldset--about">
           <div className="add-form__fieldset-wrapper">
             <div className="add-form__fieldset-item">
-              <FirstNameInput
+              <GenericInput
+                type="text"
                 name="offer__user-name"
+                label={t('components.UI.firstNameInput.name')}
+                labelClassName="add-form__label add-form__label--yellow"
+                spanClassName="add-form_span--block"
+                inputClassName="add-form__input add-form__input--S add-form__input--yellow"
+                maxLength="20"
+                required
                 ref={(v) => { this.nameInput = v; }}
-                required
               />
             </div>
             <div className="add-form__fieldset-item">
-              <EmailInput
-                name="offer__user-email"
+              <GenericInput
+                type="text"
+                name="offer__title"
+                label={t('components.UI.emailInput.name')}
+                labelClassName="add-form__label add-form__label--yellow"
+                spanClassName="add-form_span--block"
+                inputClassName="add-form__input add-form__input--S add-form__input--yellow"
+                maxLength="20"
+                required
                 ref={(v) => { this.emailInput = v; }}
-                required
               />
             </div>
             <div className="add-form__fieldset-item">
-              <PhoneInput
-                name="offer__user-phone-number"
-                ref={(v) => { this.phoneInput = v; }}
+              <GenericInput
+                type="text"
+                name="offer__title"
+                label={t('components.UI.phoneInput.name')}
+                labelClassName="add-form__label add-form__label--yellow"
+                spanClassName="add-form_span--block"
+                inputClassName="add-form__input add-form__input--S add-form__input--yellow"
+                maxLength="20"
                 required
+                ref={(v) => { this.phoneInput = v; }}
+              />
+            </div>
+          </div>
+          <div className="add-form__fieldset-wrapper">
+            <div className="add-form__fieldset-item">
+              <GenericInput
+                type="text"
+                name="offer__title"
+                label={t('components.UI.emailInput.name')}
+                labelClassName="add-form__label add-form__label--yellow"
+                spanClassName="add-form_span--block"
+                inputClassName="add-form__input add-form__input--S add-form__input--yellow"
+                maxLength="20"
+                required
+                ref={(v) => { this.emailInput = v; }}
+              />
+            </div>
+            <div className="add-form__fieldset-item">
+              <GenericInput
+                type="text"
+                name="offer__city"
+                label={t('components.UI.phoneInput.name')}
+                labelClassName="add-form__label add-form__label--yellow"
+                spanClassName="add-form_span--block"
+                inputClassName="add-form__input add-form__input--S add-form__input--yellow"
+                maxLength="20"
+                required
+                ref={(v) => { this.phoneInput = v; }}
               />
             </div>
           </div>
@@ -292,4 +344,4 @@ class AddForm extends Component {
 }
 
 export { AddForm };
-export default translate()(AddForm);
+export default translate('translations', { withRef: true })(AddForm);
