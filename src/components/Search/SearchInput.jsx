@@ -56,6 +56,7 @@ export default class SearchInput extends React.Component {
           updatePaginationData={this.updatePaginationData}
           onSubmit={this.props.onSubmit}
           services={this.props.services}
+          searchQuery={this.props.searchQuery}
         />
         {results}
       </div>

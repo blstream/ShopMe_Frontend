@@ -12,8 +12,16 @@ class SearchInput extends React.Component {
     this.validatePhrase = this.validatePhrase.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
   }
+
+  componentWillMount() {
+    if (this.props.searchQuery) {
+      this.validatePhrase(this.props.searchQuery);
+    }
+  }
   validatePhrase(input) {
-    const searchPhrase = input.target.value.trim();
+    const searchPhrase =
+      this.props.searchQuery ? this.props.searchQuery
+        : input.target.value.trim();
     const cleanedSearchPhrase = searchPhrase.replace(/[!@#$%^&*()=+\-_;:'"<>,.?/{}|`~[\]\\]/g, '');
     const validPhrase = cleanedSearchPhrase.length > 1 && Number.isNaN(Number(cleanedSearchPhrase));
     this.setState({ validPhrase });
