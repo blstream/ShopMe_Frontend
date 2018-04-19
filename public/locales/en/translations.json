@@ -61,6 +61,8 @@
         "nipInputLabel": "Taxpayer Identification Number:",
         "submitButtonLabel": "Sign Up",
         "formTitle": "Register",
+        "termsAndConditions": "I accept ",
+        "termsAndConditionsLink": "the terms and conditions",
         "personalDataProcessing": "I hereby agree for processing my personal data by ShopMe",
         "invoiceDataLabel": "Invoice data",
         "successRegisterMessage": "Registration has been completed successfully"
@@ -150,7 +152,7 @@
       "errorIllegalCharacters": "Illegal characters",
       "errorOnlyAlpha": "This field should contain only letters",
       "errorOnlyNumeric": "This field should contain only numbers",
-      "errorEmailRegex": "Please enter a valid email address",
+      "errorEmailRegex": "Please enter a valid email address"
     }
   }
 }
