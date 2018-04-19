@@ -31,7 +31,6 @@ class ScreensLogin extends React.Component {
         )}
         <LoginForm
           handleSubmit={this.handleLoginSubmit}
-          fireRedirect={this.state.loginFireRedirect}
         />
         <SignupForm />
       </Layout>
