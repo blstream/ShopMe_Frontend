@@ -24,9 +24,7 @@ class ScreensLogin extends React.Component {
   render() {
     return (
       <Layout className="login-form__wrapper">
-        {this.state.loginFireRedirect && (
-        <Redirect to="/" />
-        )}
+        {this.state.loginFireRedirect && <Redirect to="/" />}
         <LoginForm
           handleSubmit={this.handleLoginSubmit}
         />
