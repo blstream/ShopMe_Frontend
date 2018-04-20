@@ -22,6 +22,11 @@ const validator = {
     return pattern.test(value) ? 'helpers.validator.errorIllegalCharacters' : undefined;
   },
 
+  useOnlyNumeric(value) {
+    const pattern = /[0-9]+$/i;
+    return !pattern.test(value) ? 'helpers.validator.errorOnlyNumeric' : undefined;
+  },
+
   isValidEmail(value) {
     const pattern = /^\S+@\S+\.\S+$/;
     return !pattern.test(value) ? 'helpers.validator.errorEmailRegex' : undefined;
@@ -60,6 +65,26 @@ const validator = {
   validateCheckbox(checked) {
     return validator.isChecked(checked) ||
       undefined;
+  },
+
+  validateAddOfferTitle(required, value) {
+    return validator.isRequired(required, value) ||
+    validator.hasMinLength(2, value) ||
+    validator.useOnlyLegalCharacters(/^[a-zA-ZĄĆŁŃÓŚŹŻ0-9-\s]*$/i, value) ||
+    undefined;
+  },
+
+  validatePhoneNumber(required, value) {
+    return validator.isRequired(required, value) ||
+    validator.hasMinLength(9, value) ||
+    validator.useOnlyNumeric(value) ||
+    undefined;
+  },
+
+  validateCity(required, value) {
+    return validator.isRequired(required, value) ||
+    validator.useOnlyLegalCharacters(/^[a-zA-ZĄĆŁŃÓŚŹŻ-\s]+$/i, value) ||
+    undefined;
   },
 };
 

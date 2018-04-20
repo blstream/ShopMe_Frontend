@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
 
-import './CategorySelect.css';
+import './GenericSelect.css';
 
-class CategorySelect extends Component {
+class GenericSelect extends Component {
   constructor(props) {
     super(props);
 
@@ -11,7 +11,7 @@ class CategorySelect extends Component {
       value: '',
       errorMessage: '',
       isRequired: this.props.required,
-      categories: [],
+      selectData: [],
     };
 
     this.checkValidity = this.checkValidity.bind(this);
@@ -20,9 +20,9 @@ class CategorySelect extends Component {
   }
 
   componentDidMount() {
-    fetch(`${process.env.REACT_APP_API}/categories`)
+    fetch(`${process.env.REACT_APP_API}/${this.props.endpoint}`)
       .then(response => (response.json()))
-      .then(categories => this.setState({ categories }));
+      .then(selectData => this.setState({ selectData }));
   }
 
   checkValidity() {
@@ -33,7 +33,7 @@ class CategorySelect extends Component {
       this.state.value === '' &&
       this.state.isRequired
     ) {
-      this.setState({ errorMessage: t('components.UI.categorySelect.errorEmptyField') });
+      this.setState({ errorMessage: t(`${this.props.selectErrorPath}`) });
       return false;
     }
 
@@ -51,15 +51,17 @@ class CategorySelect extends Component {
 
   render() {
     const { t } = this.props;
-    const className = 'input-select__item-option';
 
     return (
       <label
+        className={this.props.labelClassName}
         htmlFor={this.props.name}
       >
-        {t('components.UI.categorySelect.name')}
+        <span className={this.props.spanClassName}>
+          {t(`${this.props.selectNamePath}`)}
+        </span>
         <select
-          className="input-select"
+          className={this.props.selectClassName}
           name={this.props.name}
           value={this.state.value}
           placeholder={this.props.placeholder}
@@ -69,17 +71,17 @@ class CategorySelect extends Component {
         >
           <option disabled />
 
-          {this.state.categories.map((category, index) => (
+          {this.state.selectData.map((selectItem, index) => (
             <option
               key={index.toString()}
-              value={category.name}
-              className={className}
+              value={selectItem.name}
+              className={this.props.selectItemClassName}
             >
-              {(t(`components.UI.categorySelect.categoryOptions.${category.translateKey}`))}
+              {(t(`${this.props.selectOptionsPath}.${selectItem.translateKey}`))}
             </option>
           ))}
         </select>
-        <div className="input-select__errorMessage">
+        <div className={this.props.errorClassName}>
           {this.state.errorMessage}
         </div>
       </label>
@@ -87,4 +89,12 @@ class CategorySelect extends Component {
   }
 }
 
-export default translate('translations', { withRef: true })(CategorySelect);
+GenericSelect.defaultProps = {
+  labelClassName: 'input__wrapper',
+  spanClassName: '',
+  selectClassName: 'input-select',
+  selectItemClassName: 'input-select__item-option',
+  errorClassName: 'input-select__errorMessage',
+};
+
+export default translate('translations', { withRef: true })(GenericSelect);

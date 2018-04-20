@@ -9,6 +9,19 @@
   height: 3rem;
 }
 
+.input-select--yellow {
+  width: 35rem;
+	border: none;
+  background-color: #FEECA5;
+	color: inherit;
+	outline: none;
+  height: 4rem;
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+  position: relative;
+  top: 0.5rem;
+}
+
 .input-select__errorMessage {
   font-size: 1.2rem;
   color: red;
@@ -20,4 +33,14 @@
 	color: #000;
 	background-color: #E0E0E0;
   font-size: 1.68rem;
+}
+
+.input-select__item-option--yellow {
+	color: #000;
+	background-color: #FEECA5;
+  font-size: 1.6rem;
+}
+
+.select_span--block{
+  display: block;
 }

@@ -1,3 +1,15 @@
+.input-title {
+	width: 25rem;
+  border: none;
+  height: 3rem;
+  background-color: #E0E0E0;
+	color: inherit;
+	outline: none;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  margin-left: 1rem;
+  box-sizing: border-box;
+}
+
 .add-form {
   max-width: 80%;
   margin: 3rem auto;
@@ -140,4 +152,15 @@
 
 .add-form__input--disabled::placeholder {
   color: #D0D0D0;
+}
+
+.add-form__input--S {
+  width: 25rem;
+}
+
+.input-title__errorMessage {
+  font-size: 1.2rem;
+  color: red;
+  margin-top: 0.5rem;
+  text-align: right;
 }
