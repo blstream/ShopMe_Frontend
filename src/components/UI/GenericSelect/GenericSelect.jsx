@@ -77,7 +77,7 @@ class GenericSelect extends Component {
               value={selectItem.name}
               className={this.props.selectItemClassName}
             >
-              {(t(`${this.props.selectOptionsPath}.${selectItem.translateKey}`))}
+              {(t(`${this.props.selectOptionsPath}.${selectItem.name}`))}
             </option>
           ))}
         </select>

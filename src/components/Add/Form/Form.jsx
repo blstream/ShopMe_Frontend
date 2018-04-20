@@ -53,7 +53,7 @@ class AddForm extends Component {
       this.nameInput,
       this.emailInput,
       this.phoneInput,
-      this.categorySelect2,
+      this.voivodeshipSelect,
       this.cityInput,
       this.aboutMeArea,
     ];
@@ -70,9 +70,9 @@ class AddForm extends Component {
     const categoryName = this.categorySelect.getWrappedInstance().state.value;
     const targetCategory = allCategories.find(category => category.name === categoryName);
 
-    const allCategories2 = this.categorySelect2.getWrappedInstance().state.selectData;
-    const categoryName2 = this.categorySelect2.getWrappedInstance().state.value;
-    const targetCategory2 = allCategories2.find(category => category.name === categoryName);
+    const allVoivodeships = this.voivodeshipSelect.getWrappedInstance().state.selectData;
+    const voivodeshipName = this.voivodeshipSelect.getWrappedInstance().state.value;
+    const targetVoivodeship = allVoivodeships.find(category => category.name === categoryName);
 
     const basePrice = AddForm.getFormattedPrice(this.basicPrice.getWrappedInstance().state.value);
     const extendedPrice =
@@ -96,9 +96,9 @@ class AddForm extends Component {
         name: this.nameInput.getWrappedInstance().state.value,
         email: this.emailInput.getWrappedInstance().state.value,
         phoneNumber: this.phoneInput.getWrappedInstance().state.value,
-        category2: {
-          id: targetCategory2.id,
-          name: categoryName2,
+        voivodeship: {
+          id: targetVoivodeship.id,
+          name: voivodeshipName,
         },
         city: this.cityInput.getWrappedInstance().state.value,
         additionalInfo: this.aboutMeArea.getWrappedInstance().state.value,
@@ -164,6 +164,7 @@ class AddForm extends Component {
                 labelClassName="add-form_label"
                 spanClassName="add-form_span--inline"
                 inputClassName="input-title"
+                errorClassName="input-title__errorMessage"
                 maxLength="30"
                 required
                 validation={validator.validateAddOfferTitle}
@@ -181,6 +182,8 @@ class AddForm extends Component {
                 selectNamePath="components.UI.categorySelect.name"
                 selectErrorPath="components.UI.categorySelect.errorEmptyField"
                 selectOptionsPath="components.UI.categorySelect.categoryOptions"
+                errorClassName="input-select__errorMessage input-select__errorMessage2"
+                labelClassName="input__wrapper2"
                 required
               />
             </div>
@@ -300,17 +303,18 @@ class AddForm extends Component {
           <div className="add-form__fieldset-wrapper">
             <div className="add-form__fieldset-item">
               <GenericSelect
-                name="offer__category"
-                ref={(v) => { this.categorySelect2 = v; }}
-                label={t('components.UI.TitleInput.name')}
+                name="offer__voivodeship"
+                ref={(v) => { this.voivodeshipSelect = v; }}
+                label={t('components.UI.voivodeship.name')}
                 endpoint="categories"
-                selectNamePath="components.UI.categorySelect.name"
+                selectNamePath="components.UI.voivodeship.name"
                 selectErrorPath="components.UI.categorySelect.errorEmptyField"
-                selectOptionsPath="components.UI.categorySelect.categoryOptions"
+                selectOptionsPath="components.UI.voivodeship.list"
                 spanClassName="select_span--block"
-                labelClassName="select_span--block"
+                labelClassName="select_span--block2"
                 selectClassName="input-select--yellow"
                 selectItemClassName="input-select__item-option--yellow"
+                errorClassName="input-select__errorMessage input-select__errorMessage2"
                 required
               />
             </div>

@@ -100,25 +100,25 @@
           "others": "Inne"
         }
       },
-      "voivdeship": {
+      "voivodeship": {
         "name": "Województwo *",
         "list": {
-          "1":"Dolnośląskie",
-          "2":"Kujawsko-pomorskie",
-          "3":"Lubelskie",
-          "4":"Lubuskie",
-          "5":"Łódzkie",
-          "6":"Małopolskie",
-          "7":"Mazowieckie",
-          "8":"Opolskie",
-          "9":"Podkarpackie",
-          "10":"Podlaskie",
-          "11":"Pomorskie",
-          "12":"Śląskie",
-          "13":"Świętokrzyskie",
-          "14":"Warmińsko-mazurskie",
-          "15":"Wielkopolskie",
-          "16":"Zachodniopomorskie"
+          "LowerSilesian":"Dolnośląskie",
+          "KuyavianPomeranian":"Kujawsko-pomorskie",
+          "Lublin":"Lubelskie",
+          "Lubusz":"Lubuskie",
+          "Lodz":"Łódzkie",
+          "LesserPoland":"Małopolskie",
+          "Masovian":"Mazowieckie",
+          "Opole":"Opolskie",
+          "Subcarpathian":"Podkarpackie",
+          "Podlasie":"Podlaskie",
+          "Pomeranian":"Pomorskie",
+          "Silesian":"Śląskie",
+          "Swietokrzyskie":"Świętokrzyskie",
+          "WarmianMasurian":"Warmińsko-mazurskie",
+          "GreaterPoland":"Wielkopolskie",
+          "WesternPomeranian":"Zachodniopomorskie"
         }
       },
       "titleInput": {

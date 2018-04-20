@@ -62,7 +62,7 @@ class GenericInput extends Component {
           value={this.state.value}
           onChange={this.handleChange}
         />
-        <div className="input__error-message">
+        <div className={this.props.errorClassName}>
           {this.state.errorMessage}
         </div>
       </label>
@@ -74,6 +74,7 @@ GenericInput.defaultProps = {
   labelClassName: 'input__wrapper',
   spanClassName: 'input__label--M',
   inputClassName: 'input input--M input--yellow',
+  errorClassName: 'input__error-message',
 };
 
 export { GenericInput };

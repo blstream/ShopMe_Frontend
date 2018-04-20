@@ -29,6 +29,12 @@
   text-align: right;
 }
 
+.input-select__errorMessage2 {
+  position: relative;
+  bottom: -0.5rem;
+
+}
+
 .input-select__item-option {
 	color: #000;
 	background-color: #E0E0E0;
@@ -43,4 +49,10 @@
 
 .select_span--block{
   display: block;
+}
+
+.select_span--block2{
+  display: block;
+  position: relative;
+  bottom: -1.6rem;
 }

@@ -5,6 +5,10 @@
 	justify-content: flex-end;
 }
 
+.input__wrapper2 {
+  position: relative;
+}
+
 .input__label--M {
   margin: 1.5rem;
 	display: inline-block;
@@ -56,7 +60,7 @@
 
 .input__error-message {
   position: absolute;
-  bottom: -2rem;
+  bottom: -3rem;
   right: 0;
   font-size: 1.2rem;
   color: #FF0000;
