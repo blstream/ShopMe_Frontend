@@ -17,6 +17,7 @@ export default() => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" render={wrapInLayout(ScreensSearch)} />
+      <Route path="/search/" render={wrapInLayout(ScreensSearch)} />
       <Route exact path="/add/form/success" render={wrapInLayout(ScreenSuccessAdd)} />
       <Route exact path="/register/success" render={wrapInLayout(ScreenSuccessRegister)} />
       <Route path="/add/form" render={wrapInLayout(ScreensAddForm)} />
