@@ -19,14 +19,18 @@ export default class Search extends React.Component {
   }
 
   render() {
-    const searchQueryParsed = qs.parse(this.props.location.searchL, { ignoreQueryPrefix: true });
+    const searchQueryParsed = qs.parse(this.props.location.search, { ignoreQueryPrefix: true });
     const searchQuery = searchQueryParsed.title;
     return (
 <<<<<<< HEAD
       <SearchInput onSubmit={this.getData} services={this.state.services} />
 =======
       <Layout>
-        <SearchInput onSubmit={this.getData} services={this.state.services} searchQuery={searchQuery} />
+        <SearchInput
+          onSubmit={this.getData}
+          services={this.state.services}
+          searchQuery={searchQuery}
+        />
       </Layout>
 >>>>>>> Pass values from url to SearchInput component
     );
