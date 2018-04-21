@@ -1,15 +1,14 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-
 import { Input } from './Input';
 
 storiesOf('Input', module)
   .addDecorator(story => (
     <div style={{
         width: '50%',
-        margin: '5rem 10rem' }}>
+        margin: '5rem 10rem',
+      }}
+    >
       {story()}
     </div>
   ))
