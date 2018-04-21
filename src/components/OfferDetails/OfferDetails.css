@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Merriweather';
+  src: local('Merriweather'),
+  url('./fonts/Merriweather-Regular.ttf')
+}
+
+.offer-details {
+  width: 70%;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 0.1rem solid #A9A9A9;
+  font-size: 1.6rem;
+}

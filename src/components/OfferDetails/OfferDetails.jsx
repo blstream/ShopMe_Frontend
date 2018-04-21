@@ -1,57 +1,58 @@
 import React from 'react';
 import { translate } from 'react-i18next';
-import OfferRender from './OfferRender';
+import OfferHeader from './Header/OfferHeader';
+import OfferContact from './Contact/OfferContact';
+import OfferPackage from './Package/OfferPackage';
+import './OfferDetails.css';
 
-class OfferDetails extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      maskedPhone: '',
-      maskedEmail: '',
-      phoneButton: true,
-      emailButton: true,
-    };
-    this.handleUnmaskEmail = this.handleUnmaskEmail.bind(this);
-    this.handleUnmaskPhone = this.handleUnmaskPhone.bind(this);
-  }
+const OfferDetails = (props) => {
+  const { t } = props;
+  const baseHeader = t('components.offerDetails.baseOffer').split(' ');
+  baseHeader.splice(1, 0, <br key={1} />);
+  const extendedHeader = t('components.offerDetails.extendedOffer').split(' ');
+  extendedHeader.splice(1, 0, <br key={2} />);
+  const extraHeader = t('components.offerDetails.extraOffer').split(' ');
+  extraHeader.splice(1, 0, <br key={3} />);
+  return (
+    <section className="offer-details">
+      {props.service.title && props.service.category.name &&
+        <OfferHeader
+          serviceTitle={props.service.title}
+          serviceCategoryName={props.service.category.name}
+        />}
+      {props.service.user &&
+        <OfferContact
+          onSubmit={props.onSubmit}
+          offerId={props.offerId}
+          serviceUser={props.service.user}
+        /> }
+      <div className="offer-details__offers">
+        {props.service.baseDescription &&
+        <OfferPackage
+          class="offer-details__offers--base--header"
+          header={baseHeader}
+          description={props.service.baseDescription}
+          price={props.service.basePrice}
+        /> }
+        {props.service.extendedDescription &&
+          <OfferPackage
+            class="offer-details__offers--extended--header"
+            header={extendedHeader}
+            description={props.service.extendedDescription}
+            price={props.service.extendedPrice}
+          /> }
+        {props.service.extraDescription &&
+          <OfferPackage
+            class="offer-details__offers--extra--header"
+            header={extraHeader}
+            description={props.service.extraDescription}
+            price={props.service.extraPrice}
+          />}
+      </div>
+    </section>
+  );
+};
 
-  componentDidMount() {
-    this.props.onSubmit(`/offers/${this.props.offerId}`)
-      .then(() => this.maskEmail())
-      .then(() => this.maskPhone());
-  }
-
-  maskEmail() {
-    const index = this.props.service.user.email.search('@');
-    const email = `${this.props.service.user.email.slice(0, index + 1)}XXX`;
-    return this.setState({ maskedEmail: email });
-  }
-
-  maskPhone() {
-    const phone = `${this.props.service.user.phoneNumber.slice(0, 3)}XXXXXX`;
-    return this.setState({ maskedPhone: phone });
-  }
-
-  handleUnmaskPhone() {
-    this.setState({ maskedPhone: this.props.service.user.phoneNumber, phoneButton: false });
-  }
-
-  handleUnmaskEmail() {
-    this.setState({ maskedEmail: this.props.service.user.email, emailButton: false });
-  }
-
-  render() {
-    return (<OfferRender
-      service={this.props.service}
-      maskedEmail={this.state.maskedEmail}
-      maskedPhone={this.state.maskedPhone}
-      phoneButton={this.state.phoneButton}
-      emailButton={this.state.emailButton}
-      handleUnmaskPhone={this.handleUnmaskPhone}
-      handleUnmaskEmail={this.handleUnmaskEmail}
-    />);
-  }
-}
 
 export { OfferDetails };
 export default translate()(OfferDetails);
