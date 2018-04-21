@@ -68,26 +68,26 @@ storiesOf('Input', module)
     <div>
       <Input
         label="Yellow M"
-        position="block"
+        display="block"
       />
       <br />
       <Input
         label="Yellow S"
         size="S"
-        position="block"
+        display="block"
       />
       <br />
       <Input
         label="Grey M"
         color="grey"
-        position="block"
+        display="block"
       />
       <br />
       <Input
         label="Grey S"
         color="grey"
         size="S"
-        position="block"
+        display="block"
       />
       <br />
     </div>
@@ -125,7 +125,6 @@ storiesOf('Input', module)
     <div>
       <Input
         label="Disabled M"
-        color="yellow"
         disabled
       />
       <br />

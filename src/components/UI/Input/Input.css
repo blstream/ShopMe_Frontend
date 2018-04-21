@@ -58,10 +58,17 @@
 
 .input__error-message {
   position: absolute;
-  bottom: -2rem;
   right: 0;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   color: #FF0000;
+}
+
+.input__error-message--block {
+  bottom: -2.5rem;
+}
+
+.input__error-message--inline {
+  bottom: -1.1rem;
 }
 
 .input:disabled {

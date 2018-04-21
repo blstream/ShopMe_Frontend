@@ -46,10 +46,10 @@ class Input extends Component {
     const disabled = this.props.disabled ? 'disabled' : '';
     return (
       <label
-        className={`input__wrapper input__wrapper--${this.props.position}`}
+        className={`input__wrapper input__wrapper--${this.props.display}`}
         htmlFor={this.props.name}
       >
-        <span className={`input__label input__label--${this.props.size} input__label--${this.props.position} input__label--${disabled}`}>
+        <span className={`input__label input__label--${this.props.size} input__label--${this.props.display} input__label--${disabled}`}>
           {this.props.label}{this.props.required ? ' *' : ''}
         </span>
         <input
@@ -63,7 +63,7 @@ class Input extends Component {
           required={this.props.required}
           disabled={this.props.disabled}
         />
-        <div className="input__error-message">
+        <div className={`input__error-message input__error-message--${this.props.display}`}>
           {this.state.errorMessage}
         </div>
       </label>
@@ -72,7 +72,7 @@ class Input extends Component {
 }
 
 Input.defaultProps = {
-  position: 'inline',
+  display: 'inline',
   size: 'M',
   color: 'yellow',
 };
