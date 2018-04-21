@@ -9,7 +9,7 @@ const validator = {
   },
 
   useOnlyAlpha(value) {
-    const pattern = /^[A-ZĄĆŁŃÓŚŹŻ]*$/i;
+    const pattern = /^[A-ZĄĘĆŁŃÓŚŹŻ]*$/i;
     return !pattern.test(value) ? 'helpers.validator.errorOnlyAlpha' : undefined;
   },
 
@@ -70,14 +70,14 @@ const validator = {
   validateAddOfferTitle(required, value) {
     return validator.isRequired(required, value) ||
     validator.hasMinLength(2, value) ||
-    validator.useOnlyLegalCharacters(/^[a-zA-ZĄĆŁŃÓŚŹŻ0-9-\s]*$/i, value) ||
+    validator.useOnlyLegalCharacters(/^[a-zA-ZĄĘĆŁŃÓŚŹŻ0-9-\s]*$/i, value) ||
     undefined;
   },
 
   validatePhoneNumber(required, value) {
     return validator.isRequired(required, value) ||
-    validator.hasMinLength(9, value) ||
     validator.useOnlyNumeric(value) ||
+    validator.hasMinLength(9, value) ||
     undefined;
   },
 

@@ -72,7 +72,8 @@ class AddForm extends Component {
 
     const allVoivodeships = this.voivodeshipSelect.getWrappedInstance().state.selectData;
     const voivodeshipName = this.voivodeshipSelect.getWrappedInstance().state.value;
-    const targetVoivodeship = allVoivodeships.find(category => category.name === categoryName);
+    const targetVoivodeship =
+    allVoivodeships.find(voivodeship => voivodeship.name === voivodeshipName);
 
     const basePrice = AddForm.getFormattedPrice(this.basicPrice.getWrappedInstance().state.value);
     const extendedPrice =
@@ -119,8 +120,6 @@ class AddForm extends Component {
       body: JSON.stringify(data),
     };
 
-    console.log(JSON.stringify(data));
-
     const url = `${process.env.REACT_APP_API}/offers`;
 
     this.props.fetchData(url, myInit);
@@ -135,9 +134,6 @@ class AddForm extends Component {
     this.setState({ errorMessage: isFormValid });
 
     if (!isRefsValid.includes(false)) {
-      // this.sendFormData(this.gatherFormData());
-      // AddForm.resetFormInputs(refs);
-
       const postData = this.gatherFormData();
       this.sendFormData(postData);
     }
@@ -160,7 +156,7 @@ class AddForm extends Component {
               <GenericInput
                 type="text"
                 name="offer__title"
-                label={t('components.UI.titleInput.name')}
+                label={t('components.add.form.name')}
                 labelClassName="add-form_label"
                 spanClassName="add-form_span--inline"
                 inputClassName="input-title"
@@ -177,13 +173,13 @@ class AddForm extends Component {
               <GenericSelect
                 name="offer__category"
                 ref={(v) => { this.categorySelect = v; }}
-                label={t('components.UI.TitleInput.name')}
                 endpoint="categories"
                 selectNamePath="components.UI.categorySelect.name"
                 selectErrorPath="components.UI.categorySelect.errorEmptyField"
                 selectOptionsPath="components.UI.categorySelect.categoryOptions"
-                errorClassName="input-select__errorMessage input-select__errorMessage2"
-                labelClassName="input__wrapper2"
+                selectClassName="input-select input-select--gray"
+                errorClassName="input-select__errorMessage"
+                labelClassName="input__wrapper--relative"
                 required
               />
             </div>
@@ -262,7 +258,7 @@ class AddForm extends Component {
               <GenericInput
                 type="text"
                 name="offer__user-name"
-                label={t('components.UI.firstNameInput.name')}
+                label={t('components.add.form.firstName')}
                 labelClassName="add-form__label add-form__label--yellow"
                 spanClassName="add-form_span--block"
                 inputClassName="add-form__input add-form__input--S add-form__input--yellow"
@@ -276,7 +272,7 @@ class AddForm extends Component {
               <GenericInput
                 type="text"
                 name="offer__email"
-                label={t('components.UI.emailInput.name')}
+                label={t('components.add.form.email')}
                 labelClassName="add-form__label add-form__label--yellow"
                 spanClassName="add-form_span--block"
                 inputClassName="add-form__input add-form__input--S add-form__input--yellow"
@@ -289,7 +285,7 @@ class AddForm extends Component {
               <GenericInput
                 type="text"
                 name="offer__phone"
-                label={t('components.UI.phoneInput.name')}
+                label={t('components.add.form.phone')}
                 labelClassName="add-form__label add-form__label--yellow"
                 spanClassName="add-form_span--block"
                 inputClassName="add-form__input add-form__input--S add-form__input--yellow"
@@ -306,13 +302,13 @@ class AddForm extends Component {
                 name="offer__voivodeship"
                 ref={(v) => { this.voivodeshipSelect = v; }}
                 label={t('components.UI.voivodeship.name')}
-                endpoint="categories"
+                endpoint="voivodeships"
                 selectNamePath="components.UI.voivodeship.name"
                 selectErrorPath="components.UI.categorySelect.errorEmptyField"
                 selectOptionsPath="components.UI.voivodeship.list"
                 spanClassName="select_span--block"
-                labelClassName="select_span--block2"
-                selectClassName="input-select--yellow"
+                labelClassName=".select_span--yellow"
+                selectClassName="input-select input-select--yellow"
                 selectItemClassName="input-select__item-option--yellow"
                 errorClassName="input-select__errorMessage input-select__errorMessage2"
                 required

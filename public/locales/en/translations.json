@@ -8,10 +8,14 @@
       "numberError": "Phrase can't contain only digits"
     },
     "foundSearchResults": {
-      "resultsTitle": "Wyniki wyszukiwania"
+      "resultsTitle": "Search results"
     },
     "add": {
       "form": {
+        "name": "Offer title *",
+        "firstName": "First Name *",
+        "phone": "Phone number *",
+        "email": "E-mail *",
         "title": "Add offer",
         "fieldsetTitle": "Define Your Service Packages",
         "caption": "* Required fields",
@@ -22,7 +26,8 @@
         "offerExtendedPlaceholder": "Extended Service Description",
         "offerExtraPlaceholder": "Extra Service Description",
         "submitButton": "Add Offer",
-        "errorMessage": "* Please fill out all required fields"
+        "errorMessage": "* Please fill out all required fields",
+        "city": "City *"
       },
       "successMessage": {
         "text": "The offer has been successfully added"
@@ -99,33 +104,30 @@
           "others": "Others"
         }
       },
-      "titleInput": {
-        "name": "Offer Title *",
-        "errorEmptyField": "This field is required!",
-        "errorMinLength": "Too few characters",
-        "errorIllegalCharacters": "Illegal characters",
-        "errorOnlyAlpha": "This field should contain only letters"
-      },
-      "firstNameInput": {
-        "name": "Name *",
-        "errorEmptyField": "This field is required",
-        "errorMinLength": "Too few characters",
-        "errorOnlyAlpha": "This field should contain only letters"
-      },
-      "emailInput": {
-        "name": "E-mail *",
-        "errorEmptyField": "This field is required",
-        "errorEmailRegex": "Please enter a valid email address"
+      "voivodeship": {
+        "name": "Voivodeship *",
+        "list": {
+          "LowerSilesian":"LowerSilesian",
+          "KuyavianPomeranian":"KuyavianPomeranian",
+          "Lublin":"Lublin",
+          "Lubusz":"Lubusz",
+          "Lodz":"Lodz",
+          "LesserPoland":"LesserPoland",
+          "Masovian":"Masovian",
+          "Opole":"Opole",
+          "Subcarpathian":"Subcarpathian",
+          "Podlasie":"Podlasie",
+          "Pomeranian":"Pomeranian",
+          "Silesian":"Silesian",
+          "Swietokrzyskie":"Swietokrzyskie",
+          "WarmianMasurian":"WarmianMasurian",
+          "GreaterPoland":"GreaterPoland",
+          "WesternPomeranian":"WesternPomeranian"
+        }
       },
       "aboutMeTextarea": {
         "name": "About me",
         "errorEmptyField": "This field is required"
-      },
-      "phoneInput": {
-        "name": "Phone number *",
-        "errorEmptyField": "This field is required",
-        "errorPhoneRegex": "Too few characters",
-        "errorOnlyNumeric": "This field should contain only numbers"
       },
       "priceInput": {
         "errorEmptyField": "This field is required",

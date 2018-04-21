@@ -1,21 +1,21 @@
 .input-select {
-	width: 25rem;
 	border: none;
-  background-color: #E0E0E0;
 	color: inherit;
 	outline: none;
   padding: 0.5rem;
-  margin-left: 1rem;
   height: 3rem;
+}
+
+.input-select--gray{
+  width: 25rem;
+  margin-left: 1rem;
+  background-color: #E0E0E0;
 }
 
 .input-select--yellow {
   width: 35rem;
-	border: none;
   background-color: #FEECA5;
-	color: inherit;
-	outline: none;
-  height: 4rem;
+  height: 3.7rem;
   margin-top: 0.5rem;
   padding-left: 1rem;
   position: relative;
@@ -51,8 +51,7 @@
   display: block;
 }
 
-.select_span--block2{
-  display: block;
+.select_span--yellow{
   position: relative;
-  bottom: -1.6rem;
+  bottom: -0.7rem;
 }

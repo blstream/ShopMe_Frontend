@@ -92,7 +92,7 @@ class GenericSelect extends Component {
 GenericSelect.defaultProps = {
   labelClassName: 'input__wrapper',
   spanClassName: '',
-  selectClassName: 'input-select',
+  selectClassName: '',
   selectItemClassName: 'input-select__item-option',
   errorClassName: 'input-select__errorMessage',
 };
