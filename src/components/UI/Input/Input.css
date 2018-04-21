@@ -30,11 +30,6 @@
   width: 9rem;
 }
 
-.input__label--XS {
-  position: absolute;
-  left: -9999px;
-}
-
 .input__label--disabled {
   color: #D0D0D0;
 }
@@ -53,27 +48,12 @@
   background-color: #FEECA5;
 }
 
-.input--XL {
-  height: 15rem;
-  width: 90%;
-  margin-bottom: -1rem;
-}
-
-.input--XL::placeholder {
-  text-align: center;
-  padding: 5rem 0;
-}
-
 .input--M {
   width: 25rem;
 }
 
 .input--S {
   width: 10rem;
-}
-
-.input--XS::placeholder {
-  text-align: right;
 }
 
 .input__error-message {

@@ -7,7 +7,9 @@ import { Input } from './Input';
 
 storiesOf('Input', module)
   .addDecorator(story => (
-    <div style={{ width: '50%', margin: '5rem 10rem' }}>
+    <div style={{
+        width: '50%',
+        margin: '5rem 10rem' }}>
       {story()}
     </div>
   ))
@@ -15,30 +17,22 @@ storiesOf('Input', module)
     <div>
       <Input
         label="Yellow M"
-        color="yellow"
-        size="M"
-        position="inline"
       />
       <br />
       <Input
         label="Yellow S"
-        color="yellow"
         size="S"
-        position="inline"
       />
       <br />
       <Input
         label="Grey M"
         color="grey"
-        size="M"
-        position="inline"
       />
       <br />
       <Input
         label="Grey S"
         color="grey"
         size="S"
-        position="inline"
       />
       <br />
     </div>
@@ -47,25 +41,18 @@ storiesOf('Input', module)
     <div>
       <Input
         label="Yellow M"
-        color="yellow"
-        size="M"
-        position="inline"
         required
       />
       <br />
       <Input
         label="Yellow S"
-        color="yellow"
         size="S"
-        position="inline"
         required
       />
       <br />
       <Input
         label="Grey M"
         color="grey"
-        size="M"
-        position="inline"
         required
       />
       <br />
@@ -73,7 +60,6 @@ storiesOf('Input', module)
         label="Grey S"
         color="grey"
         size="S"
-        position="inline"
         required
       />
     </div>
@@ -82,14 +68,11 @@ storiesOf('Input', module)
     <div>
       <Input
         label="Yellow M"
-        color="yellow"
-        size="M"
         position="block"
       />
       <br />
       <Input
         label="Yellow S"
-        color="yellow"
         size="S"
         position="block"
       />
@@ -97,7 +80,6 @@ storiesOf('Input', module)
       <Input
         label="Grey M"
         color="grey"
-        size="M"
         position="block"
       />
       <br />
@@ -115,8 +97,6 @@ storiesOf('Input', module)
       <Input
         label="Yellow M"
         placeholder="Placeholder"
-        color="yellow"
-        size="M"
       />
       <br />
       <Input
@@ -129,8 +109,6 @@ storiesOf('Input', module)
       <Input
         label="Disabled M"
         placeholder="Placeholder"
-        color="yellow"
-        size="M"
         disabled
       />
       <br />
@@ -148,7 +126,6 @@ storiesOf('Input', module)
       <Input
         label="Disabled M"
         color="yellow"
-        size="M"
         disabled
       />
       <br />
@@ -162,8 +139,6 @@ storiesOf('Input', module)
       <Input
         label="Placeholder M"
         placeholder="Placeholder"
-        color="yellow"
-        size="M"
         disabled
       />
       <br />
