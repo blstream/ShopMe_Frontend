@@ -136,6 +136,9 @@
       "offerTextarea": {
         "errorEmptyField": "Pole wymagane"
       },
+      "termsAndConditions": {
+        "errorEmptyField": "Pole wymagane"
+      },
       "add": {
         "addOfferText": "Dodaj ofertę"
       },

@@ -10,7 +10,7 @@ describe('Pagination component', () => {
   });
 
   describe('simulate click on button', () => {
-    it('Pagination component should call passed onPageChange function after click on button', () => {
+    it('should call passed onPageChange function after click on button', () => {
       const handleClick = jest.fn();
       const wrapper = shallow(<Pagination
         margin={2}
@@ -24,7 +24,7 @@ describe('Pagination component', () => {
   });
 
   describe('check class name of buttons', () => {
-    it('Pagination component should have an active button to show page', () => {
+    it('should have an active button to show page', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={3}
@@ -34,7 +34,7 @@ describe('Pagination component', () => {
       expect(nbButtons).toEqual(1);
     });
 
-    it('Pagination component should have the last page button if total page > 1 and page < total page - 2', () => {
+    it('should have the last page button if total page > 1 and page < total page - 2', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={5}
@@ -44,7 +44,7 @@ describe('Pagination component', () => {
       expect(nbButtons).toEqual(1);
     });
 
-    it('Pagination component should have the prev button if total page > 1 and page > 1', () => {
+    it('should have the prev button if total page > 1 and page > 1', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={2}
@@ -54,7 +54,7 @@ describe('Pagination component', () => {
       expect(nbButtons).toEqual(1);
     });
 
-    it('Pagination component should have the next button if total page > page', () => {
+    it('should have the next button if total page > page', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={2}
@@ -64,7 +64,7 @@ describe('Pagination component', () => {
       expect(nbButtons).toEqual(1);
     });
 
-    it('Pagination component should have an inactive button if total page >= 5 and if page > 4 or if page < total page - 3', () => {
+    it('should have an inactive button if total page >= 5 and if page > 4 or if page < total page - 3', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={6}
@@ -74,7 +74,7 @@ describe('Pagination component', () => {
       expect(nbButton).toEqual(1);
     });
 
-    it('Pagination component should have two inactive buttons if total page >= 5 and if page > 4 and if page < total page - 3', () => {
+    it('should have two inactive buttons if total page >= 5 and if page > 4 and if page < total page - 3', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={6}
@@ -86,7 +86,7 @@ describe('Pagination component', () => {
   });
 
   describe('have number of buttons', () => {
-    it('Pagination component should have one button if total page = 1', () => {
+    it('should have one button if total page = 1', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={1}
@@ -97,7 +97,7 @@ describe('Pagination component', () => {
     });
 
     // prev 1 2
-    it('Pagination component should have three buttons if total page = 2 and page = 2', () => {
+    it('should have three buttons if total page = 2 and page = 2', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={2}
@@ -110,7 +110,7 @@ describe('Pagination component', () => {
     });
 
     // 1 2 next
-    it('Pagination component should have three buttons if total page = 2 and page = 1', () => {
+    it('should have three buttons if total page = 2 and page = 1', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={1}
@@ -123,7 +123,7 @@ describe('Pagination component', () => {
     });
 
     // prev 1 2 3 next
-    it('Pagination component should have five buttons if total page = 3 and page = 2', () => {
+    it('should have five buttons if total page = 3 and page = 2', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={2}
@@ -136,7 +136,7 @@ describe('Pagination component', () => {
     });
 
     // prev 1 2 3 4 5 6 7 next
-    it('Pagination component should have nine buttons if total page = 7 and page = 4', () => {
+    it('should have nine buttons if total page = 7 and page = 4', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={4}
@@ -149,7 +149,7 @@ describe('Pagination component', () => {
     });
 
     // prev 1 ... 4 5 6 7 8 9 next
-    it('Pagination component should have ten buttons if total page = 9 and page = 6', () => {
+    it('should have ten buttons if total page = 9 and page = 6', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={6}
@@ -162,7 +162,7 @@ describe('Pagination component', () => {
     });
 
     // prev 1 2 3 4 5 6 ... 8 next
-    it('Pagination component should have ten buttons if total page = 8 and page = 4', () => {
+    it('should have ten buttons if total page = 8 and page = 4', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={4}
@@ -175,7 +175,7 @@ describe('Pagination component', () => {
     });
 
     // prev 1 ... 4 5 6 7 8 ... 10 next
-    it('Pagination component should have eleven buttons if total page = 10 and page = 6', () => {
+    it('should have eleven buttons if total page = 10 and page = 6', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={6}

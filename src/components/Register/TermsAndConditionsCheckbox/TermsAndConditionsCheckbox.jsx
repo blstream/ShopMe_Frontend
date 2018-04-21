@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { translate } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { translate } from 'react-i18next';
 import './TermsAndConditionsCheckbox.css';
 
 class TermsAndConditionsCheckbox extends Component {
@@ -24,15 +24,14 @@ class TermsAndConditionsCheckbox extends Component {
 
   checkValidity() {
     const { checked } = this.state;
-    const { validation, t } = this.props;
-    const errorMessage = validation(checked);
+    const { t } = this.props;
 
-    if (errorMessage) {
-      this.setState({ errorMessage: t(errorMessage) });
+    if (!checked) {
+      this.setState({
+        errorMessage: t('components.UI.termsAndConditions.errorEmptyField'),
+      });
       return false;
     }
-
-    this.setState({ errorMessage: '' });
     return true;
   }
 
@@ -54,8 +53,8 @@ class TermsAndConditionsCheckbox extends Component {
         {t('components.login.register.termsAndConditions')}
         <Link
           className="users__terms-and-conditions-checkbox--link"
-          href="/terms"
-          to="/terms"
+          href="/articles/terms-and-conditions"
+          to="/articles/terms-and-conditions"
         >
           {t('components.login.register.termsAndConditionsLink')}
         </Link>

@@ -7,7 +7,7 @@ import ScreensLogin from 'screens/Login/Login';
 import ScreensRegister from 'screens/Register/Register';
 import ScreenSuccessAdd from 'screens/Add/SuccessAdd/SuccessAdd';
 import ScreenSuccessRegister from 'screens/Register/SuccessRegister/SuccessRegister';
-import ScreensTermsAndConditions from 'screens/Register/TermsAndConditions/TermsAndConditions';
+import ScreenTermsAndConditions from 'screens/Register/TermsAndConditions/TermsAndConditions';
 
 export default() => (
   <BrowserRouter>
@@ -19,7 +19,7 @@ export default() => (
       <Route path="/offer/:offerId" component={ScreensOfferDetails} />
       <Route path="/login" component={ScreensLogin} />
       <Route path="/register" component={ScreensRegister} />
-      <Route path="/terms" component={ScreensTermsAndConditions} />
+      <Route path="/articles/terms-and-conditions" component={ScreenTermsAndConditions} />
     </Switch>
   </BrowserRouter>
 );

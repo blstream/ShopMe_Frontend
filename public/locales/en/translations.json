@@ -136,6 +136,9 @@
       "offerTextarea": {
         "errorEmptyField": "This field is required"
       },
+      "termsAndConditions": {
+        "errorEmptyField": "This field is required"
+      },
       "add": {
         "addOfferText": "Add offer"
       },

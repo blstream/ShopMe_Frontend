@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { MemoryRouter } from 'react-router-dom';
 import RegisterForm from './RegisterForm';
 
 it('renders without crashing', () => {
@@ -9,5 +10,10 @@ it('renders without crashing', () => {
       state: {},
     },
   };
-  ReactDOM.render(<RegisterForm location={props.location} />, div);
+  const element = (
+    <MemoryRouter>
+      <RegisterForm location={props.location} />
+    </MemoryRouter>
+  );
+  ReactDOM.render(element, div);
 });

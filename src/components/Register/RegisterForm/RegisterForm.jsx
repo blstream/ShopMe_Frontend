@@ -6,7 +6,7 @@ import GenericInput from 'components/UI/GenericInput/GenericInput';
 import FormButton from 'components/UI/FormButton/FormButton';
 import InvoiceInputGroup from 'components/UI/InvoiceInputGroup/InvoiceInputGroup';
 import PersonalDataConfirm from 'components/UI/PersonalDataConfirm/PersonalDataConfirm';
-import TermsAndConditionsCheckbox from 'components/UI/TermsAndConditionsCheckbox/TermsAndConditionsCheckbox';
+import TermsAndConditionsCheckbox from 'components/Register/TermsAndConditionsCheckbox/TermsAndConditionsCheckbox';
 
 import './Register.css';
 
@@ -283,7 +283,6 @@ class RegisterForm extends Component {
               </div>
               <div className="register-form__item--checkbox">
                 <TermsAndConditionsCheckbox
-                  validation={validator.validateCheckbox}
                   ref={(v) => { this.users__termsAndConditionsCheckbox = v; }}
                 />
                 <PersonalDataConfirm
