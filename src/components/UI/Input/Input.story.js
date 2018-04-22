@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 import { Input } from './Input';
 
 storiesOf('Input', module)
@@ -12,56 +13,66 @@ storiesOf('Input', module)
       {story()}
     </div>
   ))
-  .add('inline', () => (
+  .add('default',
+    withInfo(`
+      Input is a single line text field that enable users to input data.
+      Input styles can be modified by changing its properties (color and size).
+    `)(() =>
+      <Input
+        name="example-input"
+        label="Yellow M"
+      />
+    )
+  )
+  .add('inline',
+    withInfo(`
+      By default Input labels are displayed inline with text field.
+    `)(() =>
     <div>
       <Input
         name="example-input"
         label="Yellow M"
       />
-      <br />
       <Input
         name="example-input"
         label="Yellow S"
         size="S"
       />
-      <br />
       <Input
         name="example-input"
         label="Grey M"
         color="grey"
       />
-      <br />
       <Input
         name="example-input"
         label="Grey S"
         color="grey"
         size="S"
       />
-      <br />
     </div>
   ))
-  .add('required', () => (
+  .add('required',
+    withInfo(`
+      Input components with required attribute display labels with asterisk.
+    `)(() =>
     <div>
       <Input
         name="example-input"
         label="Yellow M"
         required
       />
-      <br />
       <Input
         name="example-input"
         label="Yellow S"
         size="S"
         required
       />
-      <br />
       <Input
         name="example-input"
         label="Grey M"
         color="grey"
         required
       />
-      <br />
       <Input
         name="example-input"
         label="Grey S"
@@ -71,28 +82,28 @@ storiesOf('Input', module)
       />
     </div>
   ))
-  .add('block', () => (
+  .add('block',
+    withInfo(`
+      Labels of Inputs with property display="block" are displayed in a separate line.
+    `)(() =>
     <div>
       <Input
         name="example-input"
         label="Yellow M"
         display="block"
       />
-      <br />
       <Input
         name="example-input"
         label="Yellow S"
         size="S"
         display="block"
       />
-      <br />
       <Input
         name="example-input"
         label="Grey M"
         color="grey"
         display="block"
       />
-      <br />
       <Input
         name="example-input"
         label="Grey S"
@@ -100,44 +111,44 @@ storiesOf('Input', module)
         size="S"
         display="block"
       />
-      <br />
     </div>
   ))
-  .add('types', () => (
+  .add('types',
+    withInfo(`
+      The default Input type is 'text' and its value can be either 'string' or 'number'.
+    `)(() =>
     <div>
       <Input
         name="example-input"
         label="Text"
       />
-      <br />
       <Input
         name="example-input"
         type="email"
         label="Email"
       />
-      <br />
       <Input
         name="example-input"
         type="password"
         label="Password"
       />
-      <br />
       <Input
         name="example-input"
         type="number"
         label="Number"
       />
-      <br />
     </div>
   ))
-  .add('with placeholder', () => (
+  .add('with placeholder',
+    withInfo(`
+      The examples below show Input components with placeholders.
+    `)(() =>
     <div>
       <Input
         name="example-input"
         label="Yellow M"
         placeholder="Placeholder"
       />
-      <br />
       <Input
         name="example-input"
         label="Grey S"
@@ -145,14 +156,12 @@ storiesOf('Input', module)
         color="grey"
         size="S"
       />
-      <br />
       <Input
         name="example-input"
         label="Disabled M"
         placeholder="Placeholder"
         disabled
       />
-      <br />
       <Input
         name="example-input"
         label="Disabled S"
@@ -163,14 +172,16 @@ storiesOf('Input', module)
       />
     </div>
   ))
-  .add('disabled', () => (
+  .add('disabled',
+    withInfo(`
+      The examples below show disabled Input components.
+    `)(() =>
     <div>
       <Input
         name="example-input"
         label="Disabled M"
         disabled
       />
-      <br />
       <Input
         name="example-input"
         label="Disabled S"
@@ -178,14 +189,12 @@ storiesOf('Input', module)
         size="S"
         disabled
       />
-      <br />
       <Input
         name="example-input"
         label="Placeholder M"
         placeholder="Placeholder"
         disabled
       />
-      <br />
       <Input
         name="example-input"
         label="Placeholder S"
