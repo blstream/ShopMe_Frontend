@@ -1,2 +1,2 @@
 # Storybook
-src/components/**/*.stories.js
+src/components/**/*.story.js
