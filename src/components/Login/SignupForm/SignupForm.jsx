@@ -11,9 +11,9 @@ class SignupForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      users__name: '',
-      users__surname: '',
-      users__email: '',
+      usersName: '',
+      usersSurname: '',
+      usersEmail: '',
       fireRedirect: false,
     };
     this.setFieldStateValue = this.setFieldStateValue.bind(this);
@@ -52,9 +52,9 @@ class SignupForm extends Component {
           to={{
             pathname: '/register',
             state: {
-              name: this.state.users__name,
-              surname: this.state.users__surname,
-              email: this.state.users__email,
+              name: this.state.usersName,
+              surname: this.state.usersSurname,
+              email: this.state.usersEmail,
             },
           }}
         />
@@ -73,7 +73,7 @@ class SignupForm extends Component {
           <h1 className="login-form__title">{t('components.login.signup.formTitle')}</h1>
           <div className="login-form__item">
             <GenericInput
-              name="users__name"
+              name="usersName"
               type="text"
               label={t('components.login.signup.firstNameInputLabel')}
               color="yellow"
@@ -87,7 +87,7 @@ class SignupForm extends Component {
           </div>
           <div className="login-form__item">
             <GenericInput
-              name="users__surname"
+              name="usersSurname"
               type="text"
               label={t('components.login.signup.lastNameInputLabel')}
               color="yellow"
@@ -101,7 +101,7 @@ class SignupForm extends Component {
           </div>
           <div className="login-form__item">
             <GenericInput
-              name="users__email"
+              name="usersEmail"
               type="email"
               label={t('components.login.signup.emailInputLabel')}
               color="yellow"
