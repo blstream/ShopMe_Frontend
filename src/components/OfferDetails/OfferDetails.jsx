@@ -23,7 +23,6 @@ const OfferDetails = (props) => {
       {props.service.user &&
         <OfferContact
           onSubmit={props.onSubmit}
-          offerId={props.offerId}
           serviceUser={props.service.user}
         /> }
       <div className="offer-details__offers">
