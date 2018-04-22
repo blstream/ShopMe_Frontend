@@ -76,9 +76,6 @@ class AddForm extends Component {
     allVoivodeships.find(voivodeship => voivodeship.name === voivodeshipName);
 
     const basePrice = AddForm.getFormattedPrice(this.basicPrice.getWrappedInstance().state.value);
-    const extendedPrice =
-      AddForm.getFormattedPrice(this.extendedPrice.getWrappedInstance().state.value);
-    const extraPrice = AddForm.getFormattedPrice(this.extraPrice.getWrappedInstance().state.value);
 
     const data =
     {
@@ -89,10 +86,6 @@ class AddForm extends Component {
       },
       baseDescription: this.basicArea.getWrappedInstance().state.value,
       basePrice,
-      extendedDescription: this.extendedArea.getWrappedInstance().state.value,
-      extendedPrice,
-      extraDescription: this.extraArea.getWrappedInstance().state.value,
-      extraPrice,
       user: {
         name: this.nameInput.getWrappedInstance().state.value,
         email: this.emailInput.getWrappedInstance().state.value,
@@ -102,9 +95,23 @@ class AddForm extends Component {
           name: voivodeshipName,
         },
         city: this.cityInput.getWrappedInstance().state.value,
-        additionalInfo: this.aboutMeArea.getWrappedInstance().state.value,
       },
     };
+
+    const offerExtendedDescription = this.extendedArea.getWrappedInstance().state.value;
+    if (offerExtendedDescription) data.extendedDescription = offerExtendedDescription;
+    const offerExtendedPrice =
+      AddForm.getFormattedPrice(this.extendedPrice.getWrappedInstance().state.value);
+    if (offerExtendedPrice) data.extendedPrice = offerExtendedPrice;
+
+    const offerExtraDescription = this.extraArea.getWrappedInstance().state.value;
+    if (offerExtraDescription) data.extraDescription = offerExtraDescription;
+    const offerExtraPrice =
+      AddForm.getFormattedPrice(this.extraPrice.getWrappedInstance().state.value);
+    if (offerExtraPrice) data.extraPrice = offerExtraPrice;
+
+    const offerAdditionalInfo = this.aboutMeArea.getWrappedInstance().state.value;
+    if (offerAdditionalInfo) data.user.additionalInfo = offerAdditionalInfo;
 
     return data;
   }
