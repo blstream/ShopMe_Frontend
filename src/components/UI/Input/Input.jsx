@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
+import PropTypes from 'prop-types';
 
 import './Input.css';
 
@@ -7,7 +8,7 @@ class Input extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: this.props.value ? this.props.value : '',
+      value: this.props.value,
       errorMessage: '',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -72,9 +73,36 @@ class Input extends Component {
 }
 
 Input.defaultProps = {
-  display: 'inline',
+  type: 'text',
+  placeholder: '',
+  maxLength: 524288,
   size: 'M',
   color: 'yellow',
+  display: 'inline',
+  required: false,
+  disabled: false,
+  validation() { return undefined; },
+  onChange() {},
+  value: '',
+};
+
+Input.propTypes = {
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  maxLength: PropTypes.number,
+  size: PropTypes.string,
+  color: PropTypes.string,
+  display: PropTypes.string,
+  required: PropTypes.bool,
+  disabled: PropTypes.bool,
+  validation: PropTypes.func,
+  onChange: PropTypes.func,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
 };
 
 export { Input };
