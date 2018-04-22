@@ -17,9 +17,8 @@ class OfferContact extends React.Component {
   }
 
   componentDidMount() {
-    this.props.onSubmit(`/offers/${this.props.offerId}`)
-      .then(() => this.maskEmail())
-      .then(() => this.maskPhone());
+    this.maskEmail();
+    this.maskPhone();
   }
 
   maskEmail() {
