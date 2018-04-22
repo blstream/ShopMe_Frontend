@@ -103,6 +103,33 @@ storiesOf('Input', module)
       <br />
     </div>
   ))
+  .add('types', () => (
+    <div>
+      <Input
+        name="example-input"
+        label="Text"
+      />
+      <br />
+      <Input
+        name="example-input"
+        type="email"
+        label="Email"
+      />
+      <br />
+      <Input
+        name="example-input"
+        type="password"
+        label="Password"
+      />
+      <br />
+      <Input
+        name="example-input"
+        type="number"
+        label="Number"
+      />
+      <br />
+    </div>
+  ))
   .add('with placeholder', () => (
     <div>
       <Input
