@@ -1,0 +1,62 @@
+.signup-form {
+  border: 0.1rem solid #A9A9A9;
+  border-radius: 0.5rem;
+  margin: 3rem;
+  padding: 2rem;
+  height: 57rem;
+  position: relative;
+}
+
+.signup-form__icon-container {
+  text-align: center;
+  position: absolute;
+  width: 7rem;
+  height: 7rem;
+  border: 0.1rem solid #A9A9A9;
+  border-radius: 50%;
+  top: -5%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #E0E0E0;
+}
+
+.signup-form__icon {
+  color: #24313c;
+  font-size: 3.2rem;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.signup-form__fieldset {
+  border: none;
+  margin-top: 2.5rem;
+}
+
+.signup-form__title {
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+.signup-form__item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin: 4rem 3rem;
+}
+
+.signup-form__item--button {
+  position: absolute;
+  bottom: 1rem;
+  right: 2rem;
+}
+
+.signup-form__email-exists-message {
+  font-size: 1.8rem;
+  color: red;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

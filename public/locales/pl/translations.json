@@ -70,7 +70,8 @@
         "termsAndConditionsLink": "regulamin",
         "personalDataProcessing": "Wyrażam zgodę na przetwarzanie moich danych osobowych przez ShopMe",
         "invoiceDataLabel": "Dane do faktury",
-        "successRegisterMessage": "Rejestracja zakończona pomyślnie"
+        "successRegisterMessage": "Rejestracja zakończona pomyślnie",
+        "anEmailIsExisting": "Użytkownik o podanym adresie e-mail juz istnieje"
       }
     },
     "offerDetails": {

@@ -5,7 +5,7 @@ import validator from 'helpers/validator';
 import GenericInput from 'components/UI/GenericInput/GenericInput';
 import FormButton from 'components/UI/FormButton/FormButton';
 
-import '../Login.css';
+import './LoginForm.css';
 
 class LoginForm extends Component {
   constructor(props) {
