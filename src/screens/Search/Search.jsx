@@ -1,8 +1,6 @@
 import React from 'react';
 import SearchInput from 'components/Search/SearchInput';
 
-const qs = require('qs');
-
 export default class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -19,8 +17,8 @@ export default class Search extends React.Component {
   }
 
   render() {
-    const searchQueryParsed = qs.parse(this.props.location.search, { ignoreQueryPrefix: true });
-    const searchQuery = searchQueryParsed.title;
+    const searchQueryValue = new URLSearchParams(document.location.search.substring(1));
+    const searchQuery = searchQueryValue.get('title');
     return (
 <<<<<<< HEAD
       <SearchInput onSubmit={this.getData} services={this.state.services} />
