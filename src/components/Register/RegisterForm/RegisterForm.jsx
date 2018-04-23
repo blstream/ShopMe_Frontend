@@ -143,8 +143,6 @@ class RegisterForm extends Component {
                   name="users__surname"
                   type="text"
                   label={t('components.login.register.lastNameInputLabel')}
-                  color="yellow"
-                  size="M"
                   maxLength="30"
                   required
                   validation={validator.validateSurnameInput}
@@ -157,8 +155,6 @@ class RegisterForm extends Component {
                   name="users__email"
                   type="text"
                   label={t('components.login.register.emailInputLabel')}
-                  color="yellow"
-                  size="M"
                   required
                   validation={validator.validateEmailInput}
                   value={this.props.location.state.email}
@@ -170,8 +166,6 @@ class RegisterForm extends Component {
                   name="users__password"
                   type="password"
                   label={t('components.login.register.passwordInputLabel')}
-                  color="yellow"
-                  size="M"
                   maxLength="50"
                   required
                   validation={validator.validateTextInput}
@@ -183,8 +177,6 @@ class RegisterForm extends Component {
                   name="users__confirm-password"
                   type="password"
                   label={t('components.login.register.confirmPasswordInputLabel')}
-                  color="yellow"
-                  size="M"
                   maxLength="50"
                   required
                   validation={validator.validateTextInput}
@@ -196,8 +188,6 @@ class RegisterForm extends Component {
                   name="users__phone-number"
                   type="text"
                   label={t('components.login.register.phoneNumberInputLabel')}
-                  color="yellow"
-                  size="M"
                   maxLength="50"
                   required
                   validation={validator.validateTextInput}
@@ -209,8 +199,6 @@ class RegisterForm extends Component {
                   name="users__bank-account"
                   type="text"
                   label={t('components.login.register.bankAccountInputLabel')}
-                  color="yellow"
-                  size="M"
                   maxLength="50"
                   required
                   validation={validator.validateTextInput}
@@ -222,8 +210,6 @@ class RegisterForm extends Component {
                   name="users__address-street"
                   type="text"
                   label={t('components.login.register.streetInputLabel')}
-                  color="yellow"
-                  size="M"
                   maxLength="50"
                   required
                   validation={validator.validateTextInput}
@@ -235,8 +221,6 @@ class RegisterForm extends Component {
                   name="users__address-number"
                   type="text"
                   label={t('components.login.register.houseNumberInputLabel')}
-                  color="yellow"
-                  size="M"
                   maxLength="50"
                   required
                   validation={validator.validateTextInput}
@@ -248,8 +232,6 @@ class RegisterForm extends Component {
                   name="users__address-city"
                   type="text"
                   label={t('components.login.register.localityInputLabel')}
-                  color="yellow"
-                  size="M"
                   maxLength="50"
                   required
                   validation={validator.validateTextInput}
@@ -261,8 +243,6 @@ class RegisterForm extends Component {
                   name="users__address-zip-code"
                   type="text"
                   label={t('components.login.register.zipCodeInputLabel')}
-                  color="yellow"
-                  size="M"
                   maxLength="50"
                   required
                   validation={validator.validateTextInput}
