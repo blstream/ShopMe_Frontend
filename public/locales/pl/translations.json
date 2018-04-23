@@ -155,7 +155,7 @@
     "validator": {
       "errorEmptyField": "Pole wymagane",
       "errorMinLength": "Zbyt mała liczba znaków",
-      "errorIllegalCharacters": "Niedozwolone znaki specjalne",
+      "errorIllegalCharacters": "Niedozwolone znaki",
       "errorOnlyAlpha": "Pole może zawierać tylko litery",
       "errorOnlyNumeric": "Pole powinno zawierać jedynie cyfry",
       "errorEmailRegex": "Podaj poprawny adres e-mail"

@@ -60,6 +60,14 @@
 
 .input__error-message {
   position: absolute;
+  bottom: -1.5rem;
+  right: 0;
+  font-size: 1.2rem;
+  color: #FF0000;
+}
+
+.input__error-message--yellow {
+  position: absolute;
   bottom: -3rem;
   right: 0;
   font-size: 1.2rem;

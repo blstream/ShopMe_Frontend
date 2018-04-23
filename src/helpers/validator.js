@@ -18,7 +18,7 @@ const validator = {
   },
 
   mustUseAlpha(value) {
-    const pattern = /^[^A-ZĄĆŁŃÓŚŹŻ]*$/i;
+    const pattern = /^[^A-ZĄĘĆŁŃÓŚŹŻ]*$/i;
     return pattern.test(value) ? 'helpers.validator.errorIllegalCharacters' : undefined;
   },
 
@@ -39,14 +39,14 @@ const validator = {
   validateNameInput(required, value) {
     return validator.isRequired(required, value) ||
       validator.hasMinLength(3, value) ||
-      validator.useOnlyAlpha(value) ||
+      validator.useOnlyLegalCharacters(/^[A-ZĄĘĆŁŃÓŚŹŻ-\s]*$/i, value) ||
       undefined;
   },
 
   validateSurnameInput(required, value) {
     return validator.isRequired(required, value) ||
       validator.hasMinLength(2, value) ||
-      validator.useOnlyLegalCharacters(/^[A-ZĄĆŁŃÓŚŹŻ-\s]*$/i, value) ||
+      validator.useOnlyLegalCharacters(/^[A-ZĄĘĆŁŃÓŚŹŻ-\s]*$/i, value) ||
       validator.mustUseAlpha(value) ||
       undefined;
   },
@@ -83,7 +83,7 @@ const validator = {
 
   validateCity(required, value) {
     return validator.isRequired(required, value) ||
-    validator.useOnlyLegalCharacters(/^[a-zA-ZĄĆŁŃÓŚŹŻ-\s]+$/i, value) ||
+    validator.useOnlyLegalCharacters(/^[a-zA-ZĄĘĆŁŃÓŚŹŻ-\s]+$/i, value) ||
     undefined;
   },
 };

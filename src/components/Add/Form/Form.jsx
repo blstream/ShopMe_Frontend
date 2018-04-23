@@ -269,6 +269,7 @@ class AddForm extends Component {
                 labelClassName="add-form__label add-form__label--yellow"
                 spanClassName="add-form_span--block"
                 inputClassName="add-form__input add-form__input--S add-form__input--yellow"
+                errorClassName="input__error-message--yellow"
                 maxLength="20"
                 required
                 validation={validator.validateNameInput}
@@ -283,6 +284,7 @@ class AddForm extends Component {
                 labelClassName="add-form__label add-form__label--yellow"
                 spanClassName="add-form_span--block"
                 inputClassName="add-form__input add-form__input--S add-form__input--yellow"
+                errorClassName="input__error-message--yellow"
                 required
                 validation={validator.validateEmailInput}
                 ref={(v) => { this.emailInput = v; }}
@@ -296,6 +298,7 @@ class AddForm extends Component {
                 labelClassName="add-form__label add-form__label--yellow"
                 spanClassName="add-form_span--block"
                 inputClassName="add-form__input add-form__input--S add-form__input--yellow"
+                errorClassName="input__error-message--yellow"
                 maxLength="10"
                 required
                 validation={validator.validatePhoneNumber}
@@ -329,6 +332,7 @@ class AddForm extends Component {
                 labelClassName="add-form__label add-form__label--yellow"
                 spanClassName="add-form_span--block"
                 inputClassName="add-form__input add-form__input--S add-form__input--yellow"
+                errorClassName="input__error-message--yellow"
                 maxLength="30"
                 required
                 validation={validator.validateCity}
