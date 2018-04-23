@@ -158,7 +158,9 @@
       "errorIllegalCharacters": "Niedozwolone znaki",
       "errorOnlyAlpha": "Pole może zawierać tylko litery",
       "errorOnlyNumeric": "Pole powinno zawierać jedynie cyfry",
-      "errorEmailRegex": "Podaj poprawny adres e-mail"
+      "errorEmailRegex": "Podaj poprawny adres e-mail",
+      "errorPasswordRequirements": "Hasło musi zawierać co najmniej jedną wielką literę i jedną cyfrę",
+      "errorInvalidPassword": "Niepoprawne hasło"
     }
   }
 }

@@ -37,9 +37,10 @@ const validator = {
   },
 
   validateNameInput(required, value) {
+    if (/\s/g.test(value)) return 'helpers.validator.errorOnlyAlpha';
     return validator.isRequired(required, value) ||
       validator.hasMinLength(3, value) ||
-      validator.useOnlyLegalCharacters(/^[A-ZĄĘĆŁŃÓŚŹŻ-\s]*$/i, value) ||
+      validator.useOnlyAlpha(value) ||
       undefined;
   },
 
@@ -70,11 +71,12 @@ const validator = {
   validateAddOfferTitle(required, value) {
     return validator.isRequired(required, value) ||
     validator.hasMinLength(2, value) ||
-    validator.useOnlyLegalCharacters(/^[a-zA-ZĄĘĆŁŃÓŚŹŻ0-9-\s]*$/i, value) ||
+    validator.useOnlyLegalCharacters(/^[a-zA-ZĄĘĆŁŃÓŚŹŻ0-9\s]*$/i, value) ||
     undefined;
   },
 
   validatePhoneNumber(required, value) {
+    if (/\s/g.test(value)) return 'helpers.validator.errorOnlyNumeric';
     return validator.isRequired(required, value) ||
     validator.useOnlyNumeric(value) ||
     validator.hasMinLength(9, value) ||

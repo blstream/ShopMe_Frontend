@@ -35,6 +35,10 @@
   background-color: #FEECA5;
 }
 
+.input--yellow-disabled {
+  background-color: #d8c478;
+}
+
 .input--XL {
   height: 15rem;
   width: 90%;

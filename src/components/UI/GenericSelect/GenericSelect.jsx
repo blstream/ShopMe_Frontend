@@ -42,6 +42,9 @@ class GenericSelect extends Component {
   }
 
   handleChange(event) {
+    if (this.props.disableChange) {
+      this.props.disableChange();
+    }
     this.setState({ value: event.target.value });
   }
 

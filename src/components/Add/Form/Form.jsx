@@ -30,6 +30,7 @@ class AddForm extends Component {
       offerExtraFilled: false,
       priceExtendedRequired: false,
       priceExtraRequired: false,
+      isCityDisabled: true,
       errorMessage: false,
     };
 
@@ -38,6 +39,7 @@ class AddForm extends Component {
     this.getInputReferences = this.getInputReferences.bind(this);
     this.gatherFormData = this.gatherFormData.bind(this);
     this.sendFormData = this.sendFormData.bind(this);
+    this.setCityEnable = this.setCityEnable.bind(this);
   }
 
   getInputReferences() {
@@ -63,6 +65,10 @@ class AddForm extends Component {
     if (this.state[field] !== value) {
       this.setState({ [field]: value });
     }
+  }
+
+  setCityEnable() {
+    this.setState({ isCityDisabled: false });
   }
 
   gatherFormData() {
@@ -321,6 +327,7 @@ class AddForm extends Component {
                 selectClassName="input-select input-select--yellow"
                 selectItemClassName="input-select__item-option--yellow"
                 errorClassName="input-select__errorMessage input-select__errorMessage2"
+                disableChange={this.setCityEnable}
                 required
               />
             </div>
@@ -332,7 +339,9 @@ class AddForm extends Component {
                 labelClassName="add-form__label add-form__label--yellow"
                 spanClassName="add-form_span--block"
                 inputClassName="add-form__input add-form__input--S add-form__input--yellow"
+                inputClassNameDisabled="input--yellow-disabled"
                 errorClassName="input__error-message--yellow"
+                disabled={this.state.isCityDisabled}
                 maxLength="30"
                 required
                 validation={validator.validateCity}

@@ -52,7 +52,10 @@ class GenericInput extends Component {
           {this.props.label}
         </span>
         <input
-          className={this.props.inputClassName}
+          className={this.props.disabled
+            ? `${this.props.inputClassName} ${this.props.inputClassNameDisabled}`
+            : `${this.props.inputClassName}`
+          }
           type={this.props.type}
           name={this.props.name}
           placeholder={this.props.placeholder}
