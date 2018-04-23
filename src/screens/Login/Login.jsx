@@ -1,10 +1,11 @@
 import React from 'react';
 import { translate } from 'react-i18next';
+import { Redirect } from 'react-router';
 import LoginForm from 'components/Login/LoginForm/LoginForm';
 import SignupForm from 'components/Login/SignupForm/SignupForm';
 import Layout from 'core/Layout';
 
-class SreensLogin extends React.Component {
+class ScreensLogin extends React.Component {
   constructor(props) {
     super(props);
 
@@ -12,8 +13,9 @@ class SreensLogin extends React.Component {
       result: {
         emailExist: false,
       },
+      loginFireRedirect: false,
     };
-
+    this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     this.isEmailExists = this.isEmailExists.bind(this);
   }
 
@@ -28,15 +30,23 @@ class SreensLogin extends React.Component {
       });
   }
 
+  handleLoginSubmit(e) {
+    e.preventDefault();
+    document.cookie = 'userToken=test';
+    const isUserLogged = !!document.cookie.replace(/(?:(?:^|.*;\s*)userToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
+    if (isUserLogged) this.setState({ loginFireRedirect: true });
+  }
+
   render() {
     return (
       <Layout className="login-form__wrapper">
-        <LoginForm />
+        {this.state.loginFireRedirect && <Redirect to="/" />}
+        <LoginForm handleSubmit={this.handleLoginSubmit} />
         <SignupForm onSubmit={this.isEmailExists} result={this.state.result.emailExist} />
       </Layout>
     );
   }
 }
 
-export { SreensLogin };
-export default translate()(SreensLogin);
+export { ScreensLogin };
+export default translate()(ScreensLogin);
