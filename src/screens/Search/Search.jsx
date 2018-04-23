@@ -23,12 +23,20 @@ export default class Search extends React.Component {
     this.updateFoundServices = this.updateFoundServices.bind(this);
     this.updateSearchPhrase = this.updateSearchPhrase.bind(this);
     this.updatePaginationData = this.updatePaginationData.bind(this);
+    this.afterValidate = this.afterValidate.bind(this);
   }
 
   getData(args) {
     return fetch(`${process.env.REACT_APP_API}/offers?title=${args}`)
       .then(response => response.json())
-      .then((services) => { this.setState({ services }); });
+      .then((services) => { this.setState({ services, foundServices: services.content, notFoundServices: false }); });
+  }
+  afterValidate(searchPhrase) {
+    this.setState({
+      searchPhrase,
+    }, () => {
+      this.getData(this.state.searchPhrase);
+    });
   }
   updateFoundServices(foundServices) {
     if (foundServices.content) {
@@ -75,6 +83,7 @@ export default class Search extends React.Component {
             onSubmit={this.getData}
             services={this.state.services}
             searchQuery={searchQuery}
+            afterValidate={this.afterValidate}
           />
           {results}
         </div>

@@ -16,9 +16,14 @@ class SearchForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
   handleSearchInputChanged(searchPhrase, validPhrase) {
-    this.setState({ searchPhrase, validPhrase });
+    this.setState({
+      searchPhrase, validPhrase,
+    }, () => {
+      if (this.props.searchQuery) {
+        this.props.afterValidate(searchPhrase);
+      }
+    });
   }
 
   handleSubmit(event) {
@@ -42,6 +47,7 @@ class SearchForm extends React.Component {
         <SearchInput
           onSearchInputChanged={this.handleSearchInputChanged}
           searchQuery={this.props.searchQuery}
+          afterValidate={this.props.afterValidate}
         />
         <SubmitButton value={t('components.searchForm.button')} onClick={this.handleSubmit} searchPhrase={this.state.searchPhrase} />
       </form>
