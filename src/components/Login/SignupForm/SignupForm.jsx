@@ -11,9 +11,9 @@ class SignupForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      users__name: '',
-      users__surname: '',
-      users__email: '',
+      usersName: '',
+      usersSurname: '',
+      usersEmail: '',
       fireRedirect: false,
     };
     this.setFieldStateValue = this.setFieldStateValue.bind(this);
@@ -37,7 +37,7 @@ class SignupForm extends Component {
     event.preventDefault();
     const refs = this.getInputReferences();
     const isRefsValid = refs.map(ref => ref.getWrappedInstance().checkValidity());
-    const emailValue = this.state.users__email;
+    const emailValue = this.state.usersEmail;
 
     if (!isRefsValid.includes(false)) {
       this.props.onSubmit(emailValue).then(() => {
@@ -55,9 +55,9 @@ class SignupForm extends Component {
           to={{
             pathname: '/register',
             state: {
-              name: this.state.users__name,
-              surname: this.state.users__surname,
-              email: this.state.users__email,
+              name: this.state.usersName,
+              surname: this.state.usersSurname,
+              email: this.state.usersEmail,
             },
           }}
         />
@@ -81,7 +81,7 @@ class SignupForm extends Component {
             <h1 className="signup-form__title">{t('components.login.signup.formTitle')}</h1>
             <div className="signup-form__item">
               <GenericInput
-                name="users__name"
+                name="usersName"
                 type="text"
                 label={t('components.login.signup.firstNameInputLabel')}
                 maxLength="20"
@@ -93,7 +93,7 @@ class SignupForm extends Component {
             </div>
             <div className="signup-form__item">
               <GenericInput
-                name="users__surname"
+                name="usersSurname"
                 type="text"
                 label={t('components.login.signup.lastNameInputLabel')}
                 maxLength="50"
@@ -105,7 +105,7 @@ class SignupForm extends Component {
             </div>
             <div className="signup-form__item">
               <GenericInput
-                name="users__email"
+                name="usersEmail"
                 type="email"
                 label={t('components.login.signup.emailInputLabel')}
                 required
