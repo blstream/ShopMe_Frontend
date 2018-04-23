@@ -18,13 +18,13 @@ describe('SignupForm Component', () => {
 
     describe('render', () => {
       it('should have four form items', () => {
-        expect(wrapper.find('.login-form__item').length).toEqual(4);
+        expect(wrapper.find('.signup-form__item').length).toEqual(4);
       });
     });
 
     describe('handleSubmit', () => {
       it('should call after click', () => {
-        const formButton = wrapper.find('.login-form');
+        const formButton = wrapper.find('.signup-form');
 
         formButton.simulate('submit');
         expect(SignupForm.prototype.handleSubmit).toHaveBeenCalled();
