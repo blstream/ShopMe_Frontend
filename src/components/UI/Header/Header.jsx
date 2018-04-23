@@ -9,7 +9,7 @@ class Header extends React.Component {
     super(props);
     this.isLogged = !!document.cookie.replace(/(?:(?:^|.*;\s*)userToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
     this.state = {
-      isLogged: !!this.isLogged,
+      isLogged: true,
     };
   }
 
@@ -20,7 +20,7 @@ class Header extends React.Component {
         <nav>
           {this.state.isLogged && <AddOfferLink />}
         </nav>
-        <LoginButton isLogged={this.state.isLogged} />
+        <LoginButton isLogged={false} />
       </header>
     );
   }
