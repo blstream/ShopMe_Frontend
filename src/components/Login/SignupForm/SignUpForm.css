@@ -39,6 +39,14 @@
   text-align: center;
 }
 
+.signum-form__error {
+  position: absolute;
+  bottom: 15rem;
+  right: 5rem;
+  font-size: 1.6rem;
+  color: #FF0000;
+}
+
 .signup-form__item {
   display: flex;
   flex-wrap: wrap;

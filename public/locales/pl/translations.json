@@ -48,7 +48,8 @@
         "lastNameInputLabel": "Nazwisko:",
         "emailInputLabel": "E-mail:",
         "submitButtonLabel": "Rejestruj",
-        "formTitle": "Rejestracja"
+        "formTitle": "Rejestracja",
+        "errorMessage": "* Proszę uzupełnić wymagane pola"
       },
       "register": {
         "firstNameInputLabel": "Imię:",

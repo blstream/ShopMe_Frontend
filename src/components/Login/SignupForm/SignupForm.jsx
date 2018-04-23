@@ -15,6 +15,7 @@ class SignupForm extends Component {
       users__surname: '',
       users__email: '',
       fireRedirect: false,
+      errorMessage: false,
     };
     this.setFieldStateValue = this.setFieldStateValue.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,6 +39,9 @@ class SignupForm extends Component {
     const refs = this.getInputReferences();
     const isRefsValid = refs.map(ref => ref.getWrappedInstance().checkValidity());
     const emailValue = this.state.users__email;
+    const isFormValid = isRefsValid.includes(false);
+
+    this.setState({ errorMessage: isFormValid });
 
     if (!isRefsValid.includes(false)) {
       this.props.onSubmit(emailValue).then(() => {
@@ -48,7 +52,7 @@ class SignupForm extends Component {
 
   render() {
     const { t } = this.props;
-    const { fireRedirect } = this.state;
+    const { fireRedirect, errorMessage } = this.state;
     if (fireRedirect) {
       return (
         <Redirect
@@ -79,6 +83,7 @@ class SignupForm extends Component {
               <i className="signup-form__icon signup-form__icon--signup fas fa-user-plus" />
             </div>
             <h1 className="signup-form__title">{t('components.login.signup.formTitle')}</h1>
+            {errorMessage && <p className="signum-form__error">{t('components.login.signup.errorMessage')}</p>}
             <div className="signup-form__item">
               <GenericInput
                 name="users__name"
