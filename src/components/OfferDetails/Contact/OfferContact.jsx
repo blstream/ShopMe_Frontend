@@ -9,19 +9,19 @@ class OfferContact extends React.Component {
     this.state = {
       maskedPhone: '',
       maskedEmail: '',
-      phoneButton: true,
-      emailButton: true,
+      isPhoneMasked: true,
+      isEmailMasked: true,
     };
     this.handleUnmaskEmail = this.handleUnmaskEmail.bind(this);
     this.handleUnmaskPhone = this.handleUnmaskPhone.bind(this);
   }
 
   handleUnmaskPhone() {
-    this.setState({ maskedPhone: this.props.serviceUser.phoneNumber, phoneButton: false });
+    this.setState({ maskedPhone: this.props.serviceUser.phoneNumber, isPhoneMasked: false });
   }
 
   handleUnmaskEmail() {
-    this.setState({ maskedEmail: this.props.serviceUser.email, emailButton: false });
+    this.setState({ maskedEmail: this.props.serviceUser.email, isEmailMasked: false });
   }
 
   render() {
@@ -35,10 +35,10 @@ class OfferContact extends React.Component {
           <h3 className="offer-details__header--small">{t('components.offerDetails.contact')}</h3>
           <div className="offer-details__contact--data">{this.props.serviceUser.name}</div>
           <div className="offer-details__contact--data">{this.state.maskedEmail ? this.state.maskedEmail : email}
-            {this.state.emailButton && <button className="offer-details__contact--button" onClick={this.handleUnmaskEmail}>{t('components.offerDetails.show')}</button>}
+            {this.state.isEmailMasked && <button className="offer-details__contact--button" onClick={this.handleUnmaskEmail}>{t('components.offerDetails.show')}</button>}
           </div>
           <div className="offer-details__contact--data">{this.state.maskedPhone ? this.state.maskedPhone : phone}
-            {this.state.phoneButton && <button className="offer-details__contact--button" onClick={this.handleUnmaskPhone}>{t('components.offerDetails.show')}</button>}
+            {this.state.isPhoneMasked && <button className="offer-details__contact--button" onClick={this.handleUnmaskPhone}>{t('components.offerDetails.show')}</button>}
           </div>
         </div>
         {this.props.serviceUser.additionalInfo &&
