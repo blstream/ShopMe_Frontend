@@ -71,3 +71,9 @@
   width: 2rem;
   bottom: 1.5rem;
 }
+
+.select--inline {
+  width: 30rem;
+  margin-left: 0.8rem;
+  height: 5rem;
+}
