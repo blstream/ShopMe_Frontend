@@ -248,7 +248,7 @@ class RegisterForm extends Component {
                   selectErrorPath="components.UI.categorySelect.errorEmptyField"
                   selectOptionsPath="components.UI.voivodeship.list"
                   labelClassName=".select_span--yellow"
-                  selectClassName="input-select input-select--yellow select--inline"
+                  selectClassName="input-select input-select--yellow input-select--inline"
                   selectItemClassName="input-select__item-option--yellow"
                   errorClassName="input-select__errorMessage input-select__errorMessage2"
                   required
