@@ -3,6 +3,7 @@ import { translate } from 'react-i18next';
 
 import validator from 'helpers/validator';
 import GenericInput from 'components/UI/GenericInput/GenericInput';
+import GenericSelect from 'components/UI/GenericSelect/GenericSelect';
 import FormButton from 'components/UI/FormButton/FormButton';
 import InvoiceInputGroup from 'components/UI/InvoiceInputGroup/InvoiceInputGroup';
 import PersonalDataConfirm from 'components/UI/PersonalDataConfirm/PersonalDataConfirm';
@@ -32,6 +33,7 @@ class RegisterForm extends Component {
       this.users__addressStreet,
       this.users__addressNumber,
       this.users__addressCity,
+      this.voivodeshipSelect,
       this.users__addressZipCode,
       this.users__personalDataProcessing,
       this.users__termsAndConditionsCheckbox,
@@ -40,6 +42,11 @@ class RegisterForm extends Component {
 
   setFormData(isInvoiceRequired) {
     let formData;
+
+    const allVoivodeships = this.voivodeshipSelect.getWrappedInstance().state.selectData;
+    const voivodeshipName = this.voivodeshipSelect.getWrappedInstance().state.value;
+    const targetVoivodeship =
+    allVoivodeships.find(voivodeship => voivodeship.name === voivodeshipName);
 
     formData =
       {
@@ -54,6 +61,10 @@ class RegisterForm extends Component {
           number: this.users__addressNumber.getWrappedInstance().state.value,
           city: this.users__addressCity.getWrappedInstance().state.value,
           zipCode: this.users__addressZipCode.getWrappedInstance().state.value,
+        },
+        voivodeship: {
+          id: targetVoivodeship.id,
+          name: voivodeshipName,
         },
         invoiceRequest: false,
       };
@@ -225,6 +236,23 @@ class RegisterForm extends Component {
                   required
                   validation={validator.validateTextInput}
                   ref={(v) => { this.users__addressNumber = v; }}
+                />
+              </div>
+              <div className="register-form__item">
+                <GenericSelect
+                  name="offer__voivodeship"
+                  ref={(v) => { this.voivodeshipSelect = v; }}
+                  label={t('components.UI.voivodeship.name')}
+                  endpoint="voivodeships"
+                  selectNamePath="components.UI.voivodeship.name"
+                  selectErrorPath="components.UI.categorySelect.errorEmptyField"
+                  selectOptionsPath="components.UI.voivodeship.list"
+                  spanClassName="select_span--block"
+                  labelClassName=".select_span--yellow"
+                  selectClassName="input-select input-select--yellow"
+                  selectItemClassName="input-select__item-option--yellow"
+                  errorClassName="input-select__errorMessage input-select__errorMessage2"
+                  required
                 />
               </div>
               <div className="register-form__item">
