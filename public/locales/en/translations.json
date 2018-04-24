@@ -73,7 +73,7 @@
         "invoiceDataLabel": "Invoice data",
         "successRegisterMessage": "Registration has been completed successfully",
         "anEmailIsExisting": "The user with the entered e-mail address already exists",
-        "voivodeships": "Voivodeship"
+        "voivodeships": "Voivodeship:"
       }
     },
     "offerDetails": {

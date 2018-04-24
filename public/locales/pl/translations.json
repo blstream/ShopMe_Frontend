@@ -73,7 +73,7 @@
         "invoiceDataLabel": "Dane do faktury",
         "successRegisterMessage": "Rejestracja zakończona pomyślnie",
         "anEmailIsExisting": "Użytkownik o podanym adresie e-mail juz istnieje",
-        "voivodeships": "Województwo"
+        "voivodeships": "Województwo:"
       }
     },
     "offerDetails": {
