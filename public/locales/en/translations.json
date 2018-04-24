@@ -72,7 +72,8 @@
         "personalDataProcessing": "I hereby agree for processing my personal data by ShopMe",
         "invoiceDataLabel": "Invoice data",
         "successRegisterMessage": "Registration has been completed successfully",
-        "anEmailIsExisting": "The user with the entered e-mail address already exists"
+        "anEmailIsExisting": "The user with the entered e-mail address already exists",
+        "voivodeships": "Voivodeship"
       }
     },
     "offerDetails": {

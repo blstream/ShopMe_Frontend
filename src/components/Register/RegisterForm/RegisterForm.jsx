@@ -242,12 +242,11 @@ class RegisterForm extends Component {
                 <GenericSelect
                   name="offer__voivodeship"
                   ref={(v) => { this.voivodeshipSelect = v; }}
-                  label={t('components.UI.voivodeship.name')}
+                  label={t('components.login.register.voivodeships')}
                   endpoint="voivodeships"
-                  selectNamePath="components.UI.voivodeship.name"
+                  selectNamePath="components.login.register.voivodeships"
                   selectErrorPath="components.UI.categorySelect.errorEmptyField"
                   selectOptionsPath="components.UI.voivodeship.list"
-
                   labelClassName=".select_span--yellow"
                   selectClassName="input-select input-select--yellow"
                   selectItemClassName="input-select__item-option--yellow"
