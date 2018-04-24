@@ -8,6 +8,8 @@ import ScreensRegister from 'screens/Register/Register';
 import ScreenSuccessAdd from 'screens/Add/SuccessAdd/SuccessAdd';
 import ScreenSuccessRegister from 'screens/Register/SuccessRegister/SuccessRegister';
 import ScreenTermsAndConditions from 'screens/Register/TermsAndConditions/TermsAndConditions';
+import ScreensArticle from 'screens/Article/Article';
+
 
 export default() => (
   <BrowserRouter>
@@ -20,6 +22,7 @@ export default() => (
       <Route path="/login" component={ScreensLogin} />
       <Route path="/register" component={ScreensRegister} />
       <Route path="/articles/terms-and-conditions" component={ScreenTermsAndConditions} />
+      <Route path="/articles/:article" component={ScreensArticle} />
     </Switch>
   </BrowserRouter>
 );
