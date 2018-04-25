@@ -2,7 +2,6 @@ import React from 'react';
 import { translate } from 'react-i18next';
 import { Redirect } from 'react-router';
 import SuccessMessage from 'components/Add/SuccessMessage/SuccessMessage';
-import Layout from 'core/Layout';
 
 class ScreenSuccessAdd extends React.Component {
   constructor(props) {
@@ -23,10 +22,10 @@ class ScreenSuccessAdd extends React.Component {
 
   render() {
     return (
-      <Layout>
+      <div>
         { this.state.fireRedirect && <Redirect to={{ pathname: '/' }} />}
         <SuccessMessage />
-      </Layout>
+      </div>
     );
   }
 }

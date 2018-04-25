@@ -1,6 +1,5 @@
 import React from 'react';
 import SearchInput from 'components/Search/SearchInput';
-import Layout from 'core/Layout';
 
 export default class Search extends React.Component {
   constructor(props) {
@@ -19,9 +18,7 @@ export default class Search extends React.Component {
 
   render() {
     return (
-      <Layout>
-        <SearchInput onSubmit={this.getData} services={this.state.services} />
-      </Layout>
+      <SearchInput onSubmit={this.getData} services={this.state.services} />
     );
   }
 }

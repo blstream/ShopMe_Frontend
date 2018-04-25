@@ -1,6 +1,5 @@
 import React from 'react';
 import OfferDetails from 'components/OfferDetails/OfferDetails';
-import Layout from 'core/Layout';
 
 class OfferDetailsScreen extends React.Component {
   constructor(props) {
@@ -35,11 +34,7 @@ class OfferDetailsScreen extends React.Component {
 
   render() {
     return (
-      <Layout>
-        <OfferDetails
-          service={this.state.service}
-        />
-      </Layout>
+      <OfferDetails service={this.state.service} />
     );
   }
 }

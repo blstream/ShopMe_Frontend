@@ -1,6 +1,5 @@
 import React from 'react';
 import { translate } from 'react-i18next';
-import Layout from 'core/Layout';
 import MarkdownArticle from 'components/UI/MarkdownArticle/MarkdownArticle';
 
 class Article extends React.Component {
@@ -21,9 +20,7 @@ class Article extends React.Component {
 
   render() {
     return (
-      <Layout className="article">
-        <MarkdownArticle source={this.state.content} />
-      </Layout>
+      <MarkdownArticle source={this.state.content} />
     );
   }
 }
