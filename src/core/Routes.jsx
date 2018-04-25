@@ -9,19 +9,22 @@ import ScreenSuccessAdd from 'screens/Add/SuccessAdd/SuccessAdd';
 import ScreenSuccessRegister from 'screens/Register/SuccessRegister/SuccessRegister';
 import ScreenTermsAndConditions from 'screens/Register/TermsAndConditions/TermsAndConditions';
 import ScreensArticle from 'screens/Article/Article';
+import Layout from 'core/Layout';
+
+const wrapInLayout = Screen => props => <Layout><Screen {...props} /></Layout>;
 
 export default() => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={ScreensSearch} />
-      <Route exact path="/add/form/success" component={ScreenSuccessAdd} />
-      <Route exact path="/register/success" component={ScreenSuccessRegister} />
-      <Route path="/add/form" component={ScreensAddForm} />
-      <Route path="/offer/:offerId" component={ScreensOfferDetails} />
-      <Route path="/login" component={ScreensLogin} />
-      <Route path="/register" component={ScreensRegister} />
-      <Route path="/articles/terms-and-conditions" component={ScreenTermsAndConditions} />
-      <Route path="/articles/:article" component={ScreensArticle} />
+      <Route exact path="/" render={wrapInLayout(ScreensSearch)} />
+      <Route exact path="/add/form/success" render={wrapInLayout(ScreenSuccessAdd)} />
+      <Route exact path="/register/success" render={wrapInLayout(ScreenSuccessRegister)} />
+      <Route path="/add/form" render={wrapInLayout(ScreensAddForm)} />
+      <Route path="/offer/:offerId" render={wrapInLayout(ScreensOfferDetails)} />
+      <Route path="/login" render={wrapInLayout(ScreensLogin)} />
+      <Route path="/register" render={wrapInLayout(ScreensRegister)} />
+      <Route path="/articles/terms-and-conditions" render={wrapInLayout(ScreenTermsAndConditions)} />
+      <Route path="/articles/:article" render={wrapInLayout(ScreensArticle)} />
     </Switch>
   </BrowserRouter>
 );
