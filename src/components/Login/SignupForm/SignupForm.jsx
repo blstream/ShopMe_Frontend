@@ -80,10 +80,10 @@ class SignupForm extends Component {
         >
           <fieldset className="signup-form__fieldset">
             <div className="signup-form__icon-container">
-              <i className="signup-form__icon signup-form__icon--signup fas fa-user-plus" />
+              <i className="signup-form__icon signup-form__icon--signup fas fa-user-plus" aria-hidden="true" />
             </div>
             <h1 className="signup-form__title">{t('components.login.signup.formTitle')}</h1>
-            {errorMessage && <p className="signum-form__error">{t('components.login.signup.errorMessage')}</p>}
+            {errorMessage && <p className="signup-form__error">{t('components.login.signup.errorMessage')}</p>}
             <div className="signup-form__item">
               <GenericInput
                 name="users__name"
@@ -119,7 +119,7 @@ class SignupForm extends Component {
                 ref={(v) => { this.emailInput = v; }}
               />
             </div>
-            <div className="signup-form__item signup-form__item--button">
+            <div className="signup-form__item">
               <FormButton
                 id="signup-form__submit"
                 type="submit"

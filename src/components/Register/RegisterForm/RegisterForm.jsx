@@ -3,6 +3,7 @@ import { translate } from 'react-i18next';
 
 import validator from 'helpers/validator';
 import GenericInput from 'components/UI/GenericInput/GenericInput';
+import Input from 'components/UI/Input/Input';
 import GenericSelect from 'components/UI/GenericSelect/GenericSelect';
 import FormButton from 'components/UI/FormButton/FormButton';
 import InvoiceInputGroup from 'components/UI/InvoiceInputGroup/InvoiceInputGroup';
@@ -27,7 +28,6 @@ class RegisterForm extends Component {
       this.users__surname,
       this.users__email,
       this.users__password,
-      this.users__confirmPassword,
       this.users__phoneNumber,
       this.users__bankAccount,
       this.users__addressStreet,
@@ -135,7 +135,7 @@ class RegisterForm extends Component {
           >
             <fieldset className="register-form__fieldset">
               <div className="register-form__icon-container">
-                <i className="register-form__icon register-form__icon--signup fas fa-user-plus" />
+                <i className="register-form__icon register-form__icon--signup fas fa-user-plus" aria-hidden="true" />
               </div>
               <div className="register-form__item">
                 <GenericInput
@@ -173,25 +173,14 @@ class RegisterForm extends Component {
                 />
               </div>
               <div className="register-form__item">
-                <GenericInput
+                <Input
                   name="users__password"
                   type="password"
                   label={t('components.login.register.passwordInputLabel')}
-                  maxLength="50"
+                  maxLength="30"
                   required
-                  validation={validator.validateTextInput}
+                  validation={validator.validatePassword}
                   ref={(v) => { this.users__password = v; }}
-                />
-              </div>
-              <div className="register-form__item">
-                <GenericInput
-                  name="users__confirm-password"
-                  type="password"
-                  label={t('components.login.register.confirmPasswordInputLabel')}
-                  maxLength="50"
-                  required
-                  validation={validator.validateTextInput}
-                  ref={(v) => { this.users__confirmPassword = v; }}
                 />
               </div>
               <div className="register-form__item">
@@ -199,16 +188,16 @@ class RegisterForm extends Component {
                   name="users__phone-number"
                   type="text"
                   label={t('components.login.register.phoneNumberInputLabel')}
-                  maxLength="50"
+                  maxLength="10"
                   required
-                  validation={validator.validateTextInput}
+                  validation={validator.validatePhoneNumber}
                   ref={(v) => { this.users__phoneNumber = v; }}
                 />
               </div>
               <div className="register-form__item">
                 <GenericInput
                   name="users__bank-account"
-                  type="text"
+                  type="number"
                   label={t('components.login.register.bankAccountInputLabel')}
                   maxLength="50"
                   required

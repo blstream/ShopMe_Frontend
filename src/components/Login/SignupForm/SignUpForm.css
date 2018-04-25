@@ -3,7 +3,6 @@
   border-radius: 0.5rem;
   margin: 3rem;
   padding: 2rem;
-  height: 57rem;
   position: relative;
 }
 
@@ -39,11 +38,11 @@
   text-align: center;
 }
 
-.signum-form__error {
+.signup-form__error {
   position: absolute;
-  bottom: 15rem;
+  bottom: 13.5rem;
   right: 5rem;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   color: #FF0000;
 }
 
@@ -52,12 +51,6 @@
   flex-wrap: wrap;
   justify-content: flex-end;
   margin: 4rem 3rem;
-}
-
-.signup-form__item--button {
-  position: absolute;
-  bottom: 1rem;
-  right: 2rem;
 }
 
 .signup-form__email-exists-message {

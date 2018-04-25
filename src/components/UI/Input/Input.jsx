@@ -10,10 +10,13 @@ class Input extends Component {
     this.state = {
       value: this.props.value,
       errorMessage: '',
+      type: this.props.type,
     };
     this.handleChange = this.handleChange.bind(this);
     this.checkValidity = this.checkValidity.bind(this);
     this.resetInput = this.resetInput.bind(this);
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }
 
   handleChange(event) {
@@ -43,19 +46,26 @@ class Input extends Component {
     this.setState({ value: '' });
   }
 
+  handleMouseEnter() {
+    if (this.state.type === 'password') this.setState({ type: 'text' });
+  }
+
+  handleMouseLeave() {
+    this.setState({ type: 'password' });
+  }
+
   render() {
-    const disabled = this.props.disabled ? 'disabled' : '';
     return (
       <label
         className={`input__wrapper input__wrapper--${this.props.display}`}
         htmlFor={this.props.name}
       >
-        <span className={`input__label input__label--${this.props.size} input__label--${this.props.display} input__label--${disabled}`}>
-          {this.props.label}{this.props.required ? ' *' : ''}
+        <span className={`input__label input__label--${this.props.size} input__label--${this.props.display}`}>
+          {this.props.label}{this.props.required && ' *'}
         </span>
         <input
           className={`input  input--${this.props.size} input--${this.props.color}`}
-          type={this.props.type}
+          type={this.state.type}
           name={this.props.name}
           placeholder={this.props.placeholder}
           maxLength={this.props.maxLength}
@@ -67,6 +77,10 @@ class Input extends Component {
         <div className={`input__error-message input__error-message--${this.props.display}`}>
           {this.state.errorMessage}
         </div>
+        {this.props.type === 'password' &&
+        <div className="input__eye-icon" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
+          <i className="fas fa-eye" aria-hidden="true" />
+        </div>}
       </label>
     );
   }

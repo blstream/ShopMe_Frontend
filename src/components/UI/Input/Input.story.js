@@ -26,7 +26,7 @@ storiesOf('Input', module)
   )
   .add('inline',
     withInfo(`
-      By default Input labels are displayed inline with text field.
+      By default Input labels are displayed in line with text field.
     `)(() =>
     <div>
       <Input
@@ -179,25 +179,25 @@ storiesOf('Input', module)
     <div>
       <Input
         name="example-input"
-        label="Disabled M"
+        label="Disabled Yellow"
         disabled
       />
       <Input
         name="example-input"
-        label="Disabled S"
-        color="grey"
+        label="Disabled Yellow"
+        placeholder="Placeholder"
         size="S"
         disabled
       />
       <Input
         name="example-input"
-        label="Placeholder M"
-        placeholder="Placeholder"
+        label="Disabled Grey"
+        color="grey"
         disabled
       />
       <Input
         name="example-input"
-        label="Placeholder S"
+        label="Disabled Grey"
         placeholder="Placeholder"
         color="grey"
         size="S"

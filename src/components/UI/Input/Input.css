@@ -72,12 +72,25 @@
   bottom: -1.1rem;
 }
 
-.input:disabled {
+.input__eye-icon {
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  transform: translateY(-50%);
+  font-size: 2rem;
+}
+
+.input--grey:disabled {
   background-color: #FFFFFF;
   border: 0.1rem solid #D0D0D0;
   color: #D0D0D0;
 }
 
-.input:disabled::placeholder {
+.input--yellow:disabled {
+  background-color: #d8c478;
+  color: #D0D0D0;
+}
+
+.input--grey:disabled::placeholder {
   color: #D0D0D0;
 }

@@ -36,8 +36,11 @@ const validator = {
     return !checked ? 'helpers.validator.errorEmptyField' : undefined;
   },
 
+  mustHave(pattern, value) {
+    return !pattern.test(value) ? 'helpers.validator.errorPasswordRequirements' : undefined;
+  },
+
   validateNameInput(required, value) {
-    if (/\s/g.test(value)) return 'helpers.validator.errorOnlyAlpha';
     return validator.isRequired(required, value) ||
       validator.hasMinLength(3, value) ||
       validator.useOnlyAlpha(value) ||
@@ -71,12 +74,11 @@ const validator = {
   validateAddOfferTitle(required, value) {
     return validator.isRequired(required, value) ||
     validator.hasMinLength(2, value) ||
-    validator.useOnlyLegalCharacters(/^[a-zA-ZĄĘĆŁŃÓŚŹŻ0-9\s]*$/i, value) ||
+    validator.useOnlyLegalCharacters(/^[A-ZĄĘĆŁŃÓŚŹŻ0-9\s]*$/i, value) ||
     undefined;
   },
 
   validatePhoneNumber(required, value) {
-    if (/\s/g.test(value)) return 'helpers.validator.errorOnlyNumeric';
     return validator.isRequired(required, value) ||
     validator.useOnlyNumeric(value) ||
     validator.hasMinLength(9, value) ||
@@ -85,7 +87,15 @@ const validator = {
 
   validateCity(required, value) {
     return validator.isRequired(required, value) ||
-    validator.useOnlyLegalCharacters(/^[a-zA-ZĄĘĆŁŃÓŚŹŻ-\s]+$/i, value) ||
+    validator.useOnlyLegalCharacters(/^[A-ZĄĘĆŁŃÓŚŹŻ-\s]+$/i, value) ||
+    undefined;
+  },
+
+  validatePassword(required, value) {
+    return validator.isRequired(required, value) ||
+      validator.hasMinLength(8, value) ||
+      validator.mustHave(/[A-Z]+/, value) ||
+      validator.mustHave(/[1-9]+/, value) ||
     undefined;
   },
 };
