@@ -13,7 +13,6 @@ import Layout from 'core/Layout';
 
 const wrapInLayout = Screen => props => <Layout><Screen {...props} /></Layout>;
 
-
 export default() => (
   <BrowserRouter>
     <Switch>
