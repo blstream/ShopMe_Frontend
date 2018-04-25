@@ -1,7 +1,6 @@
 import React from 'react';
 import { translate } from 'react-i18next';
 import RegisterForm from 'components/Register/RegisterForm/RegisterForm';
-import { Layout } from 'core/Layout';
 import { Redirect } from 'react-router';
 
 class ScreensRegister extends React.Component {
@@ -20,14 +19,14 @@ class ScreensRegister extends React.Component {
 
   render() {
     return (
-      <Layout>
+      <div>
         {this.state.fireRedirect && <Redirect to="/register/success" />}
         <RegisterForm
           location={this.props.location}
           fetchData={this.sendData}
           fireRedirect={this.state.fireRedirect}
         />
-      </Layout>
+      </div>
     );
   }
 }
