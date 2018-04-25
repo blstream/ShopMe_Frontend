@@ -3,7 +3,6 @@ import { translate } from 'react-i18next';
 import { Redirect } from 'react-router';
 import LoginForm from 'components/Login/LoginForm/LoginForm';
 import SignupForm from 'components/Login/SignupForm/SignupForm';
-import Layout from 'core/Layout';
 
 class ScreensLogin extends React.Component {
   constructor(props) {
@@ -39,11 +38,11 @@ class ScreensLogin extends React.Component {
 
   render() {
     return (
-      <Layout className="login-form__wrapper">
+      <div className="login-form__wrapper">
         {this.state.loginFireRedirect && <Redirect to="/" />}
         <LoginForm handleSubmit={this.handleLoginSubmit} />
         <SignupForm onSubmit={this.isEmailExists} result={this.state.result.emailExist} />
-      </Layout>
+      </div>
     );
   }
 }

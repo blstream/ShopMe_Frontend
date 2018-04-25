@@ -2,7 +2,6 @@ import React from 'react';
 import { translate } from 'react-i18next';
 import { Redirect } from 'react-router';
 import AddForm from 'components/Add/Form/Form';
-import Layout from 'core/Layout';
 
 class ScreensAddForm extends React.Component {
   constructor(props) {
@@ -20,10 +19,10 @@ class ScreensAddForm extends React.Component {
 
   render() {
     return (
-      <Layout>
+      <div>
         {this.state.fireRedirect && <Redirect to="/add/form/success" />}
         <AddForm fetchData={this.sendData} />
-      </Layout>
+      </div>
     );
   }
 }
