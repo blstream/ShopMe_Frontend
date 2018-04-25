@@ -9,8 +9,10 @@ class Article extends React.Component {
     this.state = {
       content: '',
     };
+  }
 
-    fetch(`/assets/articles/pl/${props.match.params.article}.md`)
+  componentDidMount() {
+    fetch(`/assets/articles/pl/${this.props.match.params.article}.md`)
       .then(response => response.text())
       .then((article) => {
         this.setState({ content: article });
@@ -20,14 +22,11 @@ class Article extends React.Component {
   render() {
     return (
       <Layout className="article">
-        <MarkdownArticle
-          source={this.state.content}
-        />
+        <MarkdownArticle source={this.state.content} />
       </Layout>
     );
   }
 }
-
 
 export { Article };
 export default translate()(Article);

@@ -10,7 +10,6 @@ import ScreenSuccessRegister from 'screens/Register/SuccessRegister/SuccessRegis
 import ScreenTermsAndConditions from 'screens/Register/TermsAndConditions/TermsAndConditions';
 import ScreensArticle from 'screens/Article/Article';
 
-
 export default() => (
   <BrowserRouter>
     <Switch>
