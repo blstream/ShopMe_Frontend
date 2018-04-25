@@ -8,9 +8,11 @@ import ScreensRegister from 'screens/Register/Register';
 import ScreenSuccessAdd from 'screens/Add/SuccessAdd/SuccessAdd';
 import ScreenSuccessRegister from 'screens/Register/SuccessRegister/SuccessRegister';
 import ScreenTermsAndConditions from 'screens/Register/TermsAndConditions/TermsAndConditions';
+import ScreensArticle from 'screens/Article/Article';
 import Layout from 'core/Layout';
 
 const wrapInLayout = Screen => props => <Layout><Screen {...props} /></Layout>;
+
 
 export default() => (
   <BrowserRouter>
@@ -23,6 +25,7 @@ export default() => (
       <Route path="/login" render={wrapInLayout(ScreensLogin)} />
       <Route path="/register" render={wrapInLayout(ScreensRegister)} />
       <Route path="/articles/terms-and-conditions" render={wrapInLayout(ScreenTermsAndConditions)} />
+      <Route path="/articles/:article" render={wrapInLayout(ScreensArticle)} />
     </Switch>
   </BrowserRouter>
 );
