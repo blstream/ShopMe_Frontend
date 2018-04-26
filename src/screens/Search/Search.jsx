@@ -29,7 +29,13 @@ export default class Search extends React.Component {
   getData(args) {
     return fetch(`${process.env.REACT_APP_API}/offers?title=${args}`)
       .then(response => response.json())
-      .then((services) => { this.setState({ services, foundServices: services.content, notFoundServices: false }); });
+      .then((services) => {
+        if (services.content) {
+          this.setState({ services, foundServices: services.content, notFoundServices: false });
+        } else {
+          this.setState({ services: [], notFoundServices: true });
+        }
+      });
   }
   afterValidate(searchPhrase) {
     this.setState({

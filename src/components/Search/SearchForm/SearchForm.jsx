@@ -1,5 +1,6 @@
 import React from 'react';
 import { translate } from 'react-i18next';
+import { Redirect } from 'react-router';
 import SearchInput from 'components/Search/SearchForm/SearchInput';
 import SubmitButton from 'components/UI/SubmitButton/SubmitButton';
 import './SearchForm.css';
@@ -42,19 +43,31 @@ class SearchForm extends React.Component {
         this.props.updateFoundServices(this.props.services);
       });
     this.props.updateFoundServices([]);
+    this.setState({ fireRedirect: true });
   }
 
   render() {
     const { t } = this.props;
+
     return (
-      <form className="search__form">
-        <SearchInput
-          onSearchInputChanged={this.handleSearchInputChanged}
-          searchQuery={this.props.searchQuery}
-          afterValidate={this.props.afterValidate}
-        />
-        <SubmitButton value={t('components.searchForm.button')} onClick={this.handleSubmit} searchPhrase={this.state.searchPhrase} />
-      </form>
+      <div>
+        {this.state.fireRedirect && (
+          <Redirect
+            to={{
+              pathname: '/search',
+              search: `?title=${this.state.searchPhrase}`,
+            }}
+          />
+        )}
+        <form className="search__form">
+          <SearchInput
+            onSearchInputChanged={this.handleSearchInputChanged}
+            searchQuery={this.props.searchQuery}
+            afterValidate={this.props.afterValidate}
+          />
+          <SubmitButton value={t('components.searchForm.button')} onClick={this.handleSubmit} searchPhrase={this.state.searchPhrase} />
+        </form>
+      </div>
     );
   }
 }
