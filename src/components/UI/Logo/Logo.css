@@ -11,5 +11,11 @@
 
 .logo-container__logo {
   font-family: 'Pacifico', cursive;
-  font-size: 3.2rem;
+  font-size: 2.2rem;
+}
+
+@media (min-width: 768px) {
+  .logo-container__logo {
+    font-size: 3.2rem;
+  }
 }

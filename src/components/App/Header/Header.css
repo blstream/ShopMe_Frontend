@@ -1,6 +1,5 @@
 header {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   justify-items: center;
 }
 
@@ -10,4 +9,11 @@ nav {
 
 .add-offer {
   justify-self: end;
+}
+
+@media (min-width: 768px) {
+  header {
+    font-size: 3.2rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

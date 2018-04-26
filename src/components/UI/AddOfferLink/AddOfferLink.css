@@ -8,7 +8,7 @@
 }
 
 .add-offer__text {
-  font-size: 1.7em;
+  font-size: 1.5rem;
   line-height: 1.3em;
   padding-left: 0.5em;
   float: left;
@@ -23,7 +23,7 @@
   border: none;
   color: inherit;
   cursor: pointer;
-  font-size: 2em;
+  font-size: 1.5rem;
   transition: all .3s ease-in;
   float: left;
 }
@@ -35,4 +35,13 @@
 
 .add-offer__btn--black {
   color: #4F4F4F;
+}
+
+@media (min-width: 768px) {
+  .add-offer__text {
+    font-size: 2.5rem;
+  }
+  .add-offer__btn {
+    font-size: 2.5rem;
+  }
 }
