@@ -125,169 +125,165 @@ class RegisterForm extends Component {
   render() {
     const { t } = this.props;
     return (
-      <React.Fragment>
-        <h1 className="login-form__title">{t('components.login.register.formTitle')}</h1>
-        <div className="register-form__wrapper">
-          <form
-            className="register-form"
-            onSubmit={this.checkFormValidity}
-            noValidate
-          >
-            <fieldset className="register-form__fieldset">
-              <div className="register-form__icon-container">
-                <i className="register-form__icon register-form__icon--signup fas fa-user-plus" aria-hidden="true" />
-              </div>
-              <div className="register-form__item">
-                <GenericInput
-                  name="users__name"
-                  type="text"
-                  label={t('components.login.register.firstNameInputLabel')}
-                  maxLength="20"
-                  required
-                  validation={validator.validateNameInput}
-                  value={this.props.location.state.name}
-                  ref={(v) => { this.users__name = v; }}
-                />
-              </div>
-              <div className="register-form__item">
-                <GenericInput
-                  name="users__surname"
-                  type="text"
-                  label={t('components.login.register.lastNameInputLabel')}
-                  maxLength="30"
-                  required
-                  validation={validator.validateSurnameInput}
-                  value={this.props.location.state.surname}
-                  ref={(v) => { this.users__surname = v; }}
-                />
-              </div>
-              <div className="register-form__item">
-                <GenericInput
-                  name="users__email"
-                  type="text"
-                  label={t('components.login.register.emailInputLabel')}
-                  required
-                  validation={validator.validateEmailInput}
-                  value={this.props.location.state.email}
-                  ref={(v) => { this.users__email = v; }}
-                />
-              </div>
-              <div className="register-form__item">
-                <Input
-                  name="users__password"
-                  type="password"
-                  label={t('components.login.register.passwordInputLabel')}
-                  maxLength="30"
-                  required
-                  validation={validator.validatePassword}
-                  ref={(v) => { this.users__password = v; }}
-                />
-              </div>
-              <div className="register-form__item">
-                <GenericInput
-                  name="users__phone-number"
-                  type="text"
-                  label={t('components.login.register.phoneNumberInputLabel')}
-                  maxLength="10"
-                  required
-                  validation={validator.validatePhoneNumber}
-                  ref={(v) => { this.users__phoneNumber = v; }}
-                />
-              </div>
-              <div className="register-form__item">
-                <GenericInput
-                  name="users__bank-account"
-                  type="number"
-                  label={t('components.login.register.bankAccountInputLabel')}
-                  maxLength="50"
-                  required
-                  validation={validator.validateTextInput}
-                  ref={(v) => { this.users__bankAccount = v; }}
-                />
-              </div>
-              <div className="register-form__item">
-                <GenericInput
-                  name="users__address-street"
-                  type="text"
-                  label={t('components.login.register.streetInputLabel')}
-                  maxLength="50"
-                  required
-                  validation={validator.validateTextInput}
-                  ref={(v) => { this.users__addressStreet = v; }}
-                />
-              </div>
-              <div className="register-form__item">
-                <GenericInput
-                  name="users__address-number"
-                  type="text"
-                  label={t('components.login.register.houseNumberInputLabel')}
-                  maxLength="50"
-                  required
-                  validation={validator.validateTextInput}
-                  ref={(v) => { this.users__addressNumber = v; }}
-                />
-              </div>
-              <div className="register-form__item">
-                <GenericSelect
-                  name="offer__voivodeship"
-                  ref={(v) => { this.voivodeshipSelect = v; }}
-                  label={t('components.login.register.voivodeships')}
-                  endpoint="voivodeships"
-                  selectNamePath="components.login.register.voivodeships"
-                  selectErrorPath="components.UI.categorySelect.errorEmptyField"
-                  selectOptionsPath="components.UI.voivodeship.list"
-                  labelClassName=".select_span--yellow"
-                  selectClassName="input-select input-select--yellow input-select--inline"
-                  selectItemClassName="input-select__item-option--yellow"
-                  errorClassName="input-select__errorMessage input-select__errorMessage2"
-                  required
-                />
-              </div>
-              <div className="register-form__item">
-                <GenericInput
-                  name="users__address-city"
-                  type="text"
-                  label={t('components.login.register.localityInputLabel')}
-                  maxLength="50"
-                  required
-                  validation={validator.validateTextInput}
-                  ref={(v) => { this.users__addressCity = v; }}
-                />
-              </div>
-              <div className="register-form__item">
-                <GenericInput
-                  name="users__address-zip-code"
-                  type="text"
-                  label={t('components.login.register.zipCodeInputLabel')}
-                  maxLength="50"
-                  required
-                  validation={validator.validateTextInput}
-                  ref={(v) => { this.users__addressZipCode = v; }}
-                />
-              </div>
-              <InvoiceInputGroup
-                ref={(v) => { this.users__invoiceInputGroup = v; }}
-              />
-              <div className="register-form__item register-form__item--button">
-                <FormButton
-                  id="users__register-submit"
-                  type="submit"
-                  value={t('components.login.signup.submitButtonLabel')}
-                />
-              </div>
-              <div className="register-form__item--checkbox">
-                <TermsAndConditionsCheckbox
-                  ref={(v) => { this.users__termsAndConditionsCheckbox = v; }}
-                />
-                <PersonalDataConfirm
-                  validation={validator.validateCheckbox}
-                  ref={(v) => { this.users__personalDataProcessing = v; }}
-                />
-              </div>
-            </fieldset>
-          </form>
-        </div>
-      </React.Fragment>
+      <form
+        className="register-form"
+        onSubmit={this.checkFormValidity}
+        noValidate
+      >
+        <fieldset className="register-form__fieldset">
+          <div className="register-form__icon-container">
+            <i className="register-form__icon register-form__icon--signup fas fa-user-plus" aria-hidden="true" />
+          </div>
+          <h1 className="login-form__title">{t('components.login.register.formTitle')}</h1>
+          <div className="register-form__item">
+            <GenericInput
+              name="users__name"
+              type="text"
+              label={t('components.login.register.firstNameInputLabel')}
+              maxLength="20"
+              required
+              validation={validator.validateNameInput}
+              value={this.props.location.state.name}
+              ref={(v) => { this.users__name = v; }}
+            />
+          </div>
+          <div className="register-form__item">
+            <GenericInput
+              name="users__surname"
+              type="text"
+              label={t('components.login.register.lastNameInputLabel')}
+              maxLength="30"
+              required
+              validation={validator.validateSurnameInput}
+              value={this.props.location.state.surname}
+              ref={(v) => { this.users__surname = v; }}
+            />
+          </div>
+          <div className="register-form__item">
+            <GenericInput
+              name="users__email"
+              type="text"
+              label={t('components.login.register.emailInputLabel')}
+              required
+              validation={validator.validateEmailInput}
+              value={this.props.location.state.email}
+              ref={(v) => { this.users__email = v; }}
+            />
+          </div>
+          <div className="register-form__item">
+            <Input
+              name="users__password"
+              type="password"
+              label={t('components.login.register.passwordInputLabel')}
+              maxLength="30"
+              required
+              validation={validator.validatePassword}
+              ref={(v) => { this.users__password = v; }}
+            />
+          </div>
+          <div className="register-form__item">
+            <GenericInput
+              name="users__phone-number"
+              type="text"
+              label={t('components.login.register.phoneNumberInputLabel')}
+              maxLength="10"
+              required
+              validation={validator.validatePhoneNumber}
+              ref={(v) => { this.users__phoneNumber = v; }}
+            />
+          </div>
+          <div className="register-form__item">
+            <GenericInput
+              name="users__bank-account"
+              type="number"
+              label={t('components.login.register.bankAccountInputLabel')}
+              maxLength="50"
+              required
+              validation={validator.validateTextInput}
+              ref={(v) => { this.users__bankAccount = v; }}
+            />
+          </div>
+          <div className="register-form__item">
+            <GenericInput
+              name="users__address-street"
+              type="text"
+              label={t('components.login.register.streetInputLabel')}
+              maxLength="50"
+              required
+              validation={validator.validateTextInput}
+              ref={(v) => { this.users__addressStreet = v; }}
+            />
+          </div>
+          <div className="register-form__item">
+            <GenericInput
+              name="users__address-number"
+              type="text"
+              label={t('components.login.register.houseNumberInputLabel')}
+              maxLength="50"
+              required
+              validation={validator.validateTextInput}
+              ref={(v) => { this.users__addressNumber = v; }}
+            />
+          </div>
+          <div className="register-form__item">
+            <GenericSelect
+              name="offer__voivodeship"
+              ref={(v) => { this.voivodeshipSelect = v; }}
+              label={t('components.login.register.voivodeships')}
+              endpoint="voivodeships"
+              selectNamePath="components.login.register.voivodeships"
+              selectErrorPath="components.UI.categorySelect.errorEmptyField"
+              selectOptionsPath="components.UI.voivodeship.list"
+              labelClassName=".select_span--yellow"
+              selectClassName="input-select input-select--yellow input-select--inline"
+              selectItemClassName="input-select__item-option--yellow"
+              errorClassName="input-select__errorMessage input-select__errorMessage2"
+              required
+            />
+          </div>
+          <div className="register-form__item">
+            <GenericInput
+              name="users__address-city"
+              type="text"
+              label={t('components.login.register.localityInputLabel')}
+              maxLength="50"
+              required
+              validation={validator.validateTextInput}
+              ref={(v) => { this.users__addressCity = v; }}
+            />
+          </div>
+          <div className="register-form__item">
+            <GenericInput
+              name="users__address-zip-code"
+              type="text"
+              label={t('components.login.register.zipCodeInputLabel')}
+              maxLength="50"
+              required
+              validation={validator.validateTextInput}
+              ref={(v) => { this.users__addressZipCode = v; }}
+            />
+          </div>
+          <InvoiceInputGroup
+            ref={(v) => { this.users__invoiceInputGroup = v; }}
+          />
+          <div className="register-form__item register-form__item--button">
+            <FormButton
+              id="users__register-submit"
+              type="submit"
+              value={t('components.login.signup.submitButtonLabel')}
+            />
+          </div>
+          <div className="register-form__item--checkbox">
+            <TermsAndConditionsCheckbox
+              ref={(v) => { this.users__termsAndConditionsCheckbox = v; }}
+            />
+            <PersonalDataConfirm
+              validation={validator.validateCheckbox}
+              ref={(v) => { this.users__personalDataProcessing = v; }}
+            />
+          </div>
+        </fieldset>
+      </form>
     );
   }
 }

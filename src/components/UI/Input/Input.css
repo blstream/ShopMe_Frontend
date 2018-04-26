@@ -78,6 +78,11 @@
   right: 1.5rem;
   transform: translateY(-50%);
   font-size: 2rem;
+  color: #D8C478;
+}
+
+.input__eye-icon:hover {
+  color: #000000;
 }
 
 .input--grey:disabled {
