@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
 import Header from 'components/UI/Header/Header';
+import Footer from 'components/UI/Footer/Footer';
 
 class Layout extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class Layout extends Component {
         <main className={this.props.className}>
           {childrenWithProps}
         </main>
-        <footer />
+        <Footer />
       </div>
     );
   }
