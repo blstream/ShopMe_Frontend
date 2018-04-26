@@ -1,13 +1,8 @@
 import React from 'react';
-<<<<<<< HEAD
-import SearchInput from 'components/Search/SearchInput';
-=======
-import Layout from 'core/Layout';
 import SearchForm from 'components/Search/SearchForm/SearchForm';
 import FoundSearchResults from 'components/Search/SearchResults/FoundSearchResults/FoundSearchResults';
 import NoSearchResults from 'components/Search/SearchResults/NoSearchResults/NoSearchResults';
 
->>>>>>> Remove Search/SearchInput component and move methods to Screens/Search
 
 export default class Search extends React.Component {
   constructor(props) {
@@ -77,24 +72,18 @@ export default class Search extends React.Component {
       results = ('');
     }
     return (
-<<<<<<< HEAD
-      <SearchInput onSubmit={this.getData} services={this.state.services} />
-=======
-      <Layout>
-        <div className="search">
-          <SearchForm
-            updateFoundServices={this.updateFoundServices}
-            updateSearchPhrase={this.updateSearchPhrase}
-            updatePaginationData={this.updatePaginationData}
-            onSubmit={this.getData}
-            services={this.state.services}
-            searchQuery={searchQuery}
-            afterValidate={this.afterValidate}
-          />
-          {results}
-        </div>
-      </Layout>
->>>>>>> Pass values from url to SearchInput component
+      <div className="search">
+        <SearchForm
+          updateFoundServices={this.updateFoundServices}
+          updateSearchPhrase={this.updateSearchPhrase}
+          updatePaginationData={this.updatePaginationData}
+          onSubmit={this.getData}
+          services={this.state.services}
+          searchQuery={searchQuery}
+          afterValidate={this.afterValidate}
+        />
+        {results}
+      </div>
     );
   }
 }
