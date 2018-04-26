@@ -55,7 +55,7 @@
 
 .signup-form__email-exists-message {
   font-size: 1.8rem;
-  color: red;
+  color: #FF0000;
   position: absolute;
   top: 10%;
   left: 50%;
