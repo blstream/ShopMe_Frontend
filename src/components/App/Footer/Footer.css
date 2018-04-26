@@ -1,7 +1,9 @@
 footer {
-  margin-top: 6rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   background: #000;
-  color: #ccc;
+  color: #999999;
 }
 
 .footer-top {
@@ -18,46 +20,47 @@ footer {
 @media (min-width: 768px) {
   .footer-top {
     display: block;
-    margin-bottom: 5rem;
+    width: 90%;
+    margin: 0 auto;
   }
 
   .footer-top__headers {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
     margin-bottom: 6rem;
     padding-top: 6rem;
-    margin-left: 10rem;
+  }
+
+  .footer-top--h3:first-child {
+    margin-right: 7rem;
   }
 
   .footer-top__columns {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    margin-left: 10rem;
+    justify-items: center;
+    padding-bottom: 5rem;
+    border-bottom: 0.15rem solid #ccc;
   }
 
   .footer-top__row--link {
     display: block;
     text-decoration: none;
-    color: #ccc;
+    color: #999999;
     margin-bottom: 1rem;
   }
 
+  .footer-top__row--link:hover {
+    color: #fff;
+  }
+
   .footer-bottom {
-    margin: 0 10rem;
     padding-bottom: 5rem;
     padding-top: 5rem;
-    border-top: 0.15rem solid #ccc;
   }
 }
 
 @media (min-width: 1025px) {
-  .footer-top {
-    width: 118rem;
-    margin: 0 auto 10rem auto;
-  }
 
-  .footer-bottom {
-    width: 102rem;
-    margin: 0 auto;
-  }
 }

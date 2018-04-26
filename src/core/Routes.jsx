@@ -9,7 +9,7 @@ import ScreenSuccessAdd from 'screens/Add/SuccessAdd/SuccessAdd';
 import ScreenSuccessRegister from 'screens/Register/SuccessRegister/SuccessRegister';
 import ScreenTermsAndConditions from 'screens/Register/TermsAndConditions/TermsAndConditions';
 import ScreensArticle from 'screens/Article/Article';
-import Layout from 'core/Layout';
+import Layout from 'components/App/Layout/Layout';
 
 const wrapInLayout = Screen => props => <Layout><Screen {...props} /></Layout>;
 

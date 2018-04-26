@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
-import Header from 'components/UI/Header/Header';
-import Footer from 'components/UI/Footer/Footer';
+import Header from 'components/App/Header/Header';
+import Footer from 'components/App/Footer/Footer';
 
 class Layout extends Component {
   constructor(props) {
