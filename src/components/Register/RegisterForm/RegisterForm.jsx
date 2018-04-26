@@ -224,6 +224,28 @@ class RegisterForm extends Component {
             />
           </div>
           <div className="register-form__item">
+            <GenericInput
+              name="users__address-zip-code"
+              type="text"
+              label={t('components.login.register.zipCodeInputLabel')}
+              maxLength="50"
+              required
+              validation={validator.validateTextInput}
+              ref={(v) => { this.users__addressZipCode = v; }}
+            />
+          </div>
+          <div className="register-form__item">
+            <GenericInput
+              name="users__address-city"
+              type="text"
+              label={t('components.login.register.cityInputLabel')}
+              maxLength="30"
+              required
+              validation={validator.validateCity}
+              ref={(v) => { this.users__addressCity = v; }}
+            />
+          </div>
+          <div className="register-form__item">
             <GenericSelect
               name="offer__voivodeship"
               ref={(v) => { this.voivodeshipSelect = v; }}
@@ -237,28 +259,6 @@ class RegisterForm extends Component {
               selectItemClassName="input-select__item-option--yellow"
               errorClassName="input-select__errorMessage input-select__errorMessage2"
               required
-            />
-          </div>
-          <div className="register-form__item">
-            <GenericInput
-              name="users__address-city"
-              type="text"
-              label={t('components.login.register.localityInputLabel')}
-              maxLength="30"
-              required
-              validation={validator.validateCity}
-              ref={(v) => { this.users__addressCity = v; }}
-            />
-          </div>
-          <div className="register-form__item">
-            <GenericInput
-              name="users__address-zip-code"
-              type="text"
-              label={t('components.login.register.zipCodeInputLabel')}
-              maxLength="50"
-              required
-              validation={validator.validateTextInput}
-              ref={(v) => { this.users__addressZipCode = v; }}
             />
           </div>
           <InvoiceInputGroup

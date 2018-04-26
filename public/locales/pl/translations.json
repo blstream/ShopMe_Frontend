@@ -61,6 +61,7 @@
         "bankAccountInputLabel": "Nr konta bankowego:",
         "streetInputLabel": "Ulica:",
         "houseNumberInputLabel": "Nr domu:",
+        "cityInputLabel": "Miasto:",
         "localityInputLabel": "Miejscowość:",
         "zipCodeInputLabel": "Kod pocztowy:",
         "companyNameInputLabel": "Nazwa firmy:",
