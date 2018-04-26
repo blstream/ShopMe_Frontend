@@ -6,9 +6,10 @@ import GenericInput from 'components/UI/GenericInput/GenericInput';
 import Input from 'components/UI/Input/Input';
 import GenericSelect from 'components/UI/GenericSelect/GenericSelect';
 import FormButton from 'components/UI/FormButton/FormButton';
-import InvoiceInputGroup from 'components/UI/InvoiceInputGroup/InvoiceInputGroup';
 import PersonalDataConfirm from 'components/UI/PersonalDataConfirm/PersonalDataConfirm';
+import InvoiceInputGroup from 'components/Register/InvoiceInputGroup/InvoiceInputGroup';
 import TermsAndConditionsCheckbox from 'components/Register/TermsAndConditionsCheckbox/TermsAndConditionsCheckbox';
+
 
 import './Register.css';
 
