@@ -8,20 +8,26 @@ class SearchInput extends React.Component {
     this.state = {
       validPhrase: true,
       errorMessage: null,
+      query: '',
     };
     this.validatePhrase = this.validatePhrase.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   componentWillMount() {
     if (this.props.searchQuery) {
+      this.setState({ query: this.props.searchQuery });
       this.validatePhrase(this.props.searchQuery);
     }
   }
-  validatePhrase(input) {
-    const searchPhrase =
-      this.props.searchQuery ? this.props.searchQuery
-        : input.target.value.trim();
+  handleInputChange(input) {
+    const searchPhrase = input.target.value.trim();
+    this.setState({ query: searchPhrase });
+    this.validatePhrase(searchPhrase);
+  }
+
+  validatePhrase(searchPhrase) {
     const cleanedSearchPhrase = searchPhrase.replace(/[!@#$%^&*()=+\-_;:'"<>,.?/{}|`~[\]\\]/g, '');
     const validPhrase = cleanedSearchPhrase.length > 1 && Number.isNaN(Number(cleanedSearchPhrase));
     this.setState({ validPhrase });
@@ -38,7 +44,7 @@ class SearchInput extends React.Component {
   }
   handleEnter(event) {
     if (event.keyCode === 13) {
-      this.validatePhrase(event);
+      this.handleInputChange(event);
     }
   }
 
@@ -51,11 +57,12 @@ class SearchInput extends React.Component {
           id="search__input"
           placeholder={t('components.searchForm.input')}
           name="searchPhrase"
-          onChange={this.validatePhrase}
+          onChange={this.handleInputChange}
           onKeyDown={this.handleEnter}
           className="search__form-item"
           maxLength="30"
           aria-label={t('components.searchForm.label')}
+          value={this.state.query}
         />
         {!this.state.validPhrase && (<p className="search__message-error">{t(this.state.errorMessage)}</p>)}
       </div>

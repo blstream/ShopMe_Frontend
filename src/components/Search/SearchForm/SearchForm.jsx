@@ -10,6 +10,7 @@ class SearchForm extends React.Component {
     this.state = {
       searchPhrase: null,
       validPhrase: false,
+      searchedFromQuery: false,
     };
 
     this.handleSearchInputChanged = this.handleSearchInputChanged.bind(this);
@@ -21,7 +22,10 @@ class SearchForm extends React.Component {
       searchPhrase, validPhrase,
     }, () => {
       if (this.props.searchQuery) {
-        this.props.afterValidate(searchPhrase);
+        this.setState({ searchedFromQuery: true });
+        if (this.state.searchedFromQuery === false) {
+          this.props.afterValidate(searchPhrase);
+        }
       }
     });
   }
