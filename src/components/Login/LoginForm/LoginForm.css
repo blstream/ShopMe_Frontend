@@ -1,9 +1,10 @@
 .login-form__wrapper {
   display: flex;
+  width: 118rem;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: stretch;
-  margin-top: 5rem;
+  margin: 5rem auto 0 auto;
 }
 
 @media screen and (max-width: 1200px) {
