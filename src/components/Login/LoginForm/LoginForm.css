@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: stretch;
   margin-top: 5rem;
 }
 
@@ -16,7 +17,6 @@
   border-radius: 0.5rem;
   margin: 3rem;
   padding: 2rem;
-  height: 57rem;
   position: relative;
 }
 
@@ -61,6 +61,6 @@
 
 .login-form__item--button {
   position: absolute;
-  bottom: 1rem;
+  bottom: 2rem;
   right: 2rem;
 }
