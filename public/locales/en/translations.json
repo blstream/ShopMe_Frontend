@@ -150,6 +150,43 @@
       "loginButton": {
         "label": "Log In",
         "labelLogged": "Logout"
+      },
+      "footer": {
+        "headers": {
+          "categories": "Categories",
+          "aboutUs": "About us",
+          "exhibitor": "For exhibitors"
+        },
+        "categoryNames": {
+          "construction": "Construction",
+          "office": "Company and office",
+          "photography": "Photography",
+          "graphics": "Graphics",
+          "privateLessons": "Private lessons",
+          "bookkeeping": "Bookkeeping",
+          "marketing": "Marketing and advertising",
+          "repair": "Repair and service",
+          "garden": "Garden",
+          "housework": "Housework",
+          "law": "Law",
+          "programming": "Programming",
+          "translations": "Translations",
+          "transport": "Transport",
+          "workshop": "Workshop services",
+          "music": "Bands and music",
+          "other": "Other"
+        },
+        "aboutUs": {
+          "privacy": "Privacy policy",
+          "statute": "Statute",
+          "help": "Help",
+          "shopping": "Shopping on ShopMe",
+          "sale": "Sales on ShopMe"
+        },
+        "forExhibitors": {
+          "seller": "Become a seller",
+          "conditions": "Conditions"
+        }
       }
     }
   },
