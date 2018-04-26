@@ -79,11 +79,8 @@ class InvoiceInputGroup extends Component {
               name="users_invoiceCompanyName"
               type="text"
               label={t('components.login.register.companyNameInputLabel')}
-              color="yellow"
-              size="M"
-              maxLength="50"
               required
-              validation={validator.validateTextInput}
+              validation={validator.validateCompanyName}
               ref={(v) => { this.users_invoiceCompanyName = v; }}
               onChange={this.handleChange}
               value={this.state.value}
@@ -94,8 +91,6 @@ class InvoiceInputGroup extends Component {
               name="users_invoiceNip"
               type="text"
               label={t('components.login.register.nipInputLabel')}
-              color="yellow"
-              size="M"
               maxLength="50"
               required
               validation={validator.validateTextInput}
@@ -108,11 +103,8 @@ class InvoiceInputGroup extends Component {
               name="users_invoiceAddressStreet"
               type="text"
               label={t('components.login.register.streetInputLabel')}
-              color="yellow"
-              size="M"
-              maxLength="50"
               required
-              validation={validator.validateTextInput}
+              validation={validator.validateStreet}
               ref={(v) => { this.users_invoiceAddressStreet = v; }}
               onChange={this.handleChange}
             />
@@ -122,9 +114,6 @@ class InvoiceInputGroup extends Component {
               name="users_invoiceAddressNumber"
               type="text"
               label={t('components.login.register.houseNumberInputLabel')}
-              color="yellow"
-              size="M"
-              maxLength="50"
               required
               validation={validator.validateTextInput}
               ref={(v) => { this.users_invoiceAddressNumber = v; }}
@@ -136,8 +125,6 @@ class InvoiceInputGroup extends Component {
               name="users_invoiceAddressZipCode"
               type="text"
               label={t('components.login.register.zipCodeInputLabel')}
-              color="yellow"
-              size="M"
               maxLength="50"
               required
               validation={validator.validateTextInput}
@@ -150,11 +137,9 @@ class InvoiceInputGroup extends Component {
               name="users_invoiceAddressCity"
               type="text"
               label={t('components.login.register.localityInputLabel')}
-              color="yellow"
-              size="M"
               maxLength="50"
               required
-              validation={validator.validateTextInput}
+              validation={validator.validateCity}
               ref={(v) => { this.users_invoiceAddressCity = v; }}
               onChange={this.handleChange}
             />

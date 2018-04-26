@@ -5,7 +5,7 @@ const validator = {
   },
 
   hasMinLength(minLength, value) {
-    return value.length < minLength ? 'helpers.validator.errorMinLength' : undefined;
+    return value.trim().length < minLength ? 'helpers.validator.errorMinLength' : undefined;
   },
 
   useOnlyAlpha(value) {
@@ -36,7 +36,7 @@ const validator = {
     return !checked ? 'helpers.validator.errorEmptyField' : undefined;
   },
 
-  mustHave(pattern, value) {
+  mustUse(pattern, value) {
     return !pattern.test(value) ? 'helpers.validator.errorPasswordRequirements' : undefined;
   },
 
@@ -88,16 +88,38 @@ const validator = {
   validateCity(required, value) {
     return validator.isRequired(required, value) ||
     validator.useOnlyLegalCharacters(/^[A-ZĄĘĆŁŃÓŚŹŻ-\s]+$/i, value) ||
+    validator.mustUseAlpha(value) ||
     undefined;
   },
 
   validatePassword(required, value) {
     return validator.isRequired(required, value) ||
       validator.hasMinLength(8, value) ||
-      validator.mustHave(/[A-Z]+/, value) ||
-      validator.mustHave(/[1-9]+/, value) ||
+      validator.mustUse(/[A-Z]+/, value) ||
+      validator.mustUse(/[1-9]+/, value) ||
     undefined;
   },
+
+  validateBankAccount(required, value) {
+    return validator.isRequired(required, value) ||
+      validator.useOnlyNumeric(value) ||
+      validator.hasMinLength(26, value) ||
+      undefined;
+  },
+
+  validateStreet(required, value) {
+    return validator.isRequired(required, value) ||
+      validator.hasMinLength(3, value) ||
+      validator.mustUseAlpha(value) ||
+      undefined;
+  },
+
+  validateCompanyName(required, value) {
+    return validator.isRequired(required, value) ||
+      validator.mustUseAlpha(value) ||
+      undefined;
+  },
+
 };
 
 export default validator;

@@ -60,6 +60,7 @@ class GenericInput extends Component {
           name={this.props.name}
           placeholder={this.props.placeholder}
           maxLength={this.props.maxLength}
+          max={this.props.max}
           disabled={this.props.disabled}
           required={this.props.required}
           value={this.state.value}
@@ -74,6 +75,7 @@ class GenericInput extends Component {
 }
 
 GenericInput.defaultProps = {
+  maxLength: 524288,
   labelClassName: 'input__wrapper',
   spanClassName: 'input__label--M',
   inputClassName: 'input input--M input--yellow',

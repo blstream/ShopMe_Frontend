@@ -195,11 +195,11 @@ class RegisterForm extends Component {
           <div className="register-form__item">
             <GenericInput
               name="users__bank-account"
-              type="number"
+              type="text"
               label={t('components.login.register.bankAccountInputLabel')}
-              maxLength="50"
+              maxLength="26"
               required
-              validation={validator.validateTextInput}
+              validation={validator.validateBankAccount}
               ref={(v) => { this.users__bankAccount = v; }}
             />
           </div>
@@ -208,9 +208,8 @@ class RegisterForm extends Component {
               name="users__address-street"
               type="text"
               label={t('components.login.register.streetInputLabel')}
-              maxLength="50"
               required
-              validation={validator.validateTextInput}
+              validation={validator.validateStreet}
               ref={(v) => { this.users__addressStreet = v; }}
             />
           </div>
@@ -219,7 +218,6 @@ class RegisterForm extends Component {
               name="users__address-number"
               type="text"
               label={t('components.login.register.houseNumberInputLabel')}
-              maxLength="50"
               required
               validation={validator.validateTextInput}
               ref={(v) => { this.users__addressNumber = v; }}
@@ -246,9 +244,9 @@ class RegisterForm extends Component {
               name="users__address-city"
               type="text"
               label={t('components.login.register.localityInputLabel')}
-              maxLength="50"
+              maxLength="30"
               required
-              validation={validator.validateTextInput}
+              validation={validator.validateCity}
               ref={(v) => { this.users__addressCity = v; }}
             />
           </div>
