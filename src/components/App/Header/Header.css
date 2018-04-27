@@ -1,19 +1,52 @@
 header {
+  width: 100%;
+  margin-top: 3rem;
+  padding-left: 2.5rem;
   display: grid;
-  justify-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  font-size: 1.4rem;
+  z-index: 2;
+  box-shadow: 0 0.6rem 1.2rem 0 rgba(0,0,0,0.15);
+}
+
+.logo {
+  height: 5rem;
 }
 
 nav {
-  align-self: center;
+  position: relative;
+  display: grid;
+  justify-items: end;
+  align-items: center;
 }
 
-.add-offer {
-  justify-self: end;
+nav a {
+  color: #000;
+  text-decoration: none;
+
 }
 
-@media (min-width: 768px) {
-  header {
-    font-size: 3.2rem;
-    grid-template-columns: repeat(3, 1fr);
-  }
+.user-name {
+  font-weight: bold;
+  padding-right: 2.5rem;
+}
+
+.header__links {
+  position: absolute;
+  top: 120%;
+  background: #fff;
+  padding: 0 1rem;
+}
+
+.header__link {
+  display: block;
+  padding: 1rem;
+  text-align: right;
+}
+
+.header__link:hover {
+    color:#FFFFFF;
+    background-color: #000000;
+    border-radius: 0.1rem;
+    cursor: pointer;
 }

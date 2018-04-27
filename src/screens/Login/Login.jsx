@@ -31,8 +31,8 @@ class ScreensLogin extends React.Component {
 
   handleLoginSubmit(e) {
     e.preventDefault();
-    document.cookie = 'userToken=test';
-    const isUserLogged = !!document.cookie.replace(/(?:(?:^|.*;\s*)userToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
+    localStorage.setItem('userToken', 'test');
+    const isUserLogged = !!localStorage.getItem('userToken');
     if (isUserLogged) this.setState({ loginFireRedirect: true });
   }
 
