@@ -7,10 +7,10 @@ const Footer = props => (
   <footer>
     <div className="footer-top">
       <div className="footer-top__headers">
-        <h3 className="footer-top--h3">{props.t('components.UI.footer.headers.categories')}</h3>
+        <h3 className="footer-top--header">{props.t('components.UI.footer.headers.categories')}</h3>
         <span />
-        <h3 className="footer-top--h3">{props.t('components.UI.footer.headers.aboutUs')}</h3>
-        <h3 className="footer-top--h3">{props.t('components.UI.footer.headers.exhibitor')}</h3>
+        <h3 className="footer-top--header">{props.t('components.UI.footer.headers.aboutUs')}</h3>
+        <h3 className="footer-top--header">{props.t('components.UI.footer.headers.exhibitor')}</h3>
       </div>
       <div className="footer-top__columns">
         <div className="footer-top__row">

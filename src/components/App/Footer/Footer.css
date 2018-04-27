@@ -18,28 +18,29 @@ footer {
 @media (min-width: 768px) {
   .footer-top {
     display: block;
-    width: 90%;
     margin: 0 auto;
   }
 
   .footer-top__headers {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    justify-items: center;
     margin-bottom: 6rem;
     padding-top: 6rem;
   }
 
-  .footer-top--h3:first-child {
-    margin-right: 7rem;
+  .footer-top--header {
+    padding: 0 2.5rem;
   }
 
   .footer-top__columns {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    justify-items: center;
     padding-bottom: 5rem;
     border-bottom: 0.15rem solid #ccc;
+  }
+
+  .footer-top__row {
+    padding: 0 2.5rem;
   }
 
   .footer-top__row--link {
@@ -60,5 +61,7 @@ footer {
 }
 
 @media (min-width: 1025px) {
-
+  .footer-top {
+    max-width: 118rem;
+  }
 }
