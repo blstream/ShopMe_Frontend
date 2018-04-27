@@ -23,7 +23,6 @@ nav {
 nav a {
   color: #000;
   text-decoration: none;
-
 }
 
 .user-name {
@@ -49,4 +48,13 @@ nav a {
     background-color: #000000;
     border-radius: 0.1rem;
     cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  header {
+    box-shadow: none;
+  }
+  .header__links {
+    box-shadow: 0.2rem -0.3rem 0.5rem 0px rgba(0,0,0,0.15);
+  }
 }
