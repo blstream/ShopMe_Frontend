@@ -2,27 +2,42 @@ import React from 'react';
 import SearchForm from 'components/Search/SearchForm/SearchForm';
 import FoundSearchResults from 'components/Search/SearchResults/FoundSearchResults/FoundSearchResults';
 import NoSearchResults from 'components/Search/SearchResults/NoSearchResults/NoSearchResults';
+import { Redirect } from 'react-router';
 
 
 export default class Search extends React.Component {
   constructor(props) {
     super(props);
+
+    const searchQueryValue = new URLSearchParams(props.location.search);
+    const searchQuery = searchQueryValue.get('title');
+
     this.state = {
       services: undefined,
       foundServices: [],
       notFoundServices: null,
-      searchPhrase: null,
+      searchPhrase: searchQuery,
+      isSearchPhraseValid: false,
       paginationData: {},
+      triggerFetchAfterValidate: !!searchQuery,
+      fireRedirect: false,
     };
-    this.getData = this.getData.bind(this);
     this.updateFoundServices = this.updateFoundServices.bind(this);
     this.updateSearchPhrase = this.updateSearchPhrase.bind(this);
-    this.updatePaginationData = this.updatePaginationData.bind(this);
-    this.afterValidate = this.afterValidate.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  getData(args) {
-    return fetch(`${process.env.REACT_APP_API}/offers?title=${args}`)
+  onSubmit() {
+    if (!this.state.isSearchPhraseValid) return;
+
+    this.setState({ fireRedirect: true }, () => {
+      this.setState({ fireRedirect: false });
+      this.getData();
+    });
+  }
+
+  getData() {
+    return fetch(`${process.env.REACT_APP_API}/offers?title=${this.state.searchPhrase}`)
       .then(response => response.json())
       .then((services) => {
         if (services.content) {
@@ -32,13 +47,7 @@ export default class Search extends React.Component {
         }
       });
   }
-  afterValidate(searchPhrase) {
-    this.setState({
-      searchPhrase,
-    }, () => {
-      this.getData(this.state.searchPhrase);
-    });
-  }
+
   updateFoundServices(foundServices) {
     if (foundServices.content) {
       this.setState({ foundServices: foundServices.content, notFoundServices: false });
@@ -47,17 +56,33 @@ export default class Search extends React.Component {
     }
   }
 
-  updatePaginationData(paginationData) {
-    this.setState({ paginationData });
-  }
+  updateSearchPhrase(searchPhrase, isSearchPhraseValid) {
+    let cb;
+    let triggerFetchAfterValidate = this.state && this.state.triggerFetchAfterValidate;
+    if (this.state.triggerFetchAfterValidate && this.state.isSearchPhraseValid) {
+      cb = this.getData.bind(this);
+      triggerFetchAfterValidate = false;
+    }
 
-  updateSearchPhrase(searchPhrase) {
-    this.setState({ searchPhrase });
+    this.setState({
+      searchPhrase,
+      isSearchPhraseValid,
+      triggerFetchAfterValidate,
+    }, cb);
   }
 
   render() {
-    const searchQueryValue = new URLSearchParams(document.location.search.substring(1));
-    const searchQuery = searchQueryValue.get('title');
+    if (this.state.fireRedirect) {
+      return (
+        <Redirect
+          to={{
+            pathname: '/search',
+            search: `?title=${this.state.searchPhrase}`,
+          }}
+        />
+      );
+    }
+
     let results;
     if (this.state.notFoundServices === false) {
       results = (<FoundSearchResults
@@ -74,13 +99,10 @@ export default class Search extends React.Component {
     return (
       <div className="search">
         <SearchForm
-          updateFoundServices={this.updateFoundServices}
-          updateSearchPhrase={this.updateSearchPhrase}
-          updatePaginationData={this.updatePaginationData}
-          onSubmit={this.getData}
           services={this.state.services}
-          searchQuery={searchQuery}
-          afterValidate={this.afterValidate}
+          searchQuery={this.state.searchPhrase}
+          afterChange={this.updateSearchPhrase}
+          onSubmit={this.onSubmit}
         />
         {results}
       </div>

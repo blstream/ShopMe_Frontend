@@ -6,9 +6,9 @@ class SearchInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      validPhrase: true,
+      validPhrase: false,
       errorMessage: null,
-      query: '',
+      query: props.searchQuery,
     };
     this.validatePhrase = this.validatePhrase.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
@@ -16,11 +16,11 @@ class SearchInput extends React.Component {
   }
 
   componentWillMount() {
-    if (this.props.searchQuery) {
-      this.setState({ query: this.props.searchQuery });
-      this.validatePhrase(this.props.searchQuery);
+    if (this.state.query) {
+      this.validatePhrase(this.state.query);
     }
   }
+
   handleInputChange(input) {
     const searchPhrase = input.target.value.trim();
     this.setState({ query: searchPhrase });
@@ -30,6 +30,7 @@ class SearchInput extends React.Component {
   validatePhrase(searchPhrase) {
     const cleanedSearchPhrase = searchPhrase.replace(/[!@#$%^&*()=+\-_;:'"<>,.?/{}|`~[\]\\]/g, '');
     const validPhrase = cleanedSearchPhrase.length > 1 && Number.isNaN(Number(cleanedSearchPhrase));
+
     this.setState({ validPhrase });
     if (validPhrase && Number.isNaN(Number(cleanedSearchPhrase)) && cleanedSearchPhrase !== '') {
       this.props.onSearchInputChanged(cleanedSearchPhrase, validPhrase);
@@ -42,6 +43,7 @@ class SearchInput extends React.Component {
       this.setState({ errorMessage: 'components.searchForm.lengthError' });
     }
   }
+
   handleEnter(event) {
     if (event.keyCode === 13) {
       this.handleInputChange(event);
