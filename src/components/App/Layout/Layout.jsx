@@ -20,11 +20,13 @@ class Layout extends Component {
       return child;
     });
     return (
-      <div>
-        <Header />
-        <main className={this.props.className}>
-          {childrenWithProps}
-        </main>
+      <div className="wrapper">
+        <div className="content">
+          <Header />
+          <main className={this.props.className}>
+            {childrenWithProps}
+          </main>
+        </div>
         <Footer />
       </div>
     );

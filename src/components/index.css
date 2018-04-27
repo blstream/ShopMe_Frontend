@@ -12,10 +12,21 @@
 
 html {
   font-size: 10px;
+  height: 100%;
 }
 
 body {
   height: 100%;
   font-family: 'Fira Sans', sans-serif;
   font-size: 1.6rem;
+}
+
+.content {
+  min-height: calc(100vh - 16rem);
+}
+
+@media (min-width: 768px) {
+  .content {
+    min-height: calc(100vh - 65.7rem);
+  }
 }
