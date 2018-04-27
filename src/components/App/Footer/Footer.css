@@ -19,6 +19,7 @@ footer {
   .footer-top {
     display: block;
     margin: 0 auto;
+    max-width: 76.8rem;
   }
 
   .footer-top__headers {
