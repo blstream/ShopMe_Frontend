@@ -79,15 +79,13 @@ nav a {
     grid-template-columns: 1fr 2fr;
   }
   nav {
-    grid-auto-flow: column;
-    grid-auto-columns: 2fr;
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
   }
   .header__links {
     position: static;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-self: start;
-    justify-items: start;
+    display: flex;
     padding: 0 0 0 1.5rem;
     box-shadow: none;
   }
