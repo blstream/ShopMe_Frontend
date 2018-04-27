@@ -15,14 +15,16 @@ class Header extends React.Component {
   render() {
     return (
       <header>
-        <Link href="/" to="/"><img src="/img/logo.png" alt="logo" className="logo" /></Link>
-        <nav>
-          {this.state.isLogged ? <span className="user-name">Sławomir</span> : <LoginButton />}
-          <div className="header__links">
-            {this.state.isLogged && <Link href="/add/form" to="/add/form" className="header__link">dodaj ofertę</Link>}
-            {this.state.isLogged && <Link href="/" to="/" className="header__link">wyloguj</Link>}
-          </div>
-        </nav>
+        <div className="header__container">
+          <Link href="/" to="/" className="logo__link"><img src="/img/logo.png" alt="logo" className="logo" /></Link>
+          <nav>
+            {this.state.isLogged ? <span className="user-name">Sławomir</span> : <LoginButton />}
+            <div className="header__links">
+              {this.state.isLogged && <Link href="/add/form" to="/add/form" className="header__link">dodaj ogłoszenie</Link>}
+              {this.state.isLogged && <Link href="/" to="/" className="header__link">wyloguj</Link>}
+            </div>
+          </nav>
+        </div>
       </header>
     );
   }

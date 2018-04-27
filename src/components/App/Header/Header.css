@@ -1,12 +1,16 @@
 header {
   width: 100%;
+  max-height: 5.2rem;
+  font-size: 1.4rem;
+  box-shadow: 0 0.6rem 1.2rem 0 rgba(0,0,0,0.15);
+}
+
+.header__container {
   margin-top: 3rem;
   padding-left: 2.5rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  font-size: 1.4rem;
   z-index: 2;
-  box-shadow: 0 0.6rem 1.2rem 0 rgba(0,0,0,0.15);
 }
 
 .logo {
@@ -52,9 +56,46 @@ nav a {
 
 @media (min-width: 768px) {
   header {
+    font-size: 1.5rem;
     box-shadow: none;
+    padding: 0 3rem;
+  }
+  .header__container {
+    max-width: 76.8rem;
   }
   .header__links {
-    box-shadow: 0.2rem -0.3rem 0.5rem 0px rgba(0,0,0,0.15);
+    box-shadow: 0 -0.3rem 0.1rem 0px rgba(0,0,0,0.15);
   }
+}
+
+@media (min-width: 1025px) {
+  header {
+    padding: 0;
+    font-size: 1.6rem;
+  }
+  .header__container {
+    max-width: 118rem;
+    margin: 3rem auto 0 auto;
+    grid-template-columns: 1fr 2fr;
+  }
+  nav {
+    grid-auto-flow: column;
+    grid-auto-columns: 2fr;
+  }
+  .header__links {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-self: start;
+    justify-items: start;
+    padding: 0 0 0 1.5rem;
+    box-shadow: none;
+  }
+  .header__link {
+    text-align: right;
+  }
+  .user-name {
+    padding-right: 0;
+  }
+
 }
