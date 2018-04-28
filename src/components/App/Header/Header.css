@@ -58,10 +58,12 @@ nav a {
   header {
     font-size: 1.5rem;
     box-shadow: none;
-    padding: 0 3rem;
+    padding: 0;
   }
   .header__container {
     max-width: 76.8rem;
+    margin: 3rem auto 0 auto;
+    padding-right: 3rem;
   }
   .header__links {
     box-shadow: 0 -0.3rem 0.1rem 0px rgba(0,0,0,0.15);
@@ -79,7 +81,7 @@ nav a {
     grid-template-columns: 1fr 2fr;
   }
   nav {
-    width: 80%;
+    width: 85%;
     display: flex;
     justify-content: flex-end;
   }
