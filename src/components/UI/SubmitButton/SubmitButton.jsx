@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import 'components/UI/SubmitButton/SubmitButton.css';
 
 class SubmitButton extends React.Component {
@@ -23,6 +25,18 @@ class SubmitButton extends React.Component {
     );
   }
 }
+
+SubmitButton.defaultProps = {
+  value: '',
+  searchPhrase: '',
+  onClick() { alert('Function onClick is not provided'); },
+};
+
+SubmitButton.propTypes = {
+  value: PropTypes.string,
+  searchPhrase: PropTypes.string,
+  onClick: PropTypes.func,
+};
 
 export { SubmitButton };
 export default SubmitButton;

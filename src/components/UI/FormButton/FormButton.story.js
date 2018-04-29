@@ -1,9 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { Button } from './Button';
+import FormButton from './FormButton';
 
-storiesOf('Button', module)
+storiesOf('FormButton', module)
   .addDecorator(story => (
     <div style={{
         width: '50%',
@@ -14,11 +14,9 @@ storiesOf('Button', module)
     </div>
   ))
   .add('form button',
-    withInfo(`
-      Button used in the first step registration with text: Sing up
-    `)(() =>
-      <Button
-        name="example-button"
-      />
+    (() =>
+      <FormButton
+        id="some-id"
+        value="test value"/>
     )
   )
