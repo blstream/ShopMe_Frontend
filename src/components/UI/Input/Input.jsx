@@ -89,7 +89,7 @@ class Input extends Component {
 Input.defaultProps = {
   type: 'text',
   placeholder: '',
-  maxLength: 524288,
+  maxLength: 50,
   size: 'M',
   color: 'yellow',
   display: 'inline',

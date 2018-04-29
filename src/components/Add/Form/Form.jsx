@@ -146,7 +146,7 @@ class AddForm extends Component {
 
     this.setState({ errorMessage: isFormValid });
 
-    if (!isRefsValid.includes(false)) {
+    if (!isFormValid) {
       const postData = this.gatherFormData();
       this.sendFormData(postData);
     }

@@ -75,7 +75,7 @@ class GenericInput extends Component {
 }
 
 GenericInput.defaultProps = {
-  maxLength: 524288,
+  maxLength: 50,
   labelClassName: 'input__wrapper',
   spanClassName: 'input__label--M',
   inputClassName: 'input input--M input--yellow',

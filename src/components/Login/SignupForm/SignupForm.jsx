@@ -43,7 +43,7 @@ class SignupForm extends Component {
 
     this.setState({ errorMessage: isFormValid });
 
-    if (!isRefsValid.includes(false)) {
+    if (!isFormValid) {
       this.props.onSubmit(emailValue).then(() => {
         if (this.props.result === false) this.setState({ fireRedirect: true });
       });
