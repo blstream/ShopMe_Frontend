@@ -59,7 +59,9 @@ nav a {
 
 @media (min-width: 768px) {
   header {
-    max-height: 9rem;
+    position: absolute;
+    top: 5rem;
+    background: #fff;
     font-size: 1.5rem;
     box-shadow: none;
     padding: 0;
@@ -68,7 +70,6 @@ nav a {
   .header__container {
     max-width: 76.8rem;
     margin: 0 auto;
-    padding-top: 3rem;
   }
   .header__links {
     left: 8.4rem;
@@ -81,13 +82,12 @@ nav a {
 
 @media (min-width: 1025px) {
   header {
-    max-height: 11rem;
     padding: 0;
     font-size: 1.6rem;
   }
   .header__container {
     max-width: 118rem;
-    padding: 5rem 2.5rem 0 2.5rem;
+    padding: 0 2.5rem;
     display: flex;
     justify-content: flex-end;
   }
