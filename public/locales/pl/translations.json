@@ -10,6 +10,12 @@
     "foundSearchResults": {
       "resultsTitle": "Wyniki wyszukiwania"
     },
+    "categoryList":{
+      "title": "Odkrywaj oferty. ",
+      "subtitle": "W zależności od potrzeb.",
+      "seeMore": "więcej",
+      "seeLess": "mniej"
+    },
     "add": {
       "form": {
         "name": "Tytuł Oferty *",
