@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: stretch;
-  margin: 5rem auto 0 auto;
+  margin: 10rem auto 0 auto;
 }
 
 @media screen and (max-width: 1200px) {

@@ -2,22 +2,24 @@ header {
   width: 100%;
   max-height: 5.2rem;
   font-size: 1.4rem;
-  box-shadow: 0 0.6rem 1.2rem 0 rgba(0,0,0,0.15);
+  box-shadow: 0 0.2rem 1rem 0 rgba(0,0,0,0.4);
   z-index: 2;
 }
 
 .header__container {
   padding-left: 2.5rem;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .logo {
   height: 5rem;
+  width: 5rem;
 }
 
 nav {
   position: relative;
+  grid-column: 4 / span 1;
   display: grid;
   justify-items: end;
   align-items: center;
@@ -30,20 +32,20 @@ nav a {
 
 .user-name {
   font-weight: bold;
-  padding-right: 2.5rem;
+  padding-right: 1.5rem;
 }
 
 .header__links {
   position: absolute;
-  top: 120%;
+  top: 6rem;
   background: #fff;
-  padding: 0 1rem;
 }
 
 .header__link {
   display: block;
   padding: 1rem;
   text-align: right;
+  width: 11rem;
 }
 
 .header__link:hover {
@@ -51,6 +53,8 @@ nav a {
     background-color: #000000;
     border-radius: 0.1rem;
     cursor: pointer;
+    transition: background-color 0.5s ease;
+    transition: color 0.5s ease;
 }
 
 @media (min-width: 768px) {
@@ -58,14 +62,18 @@ nav a {
     font-size: 1.5rem;
     box-shadow: none;
     padding: 0;
+    box-shadow: 0 0.3rem 0.1rem 0px rgba(0,0,0,0.15);
   }
   .header__container {
     max-width: 76.8rem;
     margin: 3rem auto 0 auto;
-    padding-right: 3rem;
   }
   .header__links {
-    box-shadow: 0 -0.3rem 0.1rem 0px rgba(0,0,0,0.15);
+    left: 8.4rem;
+    padding: 0;
+  }
+  .user-name {
+    padding-right: 0;
   }
 }
 
@@ -76,25 +84,28 @@ nav a {
   }
   .header__container {
     max-width: 118rem;
-    margin: 3rem auto 0 auto;
-    grid-template-columns: 1fr 2fr;
-  }
-  nav {
-    width: 85%;
+    padding: 0 2.5rem;
     display: flex;
     justify-content: flex-end;
+  }
+  .logo__link {
+    margin-right: auto;
+  }
+  nav {
+    display: flex;
   }
   .header__links {
     position: static;
     display: flex;
+    justify-items: end;
     padding: 0 0 0 1.5rem;
     box-shadow: none;
+    width: auto;
   }
   .header__link {
-    text-align: right;
+    width: auto;
   }
   .user-name {
     padding-right: 0;
   }
-
 }

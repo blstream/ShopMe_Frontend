@@ -1,4 +1,5 @@
 footer {
+  font-size: 1.4rem;
   margin-top: 10rem;
   background: #000;
   color: #999999;
@@ -16,6 +17,9 @@ footer {
 }
 
 @media (min-width: 768px) {
+  footer {
+    font-size: 1.5rem;
+  }
   .footer-top {
     display: block;
     margin: 0 auto;
@@ -53,6 +57,7 @@ footer {
 
   .footer-top__row--link:hover {
     color: #fff;
+    transition: color 0.5s ease;
   }
 
   .footer-bottom {
@@ -62,6 +67,9 @@ footer {
 }
 
 @media (min-width: 1025px) {
+  footer {
+    font-size: 1.6rem;
+  }
   .footer-top {
     max-width: 118rem;
   }

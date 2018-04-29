@@ -152,6 +152,10 @@
         "label": "Logowanie",
         "labelLogged": "Wyloguj"
       },
+      "header": {
+        "add": "dodaj ofertę",
+        "logout": "wyloguj"
+      },
       "footer": {
         "headers": {
           "categories": "Kategorie",
