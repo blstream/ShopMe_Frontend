@@ -1,7 +1,7 @@
 import React from 'react';
 import { translate } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import './LoginButton.css';
 
@@ -12,11 +12,11 @@ const LoginButton = props => (
 );
 
 LoginButton.defaultProps = {
-  isLogged: false,
+  // isLogged: false,
 };
 
 LoginButton.propTypes = {
-  isLogged: PropTypes.bool,
+  // isLogged: PropTypes.bool,
   // t: PropTypes.func,
 };
 
