@@ -15,11 +15,11 @@ class Category extends React.Component {
     return (
       <Link href="/" to="/" className="category">
         <img
-          className="category_img"
+          className="category__img"
           src={`assets/images/category_${this.props.category}.png`}
           alt={t(`components.UI.categorySelect.categoryOptions.${this.props.category}`)}
         />
-        <p className="category_name">{t(`components.UI.categorySelect.categoryOptions.${this.props.category}`)}</p>
+        <p className="category__name">{t(`components.UI.categorySelect.categoryOptions.${this.props.category}`)}</p>
       </Link>
     );
   }

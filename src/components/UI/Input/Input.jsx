@@ -51,7 +51,7 @@ class Input extends Component {
   }
 
   handleMouseLeave() {
-    this.setState({ type: 'password' });
+    if (this.state.type === 'text') this.setState({ type: 'password' });
   }
 
   render() {

@@ -13,14 +13,14 @@
   transform: scale(1.025);
 }
 
-.category_img {
+.category__img {
   display: block;
   margin: 0 auto;
   max-height: 80%;
   max-width: 60%;
 }
 
-.category_name {
+.category__name {
   display: block;
   margin: 15px;
   text-align: center;
@@ -37,7 +37,7 @@
     padding: 5rem 1rem;
   }
 
-  .category_name {
+  .category__name {
     font-size: 2rem;
     margin: 20px;
   }
@@ -50,7 +50,7 @@
     padding: 7rem 1rem;
   }
 
-  .category_name {
+  .category__name {
     margin: 25px;
   }
 }

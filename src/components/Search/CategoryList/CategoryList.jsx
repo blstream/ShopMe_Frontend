@@ -13,8 +13,7 @@ class CategoryList extends React.Component {
   }
 
   toggleHidden() {
-    if (this.state.hidden) this.setState({ hidden: false });
-    else this.setState({ hidden: true });
+    this.setState({ hidden: !this.state.hidden });
   }
 
   render() {
@@ -22,21 +21,21 @@ class CategoryList extends React.Component {
     const hidden = this.state.hidden ? 'hidden' : '';
     const seeMoreButton = hidden
       ? (
-        <button className="category-list_arrow" onClick={this.toggleHidden}>
-          <span className="category-list_see-more">{t('components.categoryList.seeMore')}</span>
+        <button className="category-list__arrow" onClick={this.toggleHidden}>
+          <span className="category-list__see-more">{t('components.categoryList.seeMore')}</span>
         </button>
       ) : (
-        <button className="category-list_arrow category-list_arrow--up" onClick={this.toggleHidden}>
-          <span className="category-list_see-less">{t('components.categoryList.seeLess')}</span>
+        <button className="category-list__arrow category-list__arrow--up" onClick={this.toggleHidden}>
+          <span className="category-list__see-less">{t('components.categoryList.seeLess')}</span>
         </button>
       );
     return (
       <div className="category-list">
-        <h3 className="category-list_title">
+        <h3 className="category-list__title">
           <span>{t('components.categoryList.title')}</span>
           {t('components.categoryList.subtitle')}
         </h3>
-        <div className={`category-list_grid category-list_grid--${hidden}`}>
+        <div className={`category-list__grid category-list__grid--${hidden}`}>
           <Category category="building" />
           <Category category="companyAndOffice" />
           <Category category="photography" />
@@ -54,8 +53,8 @@ class CategoryList extends React.Component {
           <Category category="translations" />
           <Category category="transport" />
         </div>
-        <hr className="category-list_hr" />
-        <div className="category-list_expand" >
+        <hr className="category-list__hr" />
+        <div className="category-list__expand" >
           { seeMoreButton }
         </div>
       </div>
