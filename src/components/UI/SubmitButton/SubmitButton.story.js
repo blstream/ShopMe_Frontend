@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import SubmitButton from './SubmitButton';
 
 storiesOf('SubmitButton', module)
@@ -13,11 +12,12 @@ storiesOf('SubmitButton', module)
       {story()}
     </div>
   ))
-  .add('form button',
+  .add(
+    'form button',
     (() =>
-      <SubmitButton
-      value = 'test value'
-      searchPhrase = 'test'
-      />
+      (<SubmitButton
+        value="test value"
+        searchPhrase="test"
+      />)
     )
-  )
+  );
