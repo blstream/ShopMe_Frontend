@@ -8,6 +8,8 @@ export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      searchPhrase: '',
+      isSearchPhraseValid: false,
       fireRedirect: false,
     };
     this.updateSearchPhrase = this.updateSearchPhrase.bind(this);
@@ -15,22 +17,14 @@ export default class Home extends React.Component {
   }
 
   onSubmit() {
-    this.setState({ fireRedirect: true });
+    if (this.state.isSearchPhraseValid) this.setState({ fireRedirect: true });
   }
 
   updateSearchPhrase(searchPhrase, isSearchPhraseValid) {
-    let cb;
-    let triggerFetchAfterValidate = this.state && this.state.triggerFetchAfterValidate;
-    if (this.state.triggerFetchAfterValidate && this.state.isSearchPhraseValid) {
-      cb = this.getData.bind(this);
-      triggerFetchAfterValidate = false;
-    }
-
     this.setState({
       searchPhrase,
       isSearchPhraseValid,
-      triggerFetchAfterValidate,
-    }, cb);
+    });
   }
 
   render() {
