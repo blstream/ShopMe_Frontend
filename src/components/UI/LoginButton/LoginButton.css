@@ -4,7 +4,9 @@
 
 .login-button:hover {
   color:#FFFFFF;
-  background-color: #000000;
+  background-color: #fade42;
   border-radius: 0.1rem;
   cursor: pointer;
+  transition: background-color 0.5s ease;
+  transition: color 0.5s ease;
 }
