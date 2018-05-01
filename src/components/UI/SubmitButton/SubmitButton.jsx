@@ -29,7 +29,7 @@ class SubmitButton extends React.Component {
 SubmitButton.defaultProps = {
   value: '',
   searchPhrase: '',
-  onClick() { alert('Function onClick is not provided'); },
+  onClick() { },
 };
 
 SubmitButton.propTypes = {

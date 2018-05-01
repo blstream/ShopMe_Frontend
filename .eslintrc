@@ -17,6 +17,28 @@
   "rules": {
     "react/prop-types": "off",
     "import/no-named-as-default": "off",
+    "import/no-extraneous-dependencies": ["error", {
+      "devDependencies": [
+        "test/**",
+        "tests/**",
+        "spec/**",
+        "**/__tests__/**",
+        "test.{js,jsx}",
+        "test-*.{js,jsx}",
+        "**/*.{test,spec,story}.{js,jsx}",
+        "**/jest.config.js",
+        "**/webpack.config.js",
+        "**/webpack.config.*.js",
+        "**/rollup.config.js",
+        "**/rollup.config.*.js",
+        "**/gulpfile.js",
+        "**/gulpfile.*.js",
+        "**/Gruntfile{,.js}",
+        "**/protractor.conf.js",
+        "**/protractor.conf.*.js"
+      ],
+      "optionalDependencies": false
+    }],
     "jsx-a11y/label-has-for": [ 2, {
       "required": {
           "every": [ "id" ]
@@ -42,5 +64,13 @@
   },
   "plugins": [
     "react"
+  ],
+  "overrides": [
+    {
+      "files": [ "**/*.story.js"],
+      "rules": {
+        "react/jsx-filename-extension": "off"
+      }
+    }
   ]
 }
