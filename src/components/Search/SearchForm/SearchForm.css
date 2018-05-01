@@ -18,7 +18,7 @@
 }
 
 @media (min-width: 768px) {
-  .search_wrapper {
+  .search__wrapper {
     height: 50rem;
     margin: 0;
   }
