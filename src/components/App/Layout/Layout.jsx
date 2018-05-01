@@ -7,13 +7,21 @@ class Layout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: 'false',
+      user: {
+        userToken: undefined,
+      },
     };
+    this.setUser = this.setUser.bind(this);
   }
+
+  setUser(token) {
+    this.setState({ user: { userToken: token } });
+  }
+
   render() {
     const { children } = this.props;
     const childProps = {
-      isLoggedIn: this.state.isLoggedIn,
+      setUser: this.setUser,
     };
     const childrenWithProps = React.Children.map(children, (child) => {
       if (React.isValidElement(child)) return React.cloneElement(child, childProps);
@@ -22,7 +30,7 @@ class Layout extends Component {
     return (
       <div className="wrapper">
         <div className="content">
-          <Header />
+          <Header user={this.state.user} />
           <main className={this.props.className}>
             {childrenWithProps}
           </main>
