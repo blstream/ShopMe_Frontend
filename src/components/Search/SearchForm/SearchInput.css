@@ -1,5 +1,7 @@
 .search__input-wrapper {
   margin: 3rem 1rem 0 1rem;
+  display: flex;
+  position: relative;
 }
 
 .search__form-item {

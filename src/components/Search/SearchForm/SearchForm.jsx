@@ -1,7 +1,6 @@
 import React from 'react';
 import { translate } from 'react-i18next';
 import SearchInput from 'components/Search/SearchForm/SearchInput';
-import SubmitButton from 'components/UI/SubmitButton/SubmitButton';
 import './SearchForm.css';
 
 class SearchForm extends React.Component {
@@ -38,9 +37,9 @@ class SearchForm extends React.Component {
           <SearchInput
             onSearchInputChanged={this.handleSearchInputChanged}
             searchQuery={this.props.searchQuery}
+            handleSubmit={this.handleSubmit}
+            searchPhrase={this.state.searchPhrase}
           />
-          <SubmitButton onClick={this.handleSubmit} searchPhrase={this.state.searchPhrase} className="form__button--submit">{this.props.t('components.searchForm.button')}</SubmitButton>
-          <SubmitButton onClick={this.handleSubmit} searchPhrase={this.state.searchPhrase} className="form__button--lens" />
         </form>
       </div>
     );

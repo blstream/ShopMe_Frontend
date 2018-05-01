@@ -13,7 +13,6 @@
 }
 
 .search__form {
-  position: relative;
   width: 95%;
   margin: 0 auto;
 }
@@ -28,8 +27,6 @@
   }
   .search__form {
     width: 90%;
-    display: grid;
-    grid-template-columns: 1fr 8rem;
     padding-top: 2rem;
   }
 }
@@ -44,8 +41,6 @@
   }
   .search__form {
     width: 50%;
-    display: grid;
-    grid-template-columns: 1fr 8rem;
     padding-top: 2rem;
   }
 }

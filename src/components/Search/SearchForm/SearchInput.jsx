@@ -1,5 +1,6 @@
 import React from 'react';
 import { translate } from 'react-i18next';
+import SubmitButton from 'components/UI/SubmitButton/SubmitButton';
 import './SearchInput.css';
 
 class SearchInput extends React.Component {
@@ -22,9 +23,9 @@ class SearchInput extends React.Component {
   }
 
   handleInputChange(input) {
-    const searchPhrase = input.target.value;
+    const searchPhrase = input.target.value.trim();
     this.setState({ query: searchPhrase });
-    this.validatePhrase(searchPhrase.trim());
+    this.validatePhrase(searchPhrase);
   }
 
   validatePhrase(searchPhrase) {
@@ -53,19 +54,25 @@ class SearchInput extends React.Component {
   render() {
     const { t } = this.props;
     return (
-      <div className="search__input-wrapper">
-        <input
-          type="text"
-          id="search__input"
-          placeholder={t('components.searchForm.input')}
-          name="searchPhrase"
-          onChange={this.handleInputChange}
-          onKeyDown={this.handleEnter}
-          className="search__form-item"
-          maxLength="30"
-          aria-label={t('components.searchForm.label')}
-          value={this.state.query}
-        />
+      <div>
+        <div className="search__input-wrapper">
+          <input
+            type="text"
+            id="search__input"
+            placeholder={t('components.searchForm.input')}
+            name="searchPhrase"
+            onChange={this.handleInputChange}
+            onKeyDown={this.handleEnter}
+            className="search__form-item"
+            maxLength="30"
+            aria-label={t('components.searchForm.label')}
+            value={this.state.query}
+          />
+          <SubmitButton onClick={this.props.handleSubmit} searchPhrase={this.props.searchPhrase} className="form__button--submit">
+            {this.props.t('components.searchForm.button')}
+          </SubmitButton>
+          <SubmitButton onClick={this.props.handleSubmit} searchPhrase={this.props.searchPhrase} className="form__button--lens" />
+        </div>
         {!this.state.validPhrase && (<p className="search__message-error">{t(this.state.errorMessage)}</p>)}
       </div>
     );
@@ -74,3 +81,4 @@ class SearchInput extends React.Component {
 
 export { SearchInput };
 export default translate()(SearchInput);
+
