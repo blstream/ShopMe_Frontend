@@ -46,6 +46,7 @@ nav a {
 .header__arrow {
   margin-right: 1.5rem;
   border: 0;
+  outline: none;
   background-color: transparent;
   height: 2.3rem;
 }
