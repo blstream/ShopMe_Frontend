@@ -73,12 +73,10 @@ nav a {
     transition: color 0.5s ease;
 }
 
-.fa-angle-down {
-  height: 2.3rem;
-}
-
-.svg-inline--fa.fa-w-10 {
+.fa-angle-down, .fa-angle-up {
   width: 2rem;
+  font-size: 2rem;
+  padding-top: 0.3rem;
 }
 
 .menu-visible {
@@ -130,7 +128,6 @@ nav a {
     position: static;
     display: flex;
     justify-items: end;
-    padding: 0 0 0 1.5rem;
     box-shadow: none;
     width: auto;
   }
@@ -138,8 +135,11 @@ nav a {
     width: auto;
     padding-right: 1rem;
   }
+  .header__arrow {
+    margin: 0 1rem 0 0;
+  }
   .user-name {
-    padding-right: 0;
+    font-size: 1.6rem;
   }
   .header__icons {
     display: none;
