@@ -91,9 +91,9 @@ class InvoiceInputGroup extends Component {
               name="users_invoiceNip"
               type="text"
               label={t('components.login.register.nipInputLabel')}
-              maxLength="50"
+              maxLength="10"
               required
-              validation={validator.validateTextInput}
+              validation={validator.validateNip}
               ref={(v) => { this.users_invoiceNip = v; }}
               onChange={this.handleChange}
             />
@@ -115,7 +115,7 @@ class InvoiceInputGroup extends Component {
               type="text"
               label={t('components.login.register.houseNumberInputLabel')}
               required
-              validation={validator.validateTextInput}
+              validation={validator.validateHouseNumber}
               ref={(v) => { this.users_invoiceAddressNumber = v; }}
               onChange={this.handleChange}
             />
@@ -125,9 +125,9 @@ class InvoiceInputGroup extends Component {
               name="users_invoiceAddressZipCode"
               type="text"
               label={t('components.login.register.zipCodeInputLabel')}
-              maxLength="50"
+              maxLength="6"
               required
-              validation={validator.validateTextInput}
+              validation={validator.validateZipCode}
               ref={(v) => { this.users_invoiceAddressZipCode = v; }}
               onChange={this.handleChange}
             />

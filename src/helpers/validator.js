@@ -23,7 +23,7 @@ const validator = {
   },
 
   useOnlyNumeric(value) {
-    const pattern = /[0-9]+$/i;
+    const pattern = /^[0-9]+$/i;
     return !pattern.test(value) ? 'helpers.validator.errorOnlyNumeric' : undefined;
   },
 
@@ -120,6 +120,25 @@ const validator = {
       undefined;
   },
 
+  validateNip(required, value) {
+    return validator.isRequired(required, value) ||
+      validator.hasMinLength(10, value) ||
+      validator.useOnlyNumeric(value) ||
+      undefined;
+  },
+
+  validateZipCode(required, value) {
+    return validator.isRequired(required, value) ||
+      validator.hasMinLength(6, value) ||
+      validator.useOnlyLegalCharacters(/^\d{2}-\d{3}/, value) ||
+      undefined;
+  },
+
+  validateHouseNumber(required, value) {
+    return validator.isRequired(required, value) ||
+      validator.mustUseAlpha(value) ||
+      undefined;
+  },
 };
 
 export default validator;
