@@ -1,12 +1,14 @@
 .form__button--lens {
   position: absolute;
   top: 0.8rem;
-  left: 2rem;
-  background: url("/img/search-section/lupka.png");
-  background-size: cover;
+  left: 1rem;
+  padding: 1.1rem;
   border: none;
   cursor: pointer;
-  padding: 1.1rem;
+  background: url("/img/search-section/lupka.png");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 
 .form__button--submit {
