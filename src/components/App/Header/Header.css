@@ -1,7 +1,7 @@
 header {
   width: 100%;
   margin-bottom: 3rem;
-  max-height: 5.2rem;
+  max-height: 5.4rem;
   background: #fff;
   font-size: 1.4rem;
   box-shadow: 0 0.2rem 1rem 0 rgba(0,0,0,0.4);
@@ -16,6 +16,7 @@ header {
 .logo {
   height: 5rem;
   width: 5rem;
+  padding-top: 0.2rem;
 }
 
 .logo__link {
@@ -52,14 +53,13 @@ nav a {
 .header__links {
   position: absolute;
   top: 5.2rem;
-  padding-right: 1.5rem;
   background: #fff;
   box-shadow: 0 0.7rem 1rem 0 rgba(0,0,0,0.2);
 }
 
 .header__link {
   display: block;
-  padding: 1rem 0 1rem 1rem;
+  padding: 1rem 1.5rem 1rem 1rem;
   text-align: right;
   width: 11rem;
 }
@@ -75,7 +75,7 @@ nav a {
 
 .fa-angle-down, .fa-angle-up {
   width: 2rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding-top: 0.3rem;
 }
 
@@ -99,9 +99,7 @@ nav a {
     max-width: 76.8rem;
     margin: 0 auto;
   }
-  .header__links {
-    padding-right: 2.5rem;
-  }
+
   .header__arrow {
     margin-right: 2.5rem;
   }

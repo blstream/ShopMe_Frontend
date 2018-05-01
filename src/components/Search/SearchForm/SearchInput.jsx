@@ -23,9 +23,9 @@ class SearchInput extends React.Component {
   }
 
   handleInputChange(input) {
-    const searchPhrase = input.target.value.trim();
+    const searchPhrase = input.target.value;
     this.setState({ query: searchPhrase });
-    this.validatePhrase(searchPhrase);
+    this.validatePhrase(searchPhrase.trim());
   }
 
   validatePhrase(searchPhrase) {
