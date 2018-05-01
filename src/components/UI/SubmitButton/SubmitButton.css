@@ -4,6 +4,7 @@
   left: 1rem;
   padding: 1.1rem;
   border: none;
+  outline: 0;
   cursor: pointer;
   background: url("/img/search-section/lupka.png");
   background-size: 80%;
