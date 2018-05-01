@@ -2,7 +2,7 @@
   margin: 3rem 1rem 0 1rem;
   display: flex;
   position: relative;
-  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgba(0,0,0,0.4);
+  box-shadow: 0 0.2rem 1rem 0 rgba(0,0,0,0.4);
 }
 
 .search__form-item {
@@ -11,13 +11,9 @@
   margin: 0 auto;
   max-height: 3.5rem;
   border: none;
+  outline: none;
   text-align: center;
   padding: 1rem 0;
-}
-
-.search__form-item:focus {
-  border: 0.1rem solid #000;
-  transition: all 0.5s;
 }
 
 .search__message-error {
