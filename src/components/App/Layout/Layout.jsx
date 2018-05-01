@@ -8,7 +8,7 @@ class Layout extends Component {
     super(props);
     this.state = {
       user: {
-        userToken: undefined,
+        userToken: localStorage.getItem('userToken'),
       },
     };
     this.setUser = this.setUser.bind(this);

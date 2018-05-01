@@ -33,8 +33,8 @@ class ScreensLogin extends React.Component {
     e.preventDefault();
     localStorage.setItem('userToken', 'test');
     const user = localStorage.getItem('userToken');
-    this.props.setUser(user);
     const isUserLogged = !!localStorage.getItem('userToken');
+    this.props.setUser(user);
     if (isUserLogged) this.setState({ loginFireRedirect: true });
   }
 
