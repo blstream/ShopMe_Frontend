@@ -55,39 +55,6 @@ storiesOf('Input', module)
     ))
   )
   .add(
-    'required',
-    withInfo(`
-      Input components with required attribute display labels with asterisk.
-    `)(() => (
-      <div>
-        <Input
-          name="example-input"
-          label="Yellow M"
-          required
-        />
-        <Input
-          name="example-input"
-          label="Yellow S"
-          size="S"
-          required
-        />
-        <Input
-          name="example-input"
-          label="Grey M"
-          color="grey"
-          required
-        />
-        <Input
-          name="example-input"
-          label="Grey S"
-          color="grey"
-          size="S"
-          required
-        />
-      </div>
-    ))
-  )
-  .add(
     'block',
     withInfo(`
       Labels of Inputs with property display="block" are displayed in a separate line.

@@ -89,7 +89,7 @@ class SignupForm extends Component {
                 name="users__name"
                 type="text"
                 label={t('components.login.signup.firstNameInputLabel')}
-                maxLength="20"
+                maxLength={20}
                 required
                 validation={validator.validateNameInput}
                 onChange={this.setFieldStateValue}
@@ -101,7 +101,7 @@ class SignupForm extends Component {
                 name="users__surname"
                 type="text"
                 label={t('components.login.signup.lastNameInputLabel')}
-                maxLength="50"
+                maxLength={50}
                 required
                 validation={validator.validateSurnameInput}
                 onChange={this.setFieldStateValue}

@@ -174,7 +174,7 @@ class AddForm extends Component {
                 spanClassName="add-form_span--inline"
                 inputClassName="input-title"
                 errorClassName="input-title__errorMessage"
-                maxLength="30"
+                maxLength={30}
                 required
                 validation={validator.validateAddOfferTitle}
                 ref={(v) => { this.titleInput = v; }}
@@ -276,7 +276,7 @@ class AddForm extends Component {
                 spanClassName="add-form_span--block"
                 inputClassName="add-form__input add-form__input--S add-form__input--yellow"
                 errorClassName="input__error-message--yellow"
-                maxLength="20"
+                maxLength={20}
                 required
                 validation={validator.validateNameInput}
                 ref={(v) => { this.nameInput = v; }}
@@ -305,7 +305,7 @@ class AddForm extends Component {
                 spanClassName="add-form_span--block"
                 inputClassName="add-form__input add-form__input--S add-form__input--yellow"
                 errorClassName="input__error-message--yellow"
-                maxLength="10"
+                maxLength={10}
                 required
                 validation={validator.validatePhoneNumber}
                 ref={(v) => { this.phoneInput = v; }}
@@ -342,7 +342,7 @@ class AddForm extends Component {
                 inputClassNameDisabled="input--yellow-disabled"
                 errorClassName="input__error-message--yellow"
                 disabled={this.state.isCityDisabled}
-                maxLength="30"
+                maxLength={30}
                 required
                 validation={validator.validateCity}
                 ref={(v) => { this.cityInput = v; }}

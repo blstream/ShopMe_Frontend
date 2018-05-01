@@ -61,7 +61,7 @@ class Input extends Component {
         htmlFor={this.props.name}
       >
         <span className={`input__label input__label--${this.props.size} input__label--${this.props.display}`}>
-          {this.props.label}{this.props.required && ' *'}
+          {this.props.label}
         </span>
         <input
           className={`input  input--${this.props.size} input--${this.props.color}`}

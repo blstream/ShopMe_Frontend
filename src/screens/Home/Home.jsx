@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchForm from 'components/Search/SearchForm/SearchForm';
-import CategoryList from 'components/Search/CategoryList/CategoryList';
+import CategoryList from 'components/CategoryList/CategoryList';
 import { Redirect } from 'react-router';
 
 

@@ -29,6 +29,7 @@ const LoginForm = (props) => {
           <Input
             name="login__user-password"
             type="password"
+            maxLength={30}
             label={t('components.login.login.passwordInputLabel')}
             required
             validation={validator.validatePassword}

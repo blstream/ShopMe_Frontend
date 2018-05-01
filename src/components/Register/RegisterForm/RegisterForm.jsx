@@ -6,9 +6,9 @@ import GenericInput from 'components/UI/GenericInput/GenericInput';
 import Input from 'components/UI/Input/Input';
 import GenericSelect from 'components/UI/GenericSelect/GenericSelect';
 import FormButton from 'components/UI/FormButton/FormButton';
-import PersonalDataConfirm from 'components/UI/PersonalDataConfirm/PersonalDataConfirm';
-import InvoiceInputGroup from 'components/Register/InvoiceInputGroup/InvoiceInputGroup';
-import TermsAndConditionsCheckbox from 'components/Register/TermsAndConditionsCheckbox/TermsAndConditionsCheckbox';
+import PersonalDataConfirm from './PersonalDataConfirm/PersonalDataConfirm';
+import InvoiceInputGroup from './InvoiceInputGroup/InvoiceInputGroup';
+import TermsAndConditionsCheckbox from './TermsAndConditionsCheckbox/TermsAndConditionsCheckbox';
 
 
 import './Register.css';
@@ -141,7 +141,7 @@ class RegisterForm extends Component {
               name="users__name"
               type="text"
               label={t('components.login.register.firstNameInputLabel')}
-              maxLength="20"
+              maxLength={20}
               required
               validation={validator.validateNameInput}
               value={this.props.location.state.name}
@@ -153,7 +153,7 @@ class RegisterForm extends Component {
               name="users__surname"
               type="text"
               label={t('components.login.register.lastNameInputLabel')}
-              maxLength="30"
+              maxLength={30}
               required
               validation={validator.validateSurnameInput}
               value={this.props.location.state.surname}
@@ -176,7 +176,7 @@ class RegisterForm extends Component {
               name="users__password"
               type="password"
               label={t('components.login.register.passwordInputLabel')}
-              maxLength="30"
+              maxLength={30}
               required
               validation={validator.validatePassword}
               ref={(v) => { this.users__password = v; }}
@@ -187,7 +187,7 @@ class RegisterForm extends Component {
               name="users__phone-number"
               type="text"
               label={t('components.login.register.phoneNumberInputLabel')}
-              maxLength="10"
+              maxLength={10}
               required
               validation={validator.validatePhoneNumber}
               ref={(v) => { this.users__phoneNumber = v; }}
@@ -198,7 +198,7 @@ class RegisterForm extends Component {
               name="users__bank-account"
               type="text"
               label={t('components.login.register.bankAccountInputLabel')}
-              maxLength="26"
+              maxLength={26}
               required
               validation={validator.validateBankAccount}
               ref={(v) => { this.users__bankAccount = v; }}
@@ -229,7 +229,7 @@ class RegisterForm extends Component {
               name="users__address-zip-code"
               type="text"
               label={t('components.login.register.zipCodeInputLabel')}
-              maxLength="50"
+              maxLength={50}
               required
               validation={validator.validateTextInput}
               ref={(v) => { this.users__addressZipCode = v; }}
@@ -240,7 +240,7 @@ class RegisterForm extends Component {
               name="users__address-city"
               type="text"
               label={t('components.login.register.cityInputLabel')}
-              maxLength="30"
+              maxLength={30}
               required
               validation={validator.validateCity}
               ref={(v) => { this.users__addressCity = v; }}
