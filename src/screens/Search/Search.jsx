@@ -103,14 +103,12 @@ export default class Search extends React.Component {
     }
     return (
       <div>
-        <div className="search">
-          <SearchForm
-            services={this.state.services}
-            searchQuery={this.state.searchPhrase}
-            afterChange={this.updateSearchPhrase}
-            onSubmit={this.onSubmit}
-          />
-        </div>
+        <SearchForm
+          services={this.state.services}
+          searchQuery={this.state.searchPhrase}
+          afterChange={this.updateSearchPhrase}
+          onSubmit={this.onSubmit}
+        />
         {results}
         <CategoryList />
       </div>

@@ -1,4 +1,4 @@
-.search {
+.search__wrapper {
   height: 28rem;
   background: url("/img/search-section/mobile.jpg");
   background-size: cover;
@@ -18,7 +18,7 @@
 }
 
 @media (min-width: 768px) {
-  .search {
+  .search_wrapper {
     height: 50rem;
     margin: 0;
   }
@@ -32,7 +32,7 @@
 }
 
 @media (min-width: 1025px) {
-  .search {
+  .search__wrapper {
     height: 45rem;
     margin: 0;
   }

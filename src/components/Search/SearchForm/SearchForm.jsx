@@ -31,7 +31,7 @@ class SearchForm extends React.Component {
 
   render() {
     return (
-      <div className="search">
+      <div className="search__wrapper">
         <h1 className="search__header">{this.props.t('components.searchForm.header')}</h1>
         <form className="search__form">
           <SearchInput
