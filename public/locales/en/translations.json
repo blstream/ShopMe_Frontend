@@ -164,6 +164,22 @@
         "logout": "logout",
         "loggedAs": "logged as: "
       },
+      "terms":{
+        "header": "You define the conditions",
+        "footer": "We guarantee safety and satisfaction",
+        "budgetary": {
+          "title": "Budgetary",
+          "content": "Filter your search results that matches your financial preferences"
+        },
+        "time": {
+          "title": "Time",
+          "content": "Search services that matches your time frame"
+        },
+        "payment": {
+          "title": "Means of payment",
+          "content": "Select one of proposed means of payments"
+        }
+      },
       "footer": {
         "headers": {
           "categories": "Categories",

@@ -164,6 +164,22 @@
         "logout": "wyloguj",
         "loggedAs": "zalogowano: "
       },
+      "terms":{
+        "header": "Ty określasz warynki",
+        "footer": "My gwarantujemy bezpieczeństwo i satysfakcję",
+        "budgetary": {
+          "title": "Budżetowe",
+          "content": "Filtruj wyniki wyszukiwania aby dopasować je do preferencji finansowych"
+        },
+        "time": {
+          "title": "Czasowe",
+          "content": "Wyszukuj usługi dopasowane do Twoich ram czasowych"
+        },
+        "payment": {
+          "title": "Formy płatności",
+          "content": "Wybierz jedną z proponowancy przez nas form płatności dla pełnego bezpieczeństwa"
+        }
+      },
       "footer": {
         "headers": {
           "categories": "Kategorie",
