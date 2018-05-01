@@ -1,0 +1,45 @@
+.terms {
+  background: #fbdd61;
+  margin: 0 0 9rem 0;
+  padding: 5rem 0;
+}
+
+.terms__caption {
+  text-align: center;
+  font-weight: 700;
+}
+
+.term__column-wrapper {
+  display: block;
+  padding: 3rem 0;
+}
+
+.terms__column {
+  text-align: center;
+  width: 27rem;
+  padding: 2rem 0;
+  margin: 0 auto;
+}
+
+.terms__column--title {
+  font-weight: 700;
+}
+
+.terms__column--contents {
+  padding: 2rem;
+}
+
+@media (min-width: 1025px) {
+  .term__column-wrapper {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 3rem 0;
+  }
+
+  .terms__column {
+    text-align: center;
+    width: 40rem;
+    padding: 2rem 5rem;
+    margin: 0 auto;
+  }
+}
