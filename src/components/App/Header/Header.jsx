@@ -26,7 +26,12 @@ class Header extends React.Component {
         <div className="header__container">
           <div className="logo__link"><Link href="/" to="/"><img src="/img/logo.png" alt="logo" className="logo" /></Link></div>
           <nav>
-            {this.state.isLogged ? <span className="user-name">Sławomir<button onClick={this.toggleClass} className="header__arrow"><i className="fas fa-angle-down" /></button></span> : <LoginButton />}
+            {this.state.isLogged ?
+              <span className="user-name">Sławomir
+                <button onClick={this.toggleClass} className="header__arrow">
+                  {this.state.displayMenu ? <i className="fas fa-angle-up" /> : <i className="fas fa-angle-down" />}
+                </button>
+              </span> : <LoginButton />}
             <div className={`${className} header__links`}>
               {this.state.isLogged && <Link href="/add/form" to="/add/form" className="header__link">{this.props.t('components.UI.header.add')}</Link>}
               {this.state.isLogged && <Link href="/" to="/" className="header__link">{this.props.t('components.UI.header.logout')}</Link>}

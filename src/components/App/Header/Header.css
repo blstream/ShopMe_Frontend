@@ -1,5 +1,6 @@
 header {
   width: 100%;
+  margin-bottom: 3rem;
   max-height: 5.2rem;
   background: #fff;
   font-size: 1.4rem;
@@ -52,9 +53,10 @@ nav a {
 
 .header__links {
   position: absolute;
-  top: 6rem;
+  top: 5.2rem;
   padding-right: 1.5rem;
   background: #fff;
+  box-shadow: 0 0.7rem 1rem 0 rgba(0,0,0,0.2);
 }
 
 .header__link {
@@ -94,16 +96,15 @@ nav a {
     position: absolute;
     top: 5rem;
     font-size: 1.5rem;
-    box-shadow: none;
     padding: 0;
-    box-shadow: 0 0.3rem 0.1rem 0px rgba(0,0,0,0.15);
+    box-shadow: 0 0.2rem 1rem 0 rgba(0,0,0,0.4);
   }
   .header__container {
     max-width: 76.8rem;
     margin: 0 auto;
   }
   .header__links {
-    top: 5.6rem;
+
     padding-right: 2.5rem;
   }
   .user-name {
