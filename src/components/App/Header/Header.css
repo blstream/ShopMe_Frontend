@@ -37,18 +37,16 @@ nav a {
 
 .user-name {
   font-weight: bold;
-  padding-right: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .header__arrow {
+  margin-right: 1.5rem;
   border: 0;
   background-color: transparent;
-  margin-left: 0.2rem;
   height: 2.3rem;
-  margin-left: 0.2rem;
 }
 
 .header__links {
@@ -104,11 +102,10 @@ nav a {
     margin: 0 auto;
   }
   .header__links {
-
     padding-right: 2.5rem;
   }
-  .user-name {
-    padding-right: 2.5rem;
+  .header__arrow {
+    margin-right: 2.5rem;
   }
 }
 
@@ -144,7 +141,7 @@ nav a {
   .user-name {
     padding-right: 0;
   }
-  .header__arrow {
+  .header__icons {
     display: none;
   }
 }
