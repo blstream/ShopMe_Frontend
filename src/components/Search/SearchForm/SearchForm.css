@@ -33,7 +33,6 @@
 
 @media (min-width: 1025px) {
   .search__wrapper {
-    height: 45rem;
     margin: 0;
   }
   .search__header {
