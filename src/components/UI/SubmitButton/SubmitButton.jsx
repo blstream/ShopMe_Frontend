@@ -1,6 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
 import 'components/UI/SubmitButton/SubmitButton.css';
 
 class SubmitButton extends React.Component {
@@ -15,28 +13,17 @@ class SubmitButton extends React.Component {
 
   render() {
     return (
-      <input
+      <button
         type="submit"
-        value={this.props.value}
         onClick={this.handleSubmit}
-        className="form__button--submit"
+        className={this.props.className}
         disabled={this.props.searchPhrase < 2}
-      />
+      >
+        {this.props.children}
+      </button>
     );
   }
 }
-
-SubmitButton.defaultProps = {
-  value: '',
-  searchPhrase: '',
-  onClick() { },
-};
-
-SubmitButton.propTypes = {
-  value: PropTypes.string,
-  searchPhrase: PropTypes.string,
-  onClick: PropTypes.func,
-};
 
 export { SubmitButton };
 export default SubmitButton;

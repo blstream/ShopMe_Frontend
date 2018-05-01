@@ -1,6 +1,7 @@
 {
   "components": {
     "searchForm" : {
+      "header": "Lokalnie! Z ShopMe.",
       "button": "Szukaj",
       "input": "Wpisz szukaną usługę",
       "label": "Wyszukiwarka usług",

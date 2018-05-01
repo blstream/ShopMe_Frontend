@@ -1,12 +1,51 @@
+.search {
+  height: 28rem;
+  background: url("/img/search-section/mobile.jpg");
+  background-size: cover;
+  background-position: 100% 100%;
+}
+
+.search__header {
+  padding-top: 3rem;
+  font-size: 3rem;
+  font-weight: 500;
+  text-align: center;
+}
+
 .search__form {
+  position: relative;
+  width: 95%;
   margin: 0 auto;
-  width: 64rem;
-  max-width: 100%;
-  padding: 10rem 0 1.5rem 0;
 }
 
 @media (min-width: 768px) {
+  .search {
+    height: 50rem;
+    margin: 0;
+  }
+  .search__header {
+    padding-top: 16rem;
+  }
   .search__form {
-    padding: 20rem 0 1.5rem 0;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 8rem;
+    padding-top: 2rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .search {
+    height: 45rem;
+    margin: 0;
+  }
+  .search__header {
+    padding-top: 16rem;
+  }
+  .search__form {
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 8rem;
+    padding-top: 2rem;
   }
 }

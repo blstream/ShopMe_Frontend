@@ -1,6 +1,7 @@
 {
   "components": {
     "searchForm": {
+      "header": "Locally! With ShopMe.",
       "button": "Search",
       "input": "Enter the service",
       "label": "Service search engine",
