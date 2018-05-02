@@ -11,17 +11,17 @@ class Layout extends Component {
         token: localStorage.getItem('userToken'),
       },
     };
-    this.setUser = this.setUser.bind(this);
+    this.setUserToken = this.setUserToken.bind(this);
   }
 
-  setUser(token) {
+  setUserToken(token) {
     this.setState({ user: { token } });
   }
 
   render() {
     const { children } = this.props;
     const childProps = {
-      setUser: this.setUser,
+      setUserToken: this.setUserToken,
     };
     const childrenWithProps = React.Children.map(children, (child) => {
       if (React.isValidElement(child)) return React.cloneElement(child, childProps);
