@@ -81,7 +81,6 @@
 }
 
 .add-form__fieldset--offers::after {
-  font-family: Pacifico, serif;
   content: "Sm";
   font-size: 3.2rem;
   color: #221e1d;
