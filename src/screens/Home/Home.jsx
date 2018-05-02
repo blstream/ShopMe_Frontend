@@ -1,12 +1,8 @@
 import React from 'react';
 import SearchForm from 'components/Search/SearchForm/SearchForm';
-<<<<<<< HEAD
-import CategoryList from 'components/CategoryList/CategoryList';
-=======
 import CategoryList from 'components/App/HomePage/CategoryList/CategoryList';
 import Terms from 'components/App/HomePage/Terms/Terms';
 
->>>>>>> Added HomePage and updated files Terms and CategoryList structure.
 import { Redirect } from 'react-router';
 
 
