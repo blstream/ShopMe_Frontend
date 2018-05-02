@@ -15,18 +15,18 @@ class Terms extends React.Component {
     return (
       <div className="terms">
         <h2 className="terms__caption">{t('components.UI.terms.header')}</h2>
-        <div className="term__column-wrapper">
+        <div className="term__columns-wrapper">
           <div className="terms__column">
             <h3 className="terms__column--title">{t('components.UI.terms.budgetary.title')}</h3>
-            <div className="terms__column--contents">{t('components.UI.terms.budgetary.content')}</div>
+            <p className="terms__column--content">{t('components.UI.terms.budgetary.content')}</p>
           </div>
           <div className="terms__column">
             <h3 className="terms__column--title">{t('components.UI.terms.time.title')}</h3>
-            <div className="terms__column--contents">{t('components.UI.terms.time.content')}</div>
+            <p className="terms__column--content">{t('components.UI.terms.time.content')}</p>
           </div>
           <div className="terms__column">
             <h3 className="terms__column--title">{t('components.UI.terms.payment.title')}</h3>
-            <div className="terms__column--contents">{t('components.UI.terms.payment.content')}</div>
+            <p className="terms__column--content">{t('components.UI.terms.payment.content')}</p>
           </div>
         </div>
         <h2 className="terms__caption">{t('components.UI.terms.footer')}</h2>

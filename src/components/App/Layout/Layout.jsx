@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
 import Header from 'components/App/Header/Header';
-import Terms from 'components/App/Terms/Terms';
 import Footer from 'components/App/Footer/Footer';
 
 class Layout extends Component {
@@ -36,7 +35,6 @@ class Layout extends Component {
             {childrenWithProps}
           </main>
         </div>
-        <Terms />
         <Footer />
       </div>
     );
