@@ -1,7 +1,6 @@
 .services-item {
   list-style-type: decimal;
   margin: 1.5rem 0;
-  font-family: "Fira Sans";
   font-size: 1.9rem;
   display: flex;
   flex-direction: row;
