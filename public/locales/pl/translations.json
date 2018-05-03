@@ -161,7 +161,8 @@
       },
       "header": {
         "add": "dodaj ofertę",
-        "logout": "wyloguj"
+        "logout": "wyloguj",
+        "loggedAs": "zalogowano: "
       },
       "footer": {
         "headers": {
