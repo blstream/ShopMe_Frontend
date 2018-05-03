@@ -19,10 +19,8 @@ class ScreensLogin extends React.Component {
   }
 
   isEmailExists(emailValue) {
-    const url = `${process.env.REACT_APP_API}/users/email=${emailValue}`;
-
-    return fetch(url)
-      .then(res => res.json())
+    const { http } = this.props;
+    return http.get(`/api/users/email=${emailValue}`)
       .then((res) => {
         if (res === true) this.setState({ result: { emailExist: true } });
         else this.setState({ result: { emailExist: false } });

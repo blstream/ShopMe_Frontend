@@ -11,8 +11,9 @@ class Article extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`/assets/articles/pl/${this.props.match.params.article}.md`)
-      .then(response => response.text())
+    const { http } = this.props;
+    const name = this.props.match.params.article;
+    http.get(`assets/articles/pl/${name}.md`, null, { parse: 'text' })
       .then((article) => {
         this.setState({ content: article });
       });

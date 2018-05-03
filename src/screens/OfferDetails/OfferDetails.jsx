@@ -27,8 +27,9 @@ class OfferDetailsScreen extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`${process.env.REACT_APP_API}/offers/${this.props.match.params.offerId}`)
-      .then(response => response.json())
+    const { http } = this.props;
+    const { offerId } = this.props.match.params;
+    http.get(`/api/offers/${offerId}`)
       .then((service) => { this.setState({ service }); });
   }
 

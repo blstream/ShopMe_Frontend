@@ -12,8 +12,9 @@ class ScreensRegister extends React.Component {
     this.sendData = this.sendData.bind(this);
   }
 
-  sendData(url, data) {
-    return fetch(url, data)
+  sendData(data) {
+    const { http } = this.props;
+    return http.post('/api/users', data)
       .then(() => this.setState({ fireRedirect: true }));
   }
 

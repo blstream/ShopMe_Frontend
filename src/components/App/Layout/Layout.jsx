@@ -11,6 +11,29 @@ class Layout extends Component {
         token: localStorage.getItem('userToken'),
       },
     };
+    this.http = {
+      get(url, params, options) {
+        let getUrl = url.replace('/api/', `${process.env.REACT_APP_API}/`);
+        let parse = options ? options.parse : 'json';
+        if (parse === 'none') parse = 'json';
+        if (params) getUrl = `${getUrl}?${params.title}=${params.page}`;
+        return fetch(getUrl)
+          .then(response => response[parse]());
+      },
+      post(url, body, options) {
+        const postUrl = url.replace('/api/', `${process.env.REACT_APP_API}/`);
+        let parse = options ? options.parse : 'json';
+        if (parse === 'none') parse = 'json';
+        return fetch(postUrl, {
+          body: JSON.stringify(body),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          method: 'POST',
+        })
+          .then(response => response[parse]());
+      },
+    };
     this.setUserToken = this.setUserToken.bind(this);
   }
 
@@ -22,6 +45,7 @@ class Layout extends Component {
     const { children } = this.props;
     const childProps = {
       setUserToken: this.setUserToken,
+      http: this.http,
     };
     const childrenWithProps = React.Children.map(children, (child) => {
       if (React.isValidElement(child)) return React.cloneElement(child, childProps);
