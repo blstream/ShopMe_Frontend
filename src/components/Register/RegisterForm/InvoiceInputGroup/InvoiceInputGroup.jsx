@@ -91,7 +91,7 @@ class InvoiceInputGroup extends Component {
               name="users_invoiceNip"
               type="text"
               label={t('components.login.register.nipInputLabel')}
-              maxLength="10"
+              maxLength={10}
               required
               validation={validator.validateNip}
               ref={(v) => { this.users_invoiceNip = v; }}
@@ -125,7 +125,7 @@ class InvoiceInputGroup extends Component {
               name="users_invoiceAddressZipCode"
               type="text"
               label={t('components.login.register.zipCodeInputLabel')}
-              maxLength="6"
+              maxLength={6}
               required
               validation={validator.validateZipCode}
               ref={(v) => { this.users_invoiceAddressZipCode = v; }}
@@ -137,7 +137,7 @@ class InvoiceInputGroup extends Component {
               name="users_invoiceAddressCity"
               type="text"
               label={t('components.login.register.localityInputLabel')}
-              maxLength="50"
+              maxLength={50}
               required
               validation={validator.validateCity}
               ref={(v) => { this.users_invoiceAddressCity = v; }}

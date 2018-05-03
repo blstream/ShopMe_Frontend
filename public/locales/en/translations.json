@@ -211,7 +211,9 @@
       "errorOnlyNumeric": "This field should contain only numbers",
       "errorEmailRegex": "Please enter a valid email address",
       "errorPasswordRequirements": "Password must contain at least one capital letter and one number",
-      "errorInvalidPassword": "Invalid password"
+      "errorInvalidPassword": "Invalid password",
+      "errorFormatZipCode" : "Invalid zip code format xx-xxx",
+      "errorFormatHouseNumber": "Invalid house number format e.g 67a/2"
     }
   }
 }

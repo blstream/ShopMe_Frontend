@@ -17,6 +17,21 @@ const validator = {
     return !pattern.test(value) ? 'helpers.validator.errorIllegalCharacters' : undefined;
   },
 
+  useOnlyLegalCharactersForZipCode(value) {
+    const pattern = /^(?:(?=\S{6}$)\d*[-*]\d*)$/;
+    return !pattern.test(value) ? 'helpers.validator.errorOnlyNumeric' : undefined;
+  },
+
+  checkFormatZipCode(value) {
+    const pattern = /^\S{2}-\S{3}$/;
+    return !pattern.test(value) ? 'helpers.validator.errorFormatZipCode' : undefined;
+  },
+
+  checkHouseNumberFormat(value) {
+    const pattern = /^\d+([a-z]?)?(\/?\d+?)?$/;
+    return !pattern.test(value) ? 'helpers.validator.errorFormatHouseNumber' : undefined;
+  },
+
   mustUseAlpha(value) {
     const pattern = /^[^A-ZĄĘĆŁŃÓŚŹŻ]*$/i;
     return pattern.test(value) ? 'helpers.validator.errorIllegalCharacters' : undefined;
@@ -130,13 +145,14 @@ const validator = {
   validateZipCode(required, value) {
     return validator.isRequired(required, value) ||
       validator.hasMinLength(6, value) ||
-      validator.useOnlyLegalCharacters(/^\d{2}-\d{3}/, value) ||
+      validator.checkFormatZipCode(value) ||
+      validator.useOnlyLegalCharactersForZipCode(value) ||
       undefined;
   },
 
   validateHouseNumber(required, value) {
     return validator.isRequired(required, value) ||
-      validator.mustUseAlpha(value) ||
+      validator.checkHouseNumberFormat(value) ||
       undefined;
   },
 };
