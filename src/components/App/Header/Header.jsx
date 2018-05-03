@@ -24,19 +24,9 @@ class Header extends React.Component {
         <div className="header__container">
           <div className="logo__link"><Link href="/" to="/"><img src="/img/logo.png" alt="logo" className="logo" /></Link></div>
           <nav>
-<<<<<<< HEAD
-            {this.props.user.token ?
-              <button onClick={this.toggleClass} className="header__arrow">
-                <span className="user-name">zalogowano: Sławomir Nowak
-                  <div className="header__icons">
-                    {this.state.displayMenu ? <i className="fas fa-angle-up" /> : <i className="fas fa-angle-down" />}
-                  </div>
-                </span>
-              </button> : <LoginButton />}
-=======
             {this.state.isLogged ?
               <div>
-                <span>{this.props.t('components.UI.header.loggedAs')}</span>
+                <span>{this.props.t('components.UI.header.loggedAs')} </span>
                 <button onClick={this.toggleClass} className="header__arrow">
                   <span className="user-name">Sławomir Nowak
                     <div className="header__icons">
@@ -45,7 +35,6 @@ class Header extends React.Component {
                   </span>
                 </button>
               </div> : <LoginButton />}
->>>>>>> translation in header
             <div className={`${className} header__links`}>
               {this.props.user.token && <Link href="/add/form" to="/add/form" className="header__link">{this.props.t('components.UI.header.add')}</Link>}
               {this.props.user.token && <Link href="/" to="/" className="header__link">{this.props.t('components.UI.header.logout')}</Link>}
