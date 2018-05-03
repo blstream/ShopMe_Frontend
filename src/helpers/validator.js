@@ -28,7 +28,7 @@ const validator = {
   },
 
   checkHouseNumberFormat(value) {
-    const pattern = /^\d+([a-z]?)?(\/?\d+?)?$/;
+    const pattern = /^\d+([a-z]?)?(\/?\d+([a-z]?)?)?$/;
     return !pattern.test(value) ? 'helpers.validator.errorFormatHouseNumber' : undefined;
   },
 
