@@ -26,7 +26,7 @@ class Header extends React.Component {
           <nav>
             {this.props.user.token ?
               <button onClick={this.toggleClass} className="header__arrow">
-                <span className="user-name">Sławomir
+                <span className="user-name">zalogowano: Sławomir Nowak
                   <div className="header__icons">
                     {this.state.displayMenu ? <i className="fas fa-angle-up" /> : <i className="fas fa-angle-down" />}
                   </div>
