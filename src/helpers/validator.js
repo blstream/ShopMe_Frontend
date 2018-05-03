@@ -111,7 +111,7 @@ const validator = {
     return validator.isRequired(required, value) ||
       validator.hasMinLength(8, value) ||
       validator.mustUse(/[A-Z]+/, value) ||
-      validator.mustUse(/[1-9]+/, value) ||
+      validator.mustUse(/[0-9]+/, value) ||
     undefined;
   },
 
