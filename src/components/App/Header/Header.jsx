@@ -24,7 +24,7 @@ class Header extends React.Component {
         <div className="header__container">
           <div className="logo__link"><Link href="/" to="/"><img src="/img/logo.png" alt="logo" className="logo" /></Link></div>
           <nav>
-            {this.state.isLogged ?
+            {this.props.user.token ?
               <div>
                 <span>{this.props.t('components.UI.header.loggedAs')} </span>
                 <button onClick={this.toggleClass} className="header__arrow">
