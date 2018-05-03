@@ -36,7 +36,7 @@ class Header extends React.Component {
 =======
             {this.state.isLogged ?
               <div>
-                <span>{this.props.t('components.UI.header.loggedAs')} </span>
+                <span>{this.props.t('components.UI.header.loggedAs')}</span>
                 <button onClick={this.toggleClass} className="header__arrow">
                   <span className="user-name">Sławomir Nowak
                     <div className="header__icons">
