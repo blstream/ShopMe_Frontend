@@ -1,17 +1,21 @@
-.terms {
+.container {
   background: #fbdd61;
-  margin: 4rem 0 9rem 0;
+}
+
+.terms {
+  margin: 4rem auto;
   padding: 5rem 0;
+  max-width: 32rem;
 }
 
 .terms__caption {
   text-align: center;
-  font-weight: 700;
 }
 
 .term__column-wrapper {
   display: block;
   padding: 3rem 0;
+  margin: 0 auto;
 }
 
 .terms__column {
@@ -30,7 +34,19 @@
   padding: 2rem;
 }
 
+@media (min-width: 768px) {
+  .terms {
+    max-width: 76.8rem;
+    margin: 0 auto;
+  }
+}
+
 @media (min-width: 1025px) {
+  .terms {
+    max-width: 118rem;
+    margin: 0 auto;
+  }
+
   .term__columns-wrapper {
     display: grid;
     grid-template-columns: auto auto auto;

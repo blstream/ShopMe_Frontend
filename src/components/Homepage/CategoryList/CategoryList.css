@@ -1,5 +1,5 @@
 .category-list {
-  margin: 0rem auto;
+  margin: 0 auto;
   max-width: 32rem;
 }
 
@@ -33,13 +33,14 @@
 
 .category-list__arrow {
   position:relative;
-  width: 0px;
+  width: 0;
   border-top: 2rem solid black;
   border-left: 1rem solid transparent;
   border-right: 1rem solid transparent;
   border-bottom: none;
   outline: none;
   background-color: white;
+  cursor: pointer;
 }
 
 .category-list__arrow--up {
@@ -70,12 +71,14 @@
   top: -2rem;
   left: 1.5rem;
   font-size: 1.3rem;
+  cursor: pointer;
 }
 
 .category-list__see-less {
   position: absolute;
   top: 0.5rem;
   left: 1.5rem;
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {
