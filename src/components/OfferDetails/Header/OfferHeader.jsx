@@ -5,7 +5,7 @@ import './OfferHeader.css';
 const OfferHeader = props => (
   <div>
     <h2 className="offer-details__header">{props.serviceTitle}</h2>
-    <p className="offer-details__category">{props.serviceCategoryName}</p>
+    <p className="offer-details__category">{props.t(`components.UI.categorySelect.categoryOptions.${props.serviceCategoryName}`)}</p>
   </div>
 );
 

@@ -114,7 +114,7 @@
           "housework": "Housework",
           "tutoring": "Tutoring",
           "bandsAndMusic": "Bands and\u00A0Music",
-          "others": "Others"
+          "inne": "Others"
         }
       },
       "voivodeship": {
@@ -187,7 +187,7 @@
           "transport": "Transport",
           "workshop": "Workshop services",
           "music": "Bands and music",
-          "other": "Other"
+          "inne": "Other"
         },
         "aboutUs": {
           "privacy": "Privacy policy",
