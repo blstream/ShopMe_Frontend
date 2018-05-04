@@ -45,7 +45,14 @@ export default class Search extends React.Component {
       .then(response => response.json())
       .then((services) => {
         if (services.content) {
-          this.setState({ services, foundServices: services.content, notFoundServices: false });
+          this.setState({
+            services,
+            foundServices: services.content,
+            notFoundServices: false,
+            paginationData: {
+              totalPages: services.totalPages,
+            },
+          });
         } else {
           this.setState({ services: [], notFoundServices: true });
         }
@@ -54,7 +61,13 @@ export default class Search extends React.Component {
 
   updateFoundServices(foundServices) {
     if (foundServices.content) {
-      this.setState({ foundServices: foundServices.content, notFoundServices: false });
+      this.setState({
+        foundServices: foundServices.content,
+        notFoundServices: false,
+        paginationData: {
+          totalPages: foundServices.totalPages,
+        },
+      });
     } else {
       this.setState({ notFoundServices: true });
     }
