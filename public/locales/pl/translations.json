@@ -170,25 +170,6 @@
           "aboutUs": "O nas",
           "exhibitor": "Dla wystawców"
         },
-        "categoryNames": {
-          "construction": "Budowa",
-          "office": "Firma i biuro",
-          "photography": "Fotografia",
-          "graphics": "Grafika",
-          "privateLessons": "Korepetycje",
-          "bookkeeping": "Księgowość",
-          "marketing": "Marketing i reklama",
-          "repair": "Naprawa i serwis",
-          "garden": "Ogród",
-          "housework": "Prace domowe",
-          "law": "Prawo",
-          "programming": "Programowanie",
-          "translations": "Tłumaczenia",
-          "transport": "Transport",
-          "workshop": "Usługi warsztatowe",
-          "music": "Zespoły i muzyka",
-          "other": "Inne"
-        },
         "aboutUs": {
           "privacy": "Polityka prywatności",
           "statute": "Regulamin",
