@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { translate } from 'react-i18next';
 import validator from 'helpers/validator';
 
-import OfferTextarea from 'components/UI/OfferTextarea/OfferTextarea';
-import PriceInput from 'components/UI/PriceInput/PriceInput';
-import AboutMeTextarea from 'components/UI/AboutMeTextarea/AboutMeTextarea';
+import OfferTextarea from 'components/Add/Form/OfferTextarea/OfferTextarea';
+import PriceInput from 'components/Add/Form/PriceInput/PriceInput';
+import AboutMeTextarea from 'components/Add/Form/AboutMeTextarea/AboutMeTextarea';
 import FormButton from 'components/UI/FormButton/FormButton';
 import GenericInput from 'components/UI/GenericInput/GenericInput';
 import GenericSelect from 'components/UI/GenericSelect/GenericSelect';
