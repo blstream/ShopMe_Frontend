@@ -32,33 +32,57 @@ class AddForm extends Component {
       priceExtraRequired: false,
       isCityDisabled: true,
       errorMessage: false,
+      offerCategoryId: undefined,
+      offerVoivodeshipId: undefined,
+      doValidate: undefined,
+      isFormValid: undefined,
+      inputsValue: {
+        offerTitle: undefined,
+        offerCategory: undefined,
+        offerBaseDescription: undefined,
+        offerBasePrice: undefined,
+        offerExtendedDescription: undefined,
+        offerExtendedPrice: undefined,
+        offerExtraDescription: undefined,
+        offerExtraPrice: undefined,
+        offerUserName: undefined,
+        offerEmail: undefined,
+        offerPhone: undefined,
+        offerVoivodeship: undefined,
+        offerCity: undefined,
+        offerUserAdditionalInfo: undefined,
+      },
+      inputsValidationResult: {
+        offerTitle: undefined,
+        offerCategory: undefined,
+        offerBaseDescription: undefined,
+        offerBasePrice: undefined,
+        offerExtendedDescription: undefined,
+        offerExtendedPrice: undefined,
+        offerExtraDescription: undefined,
+        offerExtraPrice: undefined,
+        offerUserName: undefined,
+        offerEmail: undefined,
+        offerPhone: undefined,
+        offerVoivodeship: undefined,
+        offerCity: undefined,
+        offerUserAdditionalInfo: undefined,
+      },
     };
 
     this.setFieldStateValue = this.setFieldStateValue.bind(this);
     this.checkFormValidity = this.checkFormValidity.bind(this);
-    this.getInputReferences = this.getInputReferences.bind(this);
     this.gatherFormData = this.gatherFormData.bind(this);
     this.sendFormData = this.sendFormData.bind(this);
     this.setCityEnable = this.setCityEnable.bind(this);
+    this.setIsValid = this.setIsValid.bind(this);
+    this.checkIsFormValid = this.checkIsFormValid.bind(this);
   }
 
-  getInputReferences() {
-    return [
-      this.titleInput,
-      this.categorySelect,
-      this.basicArea,
-      this.basicPrice,
-      this.extendedArea,
-      this.extendedPrice,
-      this.extraArea,
-      this.extraPrice,
-      this.nameInput,
-      this.emailInput,
-      this.phoneInput,
-      this.voivodeshipSelect,
-      this.cityInput,
-      this.aboutMeArea,
-    ];
+  componentDidUpdate() {
+    if (this.state.isFormValid) {
+      this.gatherFormData(this.state);
+    }
   }
 
   setFieldStateValue(field, value) {
@@ -71,55 +95,100 @@ class AddForm extends Component {
     this.setState({ isCityDisabled: false });
   }
 
-  gatherFormData() {
-    const allCategories = this.categorySelect.getWrappedInstance().state.selectData;
-    const categoryName = this.categorySelect.getWrappedInstance().state.value;
-    const targetCategory = allCategories.find(category => category.name === categoryName);
-
-    const allVoivodeships = this.voivodeshipSelect.getWrappedInstance().state.selectData;
-    const voivodeshipName = this.voivodeshipSelect.getWrappedInstance().state.value;
-    const targetVoivodeship =
-    allVoivodeships.find(voivodeship => voivodeship.name === voivodeshipName);
-
-    const basePrice = AddForm.getFormattedPrice(this.basicPrice.getWrappedInstance().state.value);
-
-    const data =
-    {
-      title: this.titleInput.getWrappedInstance().state.value,
-      category: {
-        id: targetCategory.id,
-        name: categoryName,
-      },
-      baseDescription: this.basicArea.getWrappedInstance().state.value,
-      basePrice,
-      user: {
-        name: this.nameInput.getWrappedInstance().state.value,
-        email: this.emailInput.getWrappedInstance().state.value,
-        phoneNumber: this.phoneInput.getWrappedInstance().state.value,
-        voivodeship: {
-          id: targetVoivodeship.id,
-          name: voivodeshipName,
+  setIsValid(inputName, inputValue, inputIsValid) {
+    if (inputIsValid) {
+      this.setState(prevState => ({
+        ...prevState,
+        doValidate: undefined,
+        inputsValue: {
+          ...prevState.inputsValue,
+          [inputName]: inputValue,
         },
-        city: this.cityInput.getWrappedInstance().state.value,
+        inputsValidationResult: {
+          ...prevState.inputsValidationResult,
+          [inputName]: inputIsValid,
+        },
+      }), this.checkIsFormValid);
+    } else {
+      this.setState(prevState => ({
+        ...prevState,
+        doValidate: undefined,
+        inputsValue: {
+          ...prevState.inputsValue,
+          [inputName]: false,
+        },
+        inputsValidationResult: {
+          ...prevState.inputsValidationResult,
+          [inputName]: false,
+        },
+      }));
+    }
+  }
+
+  checkFormValidity(e) {
+    e.preventDefault();
+    const inputsValidationResult = Object.assign({}, this.state.inputsValidationResult);
+    const inputsValue = Object.assign({}, this.state.inputsValue);
+
+    Object.keys(inputsValidationResult).forEach((key) => {
+      inputsValidationResult[key] = undefined;
+    });
+
+    Object.keys(inputsValue).forEach((key) => {
+      inputsValue[key] = undefined;
+    });
+
+    this.setState({
+      doValidate: true, inputsValidationResult, inputsValue,
+    });
+  }
+
+  checkIsFormValid() {
+    const inputsValidationResult = Object.assign({}, this.state.inputsValidationResult);
+    const isFormIncludesErrors = Object.values(inputsValidationResult).includes(false);
+
+    this.setState({ errorMessage: isFormIncludesErrors, isFormValid: !isFormIncludesErrors });
+  }
+
+
+  gatherFormData(state) {
+    this.setState({ isFormValid: undefined });
+
+    const inputsValue = Object.assign({}, state.inputsValue);
+    const formData = {
+      category: {},
+      user: {
+        voivodeship: {},
       },
     };
 
-    const offerExtendedDescription = this.extendedArea.getWrappedInstance().state.value;
-    if (offerExtendedDescription) data.extendedDescription = offerExtendedDescription;
-    const offerExtendedPrice =
-      AddForm.getFormattedPrice(this.extendedPrice.getWrappedInstance().state.value);
-    if (offerExtendedPrice) data.extendedPrice = offerExtendedPrice;
+    formData.title = inputsValue.offerTitle;
+    formData.category.id = state.offerCategoryId;
+    formData.category.name = inputsValue.offerCategory;
+    formData.baseDescription = inputsValue.offerBaseDescription;
+    formData.basicPrice = AddForm.getFormattedPrice(inputsValue.offerBasePrice);
+    formData.user.name = inputsValue.offerUserName;
+    formData.user.email = inputsValue.offerEmail;
+    formData.user.phoneNumber = inputsValue.offerPhone;
+    formData.user.voivodeship.id = state.offerVoivodeshipId;
+    formData.user.voivodeship.name = inputsValue.offerVoivodeship;
+    formData.user.city = inputsValue.offerCity;
 
-    const offerExtraDescription = this.extraArea.getWrappedInstance().state.value;
-    if (offerExtraDescription) data.extraDescription = offerExtraDescription;
-    const offerExtraPrice =
-      AddForm.getFormattedPrice(this.extraPrice.getWrappedInstance().state.value);
-    if (offerExtraPrice) data.extraPrice = offerExtraPrice;
+    if (inputsValue.offerUserAdditionalInfo) {
+      formData.user.additionalInfo = inputsValue.offerUserAdditionalInfo;
+    }
 
-    const offerAdditionalInfo = this.aboutMeArea.getWrappedInstance().state.value;
-    if (offerAdditionalInfo) data.user.additionalInfo = offerAdditionalInfo;
+    if (inputsValue.offerExtendedDescription) {
+      formData.extendedDescription = inputsValue.offerExtendedDescription;
+      formData.extendedPrice = AddForm.getFormattedPrice(inputsValue.offerExtendedPrice);
+    }
 
-    return data;
+    if (inputsValue.offerExtraDescription) {
+      formData.extraDescription = inputsValue.offerExtraDescription;
+      formData.extraPrice = AddForm.getFormattedPrice(inputsValue.offerExtraPrice);
+    }
+
+    this.sendFormData(formData);
   }
 
   sendFormData(data) {
@@ -138,20 +207,6 @@ class AddForm extends Component {
     this.props.fetchData(url, myInit);
   }
 
-  checkFormValidity(e) {
-    e.preventDefault();
-    const refs = this.getInputReferences();
-    const isRefsValid = refs.map(ref => ref.getWrappedInstance().checkValidity());
-    const isFormValid = isRefsValid.includes(false);
-
-    this.setState({ errorMessage: isFormValid });
-
-    if (!isFormValid) {
-      const postData = this.gatherFormData();
-      this.sendFormData(postData);
-    }
-  }
-
   render() {
     const { t } = this.props;
     const { errorMessage } = this.state;
@@ -168,7 +223,7 @@ class AddForm extends Component {
             <div className="add-form__fieldset-item add-form__fieldset-item--basic add-form__fieldset-item--margin-top">
               <GenericInput
                 type="text"
-                name="offer__title"
+                name="offerTitle"
                 label={t('components.add.form.name')}
                 labelClassName="add-form_label"
                 spanClassName="add-form_span--inline"
@@ -177,15 +232,15 @@ class AddForm extends Component {
                 maxLength={30}
                 required
                 validation={validator.validateAddOfferTitle}
-                ref={(v) => { this.titleInput = v; }}
+                onValidate={this.state.doValidate}
+                doValidate={this.setIsValid}
               />
             </div>
           </div>
           <div className="add-form__fieldset-wrapper--basic">
             <div className="add-form__fieldset-item add-form__fieldset-item--basic">
               <GenericSelect
-                name="offer__category"
-                ref={(v) => { this.categorySelect = v; }}
+                name="offerCategory"
                 endpoint="categories"
                 selectNamePath="components.UI.categorySelect.name"
                 selectErrorPath="components.UI.categorySelect.errorEmptyField"
@@ -194,6 +249,9 @@ class AddForm extends Component {
                 errorClassName="input-select__errorMessage"
                 labelClassName="input__wrapper--relative"
                 required
+                onValidate={this.state.doValidate}
+                doValidate={this.setIsValid}
+                getSelectedId={this.setFieldStateValue}
               />
             </div>
           </div>
@@ -203,64 +261,70 @@ class AddForm extends Component {
           <div className="add-form__fieldset-wrapper">
             <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
               <OfferTextarea
-                name="offer__base-description"
-                ref={(v) => { this.basicArea = v; }}
+                name="offerBaseDescription"
                 label={t('components.add.form.offerBaseLabel')}
                 placeholder={t('components.add.form.offerBasePlaceholder')}
                 offerExtraFilled={this.state.offerExtraFilled}
                 onChange={this.setFieldStateValue}
                 required
+                onValidate={this.state.doValidate}
+                doValidate={this.setIsValid}
               />
             </div>
             <div className="add-form__fieldset-item">
               <PriceInput
-                name="offer__base-price"
-                ref={(v) => { this.basicPrice = v; }}
+                name="offerBasePrice"
                 required
+                onValidate={this.state.doValidate}
+                doValidate={this.setIsValid}
               />
             </div>
           </div>
           <div className="add-form__fieldset-wrapper">
             <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
               <OfferTextarea
-                name="offer__extended-description"
-                ref={(v) => { this.extendedArea = v; }}
+                name="offerExtendedDescription"
                 label={t('components.add.form.offerExtendedLabel')}
                 placeholder={t('components.add.form.offerExtendedPlaceholder')}
                 onChange={this.setFieldStateValue}
                 disabled={this.state.offerExtendedDisabled}
                 required={this.state.offerExtendedRequired}
+                onValidate={this.state.doValidate}
+                doValidate={this.setIsValid}
               />
             </div>
             <div className="add-form__fieldset-item">
               <PriceInput
-                name="offer__extended-price"
-                ref={(v) => { this.extendedPrice = v; }}
+                name="offerExtendedPrice"
                 onChange={this.setFieldStateValue}
                 disabled={this.state.offerExtendedDisabled}
                 required={this.state.priceExtendedRequired}
+                onValidate={this.state.doValidate}
+                doValidate={this.setIsValid}
               />
             </div>
           </div>
           <div className="add-form__fieldset-wrapper">
             <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
               <OfferTextarea
-                name="offer__extra-description"
-                ref={(v) => { this.extraArea = v; }}
+                name="offerExtraDescription"
                 label={t('components.add.form.offerExtraLabel')}
                 placeholder={t('components.add.form.offerExtraPlaceholder')}
                 onChange={this.setFieldStateValue}
                 disabled={this.state.offerExtraDisabled}
                 required={this.state.offerExtraRequired}
+                onValidate={this.state.doValidate}
+                doValidate={this.setIsValid}
               />
             </div>
             <div className="add-form__fieldset-item">
               <PriceInput
-                name="offer__extra-price"
-                ref={(v) => { this.extraPrice = v; }}
+                name="offerExtraPrice"
                 onChange={this.setFieldStateValue}
                 disabled={this.state.offerExtraDisabled}
                 required={this.state.priceExtraRequired}
+                onValidate={this.state.doValidate}
+                doValidate={this.setIsValid}
               />
             </div>
           </div>
@@ -270,7 +334,7 @@ class AddForm extends Component {
             <div className="add-form__fieldset-item">
               <GenericInput
                 type="text"
-                name="offer__user-name"
+                name="offerUserName"
                 label={t('components.add.form.firstName')}
                 labelClassName="add-form__label add-form__label--yellow"
                 spanClassName="add-form_span--block"
@@ -279,13 +343,14 @@ class AddForm extends Component {
                 maxLength={20}
                 required
                 validation={validator.validateNameInput}
-                ref={(v) => { this.nameInput = v; }}
+                onValidate={this.state.doValidate}
+                doValidate={this.setIsValid}
               />
             </div>
             <div className="add-form__fieldset-item">
               <GenericInput
                 type="text"
-                name="offer__email"
+                name="offerEmail"
                 label={t('components.add.form.email')}
                 labelClassName="add-form__label add-form__label--yellow"
                 spanClassName="add-form_span--block"
@@ -293,13 +358,14 @@ class AddForm extends Component {
                 errorClassName="input__error-message--yellow"
                 required
                 validation={validator.validateEmailInput}
-                ref={(v) => { this.emailInput = v; }}
+                onValidate={this.state.doValidate}
+                doValidate={this.setIsValid}
               />
             </div>
             <div className="add-form__fieldset-item">
               <GenericInput
                 type="text"
-                name="offer__phone"
+                name="offerPhone"
                 label={t('components.add.form.phone')}
                 labelClassName="add-form__label add-form__label--yellow"
                 spanClassName="add-form_span--block"
@@ -308,15 +374,15 @@ class AddForm extends Component {
                 maxLength={10}
                 required
                 validation={validator.validatePhoneNumber}
-                ref={(v) => { this.phoneInput = v; }}
+                onValidate={this.state.doValidate}
+                doValidate={this.setIsValid}
               />
             </div>
           </div>
           <div className="add-form__fieldset-wrapper">
             <div className="add-form__fieldset-item">
               <GenericSelect
-                name="offer__voivodeship"
-                ref={(v) => { this.voivodeshipSelect = v; }}
+                name="offerVoivodeship"
                 label={t('components.UI.voivodeship.name')}
                 endpoint="voivodeships"
                 selectNamePath="components.UI.voivodeship.name"
@@ -329,12 +395,15 @@ class AddForm extends Component {
                 errorClassName="input-select__errorMessage input-select__errorMessage2"
                 disableChange={this.setCityEnable}
                 required
+                onValidate={this.state.doValidate}
+                doValidate={this.setIsValid}
+                getSelectedId={this.setFieldStateValue}
               />
             </div>
             <div className="add-form__fieldset-item">
               <GenericInput
                 type="text"
-                name="offer__city"
+                name="offerCity"
                 label={t('components.add.form.city')}
                 labelClassName="add-form__label add-form__label--yellow"
                 spanClassName="add-form_span--block"
@@ -345,15 +414,17 @@ class AddForm extends Component {
                 maxLength={30}
                 required
                 validation={validator.validateCity}
-                ref={(v) => { this.cityInput = v; }}
+                onValidate={this.state.doValidate}
+                doValidate={this.setIsValid}
               />
             </div>
           </div>
           <div className="add-form__fieldset-wrapper">
             <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
               <AboutMeTextarea
-                name="offer__user-additional-info"
-                ref={(v) => { this.aboutMeArea = v; }}
+                name="offerUserAdditionalInfo"
+                onValidate={this.state.doValidate}
+                doValidate={this.setIsValid}
               />
             </div>
             <div className="add-form__fieldset-item add-form__fieldset-item--button">
