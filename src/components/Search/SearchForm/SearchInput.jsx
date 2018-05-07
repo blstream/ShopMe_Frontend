@@ -30,7 +30,8 @@ class SearchInput extends React.Component {
 
   validatePhrase(phrase) {
     const cleanedSearchPhrase = phrase.replace(/[!@#$%^&*()=+\-_;:'"<>,.?/{}|`~[\]\\]/g, '');
-    const isValidPhrase = cleanedSearchPhrase.length > 1 && Number.isNaN(Number(cleanedSearchPhrase));
+    const isValidPhrase = cleanedSearchPhrase.length > 1
+    && Number.isNaN(Number(cleanedSearchPhrase));
 
     this.setState({ isValidPhrase });
     if (isValidPhrase && Number.isNaN(Number(cleanedSearchPhrase)) && cleanedSearchPhrase !== '') {
