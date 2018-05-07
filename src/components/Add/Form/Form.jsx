@@ -134,13 +134,11 @@ class AddForm extends Component {
   checkIsFormValid() {
     const inputsValidationResult = Object.assign({}, this.state.inputsValidationResult);
     const isFormIncludesErrors = Object.values(inputsValidationResult).includes(false);
-    console.log(isFormIncludesErrors);
 
     this.setState({ errorMessage: isFormIncludesErrors, isFormValid: !isFormIncludesErrors });
   }
 
   gatherFormData() {
-    console.log('gatherFormData');
     this.setState({ isFormValid: undefined });
 
     const inputsValue = Object.assign({}, this.state.inputsValue);
