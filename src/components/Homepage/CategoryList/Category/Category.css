@@ -33,12 +33,12 @@
   .category {
     height: 20rem;
     width: 20rem;
-    padding: 5rem 2rem;
+    padding: 5rem 1rem;
   }
 
   .category__name {
     font-size: 2rem;
-    margin: 2rem -1rem;
+    margin: 2rem 0;
   }
 }
 
