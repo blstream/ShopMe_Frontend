@@ -7,7 +7,7 @@ class SearchInput extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      validPhrase: false,
+      isValidPhrase: false,
       errorMessage: null,
       query: props.searchQuery,
     };
@@ -30,17 +30,17 @@ class SearchInput extends React.Component {
 
   validatePhrase(searchPhrase) {
     const cleanedSearchPhrase = searchPhrase.replace(/[!@#$%^&*()=+\-_;:'"<>,.?/{}|`~[\]\\]/g, '');
-    const validPhrase = cleanedSearchPhrase.length > 1 && Number.isNaN(Number(cleanedSearchPhrase));
+    const isValidPhrase = cleanedSearchPhrase.length > 1 && Number.isNaN(Number(cleanedSearchPhrase));
 
-    this.setState({ validPhrase });
-    if (validPhrase && Number.isNaN(Number(cleanedSearchPhrase)) && cleanedSearchPhrase !== '') {
-      this.props.onSearchInputChanged(cleanedSearchPhrase, validPhrase);
+    this.setState({ isValidPhrase });
+    if (isValidPhrase && Number.isNaN(Number(cleanedSearchPhrase)) && cleanedSearchPhrase !== '') {
+      this.props.onSearchInputChanged(cleanedSearchPhrase, isValidPhrase);
       this.setState({ errorMessage: null });
     } else if (!Number.isNaN(Number(cleanedSearchPhrase)) && cleanedSearchPhrase !== '') {
-      this.props.onSearchInputChanged(null, validPhrase);
+      this.props.onSearchInputChanged(null, isValidPhrase);
       this.setState({ errorMessage: 'components.searchForm.numberError' });
     } else {
-      this.props.onSearchInputChanged(null, validPhrase);
+      this.props.onSearchInputChanged(null, isValidPhrase);
       this.setState({ errorMessage: 'components.searchForm.lengthError' });
     }
   }
@@ -73,7 +73,7 @@ class SearchInput extends React.Component {
           </SubmitButton>
           <SubmitButton onClick={this.props.handleSubmit} searchPhrase={this.props.searchPhrase} className="form__button--lens" />
         </div>
-        {!this.state.validPhrase && (<p className="search__message-error">{t(this.state.errorMessage)}</p>)}
+        {!this.state.isValidPhrase && (<p className="search__message-error">{t(this.state.errorMessage)}</p>)}
       </div>
     );
   }
