@@ -124,7 +124,7 @@ class AddForm extends Component {
   }
 
   setIsValid(name, val) {
-    this.setFormState('inputsValidtionResult', name, val, this.checkIsFormValid);
+    this.setFormState('inputsValidationResult', name, val, this.checkIsFormValid);
   }
 
   setValue(name, val) {
@@ -140,6 +140,7 @@ class AddForm extends Component {
   }
 
   gatherFormData() {
+    console.log('gatherFormData');
     this.setState({ isFormValid: undefined });
 
     const inputsValue = Object.assign({}, this.state.inputsValue);
@@ -176,8 +177,7 @@ class AddForm extends Component {
       formData.extraPrice = AddForm.getFormattedPrice(inputsValue.offerExtraPrice);
     }
 
-    console.log(formData);
-    // this.sendFormData(formData);
+    this.sendFormData(formData);
   }
 
   sendFormData(data) {
