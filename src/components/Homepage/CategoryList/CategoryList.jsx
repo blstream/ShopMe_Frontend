@@ -18,15 +18,15 @@ class CategoryList extends React.Component {
 
   render() {
     const { t } = this.props;
-    const hidden = this.state.hidden ? 'hidden' : '';
-    const seeMoreButton = hidden
+    const hidden = this.state.hidden ? 'hidden' : 'visible';
+    const seeMoreButton = this.state.hidden
       ? (
         <button className="category-list__arrow" onClick={this.toggleHidden}>
-          <span className="category-list__see-more">{t('components.categoryList.seeMore')}</span>
+          <span className="category-list__arrow-caption category-list__arrow-caption--more">{t('components.categoryList.seeMore')}</span>
         </button>
       ) : (
         <button className="category-list__arrow category-list__arrow--up" onClick={this.toggleHidden}>
-          <span className="category-list__see-less">{t('components.categoryList.seeLess')}</span>
+          <span className="category-list__arrow-caption category-list__arrow-caption--less">{t('components.categoryList.seeLess')}</span>
         </button>
       );
     return (
@@ -54,7 +54,7 @@ class CategoryList extends React.Component {
           <Category category="transport" />
         </div>
         <hr className="category-list__hr" />
-        <div className="category-list__expand" >
+        <div className="category-list__expand-btn" >
           { seeMoreButton }
         </div>
       </div>

@@ -33,12 +33,12 @@
   .category {
     height: 20rem;
     width: 20rem;
-    padding: 5rem 1rem;
+    padding: 5rem 2rem;
   }
 
   .category__name {
     font-size: 2rem;
-    margin: 2rem;
+    margin: 2rem -1rem;
   }
 }
 
@@ -46,7 +46,7 @@
   .category {
     height: 25rem;
     width: 25rem;
-    padding: 7rem 1rem;
+    padding: 7rem 2rem;
   }
 
   .category__name {
