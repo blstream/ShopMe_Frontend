@@ -9,7 +9,7 @@ class SearchInput extends React.Component {
     this.state = {
       isValidPhrase: false,
       errorMessage: null,
-      query: props.searchQuery,
+      phrase: props.phrase,
     };
     this.validatePhrase = this.validatePhrase.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
@@ -17,19 +17,19 @@ class SearchInput extends React.Component {
   }
 
   componentWillMount() {
-    if (this.state.query) {
-      this.validatePhrase(this.state.query);
+    if (this.state.phrase) {
+      this.validatePhrase(this.state.phrase);
     }
   }
 
   handleInputChange(input) {
-    const searchPhrase = input.target.value;
-    this.setState({ query: searchPhrase });
-    this.validatePhrase(searchPhrase.trim());
+    const phrase = input.target.value;
+    this.setState({ phrase });
+    this.validatePhrase(phrase.trim());
   }
 
-  validatePhrase(searchPhrase) {
-    const cleanedSearchPhrase = searchPhrase.replace(/[!@#$%^&*()=+\-_;:'"<>,.?/{}|`~[\]\\]/g, '');
+  validatePhrase(phrase) {
+    const cleanedSearchPhrase = phrase.replace(/[!@#$%^&*()=+\-_;:'"<>,.?/{}|`~[\]\\]/g, '');
     const isValidPhrase = cleanedSearchPhrase.length > 1 && Number.isNaN(Number(cleanedSearchPhrase));
 
     this.setState({ isValidPhrase });
@@ -66,12 +66,12 @@ class SearchInput extends React.Component {
             className="search__form-item"
             maxLength="30"
             aria-label={t('components.searchForm.label')}
-            value={this.state.query}
+            value={this.state.phrase}
           />
-          <SubmitButton onClick={this.props.handleSubmit} searchPhrase={this.props.searchPhrase} className="form__button--submit">
+          <SubmitButton onClick={this.props.handleSubmit} phrase={this.props.phrase} className="form__button--submit">
             {this.props.t('components.searchForm.button')}
           </SubmitButton>
-          <SubmitButton onClick={this.props.handleSubmit} searchPhrase={this.props.searchPhrase} className="form__button--lens" />
+          <SubmitButton onClick={this.props.handleSubmit} phrase={this.props.phrase} className="form__button--lens" />
         </div>
         {!this.state.isValidPhrase && (<p className="search__message-error">{t(this.state.errorMessage)}</p>)}
       </div>

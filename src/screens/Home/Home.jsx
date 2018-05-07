@@ -10,8 +10,8 @@ export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchPhrase: '',
-      isSearchPhraseValid: false,
+      phrase: '',
+      isValidPhrase: false,
       fireRedirect: false,
     };
     this.updateSearchPhrase = this.updateSearchPhrase.bind(this);
@@ -19,13 +19,13 @@ export default class Home extends React.Component {
   }
 
   onSubmit() {
-    if (this.state.isSearchPhraseValid) this.setState({ fireRedirect: true });
+    if (this.state.isValidPhrase) this.setState({ fireRedirect: true });
   }
 
-  updateSearchPhrase(searchPhrase, isSearchPhraseValid) {
+  updateSearchPhrase(phrase, isValidPhrase) {
     this.setState({
-      searchPhrase,
-      isSearchPhraseValid,
+      phrase,
+      isValidPhrase,
     });
   }
 
@@ -35,7 +35,7 @@ export default class Home extends React.Component {
         <Redirect
           to={{
             pathname: '/search',
-            search: `?title=${this.state.searchPhrase}`,
+            search: `?title=${this.state.phrase}`,
           }}
         />
       );
@@ -43,7 +43,7 @@ export default class Home extends React.Component {
     return (
       <div className="search">
         <SearchForm
-          searchQuery={this.state.searchPhrase}
+          phrase={this.state.phrase}
           afterChange={this.updateSearchPhrase}
           onSubmit={this.onSubmit}
         />
