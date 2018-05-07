@@ -51,7 +51,7 @@ class SignupForm extends Component {
   }
 
   render() {
-    const { t } = this.props;
+    const { t, result } = this.props;
     const { fireRedirect, errorMessage } = this.state;
     if (fireRedirect) {
       return (
@@ -69,10 +69,6 @@ class SignupForm extends Component {
     }
     return (
       <React.Fragment>
-        <div className="signup-form__email-exists-message">
-          { this.props.result === true &&
-            t('components.login.register.anEmailIsExisting') }
-        </div>
         <form
           className="signup-form"
           onSubmit={this.handleSubmit}
@@ -83,6 +79,7 @@ class SignupForm extends Component {
               <i className="signup-form__icon signup-form__icon--signup fas fa-user-plus" aria-hidden="true" />
             </div>
             <h1 className="signup-form__title">{t('components.login.signup.formTitle')}</h1>
+            {result && <p className="signup-form__email-exists-message">{t('components.login.register.anEmailIsExisting')}</p>}
             {errorMessage && <p className="signup-form__error">{t('components.login.signup.errorMessage')}</p>}
             <div className="signup-form__item">
               <GenericInput

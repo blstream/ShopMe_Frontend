@@ -57,7 +57,7 @@
   font-size: 1.8rem;
   color: #FF0000;
   position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 15%;
+  right: 5rem;
+  text-align: center
 }
