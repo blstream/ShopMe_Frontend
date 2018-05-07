@@ -15,7 +15,7 @@ class SearchResults extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const isDifferentPhrase = this.props.searchPhrase !== prevProps.searchPhrase;
+    const isDifferentPhrase = this.props.phrase !== prevProps.phrase;
     const hasTotalPagesChangend =
       this.props.paginationData.totalPages !== prevProps.paginationData.totalPages;
 
@@ -34,14 +34,8 @@ class SearchResults extends React.Component {
   }
 
   handlePageChange(page) {
-    fetch(`${process.env.REACT_APP_API}/offers?title=${this.props.searchPhrase}&page=${page}`)
-      .then(response => response.json())
-      .then((servicesResponse) => {
-        this.setState({
-          page,
-        });
-        this.props.updateFoundServices(servicesResponse);
-      });
+    this.props.updatePage(page);
+    this.updatePagination(page);
   }
 
   render() {
