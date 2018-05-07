@@ -165,7 +165,7 @@
         "loggedAs": "zalogowano: "
       },
       "terms":{
-        "header": "Ty określasz warynki",
+        "header": "Ty określasz warunki",
         "footer": "My gwarantujemy bezpieczeństwo i satysfakcję",
         "budgetary": {
           "title": "Budżetowe",
@@ -177,7 +177,7 @@
         },
         "payment": {
           "title": "Formy płatności",
-          "content": "Wybierz jedną z proponowancy przez nas form płatności dla pełnego bezpieczeństwa"
+          "content": "Wybierz jedną z proponowanych przez nas form płatności dla pełnego bezpieczeństwa"
         }
       },
       "footer": {
