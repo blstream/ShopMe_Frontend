@@ -16,7 +16,11 @@ class GenericInput extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.onValidate) {
-      this.props.doValidate(this.props.name, this.state.value, this.checkValidity());
+      const isValid = this.checkValidity();
+      this.props.doValidate(this.props.name, isValid);
+      if (isValid) {
+        this.props.setValue(this.props.name, this.state.value);
+      }
     }
   }
 

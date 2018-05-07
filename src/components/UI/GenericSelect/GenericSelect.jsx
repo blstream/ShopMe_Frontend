@@ -25,11 +25,13 @@ class GenericSelect extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    const isValid = this.checkValidity();
     if (nextProps.onValidate) {
-      this.props.doValidate(this.props.name, this.state.value, this.checkValidity());
-      if (this.checkValidity()) {
+      this.props.doValidate(this.props.name, isValid);
+      if (isValid) {
         const selected = this.state.selectData.find(category => category.name === this.state.value);
         this.props.getSelectedId(`${this.props.name}Id`, selected.id);
+        this.props.setValue(this.props.name, this.state.value);
       }
     }
   }
@@ -38,10 +40,7 @@ class GenericSelect extends Component {
     const { t } = this.props;
     const isValid = true;
 
-    if (
-      this.state.value === '' &&
-      this.state.isRequired
-    ) {
+    if (this.state.value === '' && this.state.isRequired) {
       this.setState({ errorMessage: t(`${this.props.selectErrorPath}`) });
       return false;
     }

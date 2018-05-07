@@ -32,13 +32,12 @@ class AddForm extends Component {
       priceExtraRequired: false,
       isCityDisabled: true,
       errorMessage: false,
-      offerCategoryId: undefined,
-      offerVoivodeshipId: undefined,
       doValidate: undefined,
       isFormValid: undefined,
       inputsValue: {
         offerTitle: undefined,
         offerCategory: undefined,
+        offerCategoryId: undefined,
         offerBaseDescription: undefined,
         offerBasePrice: undefined,
         offerExtendedDescription: undefined,
@@ -49,6 +48,7 @@ class AddForm extends Component {
         offerEmail: undefined,
         offerPhone: undefined,
         offerVoivodeship: undefined,
+        offerVoivodeshipId: undefined,
         offerCity: undefined,
         offerUserAdditionalInfo: undefined,
       },
@@ -71,18 +71,26 @@ class AddForm extends Component {
     };
 
     this.setFieldStateValue = this.setFieldStateValue.bind(this);
-    this.checkFormValidity = this.checkFormValidity.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
     this.gatherFormData = this.gatherFormData.bind(this);
     this.sendFormData = this.sendFormData.bind(this);
     this.setCityEnable = this.setCityEnable.bind(this);
     this.setIsValid = this.setIsValid.bind(this);
     this.checkIsFormValid = this.checkIsFormValid.bind(this);
+    this.setSelectedId = this.setSelectedId.bind(this);
+    this.setValue = this.setValue.bind(this);
+    this.setFormState = this.setFormState.bind(this);
   }
 
   componentDidUpdate() {
     if (this.state.isFormValid) {
-      this.gatherFormData(this.state);
+      this.gatherFormData();
     }
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    this.setState({ doValidate: true });
   }
 
   setFieldStateValue(field, value) {
@@ -91,70 +99,50 @@ class AddForm extends Component {
     }
   }
 
+  setSelectedId(field, value) {
+    this.setState(prevState => ({
+      inputsValue: {
+        ...prevState.inputsValue,
+        [field]: value,
+      },
+    }));
+  }
+
   setCityEnable() {
     this.setState({ isCityDisabled: false });
   }
 
-  setIsValid(inputName, inputValue, inputIsValid) {
-    if (inputIsValid) {
-      this.setState(prevState => ({
-        ...prevState,
-        doValidate: undefined,
-        inputsValue: {
-          ...prevState.inputsValue,
-          [inputName]: inputValue,
-        },
-        inputsValidationResult: {
-          ...prevState.inputsValidationResult,
-          [inputName]: inputIsValid,
-        },
-      }), this.checkIsFormValid);
-    } else {
-      this.setState(prevState => ({
-        ...prevState,
-        doValidate: undefined,
-        inputsValue: {
-          ...prevState.inputsValue,
-          [inputName]: false,
-        },
-        inputsValidationResult: {
-          ...prevState.inputsValidationResult,
-          [inputName]: false,
-        },
-      }));
-    }
+  setFormState(obj, key, val, callback) {
+    this.setState(prevState => ({
+      ...prevState,
+      doValidate: undefined,
+      [obj]: {
+        ...prevState[obj],
+        [key]: val,
+      },
+    }), callback);
   }
 
-  checkFormValidity(e) {
-    e.preventDefault();
-    const inputsValidationResult = Object.assign({}, this.state.inputsValidationResult);
-    const inputsValue = Object.assign({}, this.state.inputsValue);
+  setIsValid(name, val) {
+    this.setFormState('inputsValidtionResult', name, val, this.checkIsFormValid);
+  }
 
-    Object.keys(inputsValidationResult).forEach((key) => {
-      inputsValidationResult[key] = undefined;
-    });
-
-    Object.keys(inputsValue).forEach((key) => {
-      inputsValue[key] = undefined;
-    });
-
-    this.setState({
-      doValidate: true, inputsValidationResult, inputsValue,
-    });
+  setValue(name, val) {
+    this.setFormState('inputsValue', name, val);
   }
 
   checkIsFormValid() {
     const inputsValidationResult = Object.assign({}, this.state.inputsValidationResult);
     const isFormIncludesErrors = Object.values(inputsValidationResult).includes(false);
+    console.log(isFormIncludesErrors);
 
     this.setState({ errorMessage: isFormIncludesErrors, isFormValid: !isFormIncludesErrors });
   }
 
-
-  gatherFormData(state) {
+  gatherFormData() {
     this.setState({ isFormValid: undefined });
 
-    const inputsValue = Object.assign({}, state.inputsValue);
+    const inputsValue = Object.assign({}, this.state.inputsValue);
     const formData = {
       category: {},
       user: {
@@ -163,14 +151,14 @@ class AddForm extends Component {
     };
 
     formData.title = inputsValue.offerTitle;
-    formData.category.id = state.offerCategoryId;
+    formData.category.id = inputsValue.offerCategoryId;
     formData.category.name = inputsValue.offerCategory;
     formData.baseDescription = inputsValue.offerBaseDescription;
     formData.basicPrice = AddForm.getFormattedPrice(inputsValue.offerBasePrice);
     formData.user.name = inputsValue.offerUserName;
     formData.user.email = inputsValue.offerEmail;
     formData.user.phoneNumber = inputsValue.offerPhone;
-    formData.user.voivodeship.id = state.offerVoivodeshipId;
+    formData.user.voivodeship.id = inputsValue.offerVoivodeshipId;
     formData.user.voivodeship.name = inputsValue.offerVoivodeship;
     formData.user.city = inputsValue.offerCity;
 
@@ -188,7 +176,8 @@ class AddForm extends Component {
       formData.extraPrice = AddForm.getFormattedPrice(inputsValue.offerExtraPrice);
     }
 
-    this.sendFormData(formData);
+    console.log(formData);
+    // this.sendFormData(formData);
   }
 
   sendFormData(data) {
@@ -213,7 +202,7 @@ class AddForm extends Component {
     return (
       <form
         className="add-form"
-        onSubmit={this.checkFormValidity}
+        onSubmit={this.onSubmit}
         noValidate
       >
         <fieldset className="add-form__fieldset add-form__fieldset--basic">
@@ -234,6 +223,7 @@ class AddForm extends Component {
                 validation={validator.validateAddOfferTitle}
                 onValidate={this.state.doValidate}
                 doValidate={this.setIsValid}
+                setValue={this.setValue}
               />
             </div>
           </div>
@@ -251,7 +241,8 @@ class AddForm extends Component {
                 required
                 onValidate={this.state.doValidate}
                 doValidate={this.setIsValid}
-                getSelectedId={this.setFieldStateValue}
+                getSelectedId={this.setSelectedId}
+                setValue={this.setValue}
               />
             </div>
           </div>
@@ -269,6 +260,7 @@ class AddForm extends Component {
                 required
                 onValidate={this.state.doValidate}
                 doValidate={this.setIsValid}
+                setValue={this.setValue}
               />
             </div>
             <div className="add-form__fieldset-item">
@@ -277,6 +269,7 @@ class AddForm extends Component {
                 required
                 onValidate={this.state.doValidate}
                 doValidate={this.setIsValid}
+                setValue={this.setValue}
               />
             </div>
           </div>
@@ -291,6 +284,7 @@ class AddForm extends Component {
                 required={this.state.offerExtendedRequired}
                 onValidate={this.state.doValidate}
                 doValidate={this.setIsValid}
+                setValue={this.setValue}
               />
             </div>
             <div className="add-form__fieldset-item">
@@ -301,6 +295,7 @@ class AddForm extends Component {
                 required={this.state.priceExtendedRequired}
                 onValidate={this.state.doValidate}
                 doValidate={this.setIsValid}
+                setValue={this.setValue}
               />
             </div>
           </div>
@@ -315,6 +310,7 @@ class AddForm extends Component {
                 required={this.state.offerExtraRequired}
                 onValidate={this.state.doValidate}
                 doValidate={this.setIsValid}
+                setValue={this.setValue}
               />
             </div>
             <div className="add-form__fieldset-item">
@@ -325,6 +321,7 @@ class AddForm extends Component {
                 required={this.state.priceExtraRequired}
                 onValidate={this.state.doValidate}
                 doValidate={this.setIsValid}
+                setValue={this.setValue}
               />
             </div>
           </div>
@@ -345,6 +342,7 @@ class AddForm extends Component {
                 validation={validator.validateNameInput}
                 onValidate={this.state.doValidate}
                 doValidate={this.setIsValid}
+                setValue={this.setValue}
               />
             </div>
             <div className="add-form__fieldset-item">
@@ -360,6 +358,7 @@ class AddForm extends Component {
                 validation={validator.validateEmailInput}
                 onValidate={this.state.doValidate}
                 doValidate={this.setIsValid}
+                setValue={this.setValue}
               />
             </div>
             <div className="add-form__fieldset-item">
@@ -376,6 +375,7 @@ class AddForm extends Component {
                 validation={validator.validatePhoneNumber}
                 onValidate={this.state.doValidate}
                 doValidate={this.setIsValid}
+                setValue={this.setValue}
               />
             </div>
           </div>
@@ -397,7 +397,8 @@ class AddForm extends Component {
                 required
                 onValidate={this.state.doValidate}
                 doValidate={this.setIsValid}
-                getSelectedId={this.setFieldStateValue}
+                getSelectedId={this.setSelectedId}
+                setValue={this.setValue}
               />
             </div>
             <div className="add-form__fieldset-item">
@@ -416,6 +417,7 @@ class AddForm extends Component {
                 validation={validator.validateCity}
                 onValidate={this.state.doValidate}
                 doValidate={this.setIsValid}
+                setValue={this.setValue}
               />
             </div>
           </div>
@@ -425,6 +427,7 @@ class AddForm extends Component {
                 name="offerUserAdditionalInfo"
                 onValidate={this.state.doValidate}
                 doValidate={this.setIsValid}
+                setValue={this.setValue}
               />
             </div>
             <div className="add-form__fieldset-item add-form__fieldset-item--button">
