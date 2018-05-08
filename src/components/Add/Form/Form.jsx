@@ -77,7 +77,6 @@ class AddForm extends Component {
     this.setCityEnable = this.setCityEnable.bind(this);
     this.setIsValid = this.setIsValid.bind(this);
     this.checkIsFormValid = this.checkIsFormValid.bind(this);
-    this.setSelectedId = this.setSelectedId.bind(this);
     this.setValue = this.setValue.bind(this);
     this.setFormState = this.setFormState.bind(this);
   }
@@ -97,15 +96,6 @@ class AddForm extends Component {
     if (this.state[field] !== value) {
       this.setState({ [field]: value });
     }
-  }
-
-  setSelectedId(field, value) {
-    this.setState(prevState => ({
-      inputsValue: {
-        ...prevState.inputsValue,
-        [field]: value,
-      },
-    }));
   }
 
   setCityEnable() {
@@ -143,23 +133,24 @@ class AddForm extends Component {
 
     const inputsValue = Object.assign({}, this.state.inputsValue);
     const formData = {
-      category: {},
+      title: `${inputsValue.offerTitle}`,
+      category: {
+        id: `${inputsValue.offerCategoryId}`,
+        name: `${inputsValue.offerCategory}`,
+      },
+      baseDescription: `${inputsValue.offerBaseDescription}`,
+      basicPrice: AddForm.getFormattedPrice(inputsValue.offerBasePrice),
       user: {
-        voivodeship: {},
+        name: `${inputsValue.offerUserName}`,
+        email: `${inputsValue.offerEmail}`,
+        phoneNumber: `${inputsValue.offerPhone}`,
+        voivodeship: {
+          id: `${inputsValue.offerVoivodeshipId}`,
+          name: `${inputsValue.offerVoivodeship}`,
+        },
+        city: `${inputsValue.offerCity}`,
       },
     };
-
-    formData.title = inputsValue.offerTitle;
-    formData.category.id = inputsValue.offerCategoryId;
-    formData.category.name = inputsValue.offerCategory;
-    formData.baseDescription = inputsValue.offerBaseDescription;
-    formData.basicPrice = AddForm.getFormattedPrice(inputsValue.offerBasePrice);
-    formData.user.name = inputsValue.offerUserName;
-    formData.user.email = inputsValue.offerEmail;
-    formData.user.phoneNumber = inputsValue.offerPhone;
-    formData.user.voivodeship.id = inputsValue.offerVoivodeshipId;
-    formData.user.voivodeship.name = inputsValue.offerVoivodeship;
-    formData.user.city = inputsValue.offerCity;
 
     if (inputsValue.offerUserAdditionalInfo) {
       formData.user.additionalInfo = inputsValue.offerUserAdditionalInfo;
@@ -239,7 +230,6 @@ class AddForm extends Component {
                 required
                 onValidate={this.state.doValidate}
                 doValidate={this.setIsValid}
-                getSelectedId={this.setSelectedId}
                 setValue={this.setValue}
               />
             </div>
@@ -395,7 +385,6 @@ class AddForm extends Component {
                 required
                 onValidate={this.state.doValidate}
                 doValidate={this.setIsValid}
-                getSelectedId={this.setSelectedId}
                 setValue={this.setValue}
               />
             </div>

@@ -30,8 +30,8 @@ class GenericSelect extends Component {
       this.props.doValidate(this.props.name, isValid);
       if (isValid) {
         const selected = this.state.selectData.find(category => category.name === this.state.value);
-        this.props.getSelectedId(`${this.props.name}Id`, selected.id);
         this.props.setValue(this.props.name, this.state.value);
+        this.props.setValue(`${this.props.name}Id`, selected.id);
       }
     }
   }
