@@ -11,43 +11,74 @@ class SignupForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      users__name: '',
-      users__surname: '',
-      users__email: '',
       fireRedirect: false,
       errorMessage: false,
+      doValidate: undefined,
+      isFormValid: undefined,
+      inputsValue: {
+        userName: undefined,
+        userSurname: undefined,
+        userEmail: undefined,
+      },
+      inputsValidationResult: {
+        userName: undefined,
+        userSurname: undefined,
+        userEmail: undefined,
+      },
     };
-    this.setFieldStateValue = this.setFieldStateValue.bind(this);
+
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.getInputReferences = this.getInputReferences.bind(this);
+    this.setIsValid = this.setIsValid.bind(this);
+    this.setValue = this.setValue.bind(this);
+    this.setFormState = this.setFormState.bind(this);
+    this.isEmailExists = this.isEmailExists.bind(this);
   }
 
-  getInputReferences() {
-    return [
-      this.nameInput,
-      this.surnameInput,
-      this.emailInput,
-    ];
+  componentDidUpdate() {
+    if (this.state.isFormValid) {
+      this.isEmailExists();
+    }
   }
 
-  setFieldStateValue(field, value) {
-    this.setState({ [field]: value });
+  setFormState(obj, key, val, callback) {
+    this.setState(prevState => ({
+      ...prevState,
+      doValidate: undefined,
+      [obj]: {
+        ...prevState[obj],
+        [key]: val,
+      },
+    }), callback);
+  }
+
+  setIsValid(name, val) {
+    this.setFormState('inputsValidationResult', name, val, this.checkIsFormValid);
+  }
+
+  setValue(name, val) {
+    this.setFormState('inputsValue', name, val);
+  }
+
+  checkIsFormValid() {
+    const inputsValidationResult = Object.assign({}, this.state.inputsValidationResult);
+    const isFormIncludesErrors = Object.values(inputsValidationResult).includes(false);
+
+    this.setState({ errorMessage: isFormIncludesErrors, isFormValid: !isFormIncludesErrors });
+  }
+
+  isEmailExists() {
+    this.setState({ isFormValid: undefined });
+
+    if (this.state.isFormValid) {
+      this.props.onSubmit(this.state.userEmail).then(() => {
+        if (this.props.result === false) this.setState({ fireRedirect: true });
+      });
+    }
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    const refs = this.getInputReferences();
-    const isRefsValid = refs.map(ref => ref.getWrappedInstance().checkValidity());
-    const emailValue = this.state.users__email;
-    const isFormValid = isRefsValid.includes(false);
-
-    this.setState({ errorMessage: isFormValid });
-
-    if (!isFormValid) {
-      this.props.onSubmit(emailValue).then(() => {
-        if (this.props.result === false) this.setState({ fireRedirect: true });
-      });
-    }
+    this.setState({ doValidate: true });
   }
 
   render() {
@@ -59,9 +90,9 @@ class SignupForm extends Component {
           to={{
             pathname: '/register',
             state: {
-              name: this.state.users__name,
-              surname: this.state.users__surname,
-              email: this.state.users__email,
+              name: this.state.inputsValue.userName,
+              surname: this.state.inputsValue.userSurname,
+              email: this.state.inputsValue.userEmail,
             },
           }}
         />
@@ -83,37 +114,40 @@ class SignupForm extends Component {
             {errorMessage && <p className="signup-form__error">{t('components.login.signup.errorMessage')}</p>}
             <div className="signup-form__item">
               <GenericInput
-                name="users__name"
+                name="userName"
                 type="text"
                 label={t('components.login.signup.firstNameInputLabel')}
                 maxLength={20}
                 required
                 validation={validator.validateNameInput}
-                onChange={this.setFieldStateValue}
-                ref={(v) => { this.nameInput = v; }}
+                onValidate={this.state.doValidate}
+                doValidate={this.setIsValid}
+                setValue={this.setValue}
               />
             </div>
             <div className="signup-form__item">
               <GenericInput
-                name="users__surname"
+                name="userSurname"
                 type="text"
                 label={t('components.login.signup.lastNameInputLabel')}
                 maxLength={50}
                 required
                 validation={validator.validateSurnameInput}
-                onChange={this.setFieldStateValue}
-                ref={(v) => { this.surnameInput = v; }}
+                onValidate={this.state.doValidate}
+                doValidate={this.setIsValid}
+                setValue={this.setValue}
               />
             </div>
             <div className="signup-form__item">
               <GenericInput
-                name="users__email"
+                name="userEmail"
                 type="email"
                 label={t('components.login.signup.emailInputLabel')}
                 required
                 validation={validator.validateEmailInput}
-                onChange={this.setFieldStateValue}
-                ref={(v) => { this.emailInput = v; }}
+                onValidate={this.state.doValidate}
+                doValidate={this.setIsValid}
+                setValue={this.setValue}
               />
             </div>
             <div className="signup-form__item">
