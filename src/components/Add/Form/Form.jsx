@@ -133,22 +133,22 @@ class AddForm extends Component {
 
     const inputsValue = Object.assign({}, this.state.inputsValue);
     const formData = {
-      title: `${inputsValue.offerTitle}`,
+      title: inputsValue.offerTitle,
       category: {
-        id: `${inputsValue.offerCategoryId}`,
-        name: `${inputsValue.offerCategory}`,
+        id: inputsValue.offerCategoryId,
+        name: inputsValue.offerCategory,
       },
-      baseDescription: `${inputsValue.offerBaseDescription}`,
+      baseDescription: inputsValue.offerBaseDescription,
       basicPrice: AddForm.getFormattedPrice(inputsValue.offerBasePrice),
       user: {
-        name: `${inputsValue.offerUserName}`,
-        email: `${inputsValue.offerEmail}`,
-        phoneNumber: `${inputsValue.offerPhone}`,
+        name: inputsValue.offerUserName,
+        email: inputsValue.offerEmail,
+        phoneNumber: inputsValue.offerPhone,
         voivodeship: {
-          id: `${inputsValue.offerVoivodeshipId}`,
-          name: `${inputsValue.offerVoivodeship}`,
+          id: inputsValue.offerVoivodeshipId,
+          name: inputsValue.offerVoivodeship,
         },
-        city: `${inputsValue.offerCity}`,
+        city: inputsValue.offerCity,
       },
     };
 
