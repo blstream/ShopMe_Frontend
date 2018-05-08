@@ -51,6 +51,7 @@ export default class Search extends React.Component {
             notFoundServices: false,
             paginationData: {
               totalPages: services.totalPages,
+              pageNumber: services.number + 1,
             },
           });
         } else {
@@ -66,6 +67,7 @@ export default class Search extends React.Component {
         notFoundServices: false,
         paginationData: {
           totalPages: foundServices.totalPages,
+          pageNumber: foundServices.number,
         },
       });
     } else {

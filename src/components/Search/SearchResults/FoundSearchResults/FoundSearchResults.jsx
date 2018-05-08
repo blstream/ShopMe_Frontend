@@ -8,7 +8,7 @@ class SearchResults extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 1,
+      page: this.props.paginationData.pageNumber,
     };
 
     this.handlePageChange = this.handlePageChange.bind(this);
@@ -20,7 +20,10 @@ class SearchResults extends React.Component {
       this.props.paginationData.totalPages !== prevProps.paginationData.totalPages;
 
     if (isDifferentPhrase || hasTotalPagesChangend) {
-      this.updatePagination(1, this.props.paginationData.totalPages);
+      this.updatePagination(
+        this.props.paginationData.pageNumber,
+        this.props.paginationData.totalPages
+      );
     }
   }
 
