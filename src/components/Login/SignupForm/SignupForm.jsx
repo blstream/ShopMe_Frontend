@@ -68,12 +68,9 @@ class SignupForm extends Component {
 
   isEmailExists() {
     this.setState({ isFormValid: undefined });
-
-    if (this.state.isFormValid) {
-      this.props.onSubmit(this.state.userEmail).then(() => {
-        if (this.props.result === false) this.setState({ fireRedirect: true });
-      });
-    }
+    this.props.onSubmit(this.state.userEmail).then(() => {
+      if (this.props.result === false) this.setState({ fireRedirect: true });
+    });
   }
 
   handleSubmit(event) {
