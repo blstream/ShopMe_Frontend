@@ -410,7 +410,7 @@ class AddForm extends Component {
                 inputClassNameDisabled="input--yellow-disabled"
                 errorClassName="input__error-message--yellow"
                 disabled={this.state.isCityDisabled}
-                maxLength={30}
+                maxLength={50}
                 required
                 validation={validator.validateCity}
                 onValidate={this.state.doValidate}

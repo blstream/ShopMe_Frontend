@@ -153,7 +153,7 @@ class RegisterForm extends Component {
               name="users__surname"
               type="text"
               label={t('components.login.register.lastNameInputLabel')}
-              maxLength={30}
+              maxLength={50}
               required
               validation={validator.validateSurnameInput}
               value={this.props.location.state.surname}
@@ -240,7 +240,7 @@ class RegisterForm extends Component {
               name="users__address-city"
               type="text"
               label={t('components.login.register.cityInputLabel')}
-              maxLength={30}
+              maxLength={50}
               required
               validation={validator.validateCity}
               ref={(v) => { this.users__addressCity = v; }}
