@@ -25,7 +25,7 @@ class Input extends Component {
     if (this.props.onChange) {
       this.props.onChange(this.props.name, value);
     }
-    this.setState({ errorMessage: 'fdsfd' });
+    this.setState({ errorMessage: '' });
   }
 
   checkValidity() {
