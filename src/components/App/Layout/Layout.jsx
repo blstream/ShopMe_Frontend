@@ -13,25 +13,35 @@ class Layout extends Component {
     };
     this.http = {
       get(url, params, options) {
+        const parseMethod = options ? options.parse : 'json';
         let getUrl = url.replace('/api/', `${process.env.REACT_APP_API}/`);
-        let parse = options ? options.parse : 'json';
-        if (parse === 'none') parse = 'json';
-        if (params) getUrl = `${getUrl}?${params.title}=${params.page}`;
+
+        if (params) {
+          const getParams = new URLSearchParams(Object.entries(params));
+          getUrl = `${getUrl}?${getParams}`;
+        }
+
+        if (parseMethod === 'none') return fetch(getUrl);
+
         return fetch(getUrl)
-          .then(response => response[parse]());
+          .then(response => response[parseMethod]());
       },
+
       post(url, body, options) {
+        const parseMethod = options ? options.parse : 'json';
         const postUrl = url.replace('/api/', `${process.env.REACT_APP_API}/`);
-        let parse = options ? options.parse : 'json';
-        if (parse === 'none') parse = 'json';
-        return fetch(postUrl, {
+        const myInit = {
           body: JSON.stringify(body),
           headers: {
             'Content-Type': 'application/json',
           },
           method: 'POST',
-        })
-          .then(response => response[parse]());
+        };
+
+        if (parseMethod === 'none') return fetch(postUrl, myInit);
+
+        return fetch(postUrl, myInit)
+          .then(response => response[parseMethod]());
       },
     };
     this.setUserToken = this.setUserToken.bind(this);
