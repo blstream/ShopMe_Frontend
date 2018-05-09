@@ -35,7 +35,7 @@ export default class Home extends React.Component {
         <Redirect
           to={{
             pathname: '/search',
-            search: `?title=${this.state.phrase}`,
+            search: `?title=${this.state.phrase}&page=1`,
           }}
         />
       );
