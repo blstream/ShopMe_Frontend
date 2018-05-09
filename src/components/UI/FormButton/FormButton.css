@@ -1,15 +1,16 @@
 .form__button {
-  height: 6rem;
-  width: 20rem;
-  background-color: #24313c;
+  height: 100%;
+  width: 100%;
+  background-color: #fade42;
   border: none;
-  color: #ffffff;
-  padding: 2rem;
+  border-radius: 0.5rem;
+  color: #000;
+  text-align: center;
   font-size: 1.92rem;
   transition: all 0.2s ease-out;
 }
 
 .form__button:hover {
  cursor: pointer;
- transform: scale(0.9);
+ transform: scale(0.97);
 }

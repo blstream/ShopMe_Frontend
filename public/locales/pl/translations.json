@@ -47,7 +47,7 @@
       "login": {
         "emailInputLabel": "E-mail:",
         "passwordInputLabel": "Hasło:",
-        "submitButtonLabel": "Zaloguj",
+        "submitButtonLabel": "Zaloguj się",
         "formTitle": "Logowanie"
       },
       "signup": {
