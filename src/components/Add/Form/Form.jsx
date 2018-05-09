@@ -170,19 +170,7 @@ class AddForm extends Component {
   }
 
   sendFormData(data) {
-    const myHeaders = new Headers({
-      'Content-Type': 'application/json',
-    });
-
-    const myInit = {
-      method: 'POST',
-      headers: myHeaders,
-      body: JSON.stringify(data),
-    };
-
-    const url = `${process.env.REACT_APP_API}/offers`;
-
-    this.props.fetchData(url, myInit);
+    this.props.fetchData(data);
   }
 
   render() {
