@@ -1,60 +1,32 @@
-.input__wrapper {
+.generic-input__inline-label {
+  width: 100%;
+  height: 100%;
   position: relative;
-  margin: 1.5rem 0;
+  border: 0.1rem solid #999;
+  border-radius: 0.5rem;
+  display: grid;
+  grid-template-columns: 30% 1fr;
 }
 
-.input__wrapper--inline {
-  display:flex;
-	flex-wrap: wrap;
-	justify-content: flex-end;
+.generic-input__label {
+  text-align: center;
+  align-self: center;
 }
 
-.input__label {
-  margin: 1.5rem;
+.generic-input {
+  border: none;
+  border-left: 0.1rem solid #999;
+  border-bottom-right-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  padding-left: 1rem;
 }
 
-.input__label--inline {
-  display: inline-block;
-  text-align: right;
-}
-
-.input__label--block {
-  display: block;
-  margin: 1rem 0;
-}
-
-.input__label--M {
-	width: 9rem;
-}
-
-.input__label--S {
-  width: 9rem;
+.generic-input--white {
+  background: #fff;
 }
 
 .input__label--disabled {
-  color: #D0D0D0;
-}
-
-.input {
-  color: inherit;
-  padding: 1rem;
-  border: none;
-}
-
-.input--grey {
-  background-color: #E0E0E0;
-}
-
-.input--yellow {
-  background-color: #FEECA5;
-}
-
-.input--M {
-  width: 25rem;
-}
-
-.input--S {
-  width: 10rem;
+  color: #999;
 }
 
 .input__error-message {
@@ -69,7 +41,7 @@
 }
 
 .input__error-message--inline {
-  bottom: -1.1rem;
+  bottom: -2.5rem;
 }
 
 .input__eye-icon {
@@ -87,15 +59,15 @@
 
 .input--grey:disabled {
   background-color: #FFFFFF;
-  border: 0.1rem solid #D0D0D0;
-  color: #D0D0D0;
+  border: 0.1rem solid #999;
+  color: #999;
 }
 
 .input--yellow:disabled {
   background-color: #d8c478;
-  color: #D0D0D0;
+  color: #999;
 }
 
 .input--grey:disabled::placeholder {
-  color: #D0D0D0;
+  color: #999;
 }
