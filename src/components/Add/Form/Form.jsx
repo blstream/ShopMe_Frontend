@@ -139,7 +139,7 @@ class AddForm extends Component {
         name: inputsValue.offerCategory,
       },
       baseDescription: inputsValue.offerBaseDescription,
-      basicPrice: AddForm.getFormattedPrice(inputsValue.offerBasePrice),
+      basePrice: AddForm.getFormattedPrice(inputsValue.offerBasePrice),
       user: {
         name: inputsValue.offerUserName,
         email: inputsValue.offerEmail,
