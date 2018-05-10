@@ -2,37 +2,32 @@ import React from 'react';
 import { translate } from 'react-i18next';
 import SignupForm from 'components/Login/SignupForm/SignupForm';
 
-class ScreenSignUp extends React.Component {
+class SignUpScreen extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      result: {
-        emailExist: false,
-      },
+      isEmailExists: false,
     };
-    this.isEmailExists = this.isEmailExists.bind(this);
+    this.checkIsEmailExists = this.checkIsEmailExists.bind(this);
   }
 
-  isEmailExists(emailValue) {
-    const url = `${process.env.REACT_APP_API}/users/email=${emailValue}`;
-
-    return fetch(url)
-      .then(res => res.json())
+  checkIsEmailExists(emailValue) {
+    const { http } = this.props;
+    return http.get(`/api/users/email=${emailValue}`)
       .then((res) => {
-        if (res === true) this.setState({ result: { emailExist: true } });
-        else this.setState({ result: { emailExist: false } });
+        this.setState({ isEmailExists: res });
       });
   }
 
   render() {
     return (
       <div className="login-form__wrapper">
-        <SignupForm onSubmit={this.isEmailExists} result={this.state.result.emailExist} />
+        <SignupForm onSubmit={this.checkIsEmailExists} isEmailExists={this.state.isEmailExists} />
       </div>
     );
   }
 }
 
-export { ScreenSignUp };
-export default translate()(ScreenSignUp);
+export { SignUpScreen };
+export default translate()(SignUpScreen);

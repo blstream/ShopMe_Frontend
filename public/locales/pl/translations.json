@@ -49,8 +49,8 @@
         "passwordInputLabel": "Hasło",
         "submitButtonLabel": "Zaloguj się",
         "formTitle": "Logowanie",
-        "text": "Nie masz jeszcze konta?",
-        "link": "Zarejestruj się"
+        "registerMessage": "Nie masz jeszcze konta?",
+        "registerLink": "Zarejestruj się"
       },
       "signup": {
         "firstNameInputLabel": "Imię:",

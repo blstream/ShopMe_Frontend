@@ -3,7 +3,7 @@ import { translate } from 'react-i18next';
 import { Redirect } from 'react-router';
 import SuccessMessage from 'components/Add/SuccessMessage/SuccessMessage';
 
-class ScreenSuccessAdd extends React.Component {
+class SuccessAddScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,5 +30,5 @@ class ScreenSuccessAdd extends React.Component {
   }
 }
 
-export { ScreenSuccessAdd };
-export default translate()(ScreenSuccessAdd);
+export { SuccessAddScreen };
+export default translate()(SuccessAddScreen);

@@ -3,7 +3,7 @@ import { translate } from 'react-i18next';
 import { Redirect } from 'react-router';
 import LoginForm from 'components/Login/LoginForm/LoginForm';
 
-class ScreensLogin extends React.Component {
+class LoginScreen extends React.Component {
   constructor(props) {
     super(props);
 
@@ -32,5 +32,5 @@ class ScreensLogin extends React.Component {
   }
 }
 
-export { ScreensLogin };
-export default translate()(ScreensLogin);
+export { LoginScreen };
+export default translate()(LoginScreen);

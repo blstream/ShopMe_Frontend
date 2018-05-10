@@ -6,7 +6,7 @@ import Terms from 'components/Homepage/Terms/Terms';
 import { Redirect } from 'react-router';
 
 
-export default class Home extends React.Component {
+export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

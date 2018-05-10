@@ -3,7 +3,7 @@ import { translate } from 'react-i18next';
 import { Redirect } from 'react-router';
 import AddForm from 'components/Add/Form/Form';
 
-class ScreensAddForm extends React.Component {
+class AddFormScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,5 +28,5 @@ class ScreensAddForm extends React.Component {
   }
 }
 
-export { ScreensAddForm };
-export default translate()(ScreensAddForm);
+export { AddFormScreen };
+export default translate()(AddFormScreen);

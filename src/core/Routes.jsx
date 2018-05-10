@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import ScreensHome from 'screens/Home/Home';
-import ScreensSearch from 'screens/Search/Search';
-import ScreensAddForm from 'screens/Add/Form/Form';
-import ScreensOfferDetails from 'screens/OfferDetails/OfferDetails';
-import ScreensLogin from 'screens/Login/Login';
-import ScreenSignUp from 'screens/SignUp/SignUp';
-import ScreensRegister from 'screens/Register/Register';
-import ScreenSuccessAdd from 'screens/Add/SuccessAdd/SuccessAdd';
-import ScreenSuccessRegister from 'screens/Register/SuccessRegister/SuccessRegister';
-import ScreenTermsAndConditions from 'screens/Register/TermsAndConditions/TermsAndConditions';
-import ScreensArticle from 'screens/Article/Article';
+import HomeScreen from 'screens/Home/Home';
+import SearchScreen from 'screens/Search/Search';
+import AddFormScreen from 'screens/Add/Form/Form';
+import OfferDetailsScreen from 'screens/OfferDetails/OfferDetails';
+import LoginScreen from 'screens/Login/Login';
+import SignUpScreen from 'screens/SignUp/SignUp';
+import RegisterScreen from 'screens/Register/Register';
+import SuccessAddScreen from 'screens/Add/SuccessAdd/SuccessAdd';
+import SuccessRegisterScreen from 'screens/Register/SuccessRegister/SuccessRegister';
+import TermsAndConditionsScreen from 'screens/Register/TermsAndConditions/TermsAndConditions';
+import ArticleScreen from 'screens/Article/Article';
 import Layout from 'components/App/Layout/Layout';
 
 const wrapInLayout = Screen => props => <Layout><Screen {...props} /></Layout>;
@@ -18,17 +18,17 @@ const wrapInLayout = Screen => props => <Layout><Screen {...props} /></Layout>;
 export default() => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" render={wrapInLayout(ScreensHome)} />
-      <Route path="/search/" render={wrapInLayout(ScreensSearch)} />
-      <Route exact path="/add/form/success" render={wrapInLayout(ScreenSuccessAdd)} />
-      <Route exact path="/register/success" render={wrapInLayout(ScreenSuccessRegister)} />
-      <Route path="/add/form" render={wrapInLayout(ScreensAddForm)} />
-      <Route path="/offer/:offerId" render={wrapInLayout(ScreensOfferDetails)} />
-      <Route path="/login" render={wrapInLayout(ScreensLogin)} />
-      <Route path="/signup" render={wrapInLayout(ScreenSignUp)} />
-      <Route path="/register" render={wrapInLayout(ScreensRegister)} />
-      <Route path="/articles/terms-and-conditions" render={wrapInLayout(ScreenTermsAndConditions)} />
-      <Route path="/articles/:article" render={wrapInLayout(ScreensArticle)} />
+      <Route exact path="/" render={wrapInLayout(HomeScreen)} />
+      <Route exact path="/search/" render={wrapInLayout(SearchScreen)} />
+      <Route exact path="/add/form/success" render={wrapInLayout(SuccessAddScreen)} />
+      <Route exact path="/register/success" render={wrapInLayout(SuccessRegisterScreen)} />
+      <Route exact path="/add/form" render={wrapInLayout(AddFormScreen)} />
+      <Route exact path="/offer/:offerId" render={wrapInLayout(OfferDetailsScreen)} />
+      <Route exact path="/login" render={wrapInLayout(LoginScreen)} />
+      <Route exact path="/signup" render={wrapInLayout(SignUpScreen)} />
+      <Route exact path="/register" render={wrapInLayout(RegisterScreen)} />
+      <Route exact path="/articles/terms-and-conditions" render={wrapInLayout(TermsAndConditionsScreen)} />
+      <Route exact path="/articles/:article" render={wrapInLayout(ArticleScreen)} />
     </Switch>
   </BrowserRouter>
 );

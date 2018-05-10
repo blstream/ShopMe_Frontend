@@ -3,7 +3,7 @@ import { translate } from 'react-i18next';
 import RegisterForm from 'components/Register/RegisterForm/RegisterForm';
 import { Redirect } from 'react-router';
 
-class ScreensRegister extends React.Component {
+class RegisterScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,5 +32,5 @@ class ScreensRegister extends React.Component {
   }
 }
 
-export { ScreensRegister };
-export default translate()(ScreensRegister);
+export { RegisterScreen };
+export default translate()(RegisterScreen);

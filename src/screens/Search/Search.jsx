@@ -5,7 +5,7 @@ import NoSearchResults from 'components/Search/SearchResults/NoSearchResults/NoS
 import { Redirect } from 'react-router';
 
 
-export default class Search extends React.Component {
+export default class SearchScreen extends React.Component {
   constructor(props) {
     super(props);
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { translate } from 'react-i18next';
 import MarkdownArticle from 'components/UI/MarkdownArticle/MarkdownArticle';
 
-class Article extends React.Component {
+class ArticleScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,5 +26,5 @@ class Article extends React.Component {
   }
 }
 
-export { Article };
-export default translate()(Article);
+export { ArticleScreen };
+export default translate()(ArticleScreen);

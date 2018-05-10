@@ -39,8 +39,8 @@ const LoginForm = (props) => {
         />
       </div>
       <div className="login-form__register-link">
-        {t('components.login.login.text')}<br />
-        <Link href="/signup" to="/signup">{t('components.login.login.link')}</Link>
+        {t('components.login.login.registerMessage')}<br />
+        <Link href="/signup" to="/signup">{t('components.login.login.registerLink')}</Link>
       </div>
     </form>
   );
