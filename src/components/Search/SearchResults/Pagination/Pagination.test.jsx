@@ -158,7 +158,7 @@ describe('Pagination component', () => {
       const paginationButtons = wrapper.find('.pagination__button').length;
       const activeButton = wrapper.find('.pagination__button--active').length;
       const nbButtons = paginationButtons + activeButton;
-      expect(nbButtons).toEqual(10);
+      expect(nbButtons).toEqual(9);
     });
 
     // prev 1 2 3 4 5 6 ... 8 next
@@ -171,7 +171,7 @@ describe('Pagination component', () => {
       const paginationButtons = wrapper.find('.pagination__button').length;
       const activeButton = wrapper.find('.pagination__button--active').length;
       const nbButtons = paginationButtons + activeButton;
-      expect(nbButtons).toEqual(10);
+      expect(nbButtons).toEqual(9);
     });
 
     // prev 1 ... 4 5 6 7 8 ... 10 next
@@ -184,7 +184,7 @@ describe('Pagination component', () => {
       const paginationButtons = wrapper.find('.pagination__button').length;
       const activeButton = wrapper.find('.pagination__button--active').length;
       const nbButtons = paginationButtons + activeButton;
-      expect(nbButtons).toEqual(11);
+      expect(nbButtons).toEqual(9);
     });
   });
 });
