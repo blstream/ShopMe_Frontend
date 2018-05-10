@@ -2,29 +2,15 @@ import React from 'react';
 import { translate } from 'react-i18next';
 import { Redirect } from 'react-router';
 import LoginForm from 'components/Login/LoginForm/LoginForm';
-import SignupForm from 'components/Login/SignupForm/SignupForm';
 
 class ScreensLogin extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      result: {
-        emailExist: false,
-      },
       loginFireRedirect: false,
     };
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
-    this.isEmailExists = this.isEmailExists.bind(this);
-  }
-
-  isEmailExists(emailValue) {
-    const { http } = this.props;
-    return http.get(`/api/users/email=${emailValue}`)
-      .then((res) => {
-        if (res === true) this.setState({ result: { emailExist: true } });
-        else this.setState({ result: { emailExist: false } });
-      });
   }
 
   handleLoginSubmit(e) {
@@ -41,7 +27,6 @@ class ScreensLogin extends React.Component {
       <div className="login-form__wrapper">
         {this.state.loginFireRedirect && <Redirect to="/" />}
         <LoginForm handleSubmit={this.handleLoginSubmit} />
-        <SignupForm onSubmit={this.isEmailExists} result={this.state.result.emailExist} />
       </div>
     );
   }
