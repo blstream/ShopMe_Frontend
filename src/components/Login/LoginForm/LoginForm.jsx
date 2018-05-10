@@ -12,7 +12,7 @@ const LoginForm = (props) => {
   return (
     <form className="login-form" onSubmit={props.handleSubmit}>
       <h1 className="login-form__title">{t('components.login.login.formTitle')}</h1>
-      <div className="login-form__item">
+      <div className="login-form__item login-form__item--input">
         <Input
           name="login__user-email"
           type="email"
@@ -21,7 +21,7 @@ const LoginForm = (props) => {
           validation={validator.validateEmailInput}
         />
       </div>
-      <div className="login-form__item">
+      <div className="login-form__item login-form__item--input">
         <Input
           name="login__user-password"
           type="password"
@@ -31,7 +31,7 @@ const LoginForm = (props) => {
           validation={validator.validatePassword}
         />
       </div>
-      <div className="login-form__item--button">
+      <div className="login-form__item login-form__item--button">
         <FormButton
           id="login-form__submit-form"
           type="submit"

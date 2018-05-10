@@ -45,10 +45,12 @@
     },
     "login": {
       "login": {
-        "emailInputLabel": "E-mail:",
-        "passwordInputLabel": "Password:",
+        "emailInputLabel": "E-mail",
+        "passwordInputLabel": "Password",
         "submitButtonLabel": "Log In",
-        "formTitle": "Login"
+        "formTitle": "Login",
+        "text": "You dont have an account yet?",
+        "link": "Register"
       },
       "signup": {
         "firstNameInputLabel": "First Name:",

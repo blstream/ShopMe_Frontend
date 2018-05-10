@@ -1,21 +1,50 @@
+.login-form {
+  font-size: 1.4rem;
+  margin-top: 5rem;
+}
+
 .login-form__title {
-  font-size: 2.4rem;
+  font-size: 2rem;
   text-align: center;
 }
 
 .login-form__item {
-height: 4rem;
-margin: 4rem 2rem 0rem 2rem;
-}
-
-.login-form__item--button {
-  width: 60%;
   height: 4rem;
   margin: 4rem auto 0rem auto;
 }
 
+.login-form__item--input {
+  width: 29rem;
+}
+
+.login-form__item--button {
+  width: 19.5rem;
+}
+
 .login-form__register-link {
-  width: 60%;
+  width: 19.5rem;
   margin: 2rem auto 0rem auto;
   text-align: right;
+}
+
+@media (min-width: 768px) {
+  .login-form {
+    font-size: 1.5rem;
+    margin-top: 20rem;
+  }
+  .login-form__item--input {
+    width: 40rem;
+  }
+  .login-form__item--button {
+    width: 28rem;
+  }
+  .login-form__register-link {
+    width: 28rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .login-form__item--input {
+    width: 55rem;
+  }
 }
