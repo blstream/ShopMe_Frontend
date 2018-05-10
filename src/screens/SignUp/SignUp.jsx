@@ -2,7 +2,7 @@ import React from 'react';
 import { translate } from 'react-i18next';
 import SignupForm from 'components/Login/SignupForm/SignupForm';
 
-class FirstRegisterScreen extends React.Component {
+class ScreenSignUp extends React.Component {
   constructor(props) {
     super(props);
 
@@ -34,5 +34,5 @@ class FirstRegisterScreen extends React.Component {
   }
 }
 
-export { FirstRegisterScreen };
-export default translate()(FirstRegisterScreen);
+export { ScreenSignUp };
+export default translate()(ScreenSignUp);
