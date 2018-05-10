@@ -25,7 +25,7 @@ class Input extends Component {
     if (this.props.onChange) {
       this.props.onChange(this.props.name, value);
     }
-    this.setState({ errorMessage: '' });
+    this.setState({ errorMessage: 'fdsfd' });
   }
 
   checkValidity() {
@@ -56,15 +56,15 @@ class Input extends Component {
 
   render() {
     return (
-      <label
-        className={`input__wrapper input__wrapper--${this.props.display}`}
-        htmlFor={this.props.name}
-      >
-        <span className={`input__label input__label--${this.props.size} input__label--${this.props.display}`}>
+      <div className={this.props.wrapperName}>
+        <label
+          className="generic-input__label"
+          htmlFor={this.props.name}
+        >
           {this.props.label}
-        </span>
+        </label>
         <input
-          className={`input  input--${this.props.size} input--${this.props.color}`}
+          className={`generic-input generic-input--${this.props.color}`}
           type={this.state.type}
           name={this.props.name}
           placeholder={this.props.placeholder}
@@ -81,17 +81,17 @@ class Input extends Component {
         <div className="input__eye-icon" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
           <i className="fas fa-eye" aria-hidden="true" />
         </div>}
-      </label>
+      </div>
     );
   }
 }
 
 Input.defaultProps = {
+  wrapperName: 'generic-input__inline-label',
   type: 'text',
   placeholder: '',
   maxLength: 50,
-  size: 'M',
-  color: 'yellow',
+  color: 'white',
   display: 'inline',
   required: false,
   disabled: false,
@@ -101,12 +101,12 @@ Input.defaultProps = {
 };
 
 Input.propTypes = {
+  wrapperName: PropTypes.string,
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
   label: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   maxLength: PropTypes.number,
-  size: PropTypes.string,
   color: PropTypes.string,
   display: PropTypes.string,
   required: PropTypes.bool,

@@ -5,6 +5,7 @@ import ScreensSearch from 'screens/Search/Search';
 import ScreensAddForm from 'screens/Add/Form/Form';
 import ScreensOfferDetails from 'screens/OfferDetails/OfferDetails';
 import ScreensLogin from 'screens/Login/Login';
+import ScreenSignUp from 'screens/SignUp/SignUp';
 import ScreensRegister from 'screens/Register/Register';
 import ScreenSuccessAdd from 'screens/Add/SuccessAdd/SuccessAdd';
 import ScreenSuccessRegister from 'screens/Register/SuccessRegister/SuccessRegister';
@@ -24,6 +25,7 @@ export default() => (
       <Route path="/add/form" render={wrapInLayout(ScreensAddForm)} />
       <Route path="/offer/:offerId" render={wrapInLayout(ScreensOfferDetails)} />
       <Route path="/login" render={wrapInLayout(ScreensLogin)} />
+      <Route path="/signup" render={wrapInLayout(ScreenSignUp)} />
       <Route path="/register" render={wrapInLayout(ScreensRegister)} />
       <Route path="/articles/terms-and-conditions" render={wrapInLayout(ScreenTermsAndConditions)} />
       <Route path="/articles/:article" render={wrapInLayout(ScreensArticle)} />

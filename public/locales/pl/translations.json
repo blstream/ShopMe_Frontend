@@ -45,10 +45,12 @@
     },
     "login": {
       "login": {
-        "emailInputLabel": "E-mail:",
-        "passwordInputLabel": "Hasło:",
-        "submitButtonLabel": "Zaloguj",
-        "formTitle": "Logowanie"
+        "emailInputLabel": "E-mail",
+        "passwordInputLabel": "Hasło",
+        "submitButtonLabel": "Zaloguj się",
+        "formTitle": "Logowanie",
+        "text": "Nie masz jeszcze konta?",
+        "link": "Zarejestuj się"
       },
       "signup": {
         "firstNameInputLabel": "Imię:",
