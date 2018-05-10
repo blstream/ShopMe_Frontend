@@ -27,6 +27,7 @@ export default class Search extends React.Component {
     this.updateFoundServices = this.updateFoundServices.bind(this);
     this.updateSearchPhrase = this.updateSearchPhrase.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.updatePage = this.updatePage.bind(this);
   }
 
   componentDidMount() {
@@ -44,8 +45,9 @@ export default class Search extends React.Component {
 
   getData() {
     const { http } = this.props;
-    const title = this.state.searchPhrase;
-    return http.get('/api/offers', { title })
+    const title = this.state.phrase;
+    const [page] = [this.state.page];
+    return http.get('/api/offers', { title, page })
       .then((services) => {
         if (services.content) {
           this.setState({
@@ -118,6 +120,7 @@ export default class Search extends React.Component {
         updateFoundServices={this.updateFoundServices}
         phrase={this.state.phrase}
         paginationData={this.state.paginationData}
+        updatePage={this.updatePage}
       />);
     } else if (this.state.notFoundServices === true) {
       results = (<NoSearchResults />);
