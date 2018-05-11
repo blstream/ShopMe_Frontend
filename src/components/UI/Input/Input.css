@@ -32,16 +32,9 @@
 .input__error-message {
   position: absolute;
   right: 0;
+  bottom: -2.5rem;
   font-size: 1.2rem;
   color: #FF0000;
-}
-
-.input__error-message--block {
-  bottom: -2.5rem;
-}
-
-.input__error-message--inline {
-  bottom: -2.5rem;
 }
 
 .input__eye-icon {

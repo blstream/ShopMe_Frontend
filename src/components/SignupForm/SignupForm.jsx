@@ -5,7 +5,6 @@ import { Redirect } from 'react-router';
 import validator from 'helpers/validator';
 import Input from 'components/UI/Input/Input';
 import FormButton from 'components/UI/FormButton/FormButton';
-
 import './SignUpForm.css';
 
 class SignupForm extends Component {

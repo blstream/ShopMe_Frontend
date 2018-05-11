@@ -58,17 +58,16 @@ class GenericSelect extends Component {
 
   render() {
     const { t } = this.props;
-
     return (
-      <label
-        className={this.props.labelClassName}
-        htmlFor={this.props.name}
-      >
-        <span className={this.props.spanClassName}>
+      <div className={this.props.wrapperName}>
+        <label
+          className="input-select__label"
+          htmlFor={this.props.name}
+        >
           {t(`${this.props.selectNamePath}`)}
-        </span>
+        </label>
         <select
-          className={this.props.selectClassName}
+          className={`input-select input-select--${this.props.style}`}
           name={this.props.name}
           value={this.state.value}
           placeholder={this.props.placeholder}
@@ -76,13 +75,11 @@ class GenericSelect extends Component {
           required={this.props.required}
           onChange={this.handleChange}
         >
-          <option disabled />
-
           {this.state.selectData.map((selectItem, index) => (
             <option
               key={index.toString()}
               value={selectItem.name}
-              className={this.props.selectItemClassName}
+              className={this.props.optionClassName}
             >
               {(t(`${this.props.selectOptionsPath}.${selectItem.name}`))}
             </option>
@@ -91,16 +88,15 @@ class GenericSelect extends Component {
         <div className={this.props.errorClassName}>
           {this.state.errorMessage}
         </div>
-      </label>
+      </div>
     );
   }
 }
 
 GenericSelect.defaultProps = {
-  labelClassName: 'input__wrapper',
-  spanClassName: '',
-  selectClassName: '',
-  selectItemClassName: 'input-select__item-option',
+  wrapperName: 'input-select__inline-label',
+  style: 'custom',
+  optionClassName: 'input-select__item-option',
   errorClassName: 'input-select__errorMessage',
 };
 

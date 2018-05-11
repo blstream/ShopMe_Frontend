@@ -1,6 +1,6 @@
 import React from 'react';
 import { translate } from 'react-i18next';
-import SignupForm from 'components/Login/SignupForm/SignupForm';
+import SignupForm from 'components/SignupForm/SignupForm';
 
 class SignUpScreen extends React.Component {
   constructor(props) {

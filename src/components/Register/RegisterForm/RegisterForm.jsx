@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
-
 import validator from 'helpers/validator';
-import GenericInput from 'components/UI/GenericInput/GenericInput';
 import Input from 'components/UI/Input/Input';
 import GenericSelect from 'components/UI/GenericSelect/GenericSelect';
 import FormButton from 'components/UI/FormButton/FormButton';
 import PersonalDataConfirm from './PersonalDataConfirm/PersonalDataConfirm';
 import InvoiceInputGroup from './InvoiceInputGroup/InvoiceInputGroup';
 import TermsAndConditionsCheckbox from './TermsAndConditionsCheckbox/TermsAndConditionsCheckbox';
-
-
-import './Register.css';
+import './RegisterForm.css';
 
 class RegisterForm extends Component {
   constructor(props) {
@@ -120,157 +116,147 @@ class RegisterForm extends Component {
         onSubmit={this.checkFormValidity}
         noValidate
       >
-        <fieldset className="register-form__fieldset">
-          <div className="register-form__icon-container">
-            <i className="register-form__icon register-form__icon--signup fas fa-user-plus" aria-hidden="true" />
-          </div>
-          <h1 className="login-form__title">{t('components.login.register.formTitle')}</h1>
-          <div className="register-form__item">
-            <GenericInput
-              name="users__name"
-              type="text"
-              label={t('components.login.register.firstNameInputLabel')}
-              maxLength={20}
-              required
-              validation={validator.validateNameInput}
-              value={this.props.location.state.name}
-              ref={(v) => { this.users__name = v; }}
-            />
-          </div>
-          <div className="register-form__item">
-            <GenericInput
-              name="users__surname"
-              type="text"
-              label={t('components.login.register.lastNameInputLabel')}
-              maxLength={50}
-              required
-              validation={validator.validateSurnameInput}
-              value={this.props.location.state.surname}
-              ref={(v) => { this.users__surname = v; }}
-            />
-          </div>
-          <div className="register-form__item">
-            <GenericInput
-              name="users__email"
-              type="text"
-              label={t('components.login.register.emailInputLabel')}
-              required
-              validation={validator.validateEmailInput}
-              value={this.props.location.state.email}
-              ref={(v) => { this.users__email = v; }}
-            />
-          </div>
-          <div className="register-form__item">
-            <Input
-              name="users__password"
-              type="password"
-              label={t('components.login.register.passwordInputLabel')}
-              maxLength={30}
-              required
-              validation={validator.validatePassword}
-              ref={(v) => { this.users__password = v; }}
-            />
-          </div>
-          <div className="register-form__item">
-            <GenericInput
-              name="users__phone-number"
-              type="text"
-              label={t('components.login.register.phoneNumberInputLabel')}
-              maxLength={10}
-              required
-              validation={validator.validatePhoneNumber}
-              ref={(v) => { this.users__phoneNumber = v; }}
-            />
-          </div>
-          <div className="register-form__item">
-            <GenericInput
-              name="users__bank-account"
-              type="text"
-              label={t('components.login.register.bankAccountInputLabel')}
-              maxLength={26}
-              required
-              validation={validator.validateBankAccount}
-              ref={(v) => { this.users__bankAccount = v; }}
-            />
-          </div>
-          <div className="register-form__item">
-            <GenericInput
-              name="users__address-street"
-              type="text"
-              label={t('components.login.register.streetInputLabel')}
-              required
-              validation={validator.validateStreet}
-              ref={(v) => { this.users__addressStreet = v; }}
-            />
-          </div>
-          <div className="register-form__item">
-            <GenericInput
-              name="users__address-number"
-              type="text"
-              label={t('components.login.register.houseNumberInputLabel')}
-              required
-              validation={validator.validateHouseNumber}
-              ref={(v) => { this.users__addressNumber = v; }}
-            />
-          </div>
-          <div className="register-form__item">
-            <GenericInput
-              name="users__address-zip-code"
-              type="text"
-              label={t('components.login.register.zipCodeInputLabel')}
-              maxLength={6}
-              required
-              validation={validator.validateZipCode}
-              ref={(v) => { this.users__addressZipCode = v; }}
-            />
-          </div>
-          <div className="register-form__item">
-            <GenericInput
-              name="users__address-city"
-              type="text"
-              label={t('components.login.register.cityInputLabel')}
-              maxLength={50}
-              required
-              validation={validator.validateCity}
-              ref={(v) => { this.users__addressCity = v; }}
-            />
-          </div>
-          <div className="register-form__item">
-            <GenericSelect
-              name="offer__voivodeship"
-              ref={(v) => { this.voivodeshipSelect = v; }}
-              label={t('components.login.register.voivodeships')}
-              endpoint="voivodeships"
-              selectNamePath="components.login.register.voivodeships"
-              selectErrorPath="components.UI.categorySelect.errorEmptyField"
-              selectOptionsPath="components.UI.voivodeship.list"
-              labelClassName=".select_span--yellow"
-              selectClassName="input-select input-select--yellow input-select--inline"
-              selectItemClassName="input-select__item-option--yellow"
-              errorClassName="input-select__errorMessage input-select__errorMessage2"
-              required
-            />
-          </div>
-          <InvoiceInputGroup
-            ref={(v) => { this.users__invoiceInputGroup = v; }}
+        <h1 className="register-form__title">{t('components.register.formTitle')}</h1>
+        <div className="register-form__item register-form__item--input">
+          <Input
+            name="users__name"
+            type="text"
+            label={t('components.register.firstNameInputLabel')}
+            maxLength={20}
+            required
+            validation={validator.validateNameInput}
+            value={this.props.location.state.name}
+            ref={(v) => { this.users__name = v; }}
           />
-          <div className="register-form__item register-form__item--button">
-            <FormButton
-              id="users__register-submit"
-              type="submit"
-              value={t('components.login.signup.submitButtonLabel')}
-            />
-          </div>
-          <div className="register-form__item--checkbox">
-            <TermsAndConditionsCheckbox
-              ref={(v) => { this.users__termsAndConditionsCheckbox = v; }}
-            />
-            <PersonalDataConfirm
-              validation={validator.validateCheckbox}
-              ref={(v) => { this.users__personalDataProcessing = v; }}
-            />
-          </div>
-        </fieldset>
+        </div>
+        <div className="register-form__item register-form__item--input">
+          <Input
+            name="users__surname"
+            type="text"
+            label={t('components.register.lastNameInputLabel')}
+            maxLength={50}
+            required
+            validation={validator.validateSurnameInput}
+            value={this.props.location.state.surname}
+            ref={(v) => { this.users__surname = v; }}
+          />
+        </div>
+        <div className="register-form__item register-form__item--input">
+          <Input
+            name="users__email"
+            type="text"
+            label={t('components.register.emailInputLabel')}
+            required
+            validation={validator.validateEmailInput}
+            value={this.props.location.state.email}
+            ref={(v) => { this.users__email = v; }}
+          />
+        </div>
+        <div className="register-form__item register-form__item--input">
+          <Input
+            name="users__password"
+            type="password"
+            label={t('components.register.passwordInputLabel')}
+            maxLength={30}
+            required
+            validation={validator.validatePassword}
+            ref={(v) => { this.users__password = v; }}
+          />
+        </div>
+        <div className="register-form__item register-form__item--input">
+          <Input
+            name="users__phone-number"
+            type="text"
+            label={t('components.register.phoneNumberInputLabel')}
+            maxLength={10}
+            required
+            validation={validator.validatePhoneNumber}
+            ref={(v) => { this.users__phoneNumber = v; }}
+          />
+        </div>
+        <div className="register-form__item register-form__item--input">
+          <Input
+            name="users__bank-account"
+            type="text"
+            label={t('components.register.bankAccountInputLabel')}
+            maxLength={26}
+            required
+            validation={validator.validateBankAccount}
+            ref={(v) => { this.users__bankAccount = v; }}
+          />
+        </div>
+        <div className="register-form__item register-form__item--input">
+          <Input
+            name="users__address-street"
+            type="text"
+            label={t('components.register.streetInputLabel')}
+            required
+            validation={validator.validateStreet}
+            ref={(v) => { this.users__addressStreet = v; }}
+          />
+        </div>
+        <div className="register-form__item register-form__item--input">
+          <Input
+            name="users__address-number"
+            type="text"
+            label={t('components.register.houseNumberInputLabel')}
+            required
+            validation={validator.validateHouseNumber}
+            ref={(v) => { this.users__addressNumber = v; }}
+          />
+        </div>
+        <div className="register-form__item register-form__item--input">
+          <Input
+            name="users__address-zip-code"
+            type="text"
+            label={t('components.register.zipCodeInputLabel')}
+            maxLength={6}
+            required
+            validation={validator.validateZipCode}
+            ref={(v) => { this.users__addressZipCode = v; }}
+          />
+        </div>
+        <div className="register-form__item register-form__item--input">
+          <GenericSelect
+            name="offer__voivodeship"
+            ref={(v) => { this.voivodeshipSelect = v; }}
+            label={t('components.register.voivodeships')}
+            endpoint="voivodeships"
+            selectNamePath="components.register.voivodeships"
+            selectErrorPath="components.UI.categorySelect.errorEmptyField"
+            selectOptionsPath="components.UI.voivodeship.list"
+            errorClassName="input-select__errorMessage"
+            required
+          />
+        </div>
+        <div className="register-form__item register-form__item--input">
+          <Input
+            name="users__address-city"
+            type="text"
+            label={t('components.register.cityInputLabel')}
+            maxLength={50}
+            required
+            validation={validator.validateCity}
+            ref={(v) => { this.users__addressCity = v; }}
+          />
+        </div>
+        <InvoiceInputGroup
+          ref={(v) => { this.users__invoiceInputGroup = v; }}
+        />
+        <TermsAndConditionsCheckbox
+          ref={(v) => { this.users__termsAndConditionsCheckbox = v; }}
+        />
+        <PersonalDataConfirm
+          validation={validator.validateCheckbox}
+          ref={(v) => { this.users__personalDataProcessing = v; }}
+        />
+        <div className="register-form__item register-form__item--button">
+          <FormButton
+            id="users__register-submit"
+            type="submit"
+            value={t('components.signup.submitButtonLabel')}
+          />
+        </div>
       </form>
     );
   }

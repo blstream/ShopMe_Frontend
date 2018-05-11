@@ -84,7 +84,7 @@ class Input extends Component {
           required={this.props.required}
           disabled={this.props.disabled}
         />
-        <div className={`input__error-message input__error-message--${this.props.display}`}>
+        <div className="input__error-message">
           {this.state.errorMessage}
         </div>
         {this.props.type === 'password' &&
@@ -102,7 +102,6 @@ Input.defaultProps = {
   placeholder: '',
   maxLength: 50,
   color: 'white',
-  display: 'inline',
   required: false,
   disabled: false,
   validation() { return undefined; },
@@ -118,7 +117,6 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   maxLength: PropTypes.number,
   color: PropTypes.string,
-  display: PropTypes.string,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
   validation: PropTypes.func,

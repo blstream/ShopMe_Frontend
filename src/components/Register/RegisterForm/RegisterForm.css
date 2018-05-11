@@ -1,0 +1,129 @@
+.register-form {
+  font-size: 1.2rem;
+  margin-top: 5rem;
+}
+
+.register-form__title {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.register-form__item {
+  height: 4rem;
+  margin: 4rem auto 0rem auto;
+}
+
+.register-form__item--input {
+  width: 29rem;
+}
+
+.register-form__item--checkbox {
+  margin: 1rem auto 1rem auto;
+  width: 29rem;
+  display: flex;
+  align-items: center;
+}
+
+.register-form__item--button {
+  width: 19.5rem;
+}
+
+.register-form__login-link {
+  width: 19.5rem;
+  margin: 2rem auto 0rem auto;
+  text-align: right;
+}
+
+.register-form__errors {
+  height: 4rem;
+}
+
+.register-form__error, .register-form__email-exists-message {
+  color: #F92828;
+  text-align: center;
+  padding-top: 0.5rem;
+}
+
+.register-form__error {
+  font-size: 1.2rem;
+}
+
+.register-form__email-exists-message {
+  font-size: 1.2rem;
+}
+
+.register-form__checkbox-wrapper {
+  margin-top: 4rem;
+}
+
+.register-form__checkbox {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+}
+
+.register-form__item {
+  height: 4rem;
+  margin: 4rem auto 0rem auto;
+}
+
+.register-form__item:last-child {
+  margin-bottom: 4rem;
+}
+
+.register-form__item--input {
+  width: 29rem;
+}
+
+.register__checkbox--error-message {
+  color: #F92828;
+  margin: 0 auto 1rem auto;
+  width: 29rem;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label:before {
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  content: "\00a0";
+  display: inline-block;
+  font: 16px/1em sans-serif;
+  height: 16px;
+  margin-right: 1rem;
+  padding: 0;
+  vertical-align: top;
+  width: 16px;
+}
+
+input[type="checkbox"]:checked + label:before {
+  background: #fff;
+  color: #000;
+  content: "\2713";
+  font-weight: bold;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .register-form {
+    font-size: 1.3rem;
+    margin-top: 20rem;
+  }
+  .register-form__item--input, .register-form__item--checkbox, .register__checkbox--error-message {
+    width: 40rem;
+  }
+  .register-form__item--button, .register-form__login-link {
+    width: 28rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .register-form {
+    font-size: 1.4rem;
+  }
+  .register-form__item--input, .register-form__item--checkbox, .register__checkbox--error-message {
+    width: 55rem;
+  }
+}

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
 
-import './PersonalDataConfirm.css';
-
 class PersonalDataConfirm extends Component {
   constructor(props) {
     super(props);
@@ -38,23 +36,26 @@ class PersonalDataConfirm extends Component {
   render() {
     const { t } = this.props;
     return (
-      <label
-        htmlFor="users__personal-data-processing"
-        className="users__personal-data-processing--label"
-      >
-        {t('components.login.register.personalDataProcessing')}
-        <input
-          id="users__personal-data-processing"
-          name="users__personal-data-processing"
-          type="checkbox"
-          className="users__personal-data-processing--input"
-          checked={this.state.checked}
-          onChange={this.handleChange}
-        />
-        <div className="users__personal-data-processing-error-message">
+      <div>
+        <div className="register-form__item--checkbox">
+          <input
+            id="users__personal-data-processing"
+            name="users__personal-data-processing"
+            type="checkbox"
+            className="register-form__checkbox"
+            checked={this.state.checked}
+            onChange={this.handleChange}
+          />
+          <label
+            htmlFor="users__personal-data-processing"
+          >
+            {t('components.register.personalDataProcessing')}
+          </label>
+        </div>
+        <div className="register__checkbox--error-message">
           {this.state.errorMessage}
         </div>
-      </label>
+      </div>
     );
   }
 }

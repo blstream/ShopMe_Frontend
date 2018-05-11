@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
 import validator from 'helpers/validator';
-import GenericInput from 'components/UI/GenericInput/GenericInput';
+import Input from 'components/UI/Input/Input';
 
 class InvoiceInputGroup extends Component {
   constructor(props) {
@@ -74,11 +74,11 @@ class InvoiceInputGroup extends Component {
       ?
       (
         <div>
-          <div className="register-form__item">
-            <GenericInput
+          <div className="register-form__item register-form__item--input">
+            <Input
               name="users_invoiceCompanyName"
               type="text"
-              label={t('components.login.register.companyNameInputLabel')}
+              label={t('components.register.companyNameInputLabel')}
               required
               validation={validator.validateCompanyName}
               ref={(v) => { this.users_invoiceCompanyName = v; }}
@@ -86,11 +86,11 @@ class InvoiceInputGroup extends Component {
               value={this.state.value}
             />
           </div>
-          <div className="register-form__item">
-            <GenericInput
+          <div className="register-form__item register-form__item--input">
+            <Input
               name="users_invoiceNip"
               type="text"
-              label={t('components.login.register.nipInputLabel')}
+              label={t('components.register.nipInputLabel')}
               maxLength={10}
               required
               validation={validator.validateNip}
@@ -98,33 +98,33 @@ class InvoiceInputGroup extends Component {
               onChange={this.handleChange}
             />
           </div>
-          <div className="register-form__item">
-            <GenericInput
+          <div className="register-form__item register-form__item--input">
+            <Input
               name="users_invoiceAddressStreet"
               type="text"
-              label={t('components.login.register.streetInputLabel')}
+              label={t('components.register.streetInputLabel')}
               required
               validation={validator.validateStreet}
               ref={(v) => { this.users_invoiceAddressStreet = v; }}
               onChange={this.handleChange}
             />
           </div>
-          <div className="register-form__item">
-            <GenericInput
+          <div className="register-form__item register-form__item--input">
+            <Input
               name="users_invoiceAddressNumber"
               type="text"
-              label={t('components.login.register.houseNumberInputLabel')}
+              label={t('components.register.houseNumberInputLabel')}
               required
               validation={validator.validateHouseNumber}
               ref={(v) => { this.users_invoiceAddressNumber = v; }}
               onChange={this.handleChange}
             />
           </div>
-          <div className="register-form__item">
-            <GenericInput
+          <div className="register-form__item register-form__item--input">
+            <Input
               name="users_invoiceAddressZipCode"
               type="text"
-              label={t('components.login.register.zipCodeInputLabel')}
+              label={t('components.register.zipCodeInputLabel')}
               maxLength={6}
               required
               validation={validator.validateZipCode}
@@ -132,11 +132,11 @@ class InvoiceInputGroup extends Component {
               onChange={this.handleChange}
             />
           </div>
-          <div className="register-form__item">
-            <GenericInput
+          <div className="register-form__item register-form__item--input">
+            <Input
               name="users_invoiceAddressCity"
               type="text"
-              label={t('components.login.register.localityInputLabel')}
+              label={t('components.register.localityInputLabel')}
               maxLength={50}
               required
               validation={validator.validateCity}
@@ -148,21 +148,23 @@ class InvoiceInputGroup extends Component {
       : null;
 
     return (
-      <div>
-        <label
-          htmlFor="invoiceCheckbox"
-          style={{ margin: '0 0 0 325px' }}
-        >
-          {t('components.login.register.invoiceDataLabel')}
+      <div className="register-form__checkbox-wrapper">
+        <div className="register-form__item--checkbox">
           <input
+            id="invoiceCheckbox"
             name="invoiceCheckbox"
             type="checkbox"
+            className="register-form__checkbox"
             checked={this.state.checked}
             onChange={this.handleCheckboxChange}
-            style={{ margin: '0 0 0 10px', cursor: 'pointer' }}
             ref={(v) => { this.invoiceCheckbox = v; }}
           />
-        </label>
+          <label
+            htmlFor="invoiceCheckbox"
+          >
+            {t('components.register.invoiceDataLabel')}
+          </label>
+        </div>
         {content}
       </div>
     );
