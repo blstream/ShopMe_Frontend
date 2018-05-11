@@ -1,19 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { MemoryRouter } from 'react-router-dom';
 import { mount } from 'enzyme';
 import { SignupForm } from './SignupForm';
+
+const props = {
+  location: {
+    state: {},
+  },
+};
+const element = (
+  <MemoryRouter>
+    <SignupForm location={props.location} />
+  </MemoryRouter>
+);
 
 describe('SignupForm Component', () => {
   it('should render without warnigns', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<SignupForm />, div);
+    ReactDOM.render(element, div);
   });
 
   describe('methods', () => {
     let wrapper;
     beforeEach(() => {
       SignupForm.prototype.handleSubmit = jest.fn();
-      wrapper = mount(<SignupForm />);
+      wrapper = mount(element);
     });
 
     describe('render', () => {
