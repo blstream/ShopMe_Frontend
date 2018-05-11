@@ -96,7 +96,10 @@ export default class Search extends React.Component {
 
   updatePage(page) {
     this.setState({
-      paginationData: { pageNumber: page, totalPages: this.state.paginationData.totalPages },
+      paginationData: {
+        pageNumber: page,
+        totalPages: this.state.paginationData.totalPages,
+      },
       page,
       fireRedirect: true,
     }, () => {

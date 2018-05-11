@@ -149,7 +149,7 @@ describe('Pagination component', () => {
     });
 
     // prev 1 ... 4 5 6 7 8 9 next
-    it('should have ten buttons if total page = 9 and page = 6', () => {
+    it('should have nine buttons if total page = 9 and page = 6', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={6}
@@ -162,7 +162,7 @@ describe('Pagination component', () => {
     });
 
     // prev 1 2 3 4 5 6 ... 8 next
-    it('should have ten buttons if total page = 8 and page = 4', () => {
+    it('should have nine buttons if total page = 8 and page = 4', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={4}
@@ -175,7 +175,7 @@ describe('Pagination component', () => {
     });
 
     // prev 1 ... 4 5 6 7 8 ... 10 next
-    it('should have eleven buttons if total page = 10 and page = 6', () => {
+    it('should have nine buttons if total page = 10 and page = 6', () => {
       const wrapper = shallow(<Pagination
         margin={2}
         page={6}
