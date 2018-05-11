@@ -19,6 +19,16 @@ class Input extends Component {
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.onValidate) {
+      const isValid = this.checkValidity();
+      this.props.doValidate(this.props.name, isValid);
+      if (isValid) {
+        this.props.setValue(this.props.name, this.state.value);
+      }
+    }
+  }
+
   handleChange(event) {
     const { value } = event.target;
     this.setState({ value });

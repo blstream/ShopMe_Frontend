@@ -52,14 +52,6 @@
         "registerMessage": "You dont have an account yet?",
         "registerLink": "Register"
       },
-      "signup": {
-        "firstNameInputLabel": "First Name:",
-        "lastNameInputLabel": "Last Name:",
-        "emailInputLabel": "E-mail:",
-        "submitButtonLabel": "Sign Up",
-        "formTitle": "Registration",
-        "errorMessage": "* Please fill out required fields"
-      },
       "register": {
         "firstNameInputLabel": "First Name:",
         "lastNameInputLabel": "Last Name:",
@@ -86,6 +78,16 @@
         "voivodeships": "Voivodeship:"
       }
     },
+    "signup": {
+        "firstNameInputLabel": "First Name:",
+        "lastNameInputLabel": "Last Name:",
+        "emailInputLabel": "E-mail:",
+        "submitButtonLabel": "Sign Up",
+        "formTitle": "Registration",
+        "errorMessage": "* Please fill out required fields",
+        "loginMessage": "Already have an account?",
+        "loginLink": "Log in"
+      },
     "offerDetails": {
         "contact": "Contact",
         "show": "Show",

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import validator from 'helpers/validator';
-import GenericInput from 'components/UI/GenericInput/GenericInput';
+import Input from 'components/UI/Input/Input';
 import FormButton from 'components/UI/FormButton/FormButton';
 
 import './SignUpForm.css';
@@ -96,67 +97,66 @@ class SignupForm extends Component {
       );
     }
     return (
-      <React.Fragment>
-        <form
-          className="signup-form"
-          onSubmit={this.handleSubmit}
-          noValidate
-        >
-          <fieldset className="signup-form__fieldset">
-            <div className="signup-form__icon-container">
-              <i className="signup-form__icon signup-form__icon--signup fas fa-user-plus" aria-hidden="true" />
-            </div>
-            <h1 className="signup-form__title">{t('components.login.signup.formTitle')}</h1>
-            {isEmailExists && <p className="signup-form__email-exists-message">{t('components.login.register.anEmailIsExisting')}</p>}
-            {errorMessage && <p className="signup-form__error">{t('components.login.signup.errorMessage')}</p>}
-            <div className="signup-form__item">
-              <GenericInput
-                name="userName"
-                type="text"
-                label={t('components.login.signup.firstNameInputLabel')}
-                maxLength={20}
-                required
-                validation={validator.validateNameInput}
-                onValidate={this.state.doValidate}
-                doValidate={this.setIsValid}
-                setValue={this.setValue}
-              />
-            </div>
-            <div className="signup-form__item">
-              <GenericInput
-                name="userSurname"
-                type="text"
-                label={t('components.login.signup.lastNameInputLabel')}
-                maxLength={50}
-                required
-                validation={validator.validateSurnameInput}
-                onValidate={this.state.doValidate}
-                doValidate={this.setIsValid}
-                setValue={this.setValue}
-              />
-            </div>
-            <div className="signup-form__item">
-              <GenericInput
-                name="userEmail"
-                type="email"
-                label={t('components.login.signup.emailInputLabel')}
-                required
-                validation={validator.validateEmailInput}
-                onValidate={this.state.doValidate}
-                doValidate={this.setIsValid}
-                setValue={this.setValue}
-              />
-            </div>
-            <div className="signup-form__item">
-              <FormButton
-                id="signup-form__submit"
-                type="submit"
-                value={t('components.login.signup.submitButtonLabel')}
-              />
-            </div>
-          </fieldset>
-        </form>
-      </React.Fragment>
+      <form
+        className="signup-form"
+        onSubmit={this.handleSubmit}
+        noValidate
+      >
+        <h1 className="signup-form__title">{t('components.signup.formTitle')}</h1>
+        <div className="signup-form__errors">
+          {isEmailExists && <p className="signup-form__email-exists-message">{t('components.login.register.anEmailIsExisting')}</p>}
+          {errorMessage && <p className="signup-form__error">{t('components.signup.errorMessage')}</p>}
+        </div>
+        <div className="signup-form__item login-form__item--input">
+          <Input
+            name="userName"
+            type="text"
+            label={t('components.signup.firstNameInputLabel')}
+            maxLength={20}
+            required
+            validation={validator.validateNameInput}
+            onValidate={this.state.doValidate}
+            doValidate={this.setIsValid}
+            setValue={this.setValue}
+          />
+        </div>
+        <div className="signup-form__item login-form__item--input">
+          <Input
+            name="userSurname"
+            type="text"
+            label={t('components.signup.lastNameInputLabel')}
+            maxLength={50}
+            required
+            validation={validator.validateSurnameInput}
+            onValidate={this.state.doValidate}
+            doValidate={this.setIsValid}
+            setValue={this.setValue}
+          />
+        </div>
+        <div className="signup-form__item login-form__item--input">
+          <Input
+            name="userEmail"
+            type="email"
+            label={t('components.signup.emailInputLabel')}
+            required
+            validation={validator.validateEmailInput}
+            onValidate={this.state.doValidate}
+            doValidate={this.setIsValid}
+            setValue={this.setValue}
+          />
+        </div>
+        <div className="signup-form__item signup-form__item--button">
+          <FormButton
+            id="signup-form__submit"
+            type="submit"
+            value={t('components.signup.submitButtonLabel')}
+          />
+        </div>
+        <div className="signup-form__login-link">
+          {t('components.signup.loginMessage')}<br />
+          <Link href="/login" to="/login">{t('components.signup.loginLink')}</Link>
+        </div>
+      </form>
     );
   }
 }

@@ -52,14 +52,6 @@
         "registerMessage": "Nie masz jeszcze konta?",
         "registerLink": "Zarejestruj się"
       },
-      "signup": {
-        "firstNameInputLabel": "Imię:",
-        "lastNameInputLabel": "Nazwisko:",
-        "emailInputLabel": "E-mail:",
-        "submitButtonLabel": "Rejestruj",
-        "formTitle": "Rejestracja",
-        "errorMessage": "* Proszę uzupełnić wymagane pola"
-      },
       "register": {
         "firstNameInputLabel": "Imię:",
         "lastNameInputLabel": "Nazwisko:",
@@ -86,6 +78,16 @@
         "voivodeships": "Województwo:"
       }
     },
+    "signup": {
+        "firstNameInputLabel": "Imię:",
+        "lastNameInputLabel": "Nazwisko:",
+        "emailInputLabel": "E-mail:",
+        "submitButtonLabel": "Rejestruj",
+        "formTitle": "Rejestracja",
+        "errorMessage": "* Proszę uzupełnić wymagane pola",
+        "loginMessage": "Masz już konto?",
+        "loginLink": "Zaloguj się"
+      },
     "offerDetails": {
         "contact": "Kontakt",
         "show": "Pokaż",
