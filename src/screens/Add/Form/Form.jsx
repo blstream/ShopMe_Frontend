@@ -8,6 +8,7 @@ class AddFormScreen extends React.Component {
     super(props);
     this.state = {
       fireRedirect: false,
+      responseId: '',
     };
     this.sendData = this.sendData.bind(this);
   }
@@ -15,13 +16,20 @@ class AddFormScreen extends React.Component {
   sendData(data) {
     const { http } = this.props;
     return http.post('/api/offers', data)
+      .then(response => this.setState({ responseId: response.id }))
       .then(() => this.setState({ fireRedirect: true }));
   }
 
   render() {
     return (
       <div>
-        {this.state.fireRedirect && <Redirect to="/add/form/success" />}
+        {this.state.fireRedirect &&
+        <Redirect
+          to={{
+          pathname: '/add/form/success',
+          responseId: this.state.responseId,
+        }}
+        />}
         <AddForm fetchData={this.sendData} />
       </div>
     );

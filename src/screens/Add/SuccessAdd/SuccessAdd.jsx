@@ -21,9 +21,10 @@ class SuccessAddScreen extends React.Component {
   }
 
   render() {
+    const offerId = this.props.location.responseId;
     return (
       <div>
-        { this.state.fireRedirect && <Redirect to={{ pathname: '/' }} />}
+        { this.state.fireRedirect && <Redirect to={{ pathname: `/offer/${offerId}` }} />}
         <SuccessMessage />
       </div>
     );
