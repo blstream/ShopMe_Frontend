@@ -7,7 +7,7 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   const element = (
     <MemoryRouter>
-      <SuccessAddScreen />
+      <SuccessAddScreen location="mockLocation" />
     </MemoryRouter>
   );
 
