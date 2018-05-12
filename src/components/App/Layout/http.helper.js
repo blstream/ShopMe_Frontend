@@ -2,16 +2,18 @@ const http = {
   get(url, params, options) {
     const parseMethod = options ? options.parse : 'json';
     let getUrl = url.replace('/api/', `${process.env.REACT_APP_API}/`);
+    let parse;
 
     if (params) {
       const getParams = new URLSearchParams(Object.entries(params));
       getUrl = `${getUrl}?${getParams}`;
     }
 
-    if (parseMethod === 'none') return fetch(getUrl);
+    if (parseMethod === 'none') parse = res => res;
+    else parse = res => res[parseMethod]();
 
     return fetch(getUrl)
-      .then(response => response[parseMethod]());
+      .then(parse);
   },
 
   post(url, body, options) {
@@ -24,11 +26,13 @@ const http = {
       },
       method: 'POST',
     };
+    let parse;
 
-    if (parseMethod === 'none') return fetch(postUrl, myInit);
+    if (parseMethod === 'none') parse = res => res;
+    else parse = res => res[parseMethod]();
 
     return fetch(postUrl, myInit)
-      .then(response => response[parseMethod]());
+      .then(parse);
   },
 };
 
