@@ -25,8 +25,8 @@ class GenericSelect extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const isValid = this.checkValidity();
     if (nextProps.onValidate) {
+      const isValid = this.checkValidity();
       this.props.doValidate(this.props.name, isValid);
       if (isValid) {
         const selected = this.state.selectData.find(category => category.name === this.state.value);
