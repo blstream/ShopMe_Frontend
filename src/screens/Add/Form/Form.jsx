@@ -26,9 +26,9 @@ class AddFormScreen extends React.Component {
         {this.state.fireRedirect &&
         <Redirect
           to={{
-          pathname: '/add/form/success',
-          responseId: this.state.responseId,
-        }}
+            pathname: '/add/form/success',
+            responseId: this.state.responseId,
+          }}
         />}
         <AddForm fetchData={this.sendData} />
       </div>
