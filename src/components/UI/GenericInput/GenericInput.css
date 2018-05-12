@@ -67,7 +67,7 @@
   bottom: -1.5rem;
   right: 0;
   font-size: 1.2rem;
-  color: #FF0000;
+  color: #F92828;
 }
 
 .input__error-message--yellow {
@@ -75,7 +75,7 @@
   bottom: -3rem;
   right: 0;
   font-size: 1.2rem;
-  color: #FF0000;
+  color: #F92828;
 }
 
 .input--disabled {

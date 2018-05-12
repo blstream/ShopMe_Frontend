@@ -48,7 +48,7 @@
   bottom: 0;
   left: 3rem;
   font-size: 1.6rem;
-  color: #FF0000;
+  color: #F92828;
 }
 
 .add-form__fieldset--basic {
@@ -159,7 +159,7 @@
 
 .input-title__errorMessage {
   font-size: 1.2rem;
-  color: red;
+  color: #F92828;
   margin-top: 0.5rem;
   text-align: right;
 }
