@@ -46,7 +46,7 @@ class CategoryList extends React.Component {
           <Category category="repairAndService" />
           <Category category="garden" />
           <Category category="bandsAndMusic" />
-          <Category category="building" />
+          <Category category="workshopServices" />
           <Category category="housework" />
           <Category category="law" />
           <Category category="programming" />
