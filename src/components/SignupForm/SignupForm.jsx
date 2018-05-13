@@ -103,7 +103,7 @@ class SignupForm extends Component {
       >
         <h1 className="signup-form__title">{t('components.signup.formTitle')}</h1>
         <div className="signup-form__errors">
-          {isEmailExists && <p className="signup-form__email-exists-message">{t('components.login.register.anEmailIsExisting')}</p>}
+          {isEmailExists && <p className="signup-form__email-exists-message">{t('components.register.anEmailIsExisting')}</p>}
           {errorMessage && <p className="signup-form__error">{t('components.signup.errorMessage')}</p>}
         </div>
         <div className="signup-form__item login-form__item--input">
