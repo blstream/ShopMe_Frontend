@@ -3,6 +3,7 @@ import SearchForm from 'components/Search/SearchForm/SearchForm';
 import FoundSearchResults from 'components/Search/SearchResults/FoundSearchResults/FoundSearchResults';
 import NoSearchResults from 'components/Search/SearchResults/NoSearchResults/NoSearchResults';
 import { Redirect } from 'react-router';
+import ErrorMessage from 'components/UI/ErrorMessage/ErrorMessage';
 
 
 export default class SearchScreen extends React.Component {
@@ -22,7 +23,7 @@ export default class SearchScreen extends React.Component {
       isValidPhrase: false,
       paginationData: {},
       triggerFetchAfterValidate: !!phrase,
-      fireRedirect: undefined,
+      fireRedirect: false,
       page,
       category,
     };
@@ -76,7 +77,7 @@ export default class SearchScreen extends React.Component {
           this.setState({ services: [], notFoundServices: true });
         }
       })
-      .catch(() => this.setState({ fireRedirect: 'error' }));
+      .catch(() => this.setState({ error: 'true' }));
   }
 
   updateFoundServices(foundServices) {
@@ -123,7 +124,8 @@ export default class SearchScreen extends React.Component {
   }
 
   render() {
-    if (this.state.fireRedirect === 'success') {
+    if (this.state.error) return <ErrorMessage />;
+    if (this.state.fireRedirect) {
       return (
         <Redirect
           to={{
@@ -133,11 +135,6 @@ export default class SearchScreen extends React.Component {
               : `?title=${this.state.phrase}&page=${this.state.paginationData.pageNumber}`,
           }}
         />
-      );
-    }
-    if (this.state.fireRedirect === 'error') {
-      return (
-        <Redirect to={{ pathname: '/error' }} />
       );
     }
     let results;

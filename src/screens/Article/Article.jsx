@@ -1,14 +1,14 @@
 import React from 'react';
 import { translate } from 'react-i18next';
-import { Redirect } from 'react-router';
 import MarkdownArticle from 'components/UI/MarkdownArticle/MarkdownArticle';
+import ErrorMessage from 'components/UI/ErrorMessage/ErrorMessage';
 
 class ArticleScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       content: '',
-      fireRedirect: undefined,
+      error: false,
     };
   }
 
@@ -19,16 +19,12 @@ class ArticleScreen extends React.Component {
       .then((article) => {
         this.setState({ content: article });
       })
-      .catch(() => this.setState({ fireRedirect: 'error' }));
+      .catch(() => this.setState({ error: 'true' }));
   }
 
   render() {
-    return (
-      <React.Fragment>
-        {this.state.fireRedirect === 'error' && <Redirect to={{ pathname: '/error' }} />}
-        <MarkdownArticle source={this.state.content} />
-      </React.Fragment>
-    );
+    if (this.state.error) return <ErrorMessage />;
+    return <MarkdownArticle source={this.state.content} />;
   }
 }
 

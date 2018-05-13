@@ -2,6 +2,7 @@ import React from 'react';
 import { translate } from 'react-i18next';
 import { Redirect } from 'react-router';
 import AddForm from 'components/Add/Form/Form';
+import ErrorMessage from 'components/UI/ErrorMessage/ErrorMessage';
 
 class AddFormScreen extends React.Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class AddFormScreen extends React.Component {
     this.state = {
       fireRedirect: false,
       responseId: '',
+      error: false,
     };
     this.sendData = this.sendData.bind(this);
   }
@@ -22,6 +24,7 @@ class AddFormScreen extends React.Component {
   }
 
   render() {
+    if (this.state.error) return <ErrorMessage />;
     return (
       <React.Fragment>
         {this.state.fireRedirect &&

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Redirect } from 'react-router';
 import OfferDetails from 'components/OfferDetails/OfferDetails';
+import ErrorMessage from 'components/UI/ErrorMessage/ErrorMessage';
 
 class OfferDetailsScreen extends React.Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class OfferDetailsScreen extends React.Component {
           additionalInfo: '',
         },
       },
-      fireRedirect: undefined,
+      error: false,
     };
   }
 
@@ -33,16 +33,12 @@ class OfferDetailsScreen extends React.Component {
     const { offerId } = this.props.match.params;
     http.get(`/api/offers/${offerId}`)
       .then((service) => { this.setState({ service }); })
-      .catch(() => this.setState({ fireRedirect: 'error' }));
+      .catch(() => this.setState({ error: 'true' }));
   }
 
   render() {
-    return (
-      <React.Fragment>
-        {this.state.fireRedirect === 'error' && <Redirect to={{ pathname: '/error' }} />}
-        <OfferDetails service={this.state.service} />
-      </React.Fragment>
-    );
+    if (this.state.error) return <ErrorMessage />;
+    return <OfferDetails service={this.state.service} />;
   }
 }
 
