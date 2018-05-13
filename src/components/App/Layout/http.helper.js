@@ -41,7 +41,7 @@ const http = {
         if (response.status === 200) {
           return response.then(parse);
         }
-        throw new Error('crashed');
+        throw new Error(response.statusText);
       });
   },
 };
