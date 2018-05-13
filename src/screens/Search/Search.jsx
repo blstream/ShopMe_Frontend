@@ -40,8 +40,8 @@ export default class SearchScreen extends React.Component {
   onSubmit() {
     if (!this.state.isValidPhrase) return;
 
-    this.setState({ paginationData: { pageNumber: 1 }, page: 1, fireRedirect: 'success' }, () => {
-      this.setState({ fireRedirect: undefined });
+    this.setState({ paginationData: { pageNumber: 1 }, page: 1, fireRedirect: true }, () => {
+      this.setState({ fireRedirect: false });
       this.getData();
     });
   }
@@ -116,9 +116,9 @@ export default class SearchScreen extends React.Component {
         totalPages: this.state.paginationData.totalPages,
       },
       page,
-      fireRedirect: 'success',
+      fireRedirect: true,
     }, () => {
-      this.setState({ fireRedirect: undefined });
+      this.setState({ fireRedirect: false });
       this.getData();
     });
   }
