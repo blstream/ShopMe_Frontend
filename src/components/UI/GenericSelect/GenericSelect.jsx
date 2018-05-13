@@ -75,6 +75,7 @@ class GenericSelect extends Component {
           required={this.props.required}
           onChange={this.handleChange}
         >
+          <option disabled />
           {this.state.selectData.map((selectItem, index) => (
             <option
               key={index.toString()}

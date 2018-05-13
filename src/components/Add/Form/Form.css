@@ -19,6 +19,19 @@
   border: 0.1rem solid #A9A9A9;
 }
 
+.add-form__item {
+  height: 4rem;
+  margin: 4rem auto 0rem auto;
+}
+
+.add-form__item--input {
+  width: 29rem;
+}
+
+.add-form__item--button {
+  width: 19.5rem;
+}
+
 .add-form_span--block{
   display: block;
 }
@@ -162,4 +175,35 @@
   color: red;
   margin-top: 0.5rem;
   text-align: right;
+}
+
+
+
+
+.add-form__item {
+  height: 4rem;
+  margin: 4rem auto 0rem auto;
+}
+
+.add-form__item--input {
+  width: 29rem;
+}
+
+.add-form__item--button {
+  width: 19.5rem;
+}
+
+@media (min-width: 768px) {
+  .add-form__item--input {
+    width: 40rem;
+  }
+  .add-form__item--button, .register-form__login-link {
+    width: 28rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .add-form__item--input {
+    width: 55rem;
+  }
 }

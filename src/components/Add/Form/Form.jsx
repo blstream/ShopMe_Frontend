@@ -205,7 +205,7 @@ class AddForm extends Component {
             </div>
           </div>
           <div className="add-form__fieldset-wrapper--basic">
-            <div className="add-form__fieldset-item add-form__fieldset-item--basic">
+            <div className="add-form__item add-form__item--input">
               <GenericSelect
                 name="offerCategory"
                 endpoint="categories"
@@ -356,7 +356,7 @@ class AddForm extends Component {
             </div>
           </div>
           <div className="add-form__fieldset-wrapper">
-            <div className="add-form__fieldset-item">
+            <div className="add-form__item add-form__item--input">
               <GenericSelect
                 name="offerVoivodeship"
                 label={t('components.UI.voivodeship.name')}
@@ -405,7 +405,7 @@ class AddForm extends Component {
                 setValue={this.setValue}
               />
             </div>
-            <div className="add-form__fieldset-item add-form__fieldset-item--button">
+            <div className="add-form__item add-form__item--button">
               <FormButton
                 id="add-form__submit"
                 type="submit"
