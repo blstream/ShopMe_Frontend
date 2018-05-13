@@ -1,5 +1,6 @@
 import React from 'react';
 import { translate } from 'react-i18next';
+import { Redirect } from 'react-router';
 import SignupForm from 'components/SignupForm/SignupForm';
 
 class SignUpScreen extends React.Component {
@@ -8,6 +9,7 @@ class SignUpScreen extends React.Component {
 
     this.state = {
       isEmailExists: false,
+      fireRedirect: undefined,
     };
     this.checkIsEmailExists = this.checkIsEmailExists.bind(this);
   }
@@ -17,14 +19,18 @@ class SignUpScreen extends React.Component {
     return http.get(`/api/users/email=${emailValue}`)
       .then((res) => {
         this.setState({ isEmailExists: res });
-      });
+      })
+      .catch(() => this.setState({ fireRedirect: 'error' }));
   }
 
   render() {
     return (
-      <div className="login-form__wrapper">
-        <SignupForm onSubmit={this.checkIsEmailExists} isEmailExists={this.state.isEmailExists} />
-      </div>
+      <React.Fragment>
+        {this.state.fireRedirect === 'error' && <Redirect to={{ pathname: '/error' }} />}
+        <div className="login-form__wrapper">
+          <SignupForm onSubmit={this.checkIsEmailExists} isEmailExists={this.state.isEmailExists} />
+        </div>
+      </React.Fragment>
     );
   }
 }

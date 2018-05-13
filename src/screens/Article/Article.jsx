@@ -1,5 +1,6 @@
 import React from 'react';
 import { translate } from 'react-i18next';
+import { Redirect } from 'react-router';
 import MarkdownArticle from 'components/UI/MarkdownArticle/MarkdownArticle';
 
 class ArticleScreen extends React.Component {
@@ -7,6 +8,7 @@ class ArticleScreen extends React.Component {
     super(props);
     this.state = {
       content: '',
+      fireRedirect: undefined,
     };
   }
 
@@ -16,12 +18,16 @@ class ArticleScreen extends React.Component {
     http.get(`/assets/articles/pl/${name}.md`, null, { parse: 'text' })
       .then((article) => {
         this.setState({ content: article });
-      });
+      })
+      .catch(() => this.setState({ fireRedirect: 'error' }));
   }
 
   render() {
     return (
-      <MarkdownArticle source={this.state.content} />
+      <React.Fragment>
+        {this.state.fireRedirect === 'error' && <Redirect to={{ pathname: '/error' }} />}
+        <MarkdownArticle source={this.state.content} />
+      </React.Fragment>
     );
   }
 }

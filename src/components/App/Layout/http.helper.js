@@ -13,7 +13,12 @@ const http = {
     else parse = res => res[parseMethod]();
 
     return fetch(getUrl)
-      .then(parse);
+      .then((response) => {
+        if (response.status === 200) {
+          return Promise.resolve(response).then(parse);
+        }
+        throw new Error(response.statusText);
+      });
   },
 
   post(url, body, options) {
@@ -32,7 +37,12 @@ const http = {
     else parse = res => res[parseMethod]();
 
     return fetch(postUrl, myInit)
-      .then(parse);
+      .then((response) => {
+        if (response.status === 200) {
+          return response.then(parse);
+        }
+        throw new Error('crashed');
+      });
   },
 };
 

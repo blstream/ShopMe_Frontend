@@ -45,6 +45,9 @@
         "text": "Pomyślnie dodano ofertę"
       }
     },
+    "errorMessage": {
+      "text": "Coś poszło nie tak"
+    },
     "noSearchResults" : {
       "noResultsTitle": "Niestety nie znaleziono ofert spełniających Twoje kryteria"
     },

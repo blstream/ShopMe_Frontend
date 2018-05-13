@@ -11,6 +11,7 @@ import SuccessAddScreen from 'screens/Add/SuccessAdd/SuccessAdd';
 import SuccessRegisterScreen from 'screens/Register/SuccessRegister/SuccessRegister';
 import TermsAndConditionsScreen from 'screens/Register/TermsAndConditions/TermsAndConditions';
 import ArticleScreen from 'screens/Article/Article';
+import ErrorScreen from 'screens/Error/Error';
 import Layout from 'components/App/Layout/Layout';
 
 const wrapInLayout = Screen => props => <Layout><Screen {...props} /></Layout>;
@@ -29,6 +30,7 @@ export default() => (
       <Route exact path="/register" render={wrapInLayout(RegisterScreen)} />
       <Route exact path="/articles/terms-and-conditions" render={wrapInLayout(TermsAndConditionsScreen)} />
       <Route exact path="/articles/:article" render={wrapInLayout(ArticleScreen)} />
+      <Route exact path="/error" render={wrapInLayout(ErrorScreen)} />
     </Switch>
   </BrowserRouter>
 );

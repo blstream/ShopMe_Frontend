@@ -7,7 +7,7 @@ class RegisterScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fireRedirect: false,
+      fireRedirect: undefined,
     };
     this.sendData = this.sendData.bind(this);
   }
@@ -15,19 +15,21 @@ class RegisterScreen extends React.Component {
   sendData(data) {
     const { http } = this.props;
     return http.post('/api/users', data)
-      .then(() => this.setState({ fireRedirect: true }));
+      .then(() => this.setState({ fireRedirect: true }))
+      .catch(() => this.setState({ fireRedirect: 'error' }));
   }
 
   render() {
     return (
-      <div>
-        {this.state.fireRedirect && <Redirect to="/register/success" />}
+      <React.Fragment>
+        {this.state.fireRedirect === 'success' && <Redirect to="/register/success" />}
+        {this.state.fireRedirect === 'error' && <Redirect to={{ pathname: '/error' }} />}
         <RegisterForm
           location={this.props.location}
           fetchData={this.sendData}
           fireRedirect={this.state.fireRedirect}
         />
-      </div>
+      </React.Fragment>
     );
   }
 }

@@ -22,7 +22,7 @@ export default class SearchScreen extends React.Component {
       isValidPhrase: false,
       paginationData: {},
       triggerFetchAfterValidate: !!phrase,
-      fireRedirect: false,
+      fireRedirect: undefined,
       page,
       category,
     };
@@ -39,8 +39,8 @@ export default class SearchScreen extends React.Component {
   onSubmit() {
     if (!this.state.isValidPhrase) return;
 
-    this.setState({ paginationData: { pageNumber: 1 }, page: 1, fireRedirect: true }, () => {
-      this.setState({ fireRedirect: false });
+    this.setState({ paginationData: { pageNumber: 1 }, page: 1, fireRedirect: 'success' }, () => {
+      this.setState({ fireRedirect: undefined });
       this.getData();
     });
   }
@@ -75,7 +75,8 @@ export default class SearchScreen extends React.Component {
         } else {
           this.setState({ services: [], notFoundServices: true });
         }
-      });
+      })
+      .catch(() => this.setState({ fireRedirect: 'error' }));
   }
 
   updateFoundServices(foundServices) {
@@ -114,15 +115,15 @@ export default class SearchScreen extends React.Component {
         totalPages: this.state.paginationData.totalPages,
       },
       page,
-      fireRedirect: true,
+      fireRedirect: 'success',
     }, () => {
-      this.setState({ fireRedirect: false });
+      this.setState({ fireRedirect: undefined });
       this.getData();
     });
   }
 
   render() {
-    if (this.state.fireRedirect) {
+    if (this.state.fireRedirect === 'success') {
       return (
         <Redirect
           to={{
@@ -134,7 +135,11 @@ export default class SearchScreen extends React.Component {
         />
       );
     }
-
+    if (this.state.fireRedirect === 'error') {
+      return (
+        <Redirect to={{ pathname: '/error' }} />
+      );
+    }
     let results;
     if (this.state.notFoundServices === false) {
       results = (<FoundSearchResults

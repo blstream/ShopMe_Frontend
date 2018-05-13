@@ -45,6 +45,9 @@
         "text": "The offer has been successfully added"
       }
     },
+    "errorMessage": {
+      "text": "Something went wrong"
+    },
     "noSearchResults": {
       "noResultsTitle": "No results have been found match your criteria."
     },
