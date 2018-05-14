@@ -11,8 +11,8 @@ class Layout extends Component {
     this.state = {
       user: {
         token: localStorage.getItem('userToken'),
-        hasError: false,
       },
+      hasError: false,
     };
     this.setUserToken = this.setUserToken.bind(this);
     this.displayError = this.displayError.bind(this);
