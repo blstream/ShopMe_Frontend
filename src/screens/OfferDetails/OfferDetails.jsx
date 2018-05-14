@@ -1,6 +1,5 @@
 import React from 'react';
 import OfferDetails from 'components/OfferDetails/OfferDetails';
-import ErrorMessage from 'components/UI/ErrorMessage/ErrorMessage';
 
 class OfferDetailsScreen extends React.Component {
   constructor(props) {
@@ -24,7 +23,6 @@ class OfferDetailsScreen extends React.Component {
           additionalInfo: '',
         },
       },
-      error: false,
     };
   }
 
@@ -33,11 +31,10 @@ class OfferDetailsScreen extends React.Component {
     const { offerId } = this.props.match.params;
     http.get(`/api/offers/${offerId}`)
       .then((service) => { this.setState({ service }); })
-      .catch(() => this.setState({ error: 'true' }));
+      .catch(() => this.props.displayError('true'));
   }
 
   render() {
-    if (this.state.error) return <ErrorMessage />;
     return <OfferDetails service={this.state.service} />;
   }
 }
