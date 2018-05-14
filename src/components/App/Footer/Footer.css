@@ -35,6 +35,7 @@ footer {
 
   .footer-top--header {
     padding: 0 2.5rem;
+    font-weight: 400;
   }
 
   .footer-top__columns {
@@ -51,12 +52,13 @@ footer {
   .footer-top__row--link {
     display: block;
     text-decoration: none;
-    color: #999999;
+    color: #fff;
     margin-bottom: 1rem;
+    font-family: 'Lato-Thin';
   }
 
   .footer-top__row--link:hover {
-    color: #fff;
+    color: #fade42;
     transition: color 0.5s ease;
   }
 
