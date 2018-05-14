@@ -32,7 +32,7 @@ const Footer = props => (
           <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.transport')}</Link>
           <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.workshopServices')}</Link>
           <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.bandsAndMusic')}</Link>
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.inne')}</Link>
+          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.others')}</Link>
         </div>
         <div className="footer-top__row">
           <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.footer.aboutUs.privacy')}</Link>
