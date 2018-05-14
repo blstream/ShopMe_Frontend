@@ -39,15 +39,13 @@
 
 .input__eye-icon {
   position: absolute;
-  top: 50%;
+  top: 55%;
   right: 1.5rem;
   transform: translateY(-50%);
-  font-size: 2rem;
-  color: #D8C478;
 }
 
-.input__eye-icon:hover {
-  color: #000000;
+.eye-img {
+  width: 2.5rem;
 }
 
 .input--grey:disabled {
