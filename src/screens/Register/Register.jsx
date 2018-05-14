@@ -2,7 +2,6 @@ import React from 'react';
 import { translate } from 'react-i18next';
 import { Redirect } from 'react-router';
 import RegisterForm from 'components/Register/RegisterForm/RegisterForm';
-import ErrorMessage from 'components/UI/ErrorMessage/ErrorMessage';
 
 class RegisterScreen extends React.Component {
   constructor(props) {
@@ -17,11 +16,10 @@ class RegisterScreen extends React.Component {
     const { http } = this.props;
     return http.post('/api/users', data)
       .then(() => this.setState({ fireRedirect: true }))
-      .catch(() => this.setState({ error: 'true' }));
+      .catch(() => this.props.displayError('true'));
   }
 
   render() {
-    if (this.state.error) return <ErrorMessage />;
     return (
       <React.Fragment>
         {this.state.fireRedirect && <Redirect to="/register/success" />}

@@ -3,8 +3,6 @@ import SearchForm from 'components/Search/SearchForm/SearchForm';
 import FoundSearchResults from 'components/Search/SearchResults/FoundSearchResults/FoundSearchResults';
 import NoSearchResults from 'components/Search/SearchResults/NoSearchResults/NoSearchResults';
 import { Redirect } from 'react-router';
-import ErrorMessage from 'components/UI/ErrorMessage/ErrorMessage';
-
 
 export default class SearchScreen extends React.Component {
   constructor(props) {
@@ -77,7 +75,7 @@ export default class SearchScreen extends React.Component {
           this.setState({ services: [], notFoundServices: true });
         }
       })
-      .catch(() => this.setState({ error: 'true' }));
+      .catch(() => this.props.displayError('true'));
   }
 
   updateFoundServices(foundServices) {
@@ -124,7 +122,6 @@ export default class SearchScreen extends React.Component {
   }
 
   render() {
-    if (this.state.error) return <ErrorMessage />;
     if (this.state.fireRedirect) {
       return (
         <Redirect

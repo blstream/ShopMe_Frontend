@@ -1,14 +1,12 @@
 import React from 'react';
 import { translate } from 'react-i18next';
 import MarkdownArticle from 'components/UI/MarkdownArticle/MarkdownArticle';
-import ErrorMessage from 'components/UI/ErrorMessage/ErrorMessage';
 
 class ArticleScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       content: '',
-      error: false,
     };
   }
 
@@ -19,11 +17,10 @@ class ArticleScreen extends React.Component {
       .then((article) => {
         this.setState({ content: article });
       })
-      .catch(() => this.setState({ error: 'true' }));
+      .catch(() => this.props.displayError('true'));
   }
 
   render() {
-    if (this.state.error) return <ErrorMessage />;
     return <MarkdownArticle source={this.state.content} />;
   }
 }

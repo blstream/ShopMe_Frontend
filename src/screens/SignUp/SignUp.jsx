@@ -1,7 +1,6 @@
 import React from 'react';
 import { translate } from 'react-i18next';
 import SignupForm from 'components/SignupForm/SignupForm';
-import ErrorMessage from 'components/UI/ErrorMessage/ErrorMessage';
 
 class SignUpScreen extends React.Component {
   constructor(props) {
@@ -9,7 +8,6 @@ class SignUpScreen extends React.Component {
 
     this.state = {
       isEmailExists: false,
-      error: false,
     };
     this.checkIsEmailExists = this.checkIsEmailExists.bind(this);
   }
@@ -20,11 +18,10 @@ class SignUpScreen extends React.Component {
       .then((res) => {
         this.setState({ isEmailExists: res });
       })
-      .catch(() => this.setState({ error: 'true' }));
+      .catch(() => this.props.displayError('true'));
   }
 
   render() {
-    if (this.state.error) return <ErrorMessage />;
     return (
       <SignupForm onSubmit={this.checkIsEmailExists} isEmailExists={this.state.isEmailExists} />
     );
