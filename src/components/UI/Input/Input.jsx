@@ -89,7 +89,7 @@ class Input extends Component {
         </div>
         {this.props.type === 'password' &&
         <div className="input__eye-icon" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
-          <i className="fas fa-eye" aria-hidden="true" />
+          <img src="/img/generic-input/eye.png" alt="" className="eye-img" />
         </div>}
       </div>
     );

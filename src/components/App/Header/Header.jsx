@@ -30,7 +30,7 @@ class Header extends React.Component {
                 <button onClick={this.toggleClass} className="header__arrow">
                   <span className="user-name">Sławomir Nowak
                     <div className="header__icons">
-                      {this.state.displayMenu ? <i className="fas fa-angle-up" /> : <i className="fas fa-angle-down" />}
+                      {this.state.displayMenu ? <img src="/img/header/header-arrow-up.png" alt="" className="header__arrow-img" /> : <img src="/img/header/header-arrow-down.png" alt="" className="header__arrow-img" />}
                     </div>
                   </span>
                 </button>

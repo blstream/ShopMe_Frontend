@@ -51,6 +51,11 @@ nav a {
   height: 2.3rem;
 }
 
+.header__arrow-img {
+  padding-top: 0.3rem;
+  width: 2.5rem;
+}
+
 .header__links {
   position: absolute;
   top: 5.2rem;
