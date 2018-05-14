@@ -9,7 +9,11 @@
       "numberError": "Podaj frazę nieskładającą się z samych liczb"
     },
     "foundSearchResults": {
-      "resultsTitle": "Wyniki wyszukiwania"
+      "resultsTitle": "Wyniki wyszukiwania",
+      "offerTitle": "Tytuł oferty",
+      "category": "Kategoria",
+      "price": "Cena",
+      "date": "Data"
     },
     "categoryList":{
       "title": "Odkrywaj oferty. ",

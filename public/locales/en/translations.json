@@ -9,7 +9,11 @@
       "numberError": "Phrase can't contain only digits"
     },
     "foundSearchResults": {
-      "resultsTitle": "Search results"
+      "resultsTitle": "Search results",
+      "offerTitle": "Title",
+      "category": "Category",
+      "price": "Price",
+      "date": "Date"
     },
     "categoryList":{
       "title": "Discover offers. ",
