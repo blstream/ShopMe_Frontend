@@ -151,9 +151,9 @@ class SignupForm extends Component {
             value={t('components.signup.submitButtonLabel')}
           />
         </div>
-        <div className="signup-form__login-link">
+        <div className="signup-form__login-link-container">
           {t('components.signup.loginMessage')}<br />
-          <Link href="/login" to="/login">{t('components.signup.loginLink')}</Link>
+          <Link href="/login" to="/login" className="signup-form__login-link">{t('components.signup.loginLink')}</Link>
         </div>
       </form>
     );

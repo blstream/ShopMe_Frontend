@@ -60,6 +60,7 @@ footer {
   .footer-top__row--link:hover {
     color: #fade42;
     transition: color 0.5s ease;
+    text-decoration: underline;
   }
 
   .footer-bottom {
