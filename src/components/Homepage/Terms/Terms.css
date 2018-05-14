@@ -1,5 +1,5 @@
 .container {
-  background: #fbdd61;
+  background: #fade42;
 }
 
 .terms {
@@ -10,6 +10,7 @@
 
 .terms__caption {
   text-align: center;
+  font-weight: 400;
 }
 
 .term__column-wrapper {
