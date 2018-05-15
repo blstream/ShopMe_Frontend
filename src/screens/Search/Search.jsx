@@ -128,8 +128,8 @@ export default class SearchScreen extends React.Component {
           to={{
             pathname: '/search',
             search: this.state.category
-            ? `?category=${this.state.category}&title=${this.state.phrase}&page=${this.state.paginationData.pageNumber}`
-            : `?title=${this.state.phrase}&page=${this.state.paginationData.pageNumber}`,
+              ? `?category=${this.state.category}&title=${this.state.phrase}&page=${this.state.paginationData.pageNumber}`
+              : `?title=${this.state.phrase}&page=${this.state.paginationData.pageNumber}`,
           }}
         />
       );

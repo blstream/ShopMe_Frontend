@@ -25,7 +25,7 @@
   appearance:none;
   -webkit-appearance:none;
   -moz-appearance:none;
-  background: url(/assets/images/generic-select/arrow-down.png) no-repeat right #fff;
+  background: url("/assets/images/generic-select/arrow-down.png") no-repeat right #fff;
   background-position-x: 17rem;
   background-size: 2rem 3rem;
 }
