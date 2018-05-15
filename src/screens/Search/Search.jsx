@@ -50,11 +50,15 @@ export default class SearchScreen extends React.Component {
     const { category } = this.state;
     const title = this.state.phrase;
     const [page] = [this.state.page];
+
     let params;
-    if (!this.state.category) {
+    if (!category) {
       params = { title, page };
-    } else if (this.state.phrase) params = { title, page, category };
-    else params = { category, page };
+    } else if (title) {
+      params = { title, page, category };
+    } else {
+      params = { category, page };
+    }
 
     return http.get('/api/offers', params)
       .then((services) => {
@@ -123,7 +127,9 @@ export default class SearchScreen extends React.Component {
         <Redirect
           to={{
             pathname: '/search',
-            search: this.state.category ? `?category=${this.state.category}&title=${this.state.phrase}&page=${this.state.paginationData.pageNumber}` : `?title=${this.state.phrase}&page=${this.state.paginationData.pageNumber}`,
+            search: this.state.category
+            ? `?category=${this.state.category}&title=${this.state.phrase}&page=${this.state.paginationData.pageNumber}`
+            : `?title=${this.state.phrase}&page=${this.state.paginationData.pageNumber}`,
           }}
         />
       );

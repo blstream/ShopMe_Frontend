@@ -13,7 +13,8 @@
       "offerTitle": "Tytuł oferty",
       "category": "Kategoria",
       "price": "Cena",
-      "date": "Data"
+      "date": "Data",
+      "currency": "zł"
     },
     "categoryList":{
       "title": "Odkrywaj oferty. ",

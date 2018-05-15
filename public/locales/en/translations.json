@@ -13,7 +13,8 @@
       "offerTitle": "Title",
       "category": "Category",
       "price": "Price",
-      "date": "Date"
+      "date": "Date",
+      "currency": "zł"
     },
     "categoryList":{
       "title": "Discover offers. ",

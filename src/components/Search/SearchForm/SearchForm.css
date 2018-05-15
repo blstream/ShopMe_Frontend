@@ -1,6 +1,6 @@
 .search__wrapper {
   height: 28rem;
-  background: url("/img/search-section/mobile.jpg");
+  background: url("/assets/images/search-section/mobile.jpg");
   background-size: cover;
   background-position: 100% 100%;
 }

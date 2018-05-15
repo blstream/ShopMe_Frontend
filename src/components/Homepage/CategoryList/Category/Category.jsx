@@ -16,7 +16,7 @@ class Category extends React.Component {
       <Link href="/" to={`/search?category=${this.props.category}`} className="category">
         <img
           className="category__img"
-          src={`assets/images/category_${this.props.category}.png`}
+          src={`assets/images/categories/category_${this.props.category}.png`}
           alt={t(`components.UI.categorySelect.categoryOptions.${this.props.category}`)}
         />
         <p className="category__name">{t(`components.UI.categorySelect.categoryOptions.${this.props.category}`)}</p>
