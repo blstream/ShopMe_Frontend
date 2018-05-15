@@ -8,7 +8,7 @@ const SuccessRegisterMessage = props => (
   <section className="success-register-message__main-wrapper">
     <div className="success-register-message__text-wrapper">
       <h1 className="success-register-message__text success-register-message__text--green">
-        {props.t('components.login.register.successRegisterMessage')}
+        {props.t('components.register.successRegisterMessage')}
       </h1>
       <LoginButton />
     </div>
