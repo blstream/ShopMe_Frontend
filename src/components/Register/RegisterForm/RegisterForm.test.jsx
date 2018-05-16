@@ -12,7 +12,7 @@ it('renders without crashing', () => {
   };
   const element = (
     <MemoryRouter>
-      <RegisterForm location={props.location} />
+      <RegisterForm location={props.location} voivodeships={[1, 2, 3]} />
     </MemoryRouter>
   );
   ReactDOM.render(element, div);
