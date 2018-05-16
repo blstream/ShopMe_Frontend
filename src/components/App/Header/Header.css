@@ -79,12 +79,6 @@ nav a {
     transition: color 0.5s ease;
 }
 
-.fa-angle-down, .fa-angle-up {
-  width: 2rem;
-  font-size: 1.5rem;
-  padding-top: 0.3rem;
-}
-
 .menu-visible {
   display: block;
 }
