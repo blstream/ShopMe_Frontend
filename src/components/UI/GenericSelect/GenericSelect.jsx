@@ -11,17 +11,10 @@ class GenericSelect extends Component {
       value: '',
       errorMessage: '',
       isRequired: this.props.required,
-      selectData: [],
     };
 
     this.checkValidity = this.checkValidity.bind(this);
     this.handleChange = this.handleChange.bind(this);
-  }
-
-  componentDidMount() {
-    fetch(`${process.env.REACT_APP_API}/${this.props.endpoint}`)
-      .then(response => (response.json()))
-      .then(selectData => this.setState({ selectData }));
   }
 
   componentWillReceiveProps(nextProps) {
@@ -29,7 +22,7 @@ class GenericSelect extends Component {
       const isValid = this.checkValidity();
       this.props.doValidate(this.props.name, isValid);
       if (isValid) {
-        const selected = this.state.selectData.find(category => category.name === this.state.value);
+        const selected = this.props.selectData.find(category => category.name === this.state.value);
         this.props.setValue(this.props.name, this.state.value);
         this.props.setValue(`${this.props.name}Id`, selected.id);
       }
@@ -76,7 +69,7 @@ class GenericSelect extends Component {
           onChange={this.handleChange}
         >
           <option disabled />
-          {this.state.selectData.map((selectItem, index) => (
+          {this.props.selectData.map((selectItem, index) => (
             <option
               key={index.toString()}
               value={selectItem.name}

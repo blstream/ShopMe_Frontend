@@ -8,8 +8,15 @@ class RegisterScreen extends React.Component {
     super(props);
     this.state = {
       fireRedirect: false,
+      voivodeships: [],
     };
     this.sendData = this.sendData.bind(this);
+  }
+
+  componentDidMount() {
+    const { http } = this.props;
+    http.get('/api/voivodeships')
+      .then(voivodeships => this.setState({ voivodeships }));
   }
 
   sendData(data) {
@@ -26,6 +33,7 @@ class RegisterScreen extends React.Component {
           location={this.props.location}
           fetchData={this.sendData}
           fireRedirect={this.state.fireRedirect}
+          voivodeships={this.state.voivodeships}
         />
       </React.Fragment>
     );

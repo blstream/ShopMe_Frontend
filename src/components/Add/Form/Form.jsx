@@ -208,7 +208,7 @@ class AddForm extends Component {
             <div className="add-form__item add-form__item--input">
               <GenericSelect
                 name="offerCategory"
-                endpoint="categories"
+                selectData={this.props.categories}
                 selectNamePath="components.UI.categorySelect.name"
                 selectErrorPath="components.UI.categorySelect.errorEmptyField"
                 selectOptionsPath="components.UI.categorySelect.categoryOptions"
@@ -360,7 +360,7 @@ class AddForm extends Component {
               <GenericSelect
                 name="offerVoivodeship"
                 label={t('components.UI.voivodeship.name')}
-                endpoint="voivodeships"
+                selectData={this.props.voivodeships}
                 selectNamePath="components.UI.voivodeship.name"
                 selectErrorPath="components.UI.categorySelect.errorEmptyField"
                 selectOptionsPath="components.UI.voivodeship.list"

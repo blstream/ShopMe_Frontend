@@ -221,7 +221,7 @@ class RegisterForm extends Component {
             name="offer__voivodeship"
             ref={(v) => { this.voivodeshipSelect = v; }}
             label={t('components.register.voivodeships')}
-            endpoint="voivodeships"
+            selectData={this.props.voivodeships}
             selectNamePath="components.register.voivodeships"
             selectErrorPath="components.UI.categorySelect.errorEmptyField"
             selectOptionsPath="components.UI.voivodeship.list"

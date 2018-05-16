@@ -9,8 +9,16 @@ class AddFormScreen extends React.Component {
     this.state = {
       fireRedirect: false,
       responseId: '',
+      categories: [],
+      voivodeships: [],
     };
     this.sendData = this.sendData.bind(this);
+  }
+
+  componentDidMount() {
+    const { http } = this.props;
+    Promise.all([http.get('/api/categories'), http.get('/api/voivodeships')])
+      .then(res => this.setState({ categories: res[0], voivodeships: res[1] }));
   }
 
   sendData(data) {
@@ -30,7 +38,11 @@ class AddFormScreen extends React.Component {
             responseId: this.state.responseId,
           }}
         />}
-        <AddForm fetchData={this.sendData} />
+        <AddForm
+          fetchData={this.sendData}
+          categories={this.state.categories}
+          voivodeships={this.state.voivodeships}
+        />
       </React.Fragment>
     );
   }
