@@ -14,36 +14,36 @@ const Footer = props => (
       </div>
       <div className="footer-top__columns">
         <div className="footer-top__row">
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.building')}</Link>
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.companyAndOffice')}</Link>
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.photography')}</Link>
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.graphics')}</Link>
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.tutoring')}</Link>
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.bookkeeping')}</Link>
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.marketingAndAdvertising')}</Link>
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.repairAndService')}</Link>
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.garden')}</Link>
+          <Link to="/search?category=building" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.building')}</Link>
+          <Link to="/search?category=photography" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.photography')}</Link>
+          <Link to="/search?category=companyAndOffice" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.companyAndOffice')}</Link>
+          <Link to="/search?category=graphics" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.graphics')}</Link>
+          <Link to="/search?category=tutoring" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.tutoring')}</Link>
+          <Link to="/search?category=bookkeeping" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.bookkeeping')}</Link>
+          <Link to="/search?category=marketingAndAdvertising" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.marketingAndAdvertising')}</Link>
+          <Link to="/search?category=repairAndService" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.repairAndService')}</Link>
+          <Link to="/search?category=garden" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.garden')}</Link>
         </div>
         <div className="footer-top__row">
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.housework')}</Link>
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.law')}</Link>
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.programming')}</Link>
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.translations')}</Link>
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.transport')}</Link>
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.workshopServices')}</Link>
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.bandsAndMusic')}</Link>
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.inne')}</Link>
+          <Link to="/search?category=housework" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.housework')}</Link>
+          <Link to="/search?category=law" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.law')}</Link>
+          <Link to="/search?category=programming" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.programming')}</Link>
+          <Link to="/search?category=translations" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.translations')}</Link>
+          <Link to="/search?category=transport" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.transport')}</Link>
+          <Link to="/search?category=workshopServices" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.workshopServices')}</Link>
+          <Link to="/search?category=bandsAndMusic" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.bandsAndMusic')}</Link>
+          <Link to="/search?category=others" className="footer-top__row--link">{props.t('components.UI.categorySelect.categoryOptions.others')}</Link>
         </div>
         <div className="footer-top__row">
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.footer.aboutUs.privacy')}</Link>
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.footer.aboutUs.statute')}</Link>
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.footer.aboutUs.help')}</Link>
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.footer.aboutUs.shopping')}</Link>
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.footer.aboutUs.sale')}</Link>
+          <Link to="/" className="footer-top__row--link">{props.t('components.UI.footer.aboutUs.privacy')}</Link>
+          <Link to="/" className="footer-top__row--link">{props.t('components.UI.footer.aboutUs.statute')}</Link>
+          <Link to="/" className="footer-top__row--link">{props.t('components.UI.footer.aboutUs.help')}</Link>
+          <Link to="/" className="footer-top__row--link">{props.t('components.UI.footer.aboutUs.shopping')}</Link>
+          <Link to="/" className="footer-top__row--link">{props.t('components.UI.footer.aboutUs.sale')}</Link>
         </div>
         <div className="footer-top__row">
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.footer.forExhibitors.seller')}</Link>
-          <Link href="/" to="/" className="footer-top__row--link">{props.t('components.UI.footer.forExhibitors.conditions')}</Link>
+          <Link to="/" className="footer-top__row--link">{props.t('components.UI.footer.forExhibitors.seller')}</Link>
+          <Link to="/" className="footer-top__row--link">{props.t('components.UI.footer.forExhibitors.conditions')}</Link>
         </div>
       </div>
     </div>

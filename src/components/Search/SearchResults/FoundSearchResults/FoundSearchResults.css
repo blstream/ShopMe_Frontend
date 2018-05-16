@@ -13,5 +13,26 @@
 }
 
 .search-results__list {
-  margin: 7rem 2rem;
+  margin: 5rem 2rem;
+}
+
+.search-results__heading{
+  display: flex;
+  font-weight: 700;
+  margin: 4rem 2rem;
+}
+
+.search-results__heading-item {
+  margin: 1.5rem 0;
+  font-size: 1.9rem;
+}
+
+.search-results__heading-wide {
+  width: 30rem;
+  flex-grow: 2;
+}
+
+.search-results__heading-narrow {
+  width: 15rem;
+  flex-grow: 1;
 }

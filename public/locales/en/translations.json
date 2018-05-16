@@ -9,7 +9,12 @@
       "numberError": "Phrase can't contain only digits"
     },
     "foundSearchResults": {
-      "resultsTitle": "Search results"
+      "resultsTitle": "Search results",
+      "offerTitle": "Title",
+      "category": "Category",
+      "price": "Price",
+      "date": "Date",
+      "currency": "zł"
     },
     "categoryList":{
       "title": "Discover offers. ",
@@ -118,7 +123,7 @@
           "housework": "Housework",
           "tutoring": "Tutoring",
           "bandsAndMusic": "Bands and\u00A0Music",
-          "inne": "Others"
+          "others": "Others"
         }
       },
       "voivodeship": {

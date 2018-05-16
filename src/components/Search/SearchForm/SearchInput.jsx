@@ -67,7 +67,7 @@ class SearchInput extends React.Component {
             className="search__form-item"
             maxLength="30"
             aria-label={t('components.searchForm.label')}
-            value={this.state.phrase}
+            value={this.state.phrase || ''}
           />
           <SubmitButton onClick={this.props.handleSubmit} phrase={this.props.phrase} className="form__button--submit">
             {this.props.t('components.searchForm.button')}

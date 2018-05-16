@@ -22,7 +22,7 @@ class Header extends React.Component {
     return (
       <header>
         <div className="header__container">
-          <div className="logo__link"><Link href="/" to="/"><img src="/img/logo.png" alt="logo" className="logo" /></Link></div>
+          <div className="logo__link"><Link href="/" to="/"><img src="/assets/images/logo.png" alt="logo" className="logo" /></Link></div>
           <nav>
             {this.props.user.token ?
               <div>

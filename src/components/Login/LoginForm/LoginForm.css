@@ -21,10 +21,15 @@
   width: 19.5rem;
 }
 
-.login-form__register-link {
+.login-form__register-link-container {
   width: 19.5rem;
   margin: 2rem auto 0rem auto;
   text-align: right;
+}
+
+.login-form__register-link {
+    width: fit-content;
+    box-shadow: inset 0 0 0 #000, inset 0 -0.1rem 0 #000;
 }
 
 @media (min-width: 768px) {
@@ -35,7 +40,7 @@
   .login-form__item--input {
     width: 40rem;
   }
-  .login-form__item--button, .login-form__register-link {
+  .login-form__item--button, .login-form__register-link-container {
     width: 28rem;
   }
 }

@@ -21,10 +21,15 @@
   width: 19.5rem;
 }
 
-.signup-form__login-link {
+.signup-form__login-link-container {
   width: 19.5rem;
   margin: 2rem auto 0rem auto;
   text-align: right;
+}
+
+.signup-form__login-link {
+  width: fit-content;
+  box-shadow: inset 0 0 0 #000, inset 0 -0.1rem 0 #000;
 }
 
 .signup-form__errors {
@@ -53,7 +58,7 @@
   .signup-form__item--input {
     width: 40rem;
   }
-  .signup-form__item--button, .signup-form__login-link {
+  .signup-form__item--button, .signup-form__login-link-container {
     width: 28rem;
   }
 }

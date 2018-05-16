@@ -125,7 +125,7 @@ class RegisterForm extends Component {
             maxLength={20}
             required
             validation={validator.validateNameInput}
-            value={this.props.location.state.name}
+            value={this.props.location.state ? this.props.location.state.name : ''}
             ref={(v) => { this.users__name = v; }}
           />
         </div>
@@ -137,7 +137,7 @@ class RegisterForm extends Component {
             maxLength={50}
             required
             validation={validator.validateSurnameInput}
-            value={this.props.location.state.surname}
+            value={this.props.location.state ? this.props.location.state.surname : ''}
             ref={(v) => { this.users__surname = v; }}
           />
         </div>
@@ -148,7 +148,7 @@ class RegisterForm extends Component {
             label={t('components.register.emailInputLabel')}
             required
             validation={validator.validateEmailInput}
-            value={this.props.location.state.email}
+            value={this.props.location.state ? this.props.location.state.email : ''}
             ref={(v) => { this.users__email = v; }}
           />
         </div>

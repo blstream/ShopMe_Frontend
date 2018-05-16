@@ -10,6 +10,7 @@ export default class SearchScreen extends React.Component {
     super(props);
 
     const searchQueryValue = new URLSearchParams(props.location.search);
+    const category = searchQueryValue.get('category');
     const phrase = searchQueryValue.get('title');
     const page = searchQueryValue.get('page') ? searchQueryValue.get('page') : 1;
 
@@ -23,6 +24,7 @@ export default class SearchScreen extends React.Component {
       triggerFetchAfterValidate: !!phrase,
       fireRedirect: false,
       page,
+      category,
     };
     this.updateFoundServices = this.updateFoundServices.bind(this);
     this.updateSearchPhrase = this.updateSearchPhrase.bind(this);
@@ -45,9 +47,20 @@ export default class SearchScreen extends React.Component {
 
   getData() {
     const { http } = this.props;
+    const { category } = this.state;
     const title = this.state.phrase;
     const [page] = [this.state.page];
-    return http.get('/api/offers', { title, page })
+
+    let params;
+    if (!category) {
+      params = { title, page };
+    } else if (title) {
+      params = { title, page, category };
+    } else {
+      params = { category, page };
+    }
+
+    return http.get('/api/offers', params)
       .then((services) => {
         if (services.content) {
           this.setState({
@@ -114,7 +127,9 @@ export default class SearchScreen extends React.Component {
         <Redirect
           to={{
             pathname: '/search',
-            search: `?title=${this.state.phrase}&page=${this.state.paginationData.pageNumber}`,
+            search: this.state.category
+              ? `?category=${this.state.category}&title=${this.state.phrase}&page=${this.state.paginationData.pageNumber}`
+              : `?title=${this.state.phrase}&page=${this.state.paginationData.pageNumber}`,
           }}
         />
       );

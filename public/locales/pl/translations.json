@@ -9,7 +9,12 @@
       "numberError": "Podaj frazę nieskładającą się z samych liczb"
     },
     "foundSearchResults": {
-      "resultsTitle": "Wyniki wyszukiwania"
+      "resultsTitle": "Wyniki wyszukiwania",
+      "offerTitle": "Tytuł oferty",
+      "category": "Kategoria",
+      "price": "Cena",
+      "date": "Data",
+      "currency": "zł"
     },
     "categoryList":{
       "title": "Odkrywaj oferty. ",
@@ -118,7 +123,7 @@
           "housework": "Prace Domowe",
           "tutoring": "Korepetycje",
           "bandsAndMusic": "Zespoły i\u00A0Muzyka",
-          "inne": "Inne"
+          "others": "Inne"
         }
       },
       "voivodeship": {

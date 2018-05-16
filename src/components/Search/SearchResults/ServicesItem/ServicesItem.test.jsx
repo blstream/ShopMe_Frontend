@@ -7,6 +7,7 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   const service = {
     title: 'Koszenie trawników',
+    category: 'garden',
     bundle: {
       price: '50',
     },
