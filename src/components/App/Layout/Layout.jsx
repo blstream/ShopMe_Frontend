@@ -22,6 +22,10 @@ class Layout extends Component {
     this.displayError = this.displayError.bind(this);
   }
 
+  componentWillReceiveProps() {
+    this.displayError(false);
+  }
+
   setUserToken(token) {
     this.setState({ user: { token } });
   }
