@@ -74,8 +74,7 @@ export default class SearchScreen extends React.Component {
         } else {
           this.setState({ services: [], notFoundServices: true });
         }
-      })
-      .catch(() => this.props.displayError('true'));
+      });
   }
 
   updateFoundServices(foundServices) {

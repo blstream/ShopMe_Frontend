@@ -15,8 +15,7 @@ class RegisterScreen extends React.Component {
   sendData(data) {
     const { http } = this.props;
     return http.post('/api/users', data)
-      .then(() => this.setState({ fireRedirect: true }))
-      .catch(() => this.props.displayError('true'));
+      .then(() => this.setState({ fireRedirect: true }));
   }
 
   render() {

@@ -17,8 +17,7 @@ class AddFormScreen extends React.Component {
     const { http } = this.props;
     return http.post('/api/offers', data)
       .then(response => this.setState({ responseId: response.id }))
-      .then(() => this.setState({ fireRedirect: true }))
-      .catch(() => this.props.displayError('true'));
+      .then(() => this.setState({ fireRedirect: true }));
   }
 
   render() {

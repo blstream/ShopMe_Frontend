@@ -16,8 +16,7 @@ class ArticleScreen extends React.Component {
     http.get(`/assets/articles/pl/${name}.md`, null, { parse: 'text' })
       .then((article) => {
         this.setState({ content: article });
-      })
-      .catch(() => this.props.displayError('true'));
+      });
   }
 
   render() {

@@ -15,7 +15,7 @@ const http = {
     return fetch(getUrl)
       .then((response) => {
         if (response.status === 200) {
-          return Promise.resolve(response).then(parse);
+          return parse(response);
         }
         throw new Error(response.statusText);
       });
@@ -39,7 +39,7 @@ const http = {
     return fetch(postUrl, myInit)
       .then((response) => {
         if (response.status === 200) {
-          return response.then(parse);
+          return parse(response);
         }
         throw new Error(response.statusText);
       });
