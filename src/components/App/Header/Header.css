@@ -51,6 +51,11 @@ nav a {
   height: 2.3rem;
 }
 
+.header__arrow-img {
+  padding-top: 0.3rem;
+  width: 2.5rem;
+}
+
 .header__links {
   position: absolute;
   top: 5.2rem;
@@ -72,12 +77,6 @@ nav a {
     cursor: pointer;
     transition: background-color 0.5s ease;
     transition: color 0.5s ease;
-}
-
-.fa-angle-down, .fa-angle-up {
-  width: 2rem;
-  font-size: 1.5rem;
-  padding-top: 0.3rem;
 }
 
 .menu-visible {
