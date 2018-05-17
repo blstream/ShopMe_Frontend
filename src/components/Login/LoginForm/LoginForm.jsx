@@ -7,44 +7,123 @@ import FormButton from 'components/UI/FormButton/FormButton';
 
 import './LoginForm.css';
 
-const LoginForm = (props) => {
-  const { t } = props;
-  return (
-    <form className="login-form" onSubmit={props.handleSubmit}>
-      <h1 className="login-form__title">{t('components.login.login.formTitle')}</h1>
-      <div className="login-form__item login-form__item--input">
-        <Input
-          name="login__user-email"
-          type="email"
-          label={t('components.login.login.emailInputLabel')}
-          required
-          validation={validator.validateEmailInput}
-        />
-      </div>
-      <div className="login-form__item login-form__item--input">
-        <Input
-          name="login__user-password"
-          type="password"
-          maxLength={30}
-          label={t('components.login.login.passwordInputLabel')}
-          required
-          validation={validator.validatePassword}
-        />
-      </div>
-      <div className="login-form__item login-form__item--button">
-        <FormButton
-          id="login-form__submit-form"
-          type="submit"
-          value={t('components.login.login.submitButtonLabel')}
-        />
-      </div>
-      <div className="login-form__register-link-container">
-        {t('components.login.login.registerMessage')}<br />
-        <Link href="/signup" to="/signup" className="login-form__register-link">{t('components.login.login.registerLink')}</Link>
-      </div>
-    </form>
-  );
-};
+class LoginForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      errorMessage: false,
+      doValidate: undefined,
+      isFormValid: undefined,
+      inputsValue: {
+        userEmail: undefined,
+        userPassword: undefined,
+      },
+      inputsValidationResult: {
+        userEmail: undefined,
+      },
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.setIsValid = this.setIsValid.bind(this);
+    this.setValue = this.setValue.bind(this);
+    this.setFormState = this.setFormState.bind(this);
+    this.logInUser = this.logInUser.bind(this);
+  }
+
+  componentDidUpdate() {
+    if (this.state.isFormValid) {
+      this.logInUser();
+    }
+  }
+
+  setFormState(obj, key, val, callback) {
+    this.setState(prevState => ({
+      ...prevState,
+      doValidate: undefined,
+      [obj]: {
+        ...prevState[obj],
+        [key]: val,
+      },
+    }), callback);
+  }
+
+  setIsValid(name, val) {
+    this.setFormState('inputsValidationResult', name, val, this.checkIsFormValid);
+  }
+
+  setValue(name, val) {
+    this.setFormState('inputsValue', name, val);
+  }
+
+  checkIsFormValid() {
+    const inputsValidationResult = Object.assign({}, this.state.inputsValidationResult);
+    const isFormIncludesErrors = Object.values(inputsValidationResult).includes(false);
+    this.setState({ errorMessage: isFormIncludesErrors, isFormValid: !isFormIncludesErrors });
+  }
+
+  logInUser() {
+    this.setState({ isFormValid: undefined });
+    this.props.logUser({
+      email: this.state.inputsValue.userEmail,
+      password: this.state.inputsValue.userPassword,
+    }).then(() => this.props.handleSubmit());
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.setState({ doValidate: true });
+  }
+
+  render() {
+    const { t } = this.props;
+    const { errorMessage } = this.state;
+    return (
+      <form
+        className="login-form"
+        onSubmit={this.handleSubmit}
+        noValidate
+      >
+        <h1 className="login-form__title">{t('components.login.formTitle')}</h1>
+        <div className="login-form__errors">
+          {errorMessage && <p className="login-form__error">{t('components.login.errorMessage')}</p>}
+        </div>
+        <div className="login-form__item login-form__item--input">
+          <Input
+            name="userEmail"
+            type="email"
+            label={t('components.login.emailInputLabel')}
+            required
+            validation={validator.validateEmailInput}
+            onValidate={this.state.doValidate}
+            doValidate={this.setIsValid}
+            setValue={this.setValue}
+          />
+        </div>
+        <div className="login-form__item login-form__item--input">
+          <Input
+            name="userPassword"
+            type="password"
+            maxLength={30}
+            label={t('components.login.passwordInputLabel')}
+            required
+            validation={validator.validatePassword}
+            onChange={this.setValue}
+          />
+        </div>
+        <div className="login-form__item login-form__item--button">
+          <FormButton
+            id="login-form__submit-form"
+            type="submit"
+            value={t('components.login.submitButtonLabel')}
+          />
+        </div>
+        <div className="login-form__register-link-container">
+          {t('components.login.registerMessage')}<br />
+          <Link href="/signup" to="/signup" className="login-form__register-link">{t('components.login.registerLink')}</Link>
+        </div>
+      </form>
+    );
+  }
+}
 
 export { LoginForm };
 export default translate()(LoginForm);

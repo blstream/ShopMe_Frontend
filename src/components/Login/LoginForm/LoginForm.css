@@ -32,6 +32,17 @@
     box-shadow: inset 0 0 0 #000, inset 0 -0.1rem 0 #000;
 }
 
+.login-form__errors {
+  height: 4rem;
+}
+
+.login-form__error {
+  color: #F92828;
+  text-align: center;
+  padding-top: 0.5rem;
+  font-size: 1.4rem;
+}
+
 @media (min-width: 768px) {
   .login-form {
     font-size: 1.5rem;

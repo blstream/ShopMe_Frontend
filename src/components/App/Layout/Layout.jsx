@@ -11,6 +11,8 @@ class Layout extends Component {
     this.state = {
       user: {
         token: localStorage.getItem('userToken'),
+        name: localStorage.getItem('userName'),
+        surname: localStorage.getItem('userSurname'),
       },
       hasError: false,
     };
@@ -18,7 +20,7 @@ class Layout extends Component {
       get: (...rest) => httpHelper.get(...rest).catch(this.displayError),
       post: (...rest) => httpHelper.post(...rest).catch(this.displayError),
     };
-    this.setUserToken = this.setUserToken.bind(this);
+    this.setUser = this.setUser.bind(this);
     this.displayError = this.displayError.bind(this);
   }
 
@@ -26,8 +28,8 @@ class Layout extends Component {
     this.displayError(false);
   }
 
-  setUserToken(token) {
-    this.setState({ user: { token } });
+  setUser(token, name, surname) {
+    this.setState({ user: { token, name, surname } });
   }
 
   displayError(hasError) {
@@ -37,7 +39,7 @@ class Layout extends Component {
   render() {
     const { children } = this.props;
     const childProps = {
-      setUserToken: this.setUserToken,
+      setUser: this.setUser,
       displayError: this.displayError,
       http: this.http,
     };
@@ -49,7 +51,7 @@ class Layout extends Component {
     return (
       <div className="wrapper">
         <div className="content">
-          <Header user={this.state.user} />
+          <Header userName={this.state.user.name} userSurname={this.state.user.surname} />
           <main className={this.props.className}>
             {content}
           </main>

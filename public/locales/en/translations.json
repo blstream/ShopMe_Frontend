@@ -58,7 +58,9 @@
         "submitButtonLabel": "Log In",
         "formTitle": "Login",
         "registerMessage": "You dont have an account yet?",
-        "registerLink": "Register"
+        "registerLink": "Register",
+        "anEmailIsExisting": "The user with the entered e-mail address already exists",
+        "errorMessage": "* Please fill out required fields"
       }
     },
     "signup": {

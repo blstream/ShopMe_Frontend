@@ -62,7 +62,6 @@ class SignupForm extends Component {
   checkIsFormValid() {
     const inputsValidationResult = Object.assign({}, this.state.inputsValidationResult);
     const isFormIncludesErrors = Object.values(inputsValidationResult).includes(false);
-
     this.setState({ errorMessage: isFormIncludesErrors, isFormValid: !isFormIncludesErrors });
   }
 
