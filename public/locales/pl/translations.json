@@ -58,8 +58,7 @@
       "formTitle": "Logowanie",
       "registerMessage": "Nie masz jeszcze konta?",
       "registerLink": "Zarejestruj się",
-      "anEmailIsExisting": "Użytkownik o podanym adresie e-mail już istnieje",
-      "errorMessage": "* Proszę uzupełnić wymagane pola"
+      "errorMessage": "* Proszę uzupełnić wszystkie pola"
     },
     "register": {
       "firstNameInputLabel": "Imię",

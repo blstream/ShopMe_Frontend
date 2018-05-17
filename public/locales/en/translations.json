@@ -59,8 +59,7 @@
         "formTitle": "Login",
         "registerMessage": "You dont have an account yet?",
         "registerLink": "Register",
-        "anEmailIsExisting": "The user with the entered e-mail address already exists",
-        "errorMessage": "* Please fill out required fields"
+        "errorMessage": "* Please fill all fields"
       }
     },
     "signup": {
