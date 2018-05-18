@@ -22,11 +22,16 @@ class CategoryList extends React.Component {
     const seeMoreButton = this.state.hidden
       ? (
         <button className="category-list__arrow" onClick={this.toggleHidden}>
-          <span className="category-list__arrow-caption category-list__arrow-caption--more">{t('components.categoryList.seeMore')}</span>
+          <span className="category-list__arrow-caption category-list__arrow-caption--more">
+            {t('components.categoryList.seeMore')}
+          </span>
         </button>
-      ) : (
+      )
+      : (
         <button className="category-list__arrow category-list__arrow--up" onClick={this.toggleHidden}>
-          <span className="category-list__arrow-caption category-list__arrow-caption--less">{t('components.categoryList.seeLess')}</span>
+          <span className="category-list__arrow-caption category-list__arrow-caption--less">
+            {t('components.categoryList.seeLess')}
+          </span>
         </button>
       );
     return (

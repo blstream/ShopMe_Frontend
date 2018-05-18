@@ -49,10 +49,18 @@ class SearchResults extends React.Component {
             {t('components.foundSearchResults.resultsTitle')}
           </h3>
           <div className="search-results__heading">
-            <span className="search-results__heading-item search-results__heading-wide">{t('components.foundSearchResults.offerTitle')}</span>
-            <span className="search-results__heading-item search-results__heading-narrow">{t('components.foundSearchResults.category')}</span>
-            <span className="search-results__heading-item search-results__heading-narrow">{t('components.foundSearchResults.price')}</span>
-            <span className="search-results__heading-item search-results__heading-narrow">{t('components.foundSearchResults.date')}</span>
+            <span className="search-results__heading-item search-results__heading-wide">
+              {t('components.foundSearchResults.offerTitle')}
+            </span>
+            <span className="search-results__heading-item search-results__heading-narrow">
+              {t('components.foundSearchResults.category')}
+            </span>
+            <span className="search-results__heading-item search-results__heading-narrow">
+              {t('components.foundSearchResults.price')}
+            </span>
+            <span className="search-results__heading-item search-results__heading-narrow">
+              {t('components.foundSearchResults.date')}
+            </span>
           </div>
           <ol className="search-results__list">
             {this.props.services.map((service, i) => (

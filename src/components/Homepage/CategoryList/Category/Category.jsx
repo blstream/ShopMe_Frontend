@@ -13,7 +13,7 @@ class Category extends React.Component {
   render() {
     const { t } = this.props;
     return (
-      <Link href="/" to={`/search?category=${this.props.category}`} className="category">
+      <Link to={`/search?category=${this.props.category}`} className="category">
         <img
           className="category__img"
           src={`assets/images/categories/category_${this.props.category}.png`}

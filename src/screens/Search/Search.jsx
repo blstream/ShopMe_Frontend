@@ -35,6 +35,15 @@ export default class SearchScreen extends React.Component {
     this.getData();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.location.category !== nextProps.location.category) {
+      const getDataWithReceivedProps = this.getData.bind(this);
+      const category = new URLSearchParams(nextProps.location.search).get('category');
+
+      this.setState({ category }, getDataWithReceivedProps);
+    }
+  }
+
   onSubmit() {
     if (!this.state.isValidPhrase) return;
 
