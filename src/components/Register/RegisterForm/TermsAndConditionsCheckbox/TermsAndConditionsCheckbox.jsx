@@ -14,6 +14,13 @@ class TermsAndConditionsCheckbox extends Component {
     this.checkValidity = this.checkValidity.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.onValidate) {
+      const isValid = this.checkValidity();
+      this.props.doValidate(this.props.name, isValid);
+    }
+  }
+
   handleChange() {
     this.setState({
       checked: !this.state.checked,
@@ -41,7 +48,7 @@ class TermsAndConditionsCheckbox extends Component {
         <div className="register-form__item--checkbox">
           <input
             id="users__terms-and-conditions-checkbox"
-            name="users__terms-and-conditions-checkbox"
+            name={this.props.name}
             type="checkbox"
             className="register-form__checkbox"
             checked={this.state.checked}

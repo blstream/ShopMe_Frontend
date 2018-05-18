@@ -8,63 +8,79 @@ class InvoiceInputGroup extends Component {
     super(props);
     this.state = {
       checked: false,
-      users_invoiceCompanyName: '',
-      users_invoiceNip: '',
-      users_invoiceAddressStreet: '',
-      users_invoiceAddressNumber: '',
-      users_invoiceAddressZipCode: '',
-      users_invoiceAddressCity: '',
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
-    this.getFormInvoiceData = this.getFormInvoiceData.bind(this);
-  }
-
-  getInputReferences() {
-    return [
-      this.users_invoiceCompanyName,
-      this.users_invoiceNip,
-      this.users_invoiceAddressStreet,
-      this.users_invoiceAddressNumber,
-      this.users_invoiceAddressZipCode,
-      this.users_invoiceAddressCity,
-    ];
-  }
-
-  getFormInvoiceData() {
-    const invoice = {
-      companyName: this.state.users_invoiceCompanyName,
-      nip: this.state.users_invoiceNip,
-      invoiceAddress: {
-        street: this.state.users_invoiceAddressStreet,
-        number: this.state.users_invoiceAddressNumber,
-        city: this.state.users_invoiceAddressCity,
-        zipCode: this.state.users_invoiceAddressZipCode,
+      doValidate: undefined,
+      isFormValid: undefined,
+      inputsValue: {
+        userInvoiceCompanyName: undefined,
+        userInvoiceNip: undefined,
+        userInvoiceAddressStreet: undefined,
+        userInvoiceAddressNumber: undefined,
+        userInvoiceAddressZipCode: undefined,
+        userInvoiceAddressCity: undefined,
+      },
+      inputsValidationResult: {
+        userInvoiceCompanyName: undefined,
+        userInvoiceNip: undefined,
+        userInvoiceAddressStreet: undefined,
+        userInvoiceAddressNumber: undefined,
+        userInvoiceAddressZipCode: undefined,
+        userInvoiceAddressCity: undefined,
       },
     };
-    return invoice;
+
+    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
+    this.setFormState = this.setFormState.bind(this);
+    this.setIsValid = this.setIsValid.bind(this);
+    this.setValue = this.setValue.bind(this);
+    this.checkIsFormValid = this.checkIsFormValid.bind(this);
   }
 
-  handleSubmit() {
-    if (this.state.checked) {
-      const refs = this.getInputReferences();
-      const isRefsValid = refs.map(ref => ref.getWrappedInstance().checkValidity());
-      if (!isRefsValid.includes(false)) {
-        return true;
-      }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.onValidate && this.state.checked) {
+      this.setState({ doValidate: nextProps.onValidate });
     }
-    return false;
   }
 
-  handleChange(field, value) {
-    this.setState({ [field]: value });
+  componentDidUpdate() {
+    if (this.state.isFormValid) {
+      console.log(this.state.inputsValue);
+      // this.props.setValue(this.props.name, this.state.inputsValue);
+      // this.props.doValidate(this.props.name, this.state.isFormValid);
+    }
+  }
+
+  setFormState(obj, key, val, callback) {
+    this.setState(prevState => ({
+      ...prevState,
+      doValidate: undefined,
+      isFormValid: undefined,
+      [obj]: {
+        ...prevState[obj],
+        [key]: val,
+      },
+    }), callback);
+  }
+
+  setIsValid(name, val) {
+    this.setFormState('inputsValidationResult', name, val, this.checkIsFormValid);
+  }
+
+  setValue(name, val) {
+    this.setFormState('inputsValue', name, val);
+  }
+
+  checkIsFormValid() {
+    const inputsValidationResult = Object.assign({}, this.state.inputsValidationResult);
+    const isFormIncludesErrors = Object.values(inputsValidationResult).includes(false);
+
+    this.setState({ isFormValid: !isFormIncludesErrors });
   }
 
   handleCheckboxChange() {
     this.setState({
       checked: !this.state.checked,
     });
+    this.props.setIsChecked(!this.state.checked);
   }
 
   render() {
@@ -76,72 +92,77 @@ class InvoiceInputGroup extends Component {
         <div>
           <div className="register-form__item register-form__item--input">
             <Input
-              name="users_invoiceCompanyName"
+              name="userInvoiceCompanyName"
               type="text"
               label={t('components.register.companyNameInputLabel')}
               required
               validation={validator.validateCompanyName}
-              ref={(v) => { this.users_invoiceCompanyName = v; }}
-              onChange={this.handleChange}
-              value={this.state.value}
+              onValidate={this.state.doValidate}
+              doValidate={this.setIsValid}
+              setValue={this.setValue}
             />
           </div>
           <div className="register-form__item register-form__item--input">
             <Input
-              name="users_invoiceNip"
+              name="userInvoiceNip"
               type="text"
               label={t('components.register.nipInputLabel')}
               maxLength={10}
               required
               validation={validator.validateNip}
-              ref={(v) => { this.users_invoiceNip = v; }}
-              onChange={this.handleChange}
+              onValidate={this.state.doValidate}
+              doValidate={this.setIsValid}
+              setValue={this.setValue}
             />
           </div>
           <div className="register-form__item register-form__item--input">
             <Input
-              name="users_invoiceAddressStreet"
+              name="userInvoiceAddressStreet"
               type="text"
               label={t('components.register.streetInputLabel')}
               required
               validation={validator.validateStreet}
-              ref={(v) => { this.users_invoiceAddressStreet = v; }}
-              onChange={this.handleChange}
+              onValidate={this.state.doValidate}
+              doValidate={this.setIsValid}
+              setValue={this.setValue}
             />
           </div>
           <div className="register-form__item register-form__item--input">
             <Input
-              name="users_invoiceAddressNumber"
+              name="userInvoiceAddressNumber"
               type="text"
               label={t('components.register.houseNumberInputLabel')}
               required
               validation={validator.validateHouseNumber}
-              ref={(v) => { this.users_invoiceAddressNumber = v; }}
-              onChange={this.handleChange}
+              onValidate={this.state.doValidate}
+              doValidate={this.setIsValid}
+              setValue={this.setValue}
             />
           </div>
           <div className="register-form__item register-form__item--input">
             <Input
-              name="users_invoiceAddressZipCode"
+              name="userInvoiceAddressZipCode"
               type="text"
               label={t('components.register.zipCodeInputLabel')}
               maxLength={6}
               required
               validation={validator.validateZipCode}
-              ref={(v) => { this.users_invoiceAddressZipCode = v; }}
-              onChange={this.handleChange}
+              onValidate={this.state.doValidate}
+              doValidate={this.setIsValid}
+              setValue={this.setValue}
             />
           </div>
           <div className="register-form__item register-form__item--input">
             <Input
-              name="users_invoiceAddressCity"
+              name="userInvoiceAddressCity"
               type="text"
               label={t('components.register.localityInputLabel')}
               maxLength={50}
               required
               validation={validator.validateCity}
-              ref={(v) => { this.users_invoiceAddressCity = v; }}
-              onChange={this.handleChange}
+              onValidate={this.state.doValidate}
+              doValidate={this.setIsValid}
+              setValue={this.setValue}
             />
           </div>
         </div>)
@@ -157,7 +178,6 @@ class InvoiceInputGroup extends Component {
             className="register-form__checkbox"
             checked={this.state.checked}
             onChange={this.handleCheckboxChange}
-            ref={(v) => { this.invoiceCheckbox = v; }}
           />
           <label
             htmlFor="invoiceCheckbox"

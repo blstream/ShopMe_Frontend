@@ -12,6 +12,13 @@ class PersonalDataConfirm extends Component {
     this.checkValidity = this.checkValidity.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.onValidate) {
+      const isValid = this.checkValidity();
+      this.props.doValidate(this.props.name, isValid);
+    }
+  }
+
   handleChange() {
     this.setState({
       checked: !this.state.checked,
@@ -40,7 +47,7 @@ class PersonalDataConfirm extends Component {
         <div className="register-form__item--checkbox">
           <input
             id="users__personal-data-processing"
-            name="users__personal-data-processing"
+            name={this.props.name}
             type="checkbox"
             className="register-form__checkbox"
             checked={this.state.checked}
