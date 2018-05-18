@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import validator from 'helpers/validator';
 import Input from 'components/UI/Input/Input';
 import FormButton from 'components/UI/FormButton/FormButton';
-
 import './LoginForm.css';
 
 class LoginForm extends React.Component {
