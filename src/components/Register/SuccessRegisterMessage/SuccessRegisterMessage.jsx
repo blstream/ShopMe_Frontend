@@ -1,7 +1,6 @@
 import React from 'react';
 import { translate } from 'react-i18next';
 import LoginButton from 'components/UI/LoginButton/LoginButton';
-
 import './SuccessRegisterMessage.css';
 
 const SuccessRegisterMessage = props => (
