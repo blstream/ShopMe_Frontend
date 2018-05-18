@@ -20,17 +20,10 @@ class LoginScreen extends React.Component {
         message: undefined,
       },
     };
-    this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     this.logUser = this.logUser.bind(this);
   }
 
-  logUser(data) {
-    const { http } = this.props;
-    return http.post('/api/users/login', data)
-      .then(response => this.setState({ response }));
-  }
-
-  handleLoginSubmit() {
+  setUser() {
     if (this.state.response.jwt) localStorage.setItem('userToken', this.state.response.jwt);
     if (this.state.response.name) localStorage.setItem('userName', this.state.response.name);
     if (this.state.response.surname) localStorage.setItem('userSurname', this.state.response.surname);
@@ -42,12 +35,18 @@ class LoginScreen extends React.Component {
     if (isUserLogged) this.setState({ loginFireRedirect: true });
   }
 
+  logUser(data) {
+    const { http } = this.props;
+    return http.post('/api/users/login', data)
+      .then(response => this.setState({ response }))
+      .then(() => this.setUser());
+  }
+
   render() {
     return (
       <div className="login-form__wrapper">
         {this.state.loginFireRedirect && <Redirect to="/" />}
         <LoginForm
-          handleSubmit={this.handleLoginSubmit}
           logUser={this.logUser}
         />
       </div>

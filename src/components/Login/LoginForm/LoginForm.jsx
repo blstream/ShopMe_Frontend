@@ -64,7 +64,7 @@ class LoginForm extends React.Component {
     this.props.logUser({
       email: this.state.inputsValue.userEmail,
       password: this.state.inputsValue.userPassword,
-    }).then(() => this.props.handleSubmit());
+    });
   }
 
   handleSubmit(event) {
