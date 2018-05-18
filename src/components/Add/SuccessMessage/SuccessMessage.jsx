@@ -1,5 +1,6 @@
 import React from 'react';
 import { translate } from 'react-i18next';
+
 import './SuccessMessage.css';
 
 const SuccessMessage = (props) => {
