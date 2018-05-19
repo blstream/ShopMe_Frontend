@@ -83,7 +83,7 @@ class LoginForm extends React.Component {
       >
         <h1 className="login-form__title">{t('components.login.formTitle')}</h1>
         <div className="login-form__errors">
-          {errorMessage && <p className="login-form__error">{t('components.login.errorMessage')}</p>}
+          {errorMessage && <p>{t('components.login.errorMessage')}</p>}
         </div>
         <div className="login-form__item login-form__item--input">
           <Input

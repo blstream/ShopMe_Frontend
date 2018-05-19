@@ -34,9 +34,6 @@
 
 .login-form__errors {
   height: 4rem;
-}
-
-.login-form__error {
   color: #F92828;
   text-align: center;
   padding-top: 0.5rem;

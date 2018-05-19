@@ -52,15 +52,13 @@
       "noResultsTitle": "No results have been found match your criteria."
     },
     "login": {
-      "login": {
-        "emailInputLabel": "E-mail",
-        "passwordInputLabel": "Password",
-        "submitButtonLabel": "Log In",
-        "formTitle": "Login",
-        "registerMessage": "You dont have an account yet?",
-        "registerLink": "Register",
-        "errorMessage": "* Please fill all fields"
-      }
+      "emailInputLabel": "E-mail",
+      "passwordInputLabel": "Password",
+      "submitButtonLabel": "Log In",
+      "formTitle": "Login",
+      "registerMessage": "You dont have an account yet?",
+      "registerLink": "Register",
+      "errorMessage": "* Please fill all fields"
     },
     "signup": {
         "firstNameInputLabel": "First Name",
