@@ -40,7 +40,7 @@ class RegisterForm extends Component {
   setFormData(isInvoiceRequired) {
     let formData;
 
-    const allVoivodeships = this.voivodeshipSelect.getWrappedInstance().state.selectData;
+    const allVoivodeships = this.voivodeshipSelect.getWrappedInstance().props.selectData;
     const voivodeshipName = this.voivodeshipSelect.getWrappedInstance().state.value;
     const targetVoivodeship =
     allVoivodeships.find(voivodeship => voivodeship.name === voivodeshipName);
