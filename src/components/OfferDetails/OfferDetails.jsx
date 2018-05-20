@@ -1,53 +1,46 @@
 import React from 'react';
 import { translate } from 'react-i18next';
-import OfferHeader from './Header/OfferHeader';
 import OfferContact from './Contact/OfferContact';
 import OfferPackage from './Package/OfferPackage';
 import './OfferDetails.css';
 
 const OfferDetails = (props) => {
   const { t } = props;
-  const baseHeader = t('components.offerDetails.baseOffer').split(' ');
-  baseHeader.splice(1, 0, <br key={1} />);
-  const extendedHeader = t('components.offerDetails.extendedOffer').split(' ');
-  extendedHeader.splice(1, 0, <br key={2} />);
-  const extraHeader = t('components.offerDetails.extraOffer').split(' ');
-  extraHeader.splice(1, 0, <br key={3} />);
   return (
-    <section className="offer-details">
-      {props.service.title && props.service.category.name &&
-        <OfferHeader
-          serviceTitle={props.service.title}
-          serviceCategoryName={props.service.category.name}
-        />}
-      {props.service.user &&
+    <div className="offer-details">
+      <div className="top">
+        <h1 className="header2">{props.service.title}</h1>
+        {props.service.user &&
         <OfferContact
-          serviceUser={props.service.user}
+          serviceUser={props.service}
         /> }
-      <div className="offer-details__offers">
+        <div className="border" />
+      </div>
+      {/* <div className="bottom">
+        <h2 className="offer__details--packets">Pakiety usług</h2>
         {props.service.baseDescription &&
         <OfferPackage
-          class="offer-details__offers--base--header"
-          header={baseHeader}
+          type="base"
+          header={t('components.offerDetails.baseOffer')}
           description={props.service.baseDescription}
           price={props.service.basePrice}
         /> }
         {props.service.extendedDescription &&
           <OfferPackage
-            class="offer-details__offers--extended--header"
-            header={extendedHeader}
+            type="extended"
+            header={t('components.offerDetails.extendedOffer')}
             description={props.service.extendedDescription}
             price={props.service.extendedPrice}
           /> }
         {props.service.extraDescription &&
           <OfferPackage
-            class="offer-details__offers--extra--header"
-            header={extraHeader}
+            type="extra"
+            header={t('components.offerDetails.extraOffer')}
             description={props.service.extraDescription}
             price={props.service.extraPrice}
           />}
-      </div>
-    </section>
+      </div> */}
+    </div>
   );
 };
 

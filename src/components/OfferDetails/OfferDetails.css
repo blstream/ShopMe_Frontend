@@ -1,8 +1,15 @@
-.offer-details {
-  width: 70%;
-  margin: 15rem auto 0 auto;
-  padding: 1rem;
-  border: 0.1rem solid #A9A9A9;
-  font-size: 1.6rem;
-  word-break: break-all;
+.top{
+  margin-top: 4rem;
+}
+.border{
+  margin: 10rem 20rem 5rem 20rem;
+  border-bottom: 0.1rem solid #000000;
+}
+.header2{
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.offer__details--packets{
+  text-align: center;
+  margin-top: 4rem;
 }

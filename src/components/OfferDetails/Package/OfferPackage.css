@@ -1,42 +1,74 @@
-.offer-details__offers {
-  margin: 5rem 2rem 0 1rem;
-  display: flex;
-  justify-content: center;
+.package__container  {
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: 20rem 20rem 20rem;
+  grid-template-rows: 5rem 20rem 6rem;
+  grid-auto-rows: minmax(20rem,auto);
+
 }
 
-.offer-details__offers--container {
-  width: 33%;
-  box-shadow: 0.1rem 0.1rem 0.9rem 0.5rem #a9a9a994;
-  padding: 0 0 1.5rem 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 0 1.5rem;
-}
-
-.offer-details__offers--base--header {
-  background-color: #fada2757;
-}
-.offer-details__offers--extended--header {
-  background-color: #fada27a6;
-}
-
-.offer-details__offers--extra--header {
-  background-color: #fada27;
-}
-
-.offer-details__offers--base--header, .offer-details__offers--extended--header, .offer-details__offers--extra--header {
-  text-align: center;
-  padding: 1rem;
-  margin: 0;
-}
-
-.offer-details__offers--description {
-  min-height: 30rem;
+.package{
+  font-family: 'Lato-Thin', sans-serif;
+  font-weight: bold;
   padding: 1rem;
 }
 
-.offer-details__offers--price {
+.package__header{
+  background: #FADE42;
+  border-radius: 8px;
+  padding: 1.2rem 1rem 1rem 2rem;
+
+}
+
+.package__header--base{
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.package__header--extended{
+  grid-column: 1/3;
+  grid-row: 1/2;
+}
+
+.package__header--extra{
+  grid-column: 1/4;
+  grid-row: 1/2;
+}
+
+.package__description{
+  grid-column: 1/4;
+  grid-row: 2/3;
+  border-radius: 8px;
+  border: 0.5px solid #b1b6bf;
+  position: relative;
+  background: #fff;
+  bottom: 1rem;
+  padding: 2rem;
+}
+
+.package__price{
   margin-top: 2rem;
+  border: 0.5px solid #b1b6bf;
+}
+
+.package__price--name{
+  border-radius: 8px 0 0 8px;
+  grid-column: 1/2;
+  grid-row: 3/4;
+  width: 12rem;
   text-align: center;
+}
+
+
+.package__price--value{
+  position: relative;
+  right:8rem;
+  border-radius: 0 8px 8px 0;
+  grid-column: 2/3;
+  grid-row: 3/4;
+  width: 20rem;
+  text-align: end;
+  padding-right: 2rem;
 }

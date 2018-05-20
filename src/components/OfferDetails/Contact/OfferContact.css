@@ -1,24 +1,89 @@
-.offer-details__contact {
-  min-height: 20rem;
-  margin-top: 1rem;
+.contact__container  {
+  width: 92%;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 40% 55%;
-  grid-column-gap: 4rem;
-  padding-left: 4rem;
+  grid-template-columns: auto;
+  grid-template-rows: 20rem 24rem 15rem;
+  grid-template-areas:
+  "category"
+  "data"
+  "aboutme";
+  border-radius: 7px;
+  border: 0.5px solid #b1b6bf;
+  padding: 2.5rem 2rem 1rem 2rem;
 }
 
-.offer-details__contact--data {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  line-height: 3rem;
+@media (min-width: 768px){
+  .contact__container  {
+    grid-template-columns: 30rem 30rem;
+    grid-template-rows: 30rem 15rem;
+    grid-template-areas:
+    "category data"
+    "aboutme aboutme";
+  }
 }
 
-.offer-details__contact--button {
-  margin: 0 1rem;
-  background-color: #000;
-  border: solid 0.3rem #fade42;
-  color:#fade42;
-  cursor: pointer;
-  transition: all 0.5s;
-  padding: 0.5rem 1rem;
+.contact__section--category{
+  grid-area: category;
+}
+
+.contact__section--data{
+  grid-area: data;
+}
+
+.contact__section--aboutme{
+  grid-area: aboutme;
+}
+
+.contact__category--img {
+  display: block;
+  margin: 0 auto;
+  max-height: 65%;
+}
+
+.contact__category--img-name{
+  padding-top:2rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-family: 'Lato-Thin', sans-serif;
+  font-weight: bold;
+}
+
+.contact__header--data{
+  text-transform: uppercase;
+  padding: 1rem 0 2rem 0;
+  font-size: 2rem;
+}
+
+.contact__header--aboutme{
+  text-transform: uppercase;
+  padding: 1rem 0 2rem 0;
+  font-size: 2rem;
+}
+
+.contact__p--big{
+  padding-bottom: 0.4rem;
+  font-size: 2rem;
+  font-family: 'Lato-Thin', sans-serif;
+}
+
+.contact__p--small{
+  padding-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-family: 'Lato-Thin', sans-serif;
+  font-weight: bold;
+}
+
+.contact__button--unhide{
+  background-color: #FADE42;
+  border: none;
+  margin-top:1rem;
+  padding: 0.4rem 1rem 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  font-family: 'Lato-Thin', sans-serif;
+  font-weight: bold;
 }

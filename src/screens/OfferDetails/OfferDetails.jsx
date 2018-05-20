@@ -21,6 +21,10 @@ class OfferDetailsScreen extends React.Component {
           email: '',
           phoneNumber: '',
           additionalInfo: '',
+          city: '',
+          voivodeship: {
+            name: '',
+          },
         },
       },
     };
