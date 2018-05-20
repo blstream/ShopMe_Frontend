@@ -21,15 +21,11 @@
   padding-left: 1rem;
 }
 
-.generic-input--white {
-  background: #fff;
+.generic-input:disabled {
+  background-color: #E0E0E0;
 }
 
-.input__label--disabled {
-  color: #999;
-}
-
-.input__error-message {
+.generic-input__error-message {
   position: absolute;
   right: 0;
   bottom: -2.5rem;
@@ -37,28 +33,13 @@
   color: #F92828;
 }
 
-.input__eye-icon {
+.generic-input__eye-icon {
   position: absolute;
   top: 55%;
   right: 1.5rem;
   transform: translateY(-50%);
 }
 
-.eye-img {
+.generic-input__eye-img {
   width: 2.5rem;
-}
-
-.input--grey:disabled {
-  background-color: #FFFFFF;
-  border: 0.1rem solid #999;
-  color: #999;
-}
-
-.input--yellow:disabled {
-  background-color: #d8c478;
-  color: #999;
-}
-
-.input--grey:disabled::placeholder {
-  color: #999;
 }

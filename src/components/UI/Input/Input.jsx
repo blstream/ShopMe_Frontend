@@ -75,7 +75,7 @@ class Input extends Component {
           {this.props.label}
         </label>
         <input
-          className={`generic-input generic-input--${this.props.color}`}
+          className="generic-input"
           type={this.state.type}
           name={this.props.name}
           placeholder={this.props.placeholder}
@@ -85,12 +85,12 @@ class Input extends Component {
           required={this.props.required}
           disabled={this.props.disabled}
         />
-        <div className="input__error-message">
+        <div className="generic-input__error-message">
           {this.state.errorMessage}
         </div>
         {this.props.type === 'password' &&
-        <div className="input__eye-icon" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
-          <img src={`/assets/images/generic-input/eye_${this.state.eyeState}.png`} alt="" className="eye-img" />
+        <div className="generic-input__eye-icon" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
+          <img src={`/assets/images/generic-input/eye_${this.state.eyeState}.png`} alt="" className="generic-input__eye-img" />
         </div>}
       </div>
     );
@@ -102,7 +102,6 @@ Input.defaultProps = {
   type: 'text',
   placeholder: '',
   maxLength: 50,
-  color: 'white',
   required: false,
   disabled: false,
   validation() { return undefined; },
@@ -117,7 +116,6 @@ Input.propTypes = {
   label: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   maxLength: PropTypes.number,
-  color: PropTypes.string,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
   validation: PropTypes.func,
