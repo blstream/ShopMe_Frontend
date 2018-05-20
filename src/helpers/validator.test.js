@@ -73,6 +73,42 @@ describe('validator', () => {
     });
   });
 
+  describe('useOnlyLegalCharactersForZipCode', () => {
+    it('returns error message if value use illegal characters', () => {
+      const value = 'test';
+      expect(validator.useOnlyLegalCharactersForZipCode(value)).not.toEqual(undefined);
+    });
+
+    it('returns undefined if value use no illegal characters', () => {
+      const value = '70-400';
+      expect(validator.useOnlyLegalCharactersForZipCode(value)).toEqual(undefined);
+    });
+  });
+
+  describe('checkFormatZipCode', () => {
+    it('returns error message if value use incorrect format', () => {
+      const value = 'test';
+      expect(validator.checkFormatZipCode(value)).not.toEqual(undefined);
+    });
+
+    it('returns undefined if value use correct format xx-xxx', () => {
+      const value = '70-400';
+      expect(validator.checkFormatZipCode(value)).toEqual(undefined);
+    });
+  });
+
+  describe('checkHouseNumberFormat', () => {
+    it('returns error message if value use incorrect format', () => {
+      const value = 'test';
+      expect(validator.checkHouseNumberFormat(value)).not.toEqual(undefined);
+    });
+
+    it('returns undefined if value use correct format', () => {
+      const value = '67a/2';
+      expect(validator.checkHouseNumberFormat(value)).toEqual(undefined);
+    });
+  });
+
   describe('mustUseAlpha', () => {
     it('returns error message if value use no alphabetic characters', () => {
       const value = '!';
@@ -82,6 +118,18 @@ describe('validator', () => {
     it('returns undefined if value use any alphabetic characters', () => {
       const value = 'test!';
       expect(validator.mustUseAlpha(value)).toEqual(undefined);
+    });
+  });
+
+  describe('useOnlyNumeric', () => {
+    it('returns error message if value use any alphabetic characters', () => {
+      const value = 'test';
+      expect(validator.useOnlyNumeric(value)).not.toEqual(undefined);
+    });
+
+    it('returns undefined if value use only numbers', () => {
+      const value = '123';
+      expect(validator.useOnlyNumeric(value)).toEqual(undefined);
     });
   });
 
@@ -106,6 +154,20 @@ describe('validator', () => {
     it('returns undefined if checked is true', () => {
       const checked = true;
       expect(validator.isChecked(checked)).toEqual(undefined);
+    });
+  });
+
+  describe('mustUse', () => {
+    it('returns error message if does not use required pattern', () => {
+      const value = 'test';
+      const pattern = /[0-9]+/;
+      expect(validator.mustUse(pattern, value)).not.toEqual(undefined);
+    });
+
+    it('returns undefined if use required pattern', () => {
+      const value = 'test1';
+      const pattern = /[0-9]+/;
+      expect(validator.mustUse(pattern, value)).toEqual(undefined);
     });
   });
 });

@@ -86,6 +86,16 @@ describe('PriceInput', () => {
         expect(priceInput.state().value).toEqual('');
       });
 
+      it('sets a value if up to 6 digits number was entered in the input', () => {
+        input.simulate('change', { target: { value: '999999,99' } });
+        expect(priceInput.state().value).toEqual('999999,99');
+      });
+
+      it('does not set a value if numbers with more than 6 digits was entered in the input', () => {
+        input.simulate('change', { target: { value: '999999999,99' } });
+        expect(priceInput.state().value).toEqual('');
+      });
+
       it('calls activateNextField method if there was a value entered in the input', () => {
         input.simulate('change', { target: { value: '9,99' } });
         expect(PriceInput.prototype.activateNextField).toHaveBeenCalled();
