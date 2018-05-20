@@ -41,7 +41,7 @@ class PriceInput extends Component {
 
   handleChange(e) {
     const { value } = e.target;
-    const price = /^([0-9]*)(,)?([0-9]{0,2})?$/;
+    const price = /^([0-9]{0,6})(,[0-9]{0,2})?$/;
 
     if (price.test(value)) this.setState({ value });
     if (value.trim() !== '') this.activateNextField();
