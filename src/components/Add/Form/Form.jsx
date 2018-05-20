@@ -157,7 +157,7 @@ class AddForm extends Component {
       formData.extendedPrice = AddForm.getFormattedPrice(inputsValue.offerExtendedPrice);
     }
 
-    if (inputsValue.offerExtraDescription) {
+    if (inputsValue.offerExtraDescription && !this.state.offerExtraDisabled) {
       formData.extraDescription = inputsValue.offerExtraDescription;
       formData.extraPrice = AddForm.getFormattedPrice(inputsValue.offerExtraPrice);
     }
