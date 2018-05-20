@@ -47,7 +47,6 @@ class AddForm extends Component {
         offerEmail: undefined,
         offerPhone: undefined,
         offerVoivodeship: undefined,
-        offerVoivodeshipId: undefined,
         offerCity: undefined,
         offerUserAdditionalInfo: undefined,
       },
