@@ -37,7 +37,6 @@ class AddForm extends Component {
       inputsValue: {
         offerTitle: undefined,
         offerCategory: undefined,
-        offerCategoryId: undefined,
         offerBaseDescription: undefined,
         offerBasePrice: undefined,
         offerExtendedDescription: undefined,
@@ -135,7 +134,6 @@ class AddForm extends Component {
     const formData = {
       title: inputsValue.offerTitle,
       category: {
-        id: inputsValue.offerCategoryId,
         name: inputsValue.offerCategory,
       },
       baseDescription: inputsValue.offerBaseDescription,

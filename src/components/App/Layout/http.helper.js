@@ -31,6 +31,8 @@ const http = {
       },
       method: 'POST',
     };
+
+    if (localStorage.getItem('userToken')) myInit.headers.Authorization = `Bearer ${localStorage.getItem('userToken')}`;
     let parse;
 
     if (parseMethod === 'none') parse = res => res;
