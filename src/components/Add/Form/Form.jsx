@@ -143,7 +143,6 @@ class AddForm extends Component {
         email: inputsValue.offerEmail,
         phoneNumber: inputsValue.offerPhone,
         voivodeship: {
-          id: inputsValue.offerVoivodeshipId,
           name: inputsValue.offerVoivodeship,
         },
         city: inputsValue.offerCity,
