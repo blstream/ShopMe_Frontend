@@ -19,7 +19,7 @@ const validator = {
 
   useOnlyLegalCharactersForZipCode(value) {
     const pattern = /^(?:(?=\S{6}$)\d*[-*]\d*)$/;
-    return !pattern.test(value) ? 'helpers.validator.errorOnlyNumeric' : undefined;
+    return !pattern.test(value) ? 'helpers.validator.errorIllegalCharacters' : undefined;
   },
 
   checkFormatZipCode(value) {
