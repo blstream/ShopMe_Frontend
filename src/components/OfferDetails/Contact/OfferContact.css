@@ -3,7 +3,7 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 20rem 24rem 15rem;
+  grid-template-rows: 15rem minmax(min-content,max-content) minmax(10rem,max-content);
   grid-template-areas:
   "category"
   "data"
@@ -11,16 +11,7 @@
   border-radius: 7px;
   border: 0.5px solid #b1b6bf;
   padding: 2.5rem 2rem 1rem 2rem;
-}
-
-@media (min-width: 768px){
-  .contact__container  {
-    grid-template-columns: 30rem 30rem;
-    grid-template-rows: 30rem 15rem;
-    grid-template-areas:
-    "category data"
-    "aboutme aboutme";
-  }
+  word-wrap: break-word;
 }
 
 .contact__section--category{
@@ -64,26 +55,68 @@
 
 .contact__p--big{
   padding-bottom: 0.4rem;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-family: 'Lato-Thin', sans-serif;
 }
 
 .contact__p--small{
-  padding-bottom: 0.5rem;
   font-size: 1.5rem;
   font-family: 'Lato-Thin', sans-serif;
   font-weight: bold;
+  text-align: justify;
+  line-height: 1.4;
 }
 
 .contact__button--unhide{
   background-color: #FADE42;
   border: none;
   margin-top:1rem;
-  padding: 0.4rem 1rem 0.5rem 1rem;
+  padding: 0.45rem 1rem 0.5rem 1rem;
+  margin: 1rem 0 2rem 0;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
   font-size: 17px;
   font-family: 'Lato-Thin', sans-serif;
   font-weight: bold;
+}
+
+@media (min-width: 768px){
+  .contact__container  {
+    width: 70rem;
+    grid-template-columns: minmax(30rem,max-content)  minmax(30rem,max-content);
+    grid-template-rows: 30rem minmax(10rem,max-content);
+    grid-column-gap: 0.5em;
+    grid-template-areas:
+    "category data"
+    "aboutme aboutme";
+  }
+  .contact__section--category{
+    align-self: center;
+    justify-self: stretch;
+  }
+  .contact__section--data{
+    padding-left: 15%;
+  }
+  .contact__category--img {
+    display: block;
+    margin: auto;
+    max-height: 55%;
+  }
+  .contact__button--unhide{
+    margin-top: 2rem;
+  }
+  .contact__p--small{
+    font-size: 1.8rem;
+  }
+  .contact__p--big,.contact__category--img-name{
+    font-size: 2.5rem;
+  }
+  .contact__header--data,.contact__header--aboutme{
+    font-size: 2.7rem;
+  }
+}
+
+@media (min-width: 1025px){
+  .contact__container  {
+    padding: 3rem;
+  }
 }
