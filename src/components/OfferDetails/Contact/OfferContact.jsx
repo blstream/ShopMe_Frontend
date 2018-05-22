@@ -50,7 +50,7 @@ class OfferContact extends React.Component {
           <p className="contact__p--big">
             {!this.state.wasButtonClicked &&
             <button className="contact__button--unhide" onClick={this.handleUnmaskPrivateData}>
-              {t('components.offerDetails.show')}
+              {t('components.offerDetails.showContactData')}
             </button>
           }
           </p>

@@ -97,7 +97,7 @@
       },
     "offerDetails": {
         "contact": "Kontakt",
-        "show": "Pokaż dane kontaktowe",
+        "showContactData": "Pokaż dane kontaktowe",
         "aboutMe": "O mnie",
         "baseOffer": "Oferta podstawowa",
         "extendedOffer": "Oferta rozszerzona",
