@@ -43,9 +43,9 @@ describe('method', () => {
   let button;
 
   beforeEach(() => {
+    jest.spyOn(CategoryList.prototype, 'toggleHidden');
     categoryList = mount(element).find(CategoryList);
     button = categoryList.find('button');
-    jest.spyOn(CategoryList.prototype, 'toggleHidden');
   });
 
   afterEach(() => {
@@ -53,10 +53,10 @@ describe('method', () => {
   });
 
   describe('toggleHidden', () => {
-    // it('gets called after button click', () => {
-    //   button.simulate('click');
-    //   expect(CategoryList.prototype.toggleHidden).toHaveBeenCalled();
-    // });
+    it('gets called after button click', () => {
+      button.simulate('click');
+      expect(CategoryList.prototype.toggleHidden).toHaveBeenCalled();
+    });
 
     it('toggles state of component', () => {
       expect(categoryList.instance().state.hidden).toEqual(true);
