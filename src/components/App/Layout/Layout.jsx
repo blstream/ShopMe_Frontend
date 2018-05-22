@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
+import { Redirect } from 'react-router';
 import Header from 'components/App/Header/Header';
 import Footer from 'components/App/Footer/Footer';
 import AppError from 'components/App/Error/Error';
@@ -15,6 +16,7 @@ class Layout extends Component {
         surname: localStorage.getItem('userSurname'),
       },
       hasError: false,
+      fireRedirect: false,
     };
     this.http = {
       get: (...rest) => httpHelper.get(...rest).catch(this.displayError),
@@ -22,6 +24,7 @@ class Layout extends Component {
     };
     this.setUser = this.setUser.bind(this);
     this.displayError = this.displayError.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   componentWillReceiveProps() {
@@ -34,6 +37,13 @@ class Layout extends Component {
 
   displayError(hasError) {
     this.setState({ hasError });
+  }
+
+  logout() {
+    localStorage.removeItem('userToken');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userSurname');
+    this.setUser({ fireRedirect: true });
   }
 
   render() {
@@ -50,8 +60,13 @@ class Layout extends Component {
     const content = this.state.hasError ? <AppError /> : childrenWithProps;
     return (
       <div className="wrapper">
+        {this.state.fireRedirect && <Redirect to="/" />}
         <div className="content">
-          <Header userName={this.state.user.name} userSurname={this.state.user.surname} />
+          <Header
+            userName={this.state.user.name}
+            userSurname={this.state.user.surname}
+            onClick={this.logout}
+          />
           <main className={this.props.className}>
             {content}
           </main>

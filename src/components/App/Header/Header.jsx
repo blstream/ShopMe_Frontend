@@ -37,7 +37,7 @@ class Header extends React.Component {
               </div> : <LoginButton />}
             <div className={`${className} header__links`}>
               {this.props.userName && <Link href="/add/form" to="/add/form" className="header__link">{this.props.t('components.UI.header.add')}</Link>}
-              {this.props.userName && <Link href="/" to="/" className="header__link">{this.props.t('components.UI.header.logout')}</Link>}
+              {this.props.userName && <Link href="/" to="/" className="header__link" onClick={this.props.onClick}>{this.props.t('components.UI.header.logout')}</Link>}
             </div>
           </nav>
         </div>
