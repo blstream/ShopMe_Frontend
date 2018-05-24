@@ -44,21 +44,21 @@ class SearchResults extends React.Component {
 
     return (
       <div className="search-results">
-        <div>
-          <h3 className="search-results__title">
-            {t('components.foundSearchResults.resultsTitle')}
-          </h3>
+        <h3 className="search-results__title">
+          {t('components.foundSearchResults.resultsTitle')}
+        </h3>
+        <div className="search-results__list-wrapper">
           <div className="search-results__heading">
-            <span className="search-results__heading-item search-results__heading-wide">
+            <span className="search-results__heading-item">
               {t('components.foundSearchResults.offerTitle')}
             </span>
-            <span className="search-results__heading-item search-results__heading-narrow">
+            <span className="search-results__heading-item ">
               {t('components.foundSearchResults.category')}
             </span>
-            <span className="search-results__heading-item search-results__heading-narrow">
+            <span className="search-results__heading-item">
               {t('components.foundSearchResults.price')}
             </span>
-            <span className="search-results__heading-item search-results__heading-narrow">
+            <span className="search-results__heading-item">
               {t('components.foundSearchResults.date')}
             </span>
           </div>
