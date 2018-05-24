@@ -104,8 +104,10 @@ class LoginForm extends React.Component {
             maxLength={30}
             label={t('components.login.passwordInputLabel')}
             required
-            validation={validator.validatePassword}
-            onChange={this.setValue}
+            validation={validator.validateTextInput}
+            onValidate={this.state.doValidate}
+            doValidate={this.setIsValid}
+            setValue={this.setValue}
           />
         </div>
         <div className="login-form__item login-form__item--button">
