@@ -4,7 +4,6 @@ import validator from 'helpers/validator';
 
 import OfferTextarea from 'components/Add/Form/OfferTextarea/OfferTextarea';
 import PriceInput from 'components/Add/Form/PriceInput/PriceInput';
-import AboutMeTextarea from 'components/Add/Form/AboutMeTextarea/AboutMeTextarea';
 import FormButton from 'components/UI/FormButton/FormButton';
 import GenericInput from 'components/UI/GenericInput/GenericInput';
 import GenericSelect from 'components/UI/GenericSelect/GenericSelect';
@@ -132,20 +131,11 @@ class AddForm extends Component {
     const inputsValue = Object.assign({}, this.state.inputsValue);
     const formData = {
       title: inputsValue.offerTitle,
-      category: {
-        name: inputsValue.offerCategory,
-      },
+      category: inputsValue.offerCategory,
       baseDescription: inputsValue.offerBaseDescription,
       basePrice: AddForm.getFormattedPrice(inputsValue.offerBasePrice),
-      user: {
-        name: inputsValue.offerUserName,
-        email: inputsValue.offerEmail,
-        phoneNumber: inputsValue.offerPhone,
-        voivodeship: {
-          name: inputsValue.offerVoivodeship,
-        },
-        city: inputsValue.offerCity,
-      },
+      city: inputsValue.offerCity,
+      voivodeship: inputsValue.offerVoivodeship,
     };
 
     if (inputsValue.offerUserAdditionalInfo) {
@@ -300,58 +290,6 @@ class AddForm extends Component {
         </fieldset>
         <fieldset className="add-form__fieldset add-form__fieldset--about">
           <div className="add-form__fieldset-wrapper">
-            <div className="add-form__fieldset-item">
-              <GenericInput
-                type="text"
-                name="offerUserName"
-                label={t('components.add.form.firstName')}
-                labelClassName="add-form__label add-form__label--yellow"
-                spanClassName="add-form_span--block"
-                inputClassName="add-form__input add-form__input--S add-form__input--yellow"
-                errorClassName="input__error-message--yellow"
-                maxLength={20}
-                required
-                validation={validator.validateNameInput}
-                onValidate={this.state.doValidate}
-                doValidate={this.setIsValid}
-                setValue={this.setValue}
-              />
-            </div>
-            <div className="add-form__fieldset-item">
-              <GenericInput
-                type="text"
-                name="offerEmail"
-                label={t('components.add.form.email')}
-                labelClassName="add-form__label add-form__label--yellow"
-                spanClassName="add-form_span--block"
-                inputClassName="add-form__input add-form__input--S add-form__input--yellow"
-                errorClassName="input__error-message--yellow"
-                required
-                validation={validator.validateEmailInput}
-                onValidate={this.state.doValidate}
-                doValidate={this.setIsValid}
-                setValue={this.setValue}
-              />
-            </div>
-            <div className="add-form__fieldset-item">
-              <GenericInput
-                type="text"
-                name="offerPhone"
-                label={t('components.add.form.phone')}
-                labelClassName="add-form__label add-form__label--yellow"
-                spanClassName="add-form_span--block"
-                inputClassName="add-form__input add-form__input--S add-form__input--yellow"
-                errorClassName="input__error-message--yellow"
-                maxLength={10}
-                required
-                validation={validator.validatePhoneNumber}
-                onValidate={this.state.doValidate}
-                doValidate={this.setIsValid}
-                setValue={this.setValue}
-              />
-            </div>
-          </div>
-          <div className="add-form__fieldset-wrapper">
             <div className="add-form__item add-form__item--input">
               <GenericSelect
                 name="offerVoivodeship"
@@ -393,14 +331,6 @@ class AddForm extends Component {
             </div>
           </div>
           <div className="add-form__fieldset-wrapper">
-            <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
-              <AboutMeTextarea
-                name="offerUserAdditionalInfo"
-                onValidate={this.state.doValidate}
-                doValidate={this.setIsValid}
-                setValue={this.setValue}
-              />
-            </div>
             <div className="add-form__item add-form__item--button">
               <FormButton
                 id="add-form__submit"

@@ -3,6 +3,7 @@ import { translate } from 'react-i18next';
 import validator from 'helpers/validator';
 import Input from 'components/UI/Input/Input';
 import GenericSelect from 'components/UI/GenericSelect/GenericSelect';
+import AboutMeTextarea from 'components/Register/AboutMeTextarea/AboutMeTextarea';
 import FormButton from 'components/UI/FormButton/FormButton';
 import PersonalDataConfirm from './PersonalDataConfirm/PersonalDataConfirm';
 import InvoiceInputGroup from './InvoiceInputGroup/InvoiceInputGroup';
@@ -34,6 +35,7 @@ class RegisterForm extends Component {
       this.users__addressZipCode,
       this.users__personalDataProcessing,
       this.users__termsAndConditionsCheckbox,
+      this.users__additionalInfo,
     ];
   }
 
@@ -83,6 +85,13 @@ class RegisterForm extends Component {
           },
         };
       formData = Object.assign({}, formData, invoicePostData);
+    }
+    if (this.users__additionalInfo.getWrappedInstance().state.value !== null) {
+      const aboutMePostData =
+        {
+          additionalInfo: this.users__additionalInfo.getWrappedInstance().state.value,
+        };
+      formData = Object.assign({}, formData, aboutMePostData);
     }
     return formData;
   }
@@ -238,6 +247,13 @@ class RegisterForm extends Component {
             required
             validation={validator.validateCity}
             ref={(v) => { this.users__addressCity = v; }}
+          />
+        </div>
+        <div className="register-form__item--input register-form__item--textarea">
+          <AboutMeTextarea
+            name="users__additionalInfo"
+            maxLength={800}
+            ref={(v) => { this.users__additionalInfo = v; }}
           />
         </div>
         <InvoiceInputGroup
