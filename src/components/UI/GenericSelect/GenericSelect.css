@@ -22,9 +22,15 @@
 }
 
 .input-select--custom {
-  appearance:none;
-  -webkit-appearance:none;
-  -moz-appearance:none;
+  appearance: none;
+  background: url("/assets/images/header/header-arrow-down.png") no-repeat right #fff;
+  background-position-x: 17rem;
+  background-size: 3rem 3rem;
+}
+
+.input-select--add-form-category,
+.input-select--add-form-voivodeship {
+  appearance: none;
   background: url("/assets/images/header/header-arrow-down.png") no-repeat right #fff;
   background-position-x: 17rem;
   background-size: 3rem 3rem;
@@ -38,14 +44,20 @@
   color: #F92828;
 }
 
-@media (min-width: 768px) {
-  .input-select--custom {
-    background-position-x: 25rem;
+.input-select__errorMessage--add-offer {
+  bottom: -1.7rem;
+}
+
+@media screen and (min-width: 500px) {
+  .input-select--add-form-category,
+  .input-select--add-form-voivodeship {
+    background-position-x: 24rem;
   }
 }
 
-@media (min-width: 1025px) {
-  .input-select--custom {
+@media screen and (min-width: 768px) {
+  .input-select--add-form-category,
+  .input-select--add-form-voivodeship {
     background-position-x: 35rem;
   }
 }

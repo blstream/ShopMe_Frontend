@@ -44,19 +44,13 @@ class AboutMeTextArea extends Component {
   }
 
   render() {
-    const { t } = this.props;
     return (
-      <label
-        className="add-form__label add-form__label--yellow"
-        htmlFor={this.props.name}
-      >
-        <div>
-          {t('components.UI.aboutMeTextarea.name')}
-        </div>
+      <label htmlFor={this.props.name}>
         <textarea
-          className="add-form__input add-form__input--yellow add-form__input--L"
+          className="add-form__about-me-textarea"
           name={this.props.name}
           value={this.state.value}
+          placeholder={this.props.placeholder}
           onChange={this.handleChange}
         />
         <div className="add-form__error-message">

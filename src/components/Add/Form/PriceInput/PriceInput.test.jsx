@@ -7,7 +7,7 @@ describe('PriceInput', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<PriceInput
-      name="offer__base-price"
+      name="offerBasePrice"
       required
     />, div);
   });
@@ -32,13 +32,13 @@ describe('PriceInput', () => {
     });
 
     it('does not display an error after render', () => {
-      expect(priceInput.find('.add-form__error-message').text()).toEqual('');
+      expect(priceInput.find('.add-form__offer-price--error-message').text()).toEqual('');
     });
 
     it('does not display an error if incorrect value is entered to the input', () => {
       const input = priceInput.find('input');
       input.simulate('change', { target: { value: '9.900' } });
-      expect(priceInput.find('.add-form__error-message').text()).toEqual('');
+      expect(priceInput.find('.add-form__offer-price--error-message').text()).toEqual('');
     });
   });
 
@@ -55,13 +55,13 @@ describe('PriceInput', () => {
       it('displays an error if there is no value in the input', () => {
         input.simulate('change', { target: { value: '' } });
         priceInput.instance().checkValidity();
-        expect(priceInput.find('.add-form__error-message').text()).not.toEqual('');
+        expect(priceInput.find('.add-form__offer-price--error-message').text()).not.toEqual('');
       });
 
       it('does not display an error if there is a value in the input', () => {
         input.simulate('change', { target: { value: '9,99' } });
         priceInput.instance().checkValidity();
-        expect(priceInput.find('.add-form__error-message').text()).toEqual('');
+        expect(priceInput.find('.add-form__offer-price--error-message').text()).toEqual('');
       });
     });
 

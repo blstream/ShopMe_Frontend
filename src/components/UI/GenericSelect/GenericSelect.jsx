@@ -60,7 +60,7 @@ class GenericSelect extends Component {
           {t(`${this.props.selectNamePath}`)}
         </label>
         <select
-          className={`input-select input-select--${this.props.style}`}
+          className={`input-select input-select--${this.props.selectStyle}`}
           name={this.props.name}
           value={this.state.value}
           placeholder={this.props.placeholder}
@@ -89,7 +89,7 @@ class GenericSelect extends Component {
 
 GenericSelect.defaultProps = {
   wrapperName: 'input-select__inline-label',
-  style: 'custom',
+  selectStyle: 'custom',
   optionClassName: 'input-select__item-option',
   errorClassName: 'input-select__errorMessage',
 };

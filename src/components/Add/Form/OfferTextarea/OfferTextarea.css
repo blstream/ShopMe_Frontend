@@ -1,28 +1,44 @@
-.add-form__label {
-  position: relative;
+.add-form__background-label {
+  padding: 1rem 2rem;
+  background-color: #fade42;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
 }
 
-.add-form__input {
+.add-form__background-label--span {
+  font-size: 1.5rem;
+}
+
+.add-form__background-label--offerBaseDescription {
+  width: 30%;
+}
+
+.add-form__background-label--offerExtendedDescription {
+  width: 60%;
+}
+
+.add-form__background-label--offerExtraDescription {
+  width: 100%;
+}
+
+.add-form__offer-textarea {
   color: inherit;
-  padding: 1rem;
-  margin-top: 1rem;
-  background-color: #E0E0E0;
-  border: none;
-}
-
-.add-form__input--XL {
+  padding: 1.5rem;
+  margin: 0 0 1rem 0;
+  background-color: #FFFFFF;
   height: 15rem;
-  width: 90%;
-  margin-bottom: -1rem;
+  width: 100%;
+  border: 0.1rem solid #999;
+  border-radius: 0.5rem;
 }
 
-.add-form__input--XL::placeholder {
+.add-form__offer-textarea::placeholder {
   text-align: center;
   padding: 5rem 0;
 }
 
 .add-form__input--disabled {
-  background-color: #FFFFFF;
+  background-color: #E0E0E0;
   border: 0.1rem solid #D0D0D0;
   color: #D0D0D0;
 }
@@ -31,9 +47,9 @@
   color: #D0D0D0;
 }
 
-.add-form__error-message {
+.add-form__offer-textarea--error-message {
   position: absolute;
-  bottom: -3rem;
+  bottom: -0.4rem;
   right: 0;
   font-size: 1.2rem;
   color: #F92828;

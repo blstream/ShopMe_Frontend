@@ -33,7 +33,7 @@ describe('offerTextarea', () => {
     });
 
     it('does not display an error after render', () => {
-      expect(offerTextarea.find('.add-form__error-message').text()).toEqual('');
+      expect(offerTextarea.find('.add-form__offer-textarea--error-message').text()).toEqual('');
     });
   });
 
@@ -50,13 +50,13 @@ describe('offerTextarea', () => {
       it('displays an error if there is no value in the textarea', () => {
         textarea.simulate('change', { target: { value: '' } });
         offerTextarea.instance().checkValidity();
-        expect(offerTextarea.find('.add-form__error-message').text()).not.toEqual('');
+        expect(offerTextarea.find('.add-form__offer-textarea--error-message').text()).not.toEqual('');
       });
 
       it('does not display an error if there is a value in the textarea', () => {
         textarea.simulate('change', { target: { value: 'test' } });
         offerTextarea.instance().checkValidity();
-        expect(offerTextarea.find('.add-form__error-message').text()).toEqual('');
+        expect(offerTextarea.find('.add-form__offer-textarea--error-message').text()).toEqual('');
       });
     });
 

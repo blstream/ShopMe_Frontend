@@ -2,28 +2,21 @@
   position: relative;
 }
 
-.add-form__input--yellow {
-  background-color: #FEECA5;
-  border: none;
-}
-
-.add-form__input {
+.add-form__about-me-textarea {
   color: inherit;
-  padding: 1rem;
-  margin-top: 1rem;
-  background-color: #E0E0E0;
-  border: none;
-}
-
-.add-form__input--yellow {
-  background-color: #FEECA5;
-  border: none;
-}
-
-.add-form__input--L {
+  padding: 1.5rem;
+  background-color: #FFFFFF;
   height: 15rem;
-  width: 90%;
-  margin-bottom: -1rem;
+  width: 100%;
+  border: 0.1rem solid #999;
+  border-radius: 0.5rem;
+}
+
+.add-form__about-me-textarea::placeholder {
+  text-align: center;
+  padding: 5rem 0;
+  color: inherit;
+  font-size: 1.5rem;
 }
 
 .add-form__error-message {
