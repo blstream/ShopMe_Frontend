@@ -23,30 +23,30 @@ class OfferContact extends React.Component {
 
   render() {
     const { t } = this.props;
-    const index = this.props.serviceUser.user.email.search('@');
-    const email = `${this.props.serviceUser.user.email.slice(0, index + 1)}***`;
-    const phone = `${this.props.serviceUser.user.phoneNumber.slice(0, 3)} *** ***`;
+    const index = this.props.service.email.search('@');
+    const email = `${this.props.service.email.slice(0, index + 1)}***`;
+    const phone = `${this.props.service.phoneNumber.slice(0, 3)} *** ***`;
     return (
       <div className="contact__container">
         <div className="contact__section--category">
           <img
             className="contact__category--img"
-            src={`${process.env.PUBLIC_URL}/assets/images/categories/category_${this.props.serviceUser.category.name}.png`}
-            alt={t(`components.UI.categorySelect.categoryOptions.${this.props.serviceUser.category.name}`)}
+            src={`${process.env.PUBLIC_URL}/assets/images/categories/category_${this.props.service.category}.png`}
+            alt={t(`components.UI.categorySelect.categoryOptions.${this.props.service.category}`)}
           />
           <p className="contact__category--img-name">
-            {t(`components.UI.categorySelect.categoryOptions.${this.props.serviceUser.category.name}`)}
+            {t(`components.UI.categorySelect.categoryOptions.${this.props.service.category}`)}
           </p>
         </div>
         <div className="contact__section--data">
           <h2 className="contact__header--data">{t('components.offerDetails.contact')}</h2>
-          <p className="contact__p--big">{this.props.serviceUser.user.name}</p>
-          <p className="contact__p--big">{this.state.isEmailMasked ? email : this.props.serviceUser.user.email}</p>
+          <p className="contact__p--big">{this.props.service.name}</p>
+          <p className="contact__p--big">{this.state.isEmailMasked ? email : this.props.service.email}</p>
           <p className="contact__p--big">
-            tel. {this.state.isPhoneMasked ? phone : this.props.serviceUser.user.phoneNumber}
+            tel. {this.state.isPhoneMasked ? phone : this.props.service.phoneNumber}
           </p>
-          <p className="contact__p--big">{this.props.serviceUser.user.voivodeship.name}</p>
-          <p className="contact__p--big">{this.props.serviceUser.user.city}</p>
+          <p className="contact__p--big">{this.props.service.voivodeship}</p>
+          <p className="contact__p--big">{this.props.service.city}</p>
           <p className="contact__p--big">
             {!this.state.wasButtonClicked &&
             <button className="contact__button--unhide" onClick={this.handleUnmaskPrivateData}>
@@ -57,7 +57,7 @@ class OfferContact extends React.Component {
         </div>
         <div className="contact__section--aboutme">
           <h2 className="contact__header--aboutme">{t('components.offerDetails.aboutMe')}</h2>
-          <p className="contact__p--small">{this.props.serviceUser.user.additionalInfo}</p>
+          <p className="contact__p--small">{this.props.service.additionalInfo}</p>
         </div>
       </div>
     );

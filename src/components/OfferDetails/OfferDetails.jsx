@@ -12,7 +12,7 @@ const OfferDetails = (props) => {
         <h1 className="details__header">{props.service.title}</h1>
         {props.service.user &&
         <OfferContact
-          serviceUser={props.service}
+          service={props.service}
         /> }
         <div className="details__border" />
       </div>

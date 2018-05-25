@@ -7,25 +7,19 @@ class OfferDetailsScreen extends React.Component {
     this.state = {
       service: {
         title: '',
-        category: {
-          name: '',
-        },
+        category: '',
         baseDescription: '',
         basePrice: null,
         extendedDescription: '',
         extendedPrice: null,
         extraDescription: '',
         extraPrice: null,
-        user: {
-          name: '',
-          email: '',
-          phoneNumber: '',
-          additionalInfo: '',
-          city: '',
-          voivodeship: {
-            name: '',
-          },
-        },
+        name: '',
+        email: '',
+        phoneNumber: '',
+        additionalInfo: '',
+        city: '',
+        voivodeship: '',
       },
     };
   }
