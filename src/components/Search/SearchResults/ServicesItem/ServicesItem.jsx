@@ -8,17 +8,6 @@ const ServicesItem = (props) => {
   const date = myDate.toLocaleDateString();
   return (
     <li className="services-item">
-<<<<<<< HEAD
-      <Link
-        className="services-item__title"
-        to={`/offer/${props.value.id}`}
-      >
-        {((props.page - 1) * 10) + props.index + 1}. {props.value.title}
-      </Link>
-      <span className="services-item__span">{props.t(`components.UI.categorySelect.categoryOptions.${props.value.category}`)}</span>
-      <span className="services-item__span">{props.value.basePrice} {props.t('components.foundSearchResults.currency')}</span>
-      <span className="services-item__span">{date}</span>
-=======
       <div className="services-item__name services-item__element">
         <Link
           className="services-item__title"
@@ -26,22 +15,21 @@ const ServicesItem = (props) => {
         >
           {props.value.title}
         </Link>
-        <p>{props.value.user.city}</p>
+        <p>{props.t(`components.UI.voivodeship.list.${props.value.voivodeship}`)}, {props.value.city}</p>
       </div>
       <div className="services-item__element services-item__element--category">
-        <span className="services-item__span services-item__category">{props.t(`components.UI.categorySelect.categoryOptions.${props.value.category.name}`)}</span>
+        <span className="services-item__span services-item__category">{props.t(`components.UI.categorySelect.categoryOptions.${props.value.category}`)}</span>
       </div>
       <div className="services-item__element">
         <span className="services-item__price-prefix">{props.t('components.foundSearchResults.prefix')}</span>
         <span className="services-item__span services-item__price">
           {props.value.basePrice} {props.t('components.foundSearchResults.currency')}
         </span>
-        <p>dostępne inne pakiety</p>
+        {props.value.extendedDescription && <p>{props.t('components.foundSearchResults.moreOptions')}</p>}
       </div>
       <div className="services-item__element">
-        <span className="services-item__date">{date}</span>
+        <span className="services-item__span services-item__date">{date}</span>
       </div>
->>>>>>> Add search results styles
     </li>
   );
 };

@@ -10,7 +10,7 @@
 }
 
 .search-results__heading-item {
-  margin: 1.5rem 0;
+  margin: 0.8rem 0;
   font-size: 1.9rem;
 }
 
@@ -31,12 +31,37 @@
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
   }
+  .search-results__heading-item {
+    margin: 1rem 0;
+    font-size: 2rem;
+  }
+  .search-results__list {
+    border-radius: 8px;
+    position: relative;
+    background: #fff;
+  }
+  .search-results__list:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    background: #fade42;
+    z-index: -1;
+  }
   .search-results__list-wrapper {
     box-shadow: 0.1rem 0.2rem 1rem 0.5rem #9e9e9e33;
     border-radius: 8px;
   }
   .search-results__title {
-    font-size: 3rem;
     padding-bottom: 3rem;
+  }
+ }
+
+ @media (min-width:1025px) {
+  .search-results__list {
+    border-radius: 0;
+  }
+  .search-results__heading-item {
+    margin: 0.8rem 0;
   }
  }

@@ -10,12 +10,13 @@
     },
     "foundSearchResults": {
       "resultsTitle": "Wyniki wyszukiwania",
-      "offerTitle": "Tytuł oferty",
+      "offerTitle": "Nazwa",
       "category": "Kategoria",
       "price": "Cena",
       "date": "Data",
       "currency": "zł",
-      "prefix": "od"
+      "prefix": "od",
+      "moreOptions": "dostępne więcej wariantów"
     },
     "categoryList":{
       "title": "Odkrywaj oferty. ",

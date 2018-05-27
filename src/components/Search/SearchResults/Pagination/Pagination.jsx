@@ -92,7 +92,7 @@ export default class Pagination extends React.Component {
     const inactivePageBefore = totalPages >= 5 && page > 4
       ? (
         <button
-          className="pagination__button--inactive"
+          className="pagination__button pagination__button--inactive"
         >...
         </button>
       )
@@ -101,7 +101,7 @@ export default class Pagination extends React.Component {
     const inactivePageAfter = totalPages >= 5 && page < totalPages - 3
       ? (
         <button
-          className="pagination__button--inactive"
+          className="pagination__button pagination__button--inactive"
         >...
         </button>
       )
