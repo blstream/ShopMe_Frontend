@@ -21,7 +21,7 @@ const ServicesItem = (props) => {
         <span className="services-item__span services-item__category">{props.t(`components.UI.categorySelect.categoryOptions.${props.value.category}`)}</span>
       </div>
       <div className="services-item__element">
-        <span className="services-item__price-prefix">{props.t('components.foundSearchResults.prefix')}</span>
+        {props.value.extendedDescription && <span className="services-item__price-prefix">{props.t('components.foundSearchResults.prefix')}</span>}
         <span className="services-item__span services-item__price">
           {props.value.basePrice} {props.t('components.foundSearchResults.currency')}
         </span>
