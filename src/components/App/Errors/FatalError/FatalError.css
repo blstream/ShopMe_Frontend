@@ -1,0 +1,56 @@
+.app-error__container {
+  font-family: 'Lato', sans-serif;
+  width: 90%;
+  margin: 5rem auto;
+}
+
+.app-error__img {
+  margin: 0 auto;
+  display: block;
+  max-width: 100%;
+}
+
+.app-error__response-code {
+  padding-top: 2rem;
+  font-size:7rem;
+  color: #F92828;
+  font-weight: bold;
+  text-align: center;
+}
+
+.app-error__response-message {
+  margin: 2rem;
+  font-size: 2.2rem;
+  text-align: center;
+}
+
+@media (min-width: 768px){
+  .app-error__container {
+    margin: 15rem auto;
+    height: 50rem;
+  }
+
+  .app-error__img {
+    max-height: 60%;
+  }
+
+  .app-error__response-code {
+    padding-top: 4rem;
+    font-size: 10rem;
+  }
+
+  .app-error__response-message {
+    margin: 3rem;
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 1025px){
+  .app-error__img {
+    max-height: 65%;
+  }
+  .app-error__response-code {
+    font-size: 12rem;
+    padding-top: 3rem;
+  }
+}
