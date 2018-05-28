@@ -30,12 +30,24 @@
   background-size: 3rem 3rem;
 }
 
+.input-select--add-form-category,
+.input-select--add-form-voivodeship {
+  appearance: none;
+  background: url("/assets/images/header/header-arrow-down.png") no-repeat right #fff;
+  background-position-x: 17rem;
+  background-size: 3rem 3rem;
+}
+
 .input-select__errorMessage {
   position: absolute;
   right: 0;
   bottom: -2.5rem;
   font-size: 1.2rem;
   color: #F92828;
+}
+
+.input-select__errorMessage--add-offer {
+  bottom: -1.7rem;
 }
 
 @media (min-width: 768px) {
@@ -46,6 +58,20 @@
 
 @media (min-width: 1025px) {
   .input-select--custom {
+    background-position-x: 35rem;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .input-select--add-form-category,
+  .input-select--add-form-voivodeship {
+    background-position-x: 24rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .input-select--add-form-category,
+  .input-select--add-form-voivodeship {
     background-position-x: 35rem;
   }
 }

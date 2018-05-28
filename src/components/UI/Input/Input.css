@@ -33,6 +33,10 @@
   color: #F92828;
 }
 
+.generic-input__error-message--add-offer {
+  bottom: -1.7rem;
+}
+
 .generic-input__eye-icon {
   position: absolute;
   top: 55%;

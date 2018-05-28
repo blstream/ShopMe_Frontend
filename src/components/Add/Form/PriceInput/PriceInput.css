@@ -7,36 +7,65 @@
   left: -9999px;
 }
 
-.add-form__input {
-  color: inherit;
-  padding: 1rem;
-  margin-top: 1rem;
-  background-color: #E0E0E0;
-  border: none;
-  font-size: 1.44rem;
+.add-form__offer-price__inline {
+  width: 50%;
+  height: 100%;
+  border: 0.1rem solid #999;
+  border-radius: 0.5rem;
+  display: grid;
+  grid-template-columns: 25% 60% 1fr;
 }
 
-.add-form__input--XS {
-  width: 15rem;
-}
-
-.add-form__input--disabled {
-  background-color: #FFFFFF;
-  border: 0.1rem solid #D0D0D0;
+.add-form__offer-price__inline--disabled {
+  border-color: #D0D0D0;
   color: #D0D0D0;
 }
 
-.add-form__error-message {
-  position: absolute;
-  bottom: -3.5rem;
-  right: 0;
+.add-form__offer-price__label {
+  text-align: center;
+  align-self: center;
+}
+
+.add-form__offer-price {
+  border: none;
+  position: relative;
+  border-left: 0.1rem solid #999;
+  padding: 0.7rem;
+  background-color: #FFFFFF;
+  font-size: 1.3rem;
+  text-align: center;
+  align-self: center;
+}
+
+.add-form__offer-price--disabled {
+  border-color: #D0D0D0;
+}
+
+.add-form__offer-price--error-message {
+  position: relative;
+  top: 0.3rem;
   font-size: 1.2rem;
   color: #F92828;
 }
 
 .add-form__input-currency {
-  position: absolute;
-  top: 0;
-  right: 1rem;
   color: #3F3F3F;
+  padding: 0.6rem;
+  text-align: center;
+}
+
+.add-form__input-currency--disabled {
+  color: #D0D0D0;
+}
+
+@media screen and (min-width: 500px) {
+  .add-form__offer-price__inline {
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .add-form__offer-price__inline {
+    width: 35%;
+  }
 }

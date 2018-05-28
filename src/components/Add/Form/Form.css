@@ -1,15 +1,3 @@
-.input-title {
-	width: 25rem;
-  border: none;
-  height: 3rem;
-  background-color: #E0E0E0;
-	color: inherit;
-	outline: none;
-  padding: 0.5rem 0.5rem 0.5rem 1rem;
-  margin-left: 1rem;
-  box-sizing: border-box;
-}
-
 .add-form {
   max-width: 60%;
   margin: 5rem auto;
@@ -17,11 +5,13 @@
   font-size: 1.6rem;
   color: #000000;
   border: 0.1rem solid #A9A9A9;
+  font-size: 1.1rem;
+  margin: 3rem 2rem 0 2rem;
 }
 
 .add-form__item {
-  height: 4rem;
-  margin: 4rem auto 0rem auto;
+  height: 3rem;
+  margin: 3rem auto 0rem auto;
 }
 
 .add-form__item--input {
@@ -48,114 +38,55 @@
 }
 
 .add-form__title {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   text-align: center;
-  padding-top: 3rem;
+  margin-bottom: 5rem;
 }
 
-.add-form__fieldset{
-  position: relative;
+.add-form__error-message--wrapper {
+  text-align: center;
 }
 
-.add-form__error {
-  position: absolute;
-  bottom: 0;
-  left: 3rem;
+.add-form__error-message--paragraph {
   font-size: 1.6rem;
   color: #F92828;
 }
 
-.add-form__fieldset--basic {
-  border: none;
-  padding: 2rem;
-  margin-right: 1rem;
-}
-
-.add-form__fieldset--offers {
-  border: 0.1rem solid #A9A9A9;
-  border-radius: 0.5rem;
+.add-form__fieldset {
   position: relative;
-  margin: 3rem;
-  padding: 2rem;
-  padding-bottom: 4rem;
-}
-
-.add-form__fieldset--offers::before {
-  content: '';
-  text-align: center;
-  position: absolute;
-  width: 7rem;
-  height: 7rem;
-  border: 0.1rem solid grey;
-  border-radius: 50%;
-  top: -5%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #fdde6b;
-}
-
-.add-form__fieldset--offers::after {
-  content: "Sm";
-  font-size: 3.2rem;
-  color: #221e1d;
-  position: absolute;
-  top: -4.5%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.add-form__fieldset--about {
-  background-color: #FDDE6B;
-  padding: 2rem 5rem;
-  color: #282828;
   border: none;
+  padding: 2rem 0 4rem 0;
+  border-bottom: 1px solid;
+}
+
+.add-form__fieldset:nth-last-child(1) {
+  border: none;
+  padding: 2rem 0 0 0;
 }
 
 .add-form__fieldset-title {
-  font-size: 1.76rem;
-  margin-top: 5rem;
+  font-size: 1.6rem;
+  margin: 2rem 0;
   text-align: center;
 }
 
 .add-form__fieldset-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 2rem;
-}
-
-.add-form__fieldset-wrapper--basic {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.add-form__fieldset-item--basic {
-  padding: 1rem 2rem;
-}
-
-.add-form__fieldset-item--margin-top {
-  margin-top: 3rem;
+  width: 29rem;
+  margin: 3rem auto 0 auto;
 }
 
 .add-form__fieldset-item--textarea {
-  align-self: center;
-  flex-grow: 2;
-  margin-top: 1.5rem;
-}
-
-.add-form__fieldset-item--button {
-  padding: 2rem 0 2rem 2rem;
+  margin-top: 3rem;
 }
 
 .add-form__caption {
-  font-size: 1.28rem;
-  color: #24313c;
-  margin-right: 1rem;
   margin-top: 1rem;
 }
 
-/* Inputs Styles */
+.add-form__caption--paragraph {
+  font-size: 1.5rem;
+  color: #24313c;
+}
 
 .add-form__input--disabled {
   background-color: #FFFFFF;
@@ -167,44 +98,22 @@
   color: #D0D0D0;
 }
 
-.add-form__input--S {
-  width: 25rem;
-}
-
-.input-title__errorMessage {
-  font-size: 1.2rem;
-  color: #F92828;
-  margin-top: 0.5rem;
-  text-align: right;
-}
-
-
-
-
-.add-form__item {
-  height: 4rem;
-  margin: 4rem auto 0rem auto;
-}
-
-.add-form__item--input {
-  width: 29rem;
-}
-
-.add-form__item--button {
-  width: 19.5rem;
+@media (min-width: 500px) {
+  .add-form__item--input, .add-form__fieldset-wrapper {
+    width: 40rem;
+  }
+  .add-form {
+    margin: 3rem 4rem 0 4rem;
+    font-size: 1.4rem;
+  }
 }
 
 @media (min-width: 768px) {
-  .add-form__item--input {
-    width: 40rem;
+  .add-form__item--input, .add-form__fieldset-wrapper {
+    width: 56rem;
   }
-  .add-form__item--button, .register-form__login-link {
-    width: 28rem;
-  }
-}
 
-@media (min-width: 1025px) {
-  .add-form__item--input {
-    width: 55rem;
+  .add-form {
+    margin: 13rem 10rem 0 10rem;
   }
 }

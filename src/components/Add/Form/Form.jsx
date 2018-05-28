@@ -5,7 +5,7 @@ import validator from 'helpers/validator';
 import OfferTextarea from 'components/Add/Form/OfferTextarea/OfferTextarea';
 import PriceInput from 'components/Add/Form/PriceInput/PriceInput';
 import FormButton from 'components/UI/FormButton/FormButton';
-import GenericInput from 'components/UI/GenericInput/GenericInput';
+import Input from 'components/UI/Input/Input';
 import GenericSelect from 'components/UI/GenericSelect/GenericSelect';
 
 import './Form.css';
@@ -168,51 +168,47 @@ class AddForm extends Component {
         onSubmit={this.onSubmit}
         noValidate
       >
-        <fieldset className="add-form__fieldset add-form__fieldset--basic">
+        <fieldset className="add-form__fieldset">
           <h1 className="add-form__title">{t('components.add.form.title')}</h1>
-          {errorMessage && <p className="add-form__error">{t('components.add.form.errorMessage')}</p>}
-          <div className="add-form__fieldset-wrapper--basic">
-            <div className="add-form__fieldset-item add-form__fieldset-item--basic add-form__fieldset-item--margin-top">
-              <GenericInput
-                type="text"
-                name="offerTitle"
-                label={t('components.add.form.name')}
-                labelClassName="add-form_label"
-                spanClassName="add-form_span--inline"
-                inputClassName="input-title"
-                errorClassName="input-title__errorMessage"
-                maxLength={30}
-                required
-                validation={validator.validateAddOfferTitle}
-                onValidate={this.state.doValidate}
-                doValidate={this.setIsValid}
-                setValue={this.setValue}
-              />
-            </div>
+          <div className="add-form__error-message--wrapper">
+            {errorMessage && <p className="add-form__error-message--paragraph">{t('components.add.form.errorMessage')}</p>}
           </div>
-          <div className="add-form__fieldset-wrapper--basic">
-            <div className="add-form__item add-form__item--input">
-              <GenericSelect
-                name="offerCategory"
-                selectData={this.props.categories}
-                selectNamePath="components.UI.categorySelect.name"
-                selectErrorPath="components.UI.categorySelect.errorEmptyField"
-                selectOptionsPath="components.UI.categorySelect.categoryOptions"
-                selectClassName="input-select input-select--gray"
-                errorClassName="input-select__errorMessage"
-                labelClassName="input__wrapper--relative"
-                required
-                onValidate={this.state.doValidate}
-                doValidate={this.setIsValid}
-                setValue={this.setValue}
-              />
-            </div>
+          <div className="add-form__item add-form__item--input">
+            <Input
+              type="text"
+              name="offerTitle"
+              label={t('components.add.form.name')}
+              maxLength={30}
+              required
+              errorClassName="generic-input__error-message generic-input__error-message--add-offer"
+              validation={validator.validateAddOfferTitle}
+              onValidate={this.state.doValidate}
+              doValidate={this.setIsValid}
+              setValue={this.setValue}
+            />
+          </div>
+          <div className="add-form__item add-form__item--input">
+            <GenericSelect
+              name="offerCategory"
+              selectData={this.props.categories}
+              selectNamePath="components.UI.categorySelect.name"
+              selectErrorPath="components.UI.categorySelect.errorEmptyField"
+              selectOptionsPath="components.UI.categorySelect.categoryOptions"
+              selectClassName="input-select input-select--gray"
+              errorClassName="input-select__errorMessage input-select__errorMessage--add-offer"
+              labelClassName="input__wrapper--relative"
+              required
+              selectStyle="add-form-category"
+              onValidate={this.state.doValidate}
+              doValidate={this.setIsValid}
+              setValue={this.setValue}
+            />
           </div>
         </fieldset>
-        <fieldset className="add-form__fieldset add-form__fieldset--offers">
-          <h3 className="add-form__fieldset-title">{t('components.add.form.fieldsetTitle')}</h3>
+        <fieldset className="add-form__fieldset">
+          <h2 className="add-form__fieldset-title">{t('components.add.form.fieldsetTitle')}</h2>
           <div className="add-form__fieldset-wrapper">
-            <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
+            <div className="add-form__fieldset-item--offer-textarea">
               <OfferTextarea
                 name="offerBaseDescription"
                 label={t('components.add.form.offerBaseLabel')}
@@ -225,9 +221,10 @@ class AddForm extends Component {
                 setValue={this.setValue}
               />
             </div>
-            <div className="add-form__fieldset-item">
+            <div className="add-form__fieldset-item--price-input">
               <PriceInput
                 name="offerBasePrice"
+                label={t('components.UI.priceInput.label')}
                 required
                 onValidate={this.state.doValidate}
                 doValidate={this.setIsValid}
@@ -236,7 +233,7 @@ class AddForm extends Component {
             </div>
           </div>
           <div className="add-form__fieldset-wrapper">
-            <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
+            <div className="add-form__fieldset-item--offer-textarea">
               <OfferTextarea
                 name="offerExtendedDescription"
                 label={t('components.add.form.offerExtendedLabel')}
@@ -249,9 +246,10 @@ class AddForm extends Component {
                 setValue={this.setValue}
               />
             </div>
-            <div className="add-form__fieldset-item">
+            <div className="add-form__fieldset-item--price-input">
               <PriceInput
                 name="offerExtendedPrice"
+                label={t('components.UI.priceInput.label')}
                 onChange={this.setFieldStateValue}
                 disabled={this.state.offerExtendedDisabled}
                 required={this.state.priceExtendedRequired}
@@ -278,6 +276,7 @@ class AddForm extends Component {
             <div className="add-form__fieldset-item">
               <PriceInput
                 name="offerExtraPrice"
+                label={t('components.UI.priceInput.label')}
                 onChange={this.setFieldStateValue}
                 disabled={this.state.offerExtraDisabled}
                 required={this.state.priceExtraRequired}
@@ -288,7 +287,8 @@ class AddForm extends Component {
             </div>
           </div>
         </fieldset>
-        <fieldset className="add-form__fieldset add-form__fieldset--about">
+        <fieldset className="add-form__fieldset">
+          <h2 className="add-form__fieldset-title">{t('components.add.form.fieldsetTitle')}</h2>
           <div className="add-form__fieldset-wrapper">
             <div className="add-form__item add-form__item--input">
               <GenericSelect
@@ -302,35 +302,33 @@ class AddForm extends Component {
                 labelClassName=".select_span--yellow"
                 selectClassName="input-select input-select--yellow"
                 selectItemClassName="input-select__item-option--yellow"
-                errorClassName="input-select__errorMessage input-select__errorMessage2"
+                errorClassName="input-select__errorMessage input-select__errorMessage--add-offer"
                 disableChange={this.setCityEnable}
                 required
+                selectStyle="add-form-voivodeship"
                 onValidate={this.state.doValidate}
                 doValidate={this.setIsValid}
                 setValue={this.setValue}
               />
             </div>
-            <div className="add-form__fieldset-item">
-              <GenericInput
+            <div className="add-form__item add-form__item--input">
+              <Input
                 type="text"
                 name="offerCity"
                 label={t('components.add.form.city')}
-                labelClassName="add-form__label add-form__label--yellow"
-                spanClassName="add-form_span--block"
-                inputClassName="add-form__input add-form__input--S add-form__input--yellow"
-                inputClassNameDisabled="input--yellow-disabled"
-                errorClassName="input__error-message--yellow"
                 disabled={this.state.isCityDisabled}
                 maxLength={50}
                 required
+                errorClassName="generic-input__error-message generic-input__error-message--add-offer"
                 validation={validator.validateCity}
                 onValidate={this.state.doValidate}
                 doValidate={this.setIsValid}
                 setValue={this.setValue}
               />
             </div>
-          </div>
-          <div className="add-form__fieldset-wrapper">
+            <div className="add-form__caption">
+              <p className="add-form__caption--paragraph">{t('components.add.form.caption')}</p>
+            </div>
             <div className="add-form__item add-form__item--button">
               <FormButton
                 id="add-form__submit"
@@ -339,7 +337,6 @@ class AddForm extends Component {
               />
             </div>
           </div>
-          <p className="add-form__caption">{t('components.add.form.caption')}</p>
         </fieldset>
       </form>
     );
