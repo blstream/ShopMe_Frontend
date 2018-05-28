@@ -247,8 +247,12 @@
     },
     "users": {
       "post": {
-        "400": "Niepoprawnie e-mail i/lub hasło",
-        "401": "Użycie tokena, który został unieważniony"
+        "login": {
+          "401": "Niepoprawny e-mail i/lub hasło"
+        },
+        "logout": {
+          "401": "Użycie tokena, który został unieważniony"
+        }
       },
       "get": {
         "401": "Wymagane uwieżytelnienie",

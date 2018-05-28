@@ -17,7 +17,9 @@ const http = {
         if (response.ok) {
           return parse(response);
         }
-        throw new Error(response.statusText);
+        const error = new Error(response.status);
+        error.response = response;
+        throw error;
       });
   },
 
@@ -43,7 +45,9 @@ const http = {
         if (response.ok) {
           return parse(response);
         }
-        throw new Error(response.statusText);
+        const error = new Error(response.status);
+        error.response = response;
+        throw error;
       });
   },
 };
