@@ -2,6 +2,7 @@ import React from 'react';
 import { translate } from 'react-i18next';
 import { Redirect } from 'react-router';
 import AddForm from 'components/Add/Form/Form';
+import NonFatalError from 'components/App/Errors/NonFatalError/NonFatalError';
 
 class AddFormScreen extends React.Component {
   constructor(props) {
@@ -18,14 +19,19 @@ class AddFormScreen extends React.Component {
   componentDidMount() {
     const { http } = this.props;
     Promise.all([http.get('/api/categories'), http.get('/api/voivodeships')])
-      .then(res => this.setState({ categories: res[0], voivodeships: res[1] }));
+      .then((response) => {
+        if (response) this.setState({ categories: response[0], voivodeships: response[1] });
+      });
   }
 
   sendData(data) {
     const { http } = this.props;
     return http.post('/api/offers', data)
-      .then(response => this.setState({ responseId: response.id }))
-      .then(() => this.setState({ fireRedirect: true }));
+      .then((response) => {
+        if (response) {
+          this.setState({ responseId: response.id, fireRedirect: true });
+        }
+      });
   }
 
   render() {
@@ -38,6 +44,7 @@ class AddFormScreen extends React.Component {
             responseId: this.state.responseId,
           }}
         />}
+        {this.props.hasError && <NonFatalError error={this.props.error} />}
         <AddForm
           fetchData={this.sendData}
           categories={this.state.categories}

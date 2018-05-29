@@ -1,5 +1,6 @@
 import React from 'react';
 import OfferDetails from 'components/OfferDetails/OfferDetails';
+import FatalError from 'components/App/Errors/FatalError/FatalError';
 
 class OfferDetailsScreen extends React.Component {
   constructor(props) {
@@ -28,11 +29,17 @@ class OfferDetailsScreen extends React.Component {
     const { http } = this.props;
     const { offerId } = this.props.match.params;
     http.get(`/api/offers/${offerId}`)
-      .then(service => this.setState({ service }));
+      .then((service) => {
+        if (service) this.setState({ service });
+      });
   }
 
   render() {
-    return <OfferDetails service={this.state.service} />;
+    return (
+      <div>
+        {this.props.hasError ? <FatalError message="endpointError.offers.get.404" errorImg="NonFatalError" /> : <OfferDetails service={this.state.service} /> }
+      </div>
+    );
   }
 }
 

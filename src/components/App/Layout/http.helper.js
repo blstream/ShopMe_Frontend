@@ -19,6 +19,7 @@ const http = {
         }
         const error = new Error(response.status);
         error.response = response;
+        error.method = 'get';
         throw error;
       });
   },
@@ -47,6 +48,7 @@ const http = {
         }
         const error = new Error(response.status);
         error.response = response;
+        error.method = 'post';
         throw error;
       });
   },

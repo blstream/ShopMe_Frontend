@@ -2,8 +2,16 @@ import React from 'react';
 import { translate } from 'react-i18next';
 import './NonFatalError.css';
 
-const NonFatalError = props =>
-  (
+const NonFatalError = (props) => {
+  let message;
+  if (props.error) {
+    const requestArray = props.error.response.url.split('/');
+    message = requestArray[5]
+      ? props.t(`endpointError.${requestArray[4]}.${props.error.method}.${requestArray[5]}.${props.error.message}`)
+      : props.t(`endpointError.${requestArray[4]}.${props.error.method}.${props.error.message}`);
+  } else message = props.t(props.message);
+
+  return (
     <div className="non-fatal-error__container">
       <img
         className="non-fatal-error__img"
@@ -11,9 +19,10 @@ const NonFatalError = props =>
         alt="Non fatal error"
       />
       <span className="non-fatal-error__response-message">
-        {props.t(`endpointError.${props.endpoint}.${props.errorStatus}`)}
+        {message}
       </span>
     </div>
   );
+};
 export { NonFatalError };
 export default translate()(NonFatalError);

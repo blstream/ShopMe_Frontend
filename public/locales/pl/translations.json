@@ -256,7 +256,8 @@
       },
       "get": {
         "401": "Wymagane uwieżytelnienie",
-        "404": "Użytkownik o podanym ID nie został odnaleziony"
+        "404": "Użytkownik o podanym ID nie został odnaleziony",
+        "email": "Użytkownik o podanym adresie e-mail już istnieje"
       }
     }
   }

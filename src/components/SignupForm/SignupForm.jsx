@@ -5,6 +5,7 @@ import { Redirect } from 'react-router';
 import validator from 'helpers/validator';
 import Input from 'components/UI/Input/Input';
 import FormButton from 'components/UI/FormButton/FormButton';
+import NonFatalError from 'components/App/Errors/NonFatalError/NonFatalError';
 import './SignUpForm.css';
 
 class SignupForm extends Component {
@@ -100,11 +101,11 @@ class SignupForm extends Component {
         onSubmit={this.handleSubmit}
         noValidate
       >
-        <h1 className="signup-form__title">{t('components.signup.formTitle')}</h1>
+        {isEmailExists && <NonFatalError message="endpointError.users.get.email" />}
         <div className="signup-form__errors">
-          {isEmailExists && <p className="signup-form__email-exists-message">{t('components.register.anEmailIsExisting')}</p>}
           {errorMessage && <p className="signup-form__error">{t('components.signup.errorMessage')}</p>}
         </div>
+        <h1 className="signup-form__title">{t('components.signup.formTitle')}</h1>
         <div className="signup-form__item login-form__item--input">
           <Input
             name="userName"

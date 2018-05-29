@@ -11,6 +11,11 @@ class Layout extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      user: {
+        token: localStorage.getItem('userToken'),
+        name: localStorage.getItem('userName'),
+        surname: localStorage.getItem('userSurname'),
+      },
       hasError: false,
       fireRedirect: false,
       error: '',
@@ -19,6 +24,7 @@ class Layout extends Component {
       get: (...rest) => httpHelper.get(...rest).catch(this.displayError),
       post: (...rest) => httpHelper.post(...rest).catch(this.displayError),
     };
+    this.setUser = this.setUser.bind(this);
     this.displayError = this.displayError.bind(this);
     this.logout = this.logout.bind(this);
   }
@@ -81,6 +87,8 @@ class Layout extends Component {
       <div className="wrapper">
         <div className="content">
           <Header
+            userName={this.state.user.name}
+            userSurname={this.state.user.surname}
             onClick={this.logout}
             isHomepage={this.props.children.type.name === 'Home'}
             isResults={this.props.children.type.name === 'SearchScreen'}
