@@ -87,38 +87,29 @@ class PriceInput extends Component {
     const { t } = this.props;
     return (
       <React.Fragment>
+        <label htmlFor={this.props.name} className="offer-price__label">
+          <span>{this.props.label}</span>
+        </label>
+        <input
+          className={this.props.disabled
+            ? 'offer-price__input offer-price__input--disabled'
+            : 'offer-price__input'
+          }
+          type="text"
+          name={this.props.name}
+          value={this.state.value}
+          disabled={this.props.disabled}
+          required={this.props.required}
+          onChange={this.handleChange}
+          onKeyUp={this.handleKeyUp}
+          onBlur={this.handleBlur}
+        />
         <div className={this.props.disabled
-          ? 'add-form__offer-price__inline add-form__offer-price__inline--disabled'
-          : 'add-form__offer-price__inline'
+          ? 'offer-price__input-currency offer-price__input-currency--disabled'
+          : 'offer-price__input-currency'
         }
         >
-          <label
-            className="add-form__offer-price__label"
-            htmlFor={this.props.name}
-          >
-            {this.props.label}
-          </label>
-          <input
-            className={this.props.disabled
-              ? 'add-form__offer-price add-form__offer-price--disabled'
-              : 'add-form__offer-price'
-            }
-            type="text"
-            name={this.props.name}
-            value={this.state.value}
-            disabled={this.props.disabled}
-            required={this.props.required}
-            onChange={this.handleChange}
-            onKeyUp={this.handleKeyUp}
-            onBlur={this.handleBlur}
-          />
-          <div className={this.props.disabled
-            ? 'add-form__input-currency add-form__input-currency--disabled'
-            : 'add-form__input-currency'
-          }
-          >
-            {t('components.UI.priceInput.currency')}
-          </div>
+          {t('components.UI.priceInput.currency')}
         </div>
         <div className="add-form__offer-price--error-message">{this.state.errorMessage}</div>
       </React.Fragment>

@@ -1,56 +1,52 @@
-.add-form__background-label {
-  padding: 1rem 2rem;
-  background-color: #fade42;
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
+.offer__label {
+  background: #FADE42;
+  border-top-left-radius: 0.8rem;
+  border-top-right-radius: 0.8rem;
+  padding: 0.8rem 1rem 1rem 1.5rem;
+  grid-column: 1/2;
 }
 
-.add-form__background-label--span {
-  font-size: 1.5rem;
+.offer__label--offerBaseDescription {
+  grid-row: 1/2;
 }
 
-.add-form__background-label--offerBaseDescription {
-  width: 30%;
-}
-
-.add-form__background-label--offerExtendedDescription {
-  width: 60%;
-}
-
-.add-form__background-label--offerExtraDescription {
-  width: 100%;
-}
-
-.add-form__offer-textarea {
+.offer__textarea {
   color: inherit;
   padding: 1.5rem;
   margin: 0 0 1rem 0;
   background-color: #FFFFFF;
-  height: 15rem;
   width: 100%;
+  height: 100%;
   border: 0.1rem solid #999;
-  border-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  resize: none;
+  grid-column: 1/4;
+  grid-row: 2/3;
 }
 
-.add-form__offer-textarea::placeholder {
+.offer__textarea::placeholder {
   text-align: center;
-  padding: 5rem 0;
+  padding: 7.5rem 0;
 }
 
-.add-form__input--disabled {
+.offer__textarea-error-message {
+  text-align: right;
+  margin-top: 0.3rem;
+  font-size: 1.3rem;
+  color: #F92828;
+  grid-row: 3/4;
+  grid-column: 1/-1;
+}
+
+.offer__textarea--disabled {
   background-color: #E0E0E0;
   border: 0.1rem solid #D0D0D0;
   color: #D0D0D0;
 }
 
-.add-form__input--disabled::placeholder {
+.offer__textarea--disabled::placeholder {
   color: #D0D0D0;
 }
 
-.add-form__offer-textarea--error-message {
-  position: absolute;
-  bottom: -0.4rem;
-  right: 0;
-  font-size: 1.2rem;
-  color: #F92828;
-}

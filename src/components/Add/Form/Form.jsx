@@ -207,32 +207,29 @@ class AddForm extends Component {
         </fieldset>
         <fieldset className="add-form__fieldset">
           <h2 className="add-form__fieldset-title">{t('components.add.form.fieldsetTitle')}</h2>
-          <div className="add-form__fieldset-wrapper">
-            <div className="add-form__fieldset-item--offer-textarea">
-              <OfferTextarea
-                name="offerBaseDescription"
-                label={t('components.add.form.offerBaseLabel')}
-                placeholder={t('components.add.form.offerBasePlaceholder')}
-                offerExtraFilled={this.state.offerExtraFilled}
-                onChange={this.setFieldStateValue}
-                required
-                onValidate={this.state.doValidate}
-                doValidate={this.setIsValid}
-                setValue={this.setValue}
-              />
-            </div>
-            <div className="add-form__fieldset-item--price-input">
-              <PriceInput
-                name="offerBasePrice"
-                label={t('components.UI.priceInput.label')}
-                required
-                onValidate={this.state.doValidate}
-                doValidate={this.setIsValid}
-                setValue={this.setValue}
-              />
-            </div>
+          <div className="add-form__offer-container">
+            <OfferTextarea
+              name="offerBaseDescription"
+              label={t('components.add.form.offerBaseLabel')}
+              placeholder={t('components.add.form.offerBasePlaceholder')}
+              offerExtraFilled={this.state.offerExtraFilled}
+              onChange={this.setFieldStateValue}
+              required
+              onValidate={this.state.doValidate}
+              doValidate={this.setIsValid}
+              setValue={this.setValue}
+            />
+            <PriceInput
+              name="offerBasePrice"
+              // label={t('components.UI.priceInput.label')}
+              label="Cena"
+              required
+              onValidate={this.state.doValidate}
+              doValidate={this.setIsValid}
+              setValue={this.setValue}
+            />
           </div>
-          <div className="add-form__fieldset-wrapper">
+          {/* <div className="add-form__fieldset-wrapper">
             <div className="add-form__fieldset-item--offer-textarea">
               <OfferTextarea
                 name="offerExtendedDescription"
@@ -260,7 +257,7 @@ class AddForm extends Component {
             </div>
           </div>
           <div className="add-form__fieldset-wrapper">
-            <div className="add-form__fieldset-item add-form__fieldset-item--textarea">
+            <div className="add-form__fieldset-item--offer-textarea">
               <OfferTextarea
                 name="offerExtraDescription"
                 label={t('components.add.form.offerExtraLabel')}
@@ -273,7 +270,7 @@ class AddForm extends Component {
                 setValue={this.setValue}
               />
             </div>
-            <div className="add-form__fieldset-item">
+            <div className="add-form__fieldset-item--price-input">
               <PriceInput
                 name="offerExtraPrice"
                 label={t('components.UI.priceInput.label')}
@@ -285,7 +282,7 @@ class AddForm extends Component {
                 setValue={this.setValue}
               />
             </div>
-          </div>
+          </div> */}
         </fieldset>
         <fieldset className="add-form__fieldset">
           <h2 className="add-form__fieldset-title">{t('components.add.form.fieldsetTitle')}</h2>

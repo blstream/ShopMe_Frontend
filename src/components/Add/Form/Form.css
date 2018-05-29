@@ -117,3 +117,30 @@
     margin: 13rem 10rem 0 10rem;
   }
 }
+
+.add-form__offer-container {
+  width: 92%;
+  margin: 0 auto;
+  margin-top: 5rem;
+  display: grid;
+  font-size: 1.8rem;
+  grid-template-columns: 50% 20% 30%;
+  grid-template-rows: 4.5rem minmax(5rem,max-content) 4.5rem;
+}
+
+@media (min-width: 768px){
+  .add-form__offer-container  {
+    width: 70rem;
+    margin-top: 5rem;
+    grid-template-rows: 5rem minmax(10rem,max-content) 5rem;
+  }
+}
+
+@media (min-width: 1025px){
+  .add-form__offer-container  {
+    width: fit-content;
+    grid-template-columns: 20rem 20rem 20rem;
+    grid-template-rows: 3.5rem minmax(20rem,max-content) 2rem 5rem;
+  }
+}
+

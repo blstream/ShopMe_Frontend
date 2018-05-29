@@ -58,14 +58,26 @@
   color: #D0D0D0;
 }
 
-@media screen and (min-width: 500px) {
-  .add-form__offer-price__inline {
-    width: 40%;
-  }
+.offer-price__label {
+  border-radius: 6px 0 0 6px;
+  grid-column: 1/2;
+  grid-row: 4/5;
+  width: 6.5rem;
+  align-self: center;
+  padding: 1rem;
+  border: 0.1rem solid #999;
+  border-right: 0;
 }
 
-@media screen and (min-width: 768px) {
-  .add-form__offer-price__inline {
-    width: 35%;
-  }
+.offer-price__input {
+  position: relative;
+  right: -6.5rem;
+  border-radius: 0 0.6rem 0.6rem 0;
+  grid-column: 1/2;
+  grid-row: 4/5;
+  width: 12rem;
+  align-self: center;
+  padding: 1.25rem;
+  text-align: center;
+  border: 0.1rem solid #999;
 }
