@@ -24,7 +24,6 @@ class Layout extends Component {
       get: (...rest) => httpHelper.get(...rest).catch(this.displayError),
       post: (...rest) => httpHelper.post(...rest).catch(this.displayError),
     };
-    this.setUser = this.setUser.bind(this);
     this.displayError = this.displayError.bind(this);
     this.logout = this.logout.bind(this);
   }
