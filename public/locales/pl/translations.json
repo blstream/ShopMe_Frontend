@@ -163,7 +163,8 @@
       },
       "priceInput": {
         "errorEmptyField": "Pole wymagane",
-        "currency": "zł"
+        "currency": "zł",
+        "label": "Cena"
       },
       "offerTextarea": {
         "errorEmptyField": "Pole wymagane"

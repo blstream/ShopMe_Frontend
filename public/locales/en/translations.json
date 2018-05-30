@@ -163,7 +163,8 @@
       },
       "priceInput": {
         "errorEmptyField": "This field is required",
-        "currency": "zł"
+        "currency": "zł",
+        "label": "Price"
       },
       "offerTextarea": {
         "errorEmptyField": "This field is required"

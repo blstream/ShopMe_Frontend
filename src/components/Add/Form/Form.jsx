@@ -221,68 +221,59 @@ class AddForm extends Component {
             />
             <PriceInput
               name="offerBasePrice"
-              // label={t('components.UI.priceInput.label')}
-              label="Cena"
+              label={t('components.UI.priceInput.label')}
               required
               onValidate={this.state.doValidate}
               doValidate={this.setIsValid}
               setValue={this.setValue}
             />
           </div>
-          {/* <div className="add-form__fieldset-wrapper">
-            <div className="add-form__fieldset-item--offer-textarea">
-              <OfferTextarea
-                name="offerExtendedDescription"
-                label={t('components.add.form.offerExtendedLabel')}
-                placeholder={t('components.add.form.offerExtendedPlaceholder')}
-                onChange={this.setFieldStateValue}
-                disabled={this.state.offerExtendedDisabled}
-                required={this.state.offerExtendedRequired}
-                onValidate={this.state.doValidate}
-                doValidate={this.setIsValid}
-                setValue={this.setValue}
-              />
-            </div>
-            <div className="add-form__fieldset-item--price-input">
-              <PriceInput
-                name="offerExtendedPrice"
-                label={t('components.UI.priceInput.label')}
-                onChange={this.setFieldStateValue}
-                disabled={this.state.offerExtendedDisabled}
-                required={this.state.priceExtendedRequired}
-                onValidate={this.state.doValidate}
-                doValidate={this.setIsValid}
-                setValue={this.setValue}
-              />
-            </div>
+          <div className="add-form__offer-container">
+            <OfferTextarea
+              name="offerExtendedDescription"
+              label={t('components.add.form.offerExtendedLabel')}
+              placeholder={t('components.add.form.offerExtendedPlaceholder')}
+              onChange={this.setFieldStateValue}
+              disabled={this.state.offerExtendedDisabled}
+              required={this.state.offerExtendedRequired}
+              onValidate={this.state.doValidate}
+              doValidate={this.setIsValid}
+              setValue={this.setValue}
+            />
+            <PriceInput
+              name="offerExtendedPrice"
+              label={t('components.UI.priceInput.label')}
+              onChange={this.setFieldStateValue}
+              disabled={this.state.offerExtendedDisabled}
+              required={this.state.priceExtendedRequired}
+              onValidate={this.state.doValidate}
+              doValidate={this.setIsValid}
+              setValue={this.setValue}
+            />
           </div>
-          <div className="add-form__fieldset-wrapper">
-            <div className="add-form__fieldset-item--offer-textarea">
-              <OfferTextarea
-                name="offerExtraDescription"
-                label={t('components.add.form.offerExtraLabel')}
-                placeholder={t('components.add.form.offerExtraPlaceholder')}
-                onChange={this.setFieldStateValue}
-                disabled={this.state.offerExtraDisabled}
-                required={this.state.offerExtraRequired}
-                onValidate={this.state.doValidate}
-                doValidate={this.setIsValid}
-                setValue={this.setValue}
-              />
-            </div>
-            <div className="add-form__fieldset-item--price-input">
-              <PriceInput
-                name="offerExtraPrice"
-                label={t('components.UI.priceInput.label')}
-                onChange={this.setFieldStateValue}
-                disabled={this.state.offerExtraDisabled}
-                required={this.state.priceExtraRequired}
-                onValidate={this.state.doValidate}
-                doValidate={this.setIsValid}
-                setValue={this.setValue}
-              />
-            </div>
-          </div> */}
+          <div className="add-form__offer-container">
+            <OfferTextarea
+              name="offerExtraDescription"
+              label={t('components.add.form.offerExtraLabel')}
+              placeholder={t('components.add.form.offerExtraPlaceholder')}
+              onChange={this.setFieldStateValue}
+              disabled={this.state.offerExtraDisabled}
+              required={this.state.offerExtraRequired}
+              onValidate={this.state.doValidate}
+              doValidate={this.setIsValid}
+              setValue={this.setValue}
+            />
+            <PriceInput
+              name="offerExtraPrice"
+              label={t('components.UI.priceInput.label')}
+              onChange={this.setFieldStateValue}
+              disabled={this.state.offerExtraDisabled}
+              required={this.state.priceExtraRequired}
+              onValidate={this.state.doValidate}
+              doValidate={this.setIsValid}
+              setValue={this.setValue}
+            />
+          </div>
         </fieldset>
         <fieldset className="add-form__fieldset">
           <h2 className="add-form__fieldset-title">{t('components.add.form.fieldsetTitle')}</h2>

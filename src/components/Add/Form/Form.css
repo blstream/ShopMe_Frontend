@@ -140,7 +140,7 @@
   .add-form__offer-container  {
     width: fit-content;
     grid-template-columns: 20rem 20rem 20rem;
-    grid-template-rows: 3.5rem minmax(20rem,max-content) 2rem 5rem;
+    grid-template-rows: 3.5rem minmax(20rem,max-content) 2rem 5rem 2rem;
   }
 }
 

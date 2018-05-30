@@ -1,90 +1,32 @@
-.add-form__label {
-  position: relative;
-}
-
-.add-form__label--hidden {
-  position: absolute;
-  left: -9999px;
-}
-
-.add-form__offer-price__inline {
-  width: 50%;
-  height: 100%;
-  border: 0.1rem solid #999;
-  border-radius: 0.5rem;
-  display: grid;
-  grid-template-columns: 25% 60% 1fr;
-}
-
-.add-form__offer-price__inline--disabled {
-  border-color: #D0D0D0;
-  color: #D0D0D0;
-}
-
-.add-form__offer-price__label {
-  text-align: center;
-  align-self: center;
-}
-
-.add-form__offer-price {
-  border: none;
-  position: relative;
-  border-left: 0.1rem solid #999;
-  padding: 0.7rem;
-  background-color: #FFFFFF;
-  font-size: 1.3rem;
-  text-align: center;
-  align-self: center;
-}
-
-.add-form__offer-price--disabled {
-  border-color: #D0D0D0;
-}
-
-.add-form__offer-price--error-message {
-  position: relative;
-  top: 0.3rem;
-  font-size: 1.2rem;
-  color: #F92828;
-}
-
-.add-form__input-currency {
-  color: #3F3F3F;
-  padding: 0.6rem;
-  text-align: center;
-}
-
-.add-form__input-currency--disabled {
-  color: #D0D0D0;
-}
-
 .offer-price__label {
   border-radius: 0.6rem 0 0 0.6rem;
   grid-column: 1/2;
   grid-row: 4/5;
-  width: 6.5rem;
+  width: 9rem;
   align-self: center;
   padding: 1rem;
   border: 0.1rem solid #999;
   border-right: 0;
+  text-align: center;
 }
 
 .offer-price__input {
   position: relative;
-  right: -6.5rem;
+  right: -8.5rem;
   grid-column: 1/2;
   grid-row: 4/5;
-  width: 11rem;
+  width: 10rem;
   align-self: center;
-  padding: 1.25rem;
+  padding: 1.2rem;
   text-align: center;
   border: 0.1rem solid #999;
   border-right: 0;
+  font-size: 1.5rem;
 }
 
 .offer-price__input-currency {
   position: relative;
-  right: -17rem;
+  right: -18.5rem;
   align-self: center;
   padding: 1rem;
   text-align: start;
@@ -94,4 +36,19 @@
   grid-column: 1/2;
   grid-row: 4/5;
   width: 3.5rem;
+}
+
+.offer-price__input--disabled,
+.offer-price__input-currency--disabled,
+.offer-price__label--disabled {
+  color: #D0D0D0;
+  border-color: #D0D0D0;
+  background-color: #E6E8FA;
+}
+
+.offer-price__error-message {
+  font-size: 1.3rem;
+  color: #F92828;
+  grid-column: 1/2;
+  grid-row: 5/6;
 }

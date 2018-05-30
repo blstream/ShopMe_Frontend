@@ -87,7 +87,13 @@ class PriceInput extends Component {
     const { t } = this.props;
     return (
       <React.Fragment>
-        <label htmlFor={this.props.name} className="offer-price__label">
+        <label
+          htmlFor={this.props.name}
+          className={this.props.disabled
+            ? 'offer-price__label offer-price__label--disabled'
+            : 'offer-price__label'
+          }
+        >
           <span>{this.props.label}</span>
         </label>
         <input
@@ -111,7 +117,7 @@ class PriceInput extends Component {
         >
           {t('components.UI.priceInput.currency')}
         </div>
-        <div className="add-form__offer-price--error-message">{this.state.errorMessage}</div>
+        <div className="offer-price__error-message">{this.state.errorMessage}</div>
       </React.Fragment>
     );
   }
