@@ -1,13 +1,16 @@
 .services-item {
   font-size: 1.8rem;
-  display: grid;
-  grid-template-columns: auto;
   box-shadow: 0.1rem 0.2rem 1rem 0.5rem #9e9e9e33;
   margin: 3rem auto;
   border-radius: 8px;
   padding: 0.5rem 0.5rem 1.5rem;
   text-align: center;
   width: calc(100% - 3rem);
+}
+
+.services-item a {
+  display: grid;
+  grid-template-columns: auto;
 }
 
 .services-item__title {
@@ -18,6 +21,8 @@
   border-bottom: solid 0.2rem #fade42;
   padding: 0.5rem 1rem;
   line-height: 1.5;
+  font-weight: normal;
+  display: inline;
 }
 
 .services-item__title:hover, .services-item__title:focus {
@@ -54,11 +59,17 @@
 
 @media (min-width: 768px) {
   .services-item {
-    grid-template-columns: 2fr 1fr 1fr 1fr;
     margin: 0 auto;
     box-shadow: none;
     padding: 0;
     width: 100%;
+  }
+  .services-item a {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+  }
+  .services-item a:hover {
+    background: #9e9e9e1a;
+    box-shadow: inset 0.1rem 0.2rem 1rem 0.5rem #9e9e9e14;
   }
   .services-item:not(:last-of-type) {
     border-bottom: solid 1px #ccc;
