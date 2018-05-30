@@ -20,7 +20,6 @@ class Header extends React.Component {
   render() {
     const className = this.state.displayMenu ? 'menu-visible' : 'menu-invisible';
     const userName = localStorage.getItem('userName');
-    const userSurname = localStorage.getItem('userSurname');
     return (
       <header>
         <div className="header__container">
@@ -28,9 +27,8 @@ class Header extends React.Component {
           <nav>
             {userName ?
               <div>
-                <span>{this.props.t('components.UI.header.loggedAs')} </span>
                 <button onClick={this.toggleClass} className="header__arrow">
-                  <span className="user-name">{userName} {userSurname}
+                  <span className="user-name">{userName}
                     <div className="header__icons">
                       {this.state.displayMenu ? <img src="/assets/images/header/header-arrow-up.png" alt="" className="header__arrow-img" /> : <img src="/assets/images/header/header-arrow-down.png" alt="" className="header__arrow-img" />}
                     </div>

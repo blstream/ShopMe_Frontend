@@ -180,8 +180,7 @@
       },
       "header": {
         "add": "dodaj ofertę",
-        "logout": "wyloguj",
-        "loggedAs": "zalogowano: "
+        "logout": "wyloguj"
       },
       "terms":{
         "header": "Ty określasz warunki",
