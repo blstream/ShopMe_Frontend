@@ -13,7 +13,6 @@ class Layout extends Component {
     this.state = {
       hasError: false,
       fireRedirect: false,
-      forbidden: false,
     };
     this.http = {
       get: (...rest) => httpHelper.get(...rest).catch(this.displayError),
@@ -23,13 +22,8 @@ class Layout extends Component {
     this.logout = this.logout.bind(this);
   }
 
-  componentDidMount() {
-    this.isRequireAuthorization();
-  }
-
   componentWillReceiveProps() {
     this.displayError(false);
-    this.resetRequirements();
   }
 
   displayError(hasError) {
@@ -47,15 +41,6 @@ class Layout extends Component {
     localStorage.removeItem('userSurname');
   }
 
-  isRequireAuthorization() {
-    const token = localStorage.getItem('userToken');
-    if (this.props.requiresAuthorization && !token) this.setState({ forbidden: true });
-  }
-
-  resetRequirements() {
-    this.setState({ forbidden: false });
-  }
-
   render() {
     const { children } = this.props;
     const childProps = {
@@ -68,7 +53,8 @@ class Layout extends Component {
     });
 
     let content;
-    if (this.state.forbidden) {
+    const token = localStorage.getItem('userToken');
+    if (this.props.requiresAuthorization && !token) {
       content = <ForbiddenError />;
     } else if (this.state.hasError) {
       content = <AppError />;
