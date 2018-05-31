@@ -23,7 +23,10 @@ class LoginScreen extends React.Component {
   logUser(data) {
     const { http } = this.props;
     return http.post('/api/users/login', data)
-      .then(response => this.setUser(response));
+      .then((response) => {
+        if (!response) return;
+        this.setUser(response);
+      });
   }
 
   render() {

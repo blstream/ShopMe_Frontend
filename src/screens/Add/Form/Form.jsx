@@ -18,14 +18,19 @@ class AddFormScreen extends React.Component {
   componentDidMount() {
     const { http } = this.props;
     Promise.all([http.get('/api/categories'), http.get('/api/voivodeships')])
-      .then(res => this.setState({ categories: res[0], voivodeships: res[1] }));
+      .then((res) => {
+        if (!res) return;
+        this.setState({ categories: res[0], voivodeships: res[1] });
+      });
   }
 
   sendData(data) {
     const { http } = this.props;
     return http.post('/api/offers', data)
-      .then(response => this.setState({ responseId: response.id }))
-      .then(() => this.setState({ fireRedirect: true }));
+      .then((response) => {
+        if (!response) return;
+        this.setState({ responseId: response.id }, () => this.setState({ fireRedirect: true }));
+      });
   }
 
   render() {
