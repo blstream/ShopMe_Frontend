@@ -1,8 +1,8 @@
 import React from 'react';
 import { translate } from 'react-i18next';
-import './NonFatalError.css';
+import './PartialScreenError.css';
 
-const NonFatalError = (props) => {
+const PartialScreenError = (props) => {
   let message;
   if (props.error) {
     const requestArray = props.error.response.url.split('/');
@@ -24,5 +24,5 @@ const NonFatalError = (props) => {
     </div>
   );
 };
-export { NonFatalError };
-export default translate()(NonFatalError);
+export { PartialScreenError };
+export default translate()(PartialScreenError);

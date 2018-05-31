@@ -2,7 +2,7 @@ import React from 'react';
 import { translate } from 'react-i18next';
 import { Redirect } from 'react-router';
 import AddForm from 'components/Add/Form/Form';
-import NonFatalError from 'components/App/Errors/NonFatalError/NonFatalError';
+import PartialScreenError from 'components/App/Errors/PartialScreenError/PartialScreenError';
 
 class AddFormScreen extends React.Component {
   constructor(props) {
@@ -20,7 +20,8 @@ class AddFormScreen extends React.Component {
     const { http } = this.props;
     Promise.all([http.get('/api/categories'), http.get('/api/voivodeships')])
       .then((response) => {
-        if (response) this.setState({ categories: response[0], voivodeships: response[1] });
+        if (!response) return;
+        this.setState({ categories: response[0], voivodeships: response[1] });
       });
   }
 
@@ -28,9 +29,8 @@ class AddFormScreen extends React.Component {
     const { http } = this.props;
     return http.post('/api/offers', data)
       .then((response) => {
-        if (response) {
-          this.setState({ responseId: response.id, fireRedirect: true });
-        }
+        if (!response) return;
+        this.setState({ responseId: response.id, fireRedirect: true });
       });
   }
 
@@ -44,7 +44,7 @@ class AddFormScreen extends React.Component {
             responseId: this.state.responseId,
           }}
         />}
-        {this.props.hasError && <NonFatalError error={this.props.error} />}
+        {this.props.hasError && <PartialScreenError error={this.props.error} />}
         <AddForm
           fetchData={this.sendData}
           categories={this.state.categories}

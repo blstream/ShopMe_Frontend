@@ -1,6 +1,7 @@
 import React from 'react';
 import { translate } from 'react-i18next';
 import SignupForm from 'components/SignupForm/SignupForm';
+import PartialScreenError from 'components/App/Errors/PartialScreenError/PartialScreenError';
 
 class SignUpScreen extends React.Component {
   constructor(props) {
@@ -16,13 +17,16 @@ class SignUpScreen extends React.Component {
     const { http } = this.props;
     return http.get(`/api/users/email=${emailValue}`)
       .then((res) => {
-        if (res) this.setState({ isEmailExists: res });
+        this.setState({ isEmailExists: res });
       });
   }
 
   render() {
     return (
-      <SignupForm onSubmit={this.checkIsEmailExists} isEmailExists={this.state.isEmailExists} />
+      <React.Fragment>
+        {this.state.isEmailExists && <PartialScreenError message="endpointError.users.get.email" />}
+        <SignupForm onSubmit={this.checkIsEmailExists} isEmailExists={this.state.isEmailExists} />
+      </React.Fragment>
     );
   }
 }

@@ -5,7 +5,6 @@ import { Redirect } from 'react-router';
 import validator from 'helpers/validator';
 import Input from 'components/UI/Input/Input';
 import FormButton from 'components/UI/FormButton/FormButton';
-import NonFatalError from 'components/App/Errors/NonFatalError/NonFatalError';
 import './SignUpForm.css';
 
 class SignupForm extends Component {
@@ -13,7 +12,6 @@ class SignupForm extends Component {
     super(props);
     this.state = {
       fireRedirect: false,
-      errorMessage: false,
       doValidate: undefined,
       isFormValid: undefined,
       inputsValue: {
@@ -63,7 +61,7 @@ class SignupForm extends Component {
   checkIsFormValid() {
     const inputsValidationResult = Object.assign({}, this.state.inputsValidationResult);
     const isFormIncludesErrors = Object.values(inputsValidationResult).includes(false);
-    this.setState({ errorMessage: isFormIncludesErrors, isFormValid: !isFormIncludesErrors });
+    this.setState({ isFormValid: !isFormIncludesErrors });
   }
 
   isEmailExists() {
@@ -79,8 +77,8 @@ class SignupForm extends Component {
   }
 
   render() {
-    const { t, isEmailExists } = this.props;
-    const { fireRedirect, errorMessage } = this.state;
+    const { t } = this.props;
+    const { fireRedirect } = this.state;
     if (fireRedirect) {
       return (
         <Redirect
@@ -97,14 +95,10 @@ class SignupForm extends Component {
     }
     return (
       <form
-        className="signup-form"
+        className={`signup-form signup-form--error${this.props.isEmailExists}`}
         onSubmit={this.handleSubmit}
         noValidate
       >
-        {isEmailExists && <NonFatalError message="endpointError.users.get.email" />}
-        <div className="signup-form__errors">
-          {errorMessage && <p className="signup-form__error">{t('components.signup.errorMessage')}</p>}
-        </div>
         <h1 className="signup-form__title">{t('components.signup.formTitle')}</h1>
         <div className="signup-form__item login-form__item--input">
           <Input

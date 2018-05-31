@@ -3,8 +3,7 @@ import { translate } from 'react-i18next';
 import { Redirect } from 'react-router';
 import Header from 'components/App/Header/Header';
 import Footer from 'components/App/Footer/Footer';
-import FatalError from 'components/App/Errors/FatalError/FatalError';
-import ForbiddenError from 'components/App/Forbidden/Forbidden';
+import AllScreenError from 'components/App/Errors/AllScreenError/AllScreenError';
 import httpHelper from './http.helper';
 
 class Layout extends Component {
@@ -72,10 +71,10 @@ class Layout extends Component {
 
     let content;
     const token = localStorage.getItem('userToken');
-    if (this.props.requiresAuthorization && !token) {
-      content = <ForbiddenError />;
-    } else if (this.state.hasError && this.state.errorStatus >= 500) {
-      content = <FatalError error={this.state.error} />;
+    if (this.state.hasError && this.state.errorStatus >= 500) {
+      content = <AllScreenError error={this.state.error} />;
+    } else if (this.props.requiresAuthorization && !token) {
+      content = <AllScreenError forbidden={true} message="components.forbidden.text" errorImg="nonFatalError" />;
     } else {
       content = childrenWithProps;
     }

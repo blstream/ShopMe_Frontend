@@ -2,7 +2,7 @@ import React from 'react';
 import { translate } from 'react-i18next';
 import { Redirect } from 'react-router';
 import RegisterForm from 'components/Register/RegisterForm/RegisterForm';
-import NonFatalError from 'components/App/Errors/NonFatalError/NonFatalError';
+import PartialScreenError from 'components/App/Errors/PartialScreenError/PartialScreenError';
 
 class RegisterScreen extends React.Component {
   constructor(props) {
@@ -17,19 +17,25 @@ class RegisterScreen extends React.Component {
   componentDidMount() {
     const { http } = this.props;
     http.get('/api/voivodeships')
-      .then(voivodeships => this.setState({ voivodeships }));
+      .then((voivodeships) => {
+        if (!voivodeships) return;
+        this.setState({ voivodeships });
+      });
   }
 
   sendData(data) {
     const { http } = this.props;
     return http.post('/api/users', data)
-      .then(() => this.setState({ fireRedirect: true }));
+      .then((response) => {
+        if (!response) return;
+        this.setState({ fireRedirect: true });
+      });
   }
 
   render() {
     return (
       <React.Fragment>
-        {this.props.hasError && <NonFatalError error={this.props.error} />}
+        {this.props.hasError && <PartialScreenError error={this.props.error} />}
         {this.state.fireRedirect && <Redirect to="/register/success" />}
         <RegisterForm
           location={this.props.location}

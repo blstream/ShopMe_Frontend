@@ -252,7 +252,8 @@
         },
         "logout": {
           "401": "Using token that has been revoked"
-        }
+        },
+        "422": "Data validation error"
       },
       "get": {
         "401": "Authorization required",

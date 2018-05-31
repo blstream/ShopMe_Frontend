@@ -252,7 +252,8 @@
         },
         "logout": {
           "401": "Użycie tokena, który został unieważniony"
-        }
+        },
+        "422": "Błąd walidacji danych"
       },
       "get": {
         "401": "Wymagane uwieżytelnienie",
