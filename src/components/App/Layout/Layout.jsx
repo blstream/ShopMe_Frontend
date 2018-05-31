@@ -38,7 +38,10 @@ class Layout extends Component {
 
   logout() {
     this.http.post('/api/users/logout')
-      .then(() => this.setState({ fireRedirect: true }));
+      .then(() => this.setState(
+        { fireRedirect: true },
+        () => this.setState({ fireRedirect: false })
+      ));
     localStorage.removeItem('userToken');
     localStorage.removeItem('userName');
     localStorage.removeItem('userSurname');
@@ -46,14 +49,11 @@ class Layout extends Component {
 
   isRequireAuthorization() {
     const token = localStorage.getItem('userToken');
-    if (this.props.requiresAuthorization &&
-      !token) {
-      this.setState({ forbidden: true });
-    }
+    if (this.props.requiresAuthorization && !token) this.setState({ forbidden: true });
   }
 
   resetRequirements() {
-    this.setState({ forbidden: false, fireRedirect: false });
+    this.setState({ forbidden: false });
   }
 
   render() {
