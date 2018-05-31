@@ -16,7 +16,10 @@ class RegisterScreen extends React.Component {
   componentDidMount() {
     const { http } = this.props;
     http.get('/api/voivodeships')
-      .then(voivodeships => this.setState({ voivodeships }));
+      .then((voivodeships) => {
+        if (!voivodeships) return;
+        this.setState({ voivodeships });
+      });
   }
 
   sendData(data) {

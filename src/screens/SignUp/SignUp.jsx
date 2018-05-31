@@ -16,6 +16,7 @@ class SignUpScreen extends React.Component {
     const { http } = this.props;
     return http.get(`/api/users/email=${emailValue}`)
       .then((res) => {
+        if (!res) return;
         this.setState({ isEmailExists: res });
       });
   }

@@ -28,7 +28,10 @@ class OfferDetailsScreen extends React.Component {
     const { http } = this.props;
     const { offerId } = this.props.match.params;
     http.get(`/api/offers/${offerId}`)
-      .then(service => this.setState({ service }));
+      .then((service) => {
+        if (!service) return;
+        this.setState({ service });
+      });
   }
 
   render() {
