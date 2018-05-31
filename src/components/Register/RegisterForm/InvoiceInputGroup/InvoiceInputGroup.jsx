@@ -91,7 +91,7 @@ class InvoiceInputGroup extends Component {
               name="users_invoiceNip"
               type="text"
               label={t('components.register.nipInputLabel')}
-              maxLength={10}
+              maxLength={13}
               required
               validation={validator.validateNip}
               ref={(v) => { this.users_invoiceNip = v; }}

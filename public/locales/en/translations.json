@@ -228,6 +228,7 @@
       "errorEmailRegex": "Please enter a valid email address",
       "errorPasswordRequirements": "Password must contain at least one capital letter and one number",
       "errorInvalidPassword": "Invalid password",
+      "errorFormatNipCode" : "Invalid NIP format xxx-xxx-xx-xx",
       "errorFormatZipCode" : "Invalid zip code format xx-xxx",
       "errorFormatHouseNumber": "Invalid house number format e.g 67a/2"
     }

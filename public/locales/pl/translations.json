@@ -228,6 +228,7 @@
       "errorEmailRegex": "Podaj poprawny adres e-mail",
       "errorPasswordRequirements": "Hasło musi zawierać co najmniej jedną wielką literę i jedną cyfrę",
       "errorInvalidPassword": "Niepoprawne hasło",
+      "errorFormatNipCode" : "Niepoprawny format NIP xxx-xxx-xx-xx",
       "errorFormatZipCode" : "Niepoprawny format kodu pocztowego xx-xxx",
       "errorFormatHouseNumber": "Niepoprawny format numeru mieszkania, np. 67a/2"
     }

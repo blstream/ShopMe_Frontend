@@ -17,9 +17,19 @@ const validator = {
     return !pattern.test(value) ? 'helpers.validator.errorIllegalCharacters' : undefined;
   },
 
+  useOnlyLegalCharactersForNipCode(value) {
+    const pattern = /^\d+(-\d+)*$/;
+    return !pattern.test(value) ? 'helpers.validator.errorIllegalCharacters' : undefined;
+  },
+
   useOnlyLegalCharactersForZipCode(value) {
     const pattern = /^(?:(?=\S{6}$)\d*[-*]\d*)$/;
     return !pattern.test(value) ? 'helpers.validator.errorIllegalCharacters' : undefined;
+  },
+
+  checkFormatNipCode(value) {
+    const pattern = /^\d{3}-(\d{3}-\d{2}|\d{2}-\d{3})-\d{2}$/;
+    return !pattern.test(value) ? 'helpers.validator.errorFormatNipCode' : undefined;
   },
 
   checkFormatZipCode(value) {
@@ -137,8 +147,9 @@ const validator = {
 
   validateNip(required, value) {
     return validator.isRequired(required, value) ||
-      validator.hasMinLength(10, value) ||
-      validator.useOnlyNumeric(value) ||
+      validator.hasMinLength(13, value) ||
+      validator.checkFormatNipCode(value) ||
+      validator.useOnlyLegalCharactersForNipCode(value) ||
       undefined;
   },
 
