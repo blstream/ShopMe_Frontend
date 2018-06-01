@@ -10,11 +10,6 @@ class Layout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {
-        token: localStorage.getItem('userToken'),
-        name: localStorage.getItem('userName'),
-        surname: localStorage.getItem('userSurname'),
-      },
       hasError: false,
       fireRedirect: false,
       error: '',
@@ -59,7 +54,6 @@ class Layout extends Component {
   render() {
     const { children } = this.props;
     const childProps = {
-      setUser: this.setUser,
       hasError: this.state.hasError,
       error: this.state.error,
       http: this.http,
@@ -85,8 +79,6 @@ class Layout extends Component {
       <div className="wrapper">
         <div className="content">
           <Header
-            userName={this.state.user.name}
-            userSurname={this.state.user.surname}
             onClick={this.logout}
             isHomepage={this.props.children.type.name === 'Home'}
             isResults={this.props.children.type.name === 'SearchScreen'}
