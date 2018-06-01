@@ -1,17 +1,11 @@
 .add-form {
-  max-width: 60%;
-  margin: 5rem auto;
-  background-color: #FFFFFF;
-  font-size: 1.6rem;
-  color: #000000;
-  border: 0.1rem solid #A9A9A9;
   font-size: 1.1rem;
   margin: 3rem 2rem 0 2rem;
 }
 
 .add-form__item {
   height: 3rem;
-  margin: 3rem auto 0rem auto;
+  margin: 3rem auto 0 auto;
 }
 
 .add-form__item--input {
@@ -22,19 +16,12 @@
   width: 19.5rem;
 }
 
-.add-form_span--block{
+.add-form_span--block {
   display: block;
 }
 
-.add-form_span--inline{
+.add-form_span--inline {
   display: inline;
-}
-
-@media screen and (max-width: 960px) {
-  .add-form {
-    max-width: 100%;
-    margin: 6rem auto;
-  }
 }
 
 .add-form__title {
@@ -71,8 +58,8 @@
 }
 
 .add-form__fieldset-wrapper {
+  width: 29rem;
   margin: 3rem auto 0 auto;
-  width: 28rem;
 }
 
 .add-form__fieldset-item--textarea {
@@ -80,7 +67,7 @@
 }
 
 .add-form__caption {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .add-form__caption--paragraph {
@@ -114,20 +101,16 @@
   .add-form__offer-container {
     width: 40rem;
   }
-  .add-form {
-    margin: 3rem 4rem 0 4rem;
+
+  .add-form__item--input {
     font-size: 1.4rem;
   }
 }
 
 @media (min-width: 768px) {
-  .add-form__item--input,
-  .add-form__offer-container,
-  .add-form__fieldset-wrapper {
+  .add-form__item--input, 
+  .add-form__fieldset-wrapper,
+  .add-form__offer-container {
     width: 56rem;
-  }
-
-  .add-form {
-    margin: 13rem 10rem 0 10rem;
   }
 }

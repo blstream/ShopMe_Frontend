@@ -33,9 +33,9 @@
 .input-select--add-form-category,
 .input-select--add-form-voivodeship {
   appearance: none;
-  background: url("/assets/images/header/header-arrow-down.png") no-repeat right #fff;
+  background: url("/assets/images/generic-select/triangle.png") no-repeat right #fff;
   background-position-x: 16rem;
-  background-size: 3rem 3rem;
+  background-size: 2rem 2rem;
 }
 
 .input-select__errorMessage {
