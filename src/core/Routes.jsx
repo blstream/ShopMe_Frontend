@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Redirect } from 'react-router';
 import ScrollToTop from 'components/App/ScrollToTop/ScrollToTop';
 import HomeScreen from 'screens/Home/Home';
 import SearchScreen from 'screens/Search/Search';
@@ -32,6 +33,7 @@ export default() => (
         <Route exact path="/signup" render={wrapInLayout(SignUpScreen, { requiresAuthorization: false })} />
         <Route exact path="/register" render={wrapInLayout(RegisterScreen, { requiresAuthorization: false })} />
         <Route exact path="/articles/:article" render={wrapInLayout(ArticleScreen, { requiresAuthorization: false })} />
+        <Route exact path="/:id" render={() => (<Redirect to="/" />)} />
       </Switch>
     </ScrollToTop>
   </BrowserRouter>
