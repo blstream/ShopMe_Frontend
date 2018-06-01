@@ -28,17 +28,17 @@ describe('PriceInput', () => {
     });
 
     it('displays a currency symbol', () => {
-      expect(priceInput.find('.add-form__input-currency').text()).toEqual('components.UI.priceInput.currency');
+      expect(priceInput.find('.offer-price__input-currency').text()).toEqual('components.UI.priceInput.currency');
     });
 
     it('does not display an error after render', () => {
-      expect(priceInput.find('.add-form__offer-price--error-message').text()).toEqual('');
+      expect(priceInput.find('.offer-price__error-message').text()).toEqual('');
     });
 
     it('does not display an error if incorrect value is entered to the input', () => {
       const input = priceInput.find('input');
       input.simulate('change', { target: { value: '9.900' } });
-      expect(priceInput.find('.add-form__offer-price--error-message').text()).toEqual('');
+      expect(priceInput.find('.offer-price__error-message').text()).toEqual('');
     });
   });
 
@@ -55,13 +55,13 @@ describe('PriceInput', () => {
       it('displays an error if there is no value in the input', () => {
         input.simulate('change', { target: { value: '' } });
         priceInput.instance().checkValidity();
-        expect(priceInput.find('.add-form__offer-price--error-message').text()).not.toEqual('');
+        expect(priceInput.find('.offer-price__error-message').text()).not.toEqual('');
       });
 
       it('does not display an error if there is a value in the input', () => {
         input.simulate('change', { target: { value: '9,99' } });
         priceInput.instance().checkValidity();
-        expect(priceInput.find('.add-form__offer-price--error-message').text()).toEqual('');
+        expect(priceInput.find('.offer-price__error-message').text()).toEqual('');
       });
     });
 
