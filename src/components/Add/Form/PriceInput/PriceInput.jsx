@@ -94,7 +94,7 @@ class PriceInput extends Component {
             : 'offer-price__label'
           }
         >
-          <span>{this.props.label}</span>
+          <span className="offer-price__label--span">{this.props.label}</span>
         </label>
         <input
           className={this.props.disabled

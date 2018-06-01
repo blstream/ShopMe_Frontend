@@ -37,7 +37,7 @@
 
 .offer__textarea::placeholder {
   text-align: center;
-  padding: 7.5rem 0;
+  padding: 5rem 0;
 }
 
 .offer__textarea-error-message {
