@@ -24,9 +24,13 @@
   text-align: center;
 }
 
+.app-error__response-message--forbidden {
+  color: #F92828;
+}
+
+
 @media (min-width: 768px){
   .app-error__container {
-    margin: 15rem auto;
     height: 50rem;
   }
 

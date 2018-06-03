@@ -68,7 +68,7 @@ class Layout extends Component {
     if (this.state.hasError && this.state.errorStatus >= 500) {
       content = <AllScreenError error={this.state.error} />;
     } else if (this.props.requiresAuthorization && !token) {
-      content = <AllScreenError forbidden={true} message="components.forbidden.text" errorImg="nonFatalError" />;
+      content = <AllScreenError forbidden message="components.forbidden.text" errorImg="nonFatalError" />;
     } else {
       content = childrenWithProps;
     }
