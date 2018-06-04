@@ -1,12 +1,14 @@
 import React from 'react';
 import { translate } from 'react-i18next';
 import MarkdownArticle from 'components/UI/MarkdownArticle/MarkdownArticle';
+import AppError from 'components/App/Error/Error';
 
 class ArticleScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      content: '',
+      content: undefined,
+      hasError: undefined,
     };
   }
 
@@ -24,12 +26,16 @@ class ArticleScreen extends React.Component {
     const { http } = this.props;
     http.get(`/assets/articles/pl/${name}.md`, null, { parse: 'text' })
       .then((article) => {
+        if (article.includes('<!DOCTYPE html>')) {
+          this.setState({ hasError: true });
+          return;
+        }
         this.setState({ content: article });
       });
   }
 
   render() {
-    return <MarkdownArticle source={this.state.content} />;
+    return this.state.hasError ? <AppError /> : <MarkdownArticle source={this.state.content} />;
   }
 }
 
