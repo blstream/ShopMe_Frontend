@@ -206,7 +206,7 @@ class AddForm extends Component {
           </div>
         </fieldset>
         <fieldset className="add-form__fieldset">
-          <h2 className="add-form__fieldset-title">{t('components.add.form.fieldsetTitle')}</h2>
+          <h2 className="add-form__fieldset-title">{t('components.add.form.offerFieldsetTitle')}</h2>
           <div className="add-form__offer-container">
             <OfferTextarea
               name="offerBaseDescription"
@@ -276,7 +276,7 @@ class AddForm extends Component {
           </div>
         </fieldset>
         <fieldset className="add-form__fieldset">
-          <h2 className="add-form__fieldset-title">{t('components.add.form.fieldsetTitle')}</h2>
+          <h2 className="add-form__fieldset-title">{t('components.add.form.offerFieldsetContactData')}</h2>
           <div className="add-form__fieldset-wrapper">
             <div className="add-form__item add-form__item--input">
               <GenericSelect
