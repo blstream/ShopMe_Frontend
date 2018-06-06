@@ -91,16 +91,14 @@ class PriceInput extends Component {
           htmlFor={this.props.name}
           className={this.props.disabled
             ? 'offer-price__label offer-price__label--disabled'
-            : 'offer-price__label'
-          }
+            : 'offer-price__label'}
         >
           <span className="offer-price__label--span">{this.props.label}</span>
         </label>
         <input
           className={this.props.disabled
             ? 'offer-price__input offer-price__input--disabled'
-            : 'offer-price__input'
-          }
+            : 'offer-price__input'}
           type="text"
           name={this.props.name}
           value={this.state.value}
@@ -112,8 +110,7 @@ class PriceInput extends Component {
         />
         <div className={this.props.disabled
           ? 'offer-price__input-currency offer-price__input-currency--disabled'
-          : 'offer-price__input-currency'
-        }
+          : 'offer-price__input-currency'}
         >
           {t('components.UI.priceInput.currency')}
         </div>
