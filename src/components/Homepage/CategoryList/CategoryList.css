@@ -19,7 +19,7 @@
 }
 
 .category-list__grid--visible {
-  height: 156rem;
+  height: 158rem;
 }
 
 .category-list__grid--hidden {
@@ -133,7 +133,7 @@
   }
 
   .category-list__grid--visible {
-    height: 142rem;
+    height: 150rem;
   }
 
   .category-list__grid--hidden {
