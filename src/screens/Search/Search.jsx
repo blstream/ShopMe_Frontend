@@ -43,7 +43,7 @@ export default class SearchScreen extends React.Component {
       this.setState({
         category,
         paginationData: { pageNumber: 1 },
-        page: category ? 1 : searchQueryValue.get('page'),
+        page: searchQueryValue.get('page'),
         phrase: searchQueryValue.get('title'),
       }, getDataWithReceivedProps);
     }
@@ -67,7 +67,7 @@ export default class SearchScreen extends React.Component {
     let params;
     if (!category) {
       params = { title, page };
-    } else if (title) {
+    } else if (title !== null) {
       params = { title, page, category };
     } else {
       params = { category, page };
@@ -148,13 +148,14 @@ export default class SearchScreen extends React.Component {
 
   render() {
     if (this.state.fireRedirect) {
+      let searchPath = `?page=${this.state.paginationData.pageNumber}`;
+      if (this.state.category) searchPath += `&category=${this.state.category}`;
+      if (this.state.phrase !== null) searchPath += `&title=${this.state.phrase}`;
       return (
         <Redirect
           to={{
             pathname: '/search',
-            search: this.state.category
-              ? `?category=${this.state.category}&title=${this.state.phrase}&page=${this.state.paginationData.pageNumber}`
-              : `?title=${this.state.phrase}&page=${this.state.paginationData.pageNumber}`,
+            search: searchPath,
           }}
         />
       );

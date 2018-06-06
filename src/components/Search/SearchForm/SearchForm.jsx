@@ -75,7 +75,9 @@ class SearchForm extends React.Component {
       </div>
     );
 
-    const urlPath = this.state.category ? `?category=${this.state.category}&title=${this.state.phrase}&page=1` : `?title=${this.state.phrase}&page=1`;
+    const searchUrl = this.state.category
+      ? `?category=${this.state.category}&title=${this.state.phrase}&page=1`
+      : `?title=${this.state.phrase}&page=1`;
 
     if (this.fireRedirect) {
       return (
@@ -83,7 +85,7 @@ class SearchForm extends React.Component {
           <Redirect
             to={{
               pathname: '/search',
-              search: urlPath,
+              search: searchUrl,
             }}
           />
           {searchForm}
