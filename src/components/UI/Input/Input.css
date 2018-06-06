@@ -22,8 +22,8 @@
 }
 
 .generic-input:disabled {
-  background-color: #999;
-  opacity: 0.4;
+  background-color: #D0D0D040;
+  opacity: 0.8;
 }
 
 .generic-input__error-message {

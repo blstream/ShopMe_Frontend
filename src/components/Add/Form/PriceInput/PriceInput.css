@@ -17,6 +17,7 @@
   text-align: end;
   border: 0.1rem solid #999;
   border-right: 0;
+  outline: none;
 }
 
 .offer-price__input-currency {
@@ -35,7 +36,7 @@
 .offer-price__input,
 .offer-price__input-currency {
   height: 100%;
-  padding: 1rem;
+  padding: 1.1rem;
   align-self: center;
 }
 

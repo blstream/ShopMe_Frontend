@@ -5,7 +5,7 @@
 
 .add-form__item {
   height: 4rem;
-  margin: 3rem auto 0 auto;
+  margin: 3rem auto;
 }
 
 .add-form__item--input,
@@ -20,7 +20,7 @@
 .add-form__title {
   font-size: 2rem;
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
 }
 
 .add-form__error-message--wrapper {
@@ -35,7 +35,7 @@
 .add-form__fieldset {
   position: relative;
   border: none;
-  padding: 2rem 0 4rem 0;
+  padding-top: 2rem;
   border-bottom: 1px solid;
 }
 
@@ -44,9 +44,12 @@
   padding: 2rem 0 0 0;
 }
 
+.add-form__offer-container:nth-last-child(1) {
+  margin-bottom: 2rem;
+}
+
 .add-form__fieldset-title {
   font-size: 2rem;
-  margin: 2rem 0;
   text-align: center;
 }
 
@@ -80,7 +83,7 @@
 .add-form__offer-container {
   width: 100%;
   margin: 0 auto;
-  margin-top: 5rem;
+  margin-top: 4rem;
   display: grid;
   grid-template-columns: 45% 1fr 1fr;
   grid-template-rows: 3.5rem minmax(15rem, max-content) 2rem 3.8rem 2rem;
