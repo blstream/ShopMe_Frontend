@@ -18,6 +18,10 @@
   overflow: hidden;
 }
 
+.category-list__grid--visible {
+  height: 156rem;
+}
+
 .category-list__grid--hidden {
   height: 68rem;
 }
@@ -93,6 +97,10 @@
     grid-row-gap: 4rem;
   }
 
+  .category-list__grid--visible {
+    height: 145rem;
+  }
+
   .category-list__grid--hidden {
     height: 70rem;
   }
@@ -122,6 +130,10 @@
 
   .category-list__grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .category-list__grid--visible {
+    height: 142rem;
   }
 
   .category-list__grid--hidden {
