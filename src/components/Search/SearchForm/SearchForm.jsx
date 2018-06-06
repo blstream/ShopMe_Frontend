@@ -74,25 +74,16 @@ class SearchForm extends React.Component {
         </form>
       </div>
     );
-    if (this.fireRedirect && this.state.category) {
+
+    const urlPath = this.state.category ? `?title=${this.state.phrase}&page=1&category=${this.state.category}` : `?title=${this.state.phrase}&page=1`;
+
+    if (this.fireRedirect) {
       return (
         <div>
           <Redirect
             to={{
               pathname: '/search',
-              search: `?title=${this.state.phrase}&page=1&category=${this.state.category}`,
-            }}
-          />
-          {searchForm}
-        </div>
-      );
-    } else if (this.fireRedirect) {
-      return (
-        <div>
-          <Redirect
-            to={{
-              pathname: '/search',
-              search: `?title=${this.state.phrase}&page=1`,
+              search: urlPath,
             }}
           />
           {searchForm}
