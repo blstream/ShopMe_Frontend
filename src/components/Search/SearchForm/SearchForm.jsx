@@ -9,6 +9,7 @@ class SearchForm extends React.Component {
     super(props);
     const searchQueryValue = new URLSearchParams(window.location.search);
     this.state = {
+      category: searchQueryValue.get('category'),
       phrase: searchQueryValue.get('title'),
       isValidPhrase: false,
     };
@@ -73,13 +74,18 @@ class SearchForm extends React.Component {
         </form>
       </div>
     );
+
+    const searchUrl = this.state.category
+      ? `?category=${this.state.category}&title=${this.state.phrase}&page=1`
+      : `?title=${this.state.phrase}&page=1`;
+
     if (this.fireRedirect) {
       return (
         <div>
           <Redirect
             to={{
               pathname: '/search',
-              search: `?title=${this.state.phrase}&page=1`,
+              search: searchUrl,
             }}
           />
           {searchForm}
