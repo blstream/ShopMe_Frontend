@@ -28,8 +28,8 @@ describe('component', () => {
     categoryList.unmount();
   });
 
-  it('renders 16 Category components', () => {
-    expect(categoryList.find('Category').length).toBe(16);
+  it('renders 17 Category components', () => {
+    expect(categoryList.find('Category').length).toBe(17);
   });
 
   it('renders 1 button', () => {

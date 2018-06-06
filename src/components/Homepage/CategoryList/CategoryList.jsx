@@ -57,6 +57,7 @@ class CategoryList extends React.Component {
           <Category category="programming" />
           <Category category="translations" />
           <Category category="transport" />
+          <Category category="others" />
         </div>
         <hr className="category-list__hr" />
         <div className="category-list__expand-btn" >

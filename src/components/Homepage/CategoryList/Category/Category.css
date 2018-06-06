@@ -50,6 +50,10 @@
     padding: 7rem 2rem;
   }
 
+  .category:last-child {
+    grid-column: 2 / span 2;
+  }
+
   .category__name {
     margin: 2.5rem;
   }
