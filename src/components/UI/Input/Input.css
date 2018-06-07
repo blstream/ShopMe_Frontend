@@ -45,6 +45,10 @@
   transform: translateY(-50%);
 }
 
+.generic-input__eye-icon:hover {
+  cursor: pointer;
+}
+
 .generic-input__eye-img {
   width: 2.5rem;
 }
