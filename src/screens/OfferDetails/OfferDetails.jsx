@@ -1,6 +1,6 @@
 import React from 'react';
 import OfferDetails from 'components/OfferDetails/OfferDetails';
-import AllScreenError from 'components/App/Errors/AllScreenError/AllScreenError';
+import FullScreenError from 'components/App/Errors/FullScreenError/FullScreenError';
 
 class OfferDetailsScreen extends React.Component {
   constructor(props) {
@@ -38,7 +38,7 @@ class OfferDetailsScreen extends React.Component {
   render() {
     return (
       <div>
-        {this.props.hasError ? <AllScreenError message="endpointError.offers.get.404" errorImg="NonFatalError" /> : <OfferDetails service={this.state.service} /> }
+        {this.props.hasError ? <FullScreenError message="endpointError.offers.get.404" errorImg="NonFatalError" /> : <OfferDetails service={this.state.service} /> }
       </div>
     );
   }

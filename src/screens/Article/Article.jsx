@@ -1,7 +1,7 @@
 import React from 'react';
 import { translate } from 'react-i18next';
 import MarkdownArticle from 'components/UI/MarkdownArticle/MarkdownArticle';
-import AppError from 'components/App/Error/Error';
+import FullScreenError from 'components/App/Errors/FullScreenError/FullScreenError';
 
 class ArticleScreen extends React.Component {
   constructor(props) {
@@ -35,7 +35,9 @@ class ArticleScreen extends React.Component {
   }
 
   render() {
-    return this.state.hasError ? <AppError /> : <MarkdownArticle source={this.state.content} />;
+    return this.state.hasError
+      ? <FullScreenError error={this.props.error} />
+      : <MarkdownArticle source={this.state.content} />;
   }
 }
 
