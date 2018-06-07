@@ -9,7 +9,9 @@ const PartialScreenError = (props) => {
     message = requestArray[5]
       ? props.t(`endpointError.${requestArray[4]}.${props.error.method}.${requestArray[5]}.${props.error.message}`)
       : props.t(`endpointError.${requestArray[4]}.${props.error.method}.${props.error.message}`);
-  } else message = props.t(props.message);
+  } else {
+    message = props.t(props.message);
+  }
 
   return (
     <div className="non-fatal-error__container">

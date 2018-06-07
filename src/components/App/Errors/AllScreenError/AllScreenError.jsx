@@ -19,7 +19,7 @@ const AllScreenError = props =>
       <p className="app-error__response-message">
         {props.t(`${props.message}`)}
       </p>
-      { props.forbidden &&
+      { props.hasLoginLink &&
         <p className="app-error__response-message app-error__response-message--forbidden">
           <Link href="/login" to="/login" className="forbidden__login-link">{props.t('components.forbidden.link')}</Link>
         </p>
