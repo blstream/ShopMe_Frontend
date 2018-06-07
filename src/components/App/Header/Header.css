@@ -46,6 +46,7 @@ header {
   height: 5rem;
   width: 5rem;
   padding-top: 0.2rem;
+  margin-left: 1rem;
 }
 
 .logo__link {
