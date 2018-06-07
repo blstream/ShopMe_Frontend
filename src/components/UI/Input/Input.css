@@ -19,6 +19,7 @@
   border-bottom-right-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   padding-left: 1rem;
+  outline: none;
 }
 
 .generic-input:disabled {
