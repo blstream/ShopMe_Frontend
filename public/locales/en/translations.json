@@ -232,5 +232,34 @@
       "errorFormatZipCode" : "Invalid zip code format xx-xxx",
       "errorFormatHouseNumber": "Invalid house number format e.g 67a/2"
     }
+  },
+  "endpointError": {
+    "offers": {
+      "post": {
+        "400": "Bad request",
+        "401": "No permission to add a new offer",
+        "422": "Data validation error"
+      },
+      "get": {
+        "400": "Bad request",
+        "404": "The offer with the given ID was not found"
+      }
+    },
+    "users": {
+      "post": {
+        "login": {
+          "401": "Invalid e-mail and/or password"
+        },
+        "logout": {
+          "401": "Using token that has been revoked"
+        },
+        "422": "Data validation error"
+      },
+      "get": {
+        "401": "Authorization required",
+        "404": "The user with the given ID was not found",
+        "email": "The user with the given e-mail address already exists"
+      }
+    }
   }
 }

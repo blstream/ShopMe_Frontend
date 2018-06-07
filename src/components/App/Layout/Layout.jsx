@@ -3,8 +3,7 @@ import { translate } from 'react-i18next';
 import { Redirect } from 'react-router';
 import Header from 'components/App/Header/Header';
 import Footer from 'components/App/Footer/Footer';
-import AppError from 'components/App/Error/Error';
-import ForbiddenError from 'components/App/Forbidden/Forbidden';
+import FullScreenError from 'components/App/Errors/FullScreenError/FullScreenError';
 import httpHelper from './http.helper';
 
 class Layout extends Component {
@@ -13,6 +12,7 @@ class Layout extends Component {
     this.state = {
       hasError: false,
       fireRedirect: false,
+      error: '',
     };
     this.http = {
       get: (...rest) => httpHelper.get(...rest).catch(this.displayError),
@@ -26,8 +26,18 @@ class Layout extends Component {
     this.displayError(false);
   }
 
-  displayError(hasError) {
-    this.setState({ hasError });
+  displayError(thrownError) {
+    if (thrownError) {
+      this.setState({
+        error: thrownError,
+        hasError: true,
+      });
+    } else {
+      this.setState({
+        error: '',
+        hasError: false,
+      });
+    }
   }
 
   logout() {
@@ -44,7 +54,8 @@ class Layout extends Component {
   render() {
     const { children } = this.props;
     const childProps = {
-      displayError: this.displayError,
+      hasError: this.state.hasError,
+      error: this.state.error,
       http: this.http,
     };
     const childrenWithProps = React.Children.map(children, (child) => {
@@ -54,10 +65,10 @@ class Layout extends Component {
 
     let content;
     const token = localStorage.getItem('userToken');
-    if (this.props.requiresAuthorization && !token) {
-      content = <ForbiddenError />;
-    } else if (this.state.hasError) {
-      content = <AppError />;
+    if (this.state.hasError && this.state.errorStatus >= 500) {
+      content = <FullScreenError error={this.state.error} />;
+    } else if (this.props.requiresAuthorization && !token) {
+      content = <FullScreenError hasLoginLink message="components.forbidden.text" errorImg="nonFatalError" />;
     } else {
       content = childrenWithProps;
     }

@@ -75,6 +75,7 @@ export default class SearchScreen extends React.Component {
 
     return http.get('/api/offers', params)
       .then((services) => {
+        if (!services) return;
         if (services.content) {
           this.setState({
             foundServices: services.content,

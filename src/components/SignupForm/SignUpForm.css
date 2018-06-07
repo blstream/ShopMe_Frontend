@@ -1,6 +1,13 @@
 .signup-form {
   font-size: 1.4rem;
+}
+
+.signup-form--errorfalse {
   margin-top: 5rem;
+}
+
+.signup-form--errortrue {
+  margin-top: 0;
 }
 
 .signup-form__title {
@@ -10,7 +17,7 @@
 
 .signup-form__item {
   height: 4rem;
-  margin: 0rem auto 4rem auto;
+  margin: 4rem auto 0rem auto;
 }
 
 .signup-form__item--input {
@@ -54,6 +61,15 @@
   .signup-form {
     font-size: 1.5rem;
   }
+
+  .signup-form--errorfalse {
+    margin-top: 20rem;
+  }
+
+  .signup-form--errortrue {
+    margin-top: 5rem;
+  }
+
   .signup-form__item--input {
     width: 40rem;
   }

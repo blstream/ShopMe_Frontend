@@ -10,7 +10,6 @@ class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      errorMessage: false,
       doValidate: undefined,
       isFormValid: undefined,
       inputsValue: {
@@ -56,7 +55,7 @@ class LoginForm extends React.Component {
   checkIsFormValid() {
     const inputsValidationResult = Object.assign({}, this.state.inputsValidationResult);
     const isFormIncludesErrors = Object.values(inputsValidationResult).includes(false);
-    this.setState({ errorMessage: isFormIncludesErrors, isFormValid: !isFormIncludesErrors });
+    this.setState({ isFormValid: !isFormIncludesErrors });
   }
 
   logInUser() {
@@ -74,17 +73,13 @@ class LoginForm extends React.Component {
 
   render() {
     const { t } = this.props;
-    const { errorMessage } = this.state;
     return (
       <form
-        className="login-form"
+        className={`login-form login-form--error${this.props.hasError}`}
         onSubmit={this.handleSubmit}
         noValidate
       >
         <h1 className="login-form__title">{t('components.login.formTitle')}</h1>
-        <div className="login-form__errors">
-          {errorMessage && <p>{t('components.login.errorMessage')}</p>}
-        </div>
         <div className="login-form__item login-form__item--input">
           <Input
             name="userEmail"

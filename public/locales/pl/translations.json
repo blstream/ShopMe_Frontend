@@ -232,5 +232,34 @@
       "errorFormatZipCode" : "Niepoprawny format kodu pocztowego xx-xxx",
       "errorFormatHouseNumber": "Niepoprawny format numeru mieszkania, np. 67a/2"
     }
+  },
+  "endpointError": {
+    "offers": {
+      "post": {
+        "400": "Niepoprawnie wypełnione pola",
+        "401": "Brak uprawnień do dodania nowej oferty",
+        "422": "Błąd walidacji danych"
+      },
+      "get": {
+        "400": "Niepoprawnie wypełnione pola",
+        "404": "Oferta dla podanego ID nie została odnaleziona"
+      }
+    },
+    "users": {
+      "post": {
+        "login": {
+          "401": "Niepoprawny e-mail i/lub hasło"
+        },
+        "logout": {
+          "401": "Użycie tokena, który został unieważniony"
+        },
+        "422": "Błąd walidacji danych"
+      },
+      "get": {
+        "401": "Wymagane uwieżytelnienie",
+        "404": "Użytkownik o podanym ID nie został odnaleziony",
+        "email": "Użytkownik o podanym adresie e-mail już istnieje "
+      }
+    }
   }
 }

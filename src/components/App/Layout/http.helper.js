@@ -14,10 +14,13 @@ const http = {
 
     return fetch(getUrl)
       .then((response) => {
-        if (response.ok) {
-          return parse(response);
+        if (!response.ok) {
+          const error = new Error(response.status);
+          error.response = response;
+          error.method = 'get';
+          throw error;
         }
-        throw new Error(response.statusText);
+        return parse(response);
       });
   },
 
@@ -40,10 +43,13 @@ const http = {
 
     return fetch(postUrl, myInit)
       .then((response) => {
-        if (response.ok) {
-          return parse(response);
+        if (!response.ok) {
+          const error = new Error(response.status);
+          error.response = response;
+          error.method = 'post';
+          throw error;
         }
-        throw new Error(response.statusText);
+        return parse(response);
       });
   },
 };

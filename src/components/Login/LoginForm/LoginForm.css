@@ -1,6 +1,13 @@
 .login-form {
   font-size: 1.4rem;
+}
+
+.login-form--errorfalse {
   margin-top: 5rem;
+}
+
+.login-form--errortrue {
+  margin-top: 0;
 }
 
 .login-form__title {
@@ -44,6 +51,15 @@
   .login-form {
     font-size: 1.5rem;
   }
+
+  .login-form--errorfalse {
+    margin-top: 20rem;
+  }
+
+  .login-form--errortrue {
+    margin-top: 5rem;
+  }
+
   .login-form__item--input {
     width: 40rem;
   }
