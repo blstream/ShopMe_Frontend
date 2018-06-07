@@ -21,7 +21,7 @@
 }
 
 .login-form__item--input {
-  width: 29rem;
+  min-width: 32rem;
 }
 
 .login-form__item--button {

@@ -82,7 +82,7 @@
 }
 
 .register-form__item--input {
-  width: 29rem;
+  min-width: 32rem;
 }
 
 .register__checkbox--error-message {

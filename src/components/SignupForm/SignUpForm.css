@@ -21,7 +21,7 @@
 }
 
 .signup-form__item--input {
-  width: 29rem;
+  min-width: 32rem;
 }
 
 .signup-form__item--button {
