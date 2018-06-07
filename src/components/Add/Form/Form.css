@@ -44,25 +44,26 @@
   border-bottom: 1px solid;
 }
 
-.add-form__fieldset:nth-last-child(1) {
+.add-form__fieldset:last-of-type{
   border: none;
-  padding: 2rem 0 0 0;
+  padding-bottom: 0;
 }
 
-.add-form__offer-container:nth-last-child(1) {
-  margin-bottom: 2rem;
+.add-form__fieldset:nth-child(2) {
+  padding-bottom: 2.5rem;
 }
 
 .add-form__fieldset-wrapper {
   margin: 3rem auto 0 auto;
 }
 
-.add-form__fieldset-item--textarea {
-  margin-top: 3rem;
+.add-form__fieldset-item--textarea,
+.add-form__caption {
+  margin-top: 3.5rem;
 }
 
 .add-form__caption {
-  margin-top: 2rem;
+  margin-bottom: 6rem;
 }
 
 .add-form__caption--paragraph {
@@ -83,10 +84,9 @@
 .add-form__offer-container {
   width: 100%;
   margin: 0 auto;
-  margin-top: 4rem;
   display: grid;
   grid-template-columns: 45% 1fr 1fr;
-  grid-template-rows: 3.5rem minmax(15rem, max-content) 2rem 3.8rem 2rem;
+  grid-template-rows: 3.5rem minmax(15rem, max-content) 3.5rem 3.8rem 3.5rem;
 }
 
 @media (min-width: 400px) {

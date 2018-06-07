@@ -52,7 +52,6 @@
   background-color: #D0D0D040;
   border: 0.1rem solid #D0D0D040;
   color: #FFF;
-  opacity: 0.8;
 }
 
 .offer__textarea--disabled::placeholder {

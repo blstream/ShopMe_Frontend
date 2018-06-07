@@ -46,7 +46,6 @@
   color: #999;
   border-color: #D0D0D040;
   background-color: #D0D0D040;
-  opacity: 0.8;
 }
 
 .offer-price__error-message {
@@ -54,5 +53,5 @@
   color: #F92828;
   grid-column: 1/-1;
   grid-row: 5/6;
-  align-self: center;
+  margin-top: 0.3rem;
 }

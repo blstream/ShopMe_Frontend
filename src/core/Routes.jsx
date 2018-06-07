@@ -26,7 +26,7 @@ export default() => (
         <Route exact path="/search/" render={wrapInLayout(SearchScreen, { requiresAuthorization: false })} />
         <Route exact path="/add/form/success" render={wrapInLayout(SuccessAddScreen, { requiresAuthorization: true })} />
         <Route exact path="/register/success" render={wrapInLayout(SuccessRegisterScreen, { requiresAuthorization: false })} />
-        <Route exact path="/add/form" render={wrapInLayout(AddFormScreen, { requiresAuthorization: false })} />
+        <Route exact path="/add/form" render={wrapInLayout(AddFormScreen, { requiresAuthorization: true })} />
         <Route exact path="/offer/:offerId" render={wrapInLayout(OfferDetailsScreen, { requiresAuthorization: false })} />
         <Route exact path="/login" render={wrapInLayout(LoginScreen, { requiresAuthorization: false })} />
         <Route exact path="/signup" render={wrapInLayout(SignUpScreen, { requiresAuthorization: false })} />

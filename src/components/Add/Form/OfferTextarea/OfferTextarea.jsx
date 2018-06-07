@@ -95,9 +95,7 @@ class OfferTextarea extends Component {
           required={this.props.required}
           onChange={this.handleChange}
         />
-        <div className="offer__textarea-error-message">
-          {this.state.errorMessage}
-        </div>
+        <div className="offer__textarea-error-message">{this.state.errorMessage}</div>
       </React.Fragment>
     );
   }
