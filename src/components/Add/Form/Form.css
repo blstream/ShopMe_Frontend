@@ -1,16 +1,20 @@
 .add-form {
   font-size: 1.2rem;
-  margin: 3rem 2rem 0 2rem;
+  margin: 0 2rem;
 }
 
 .add-form__item {
   height: 4rem;
-  margin: 3rem auto;
+  margin: 3.5rem auto 0 auto;
 }
 
 .add-form__item--input,
 .add-form__fieldset-wrapper {
   width: 100%;
+}
+
+.add-form__item--input--custom-margin-category {
+  margin-bottom: 6rem;
 }
 
 .add-form__item--button {
@@ -35,7 +39,8 @@
 .add-form__fieldset {
   position: relative;
   border: none;
-  padding-top: 2rem;
+  margin-top: 4rem;
+  padding-bottom: 6rem;
   border-bottom: 1px solid;
 }
 
@@ -46,11 +51,6 @@
 
 .add-form__offer-container:nth-last-child(1) {
   margin-bottom: 2rem;
-}
-
-.add-form__fieldset-title {
-  font-size: 2rem;
-  text-align: center;
 }
 
 .add-form__fieldset-wrapper {

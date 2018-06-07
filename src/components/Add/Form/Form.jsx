@@ -206,7 +206,7 @@ class AddForm extends Component {
           </div>
         </fieldset>
         <fieldset className="add-form__fieldset">
-          <h2 className="add-form__fieldset-title">{t('components.add.form.offerFieldsetTitle')}</h2>
+          <h2 className="add-form__title">{t('components.add.form.offerFieldsetTitle')}</h2>
           <div className="add-form__offer-container">
             <OfferTextarea
               name="offerBaseDescription"
@@ -289,7 +289,7 @@ class AddForm extends Component {
                 spanClassName="select_span--block"
                 labelClassName=".select_span--yellow"
                 selectClassName="input-select input-select--yellow"
-                selectItemClassName="input-select__item-option--yellow"
+                selectItemClassName="input-select__itemw-option--yellow"
                 errorClassName="input-select__errorMessage input-select__errorMessage--add-offer"
                 disableChange={this.setCityEnable}
                 required
