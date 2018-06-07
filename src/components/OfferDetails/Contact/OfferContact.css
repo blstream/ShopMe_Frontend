@@ -3,7 +3,7 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 15rem minmax(min-content,max-content) minmax(10rem,max-content);
+  grid-template-rows: 15rem minmax(min-content,max-content) minmax(min-content ,max-content);
   grid-template-areas:
   "category"
   "data"
@@ -65,6 +65,7 @@
   font-weight: bold;
   text-align: justify;
   line-height: 1.4;
+  margin-bottom: 2rem;
 }
 
 .contact__button--unhide {
@@ -87,7 +88,7 @@
   .contact__container  {
     width: 70rem;
     grid-template-columns: minmax(30rem,max-content)  minmax(30rem,max-content);
-    grid-template-rows: 30rem minmax(10rem,max-content);
+    grid-template-rows: 30rem minmax(min-content,max-content);
     grid-column-gap: 0.5em;
     grid-template-areas:
     "category data"

@@ -26,6 +26,12 @@ class OfferContact extends React.Component {
     const index = this.props.service.email.search('@');
     const email = `${this.props.service.email.slice(0, index + 1)}***`;
     const phone = `${this.props.service.phoneNumber.slice(0, 3)} *** ***`;
+    const aboutMe = (
+      <div className="contact__section--aboutme">
+        <h2 className="contact__header--aboutme">{t('components.offerDetails.aboutMe')}</h2>
+        <p className="contact__p--small">{this.props.service.additionalInfo}</p>
+      </div>
+    );
     return (
       <div className="contact__container">
         <div className="contact__section--category">
@@ -55,10 +61,7 @@ class OfferContact extends React.Component {
           }
           </p>
         </div>
-        <div className="contact__section--aboutme">
-          <h2 className="contact__header--aboutme">{t('components.offerDetails.aboutMe')}</h2>
-          <p className="contact__p--small">{this.props.service.additionalInfo}</p>
-        </div>
+        {this.props.service.additionalInfo && aboutMe}
       </div>
     );
   }
