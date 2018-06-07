@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Redirect } from 'react-router';
 import ScrollToTop from 'components/App/ScrollToTop/ScrollToTop';
 import HomeScreen from 'screens/Home/Home';
 import SearchScreen from 'screens/Search/Search';
@@ -13,10 +12,15 @@ import SuccessAddScreen from 'screens/Add/SuccessAdd/SuccessAdd';
 import SuccessRegisterScreen from 'screens/Register/SuccessRegister/SuccessRegister';
 import ArticleScreen from 'screens/Article/Article';
 import Layout from 'components/App/Layout/Layout';
+import FullScreenError from 'components/App/Errors/FullScreenError/FullScreenError';
 
 const wrapInLayout = (Screen, options) => props => (
   <Layout requiresAuthorization={options && options.requiresAuthorization}>
-    <Screen {...props} />
+    <Screen
+      message={options && options.message}
+      errorImg={options && options.errorImg}
+      {...props}
+    />
   </Layout>);
 
 export default() => (
@@ -33,7 +37,7 @@ export default() => (
         <Route exact path="/signup" render={wrapInLayout(SignUpScreen, { requiresAuthorization: false })} />
         <Route exact path="/register" render={wrapInLayout(RegisterScreen, { requiresAuthorization: false })} />
         <Route exact path="/articles/:article" render={wrapInLayout(ArticleScreen, { requiresAuthorization: false })} />
-        <Route exact path="/:id" render={() => (<Redirect to="/" />)} />
+        <Route render={wrapInLayout(FullScreenError, { requiresAuthorization: false, message: 'components.errorMessage.404', errorImg: 'nonFatalError' })} />
       </Switch>
     </ScrollToTop>
   </BrowserRouter>
