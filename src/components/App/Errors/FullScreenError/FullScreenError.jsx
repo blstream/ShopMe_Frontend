@@ -3,7 +3,7 @@ import { translate } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import './FullScreenError.css';
 
-const AllScreenError = props =>
+const FullScreenError = props =>
   (
     <section className="app-error__container">
       <img
@@ -27,9 +27,9 @@ const AllScreenError = props =>
     </section>
   );
 
-AllScreenError.defaultProps = {
+FullScreenError.defaultProps = {
   message: 'components.errorMessage.text',
   errorImg: 'fatalError',
 };
-export { AllScreenError };
-export default translate()(AllScreenError);
+export { FullScreenError };
+export default translate()(FullScreenError);
