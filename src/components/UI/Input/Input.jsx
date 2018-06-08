@@ -85,7 +85,7 @@ class Input extends Component {
           required={this.props.required}
           disabled={this.props.disabled}
         />
-        <div className="generic-input__error-message">
+        <div className={this.props.errorClassName}>
           {this.state.errorMessage}
         </div>
         {this.props.type === 'password' &&
@@ -99,6 +99,7 @@ class Input extends Component {
 
 Input.defaultProps = {
   wrapperName: 'generic-input__inline-label',
+  errorClassName: 'generic-input__error-message',
   type: 'text',
   placeholder: '',
   maxLength: 50,
@@ -111,6 +112,7 @@ Input.defaultProps = {
 
 Input.propTypes = {
   wrapperName: PropTypes.string,
+  errorClassName: PropTypes.string,
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
   label: PropTypes.string.isRequired,

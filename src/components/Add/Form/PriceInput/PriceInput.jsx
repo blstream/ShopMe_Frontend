@@ -86,14 +86,20 @@ class PriceInput extends Component {
   render() {
     const { t } = this.props;
     return (
-      <label htmlFor={this.props.name} className="add-form__label">
-        <div className="add-form__label--hidden">{t('components.UI.PriceInput.label')}</div>
-        <input
-          type="text"
+      <React.Fragment>
+        <label
+          htmlFor={this.props.name}
           className={this.props.disabled
-            ? 'add-form__input add-form__input--XS add-form__input--disabled'
-            : 'add-form__input add-form__input--XS'
-          }
+            ? 'offer-price__label offer-price__label--disabled'
+            : 'offer-price__label'}
+        >
+          <span className="offer-price__label--span">{this.props.label}</span>
+        </label>
+        <input
+          className={this.props.disabled
+            ? 'offer-price__input offer-price__input--disabled'
+            : 'offer-price__input'}
+          type="text"
           name={this.props.name}
           value={this.state.value}
           disabled={this.props.disabled}
@@ -102,9 +108,14 @@ class PriceInput extends Component {
           onKeyUp={this.handleKeyUp}
           onBlur={this.handleBlur}
         />
-        <div className="add-form__error-message">{this.state.errorMessage}</div>
-        <div className="add-form__input-currency">{t('components.UI.priceInput.currency')}</div>
-      </label>
+        <div className={this.props.disabled
+          ? 'offer-price__input-currency offer-price__input-currency--disabled'
+          : 'offer-price__input-currency'}
+        >
+          {t('components.UI.priceInput.currency')}
+        </div>
+        <div className="offer-price__error-message">{this.state.errorMessage}</div>
+      </React.Fragment>
     );
   }
 }

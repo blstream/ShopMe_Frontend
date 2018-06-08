@@ -22,7 +22,8 @@
 }
 
 .generic-input:disabled {
-  background-color: #E0E0E0;
+  background-color: #D0D0D040;
+  opacity: 0.8;
 }
 
 .generic-input__error-message {
@@ -31,6 +32,10 @@
   bottom: -2.5rem;
   font-size: 1.2rem;
   color: #F92828;
+}
+
+.generic-input__error-message--add-offer {
+  bottom: -1.7rem;
 }
 
 .generic-input__eye-icon {

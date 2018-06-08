@@ -26,8 +26,16 @@
   -webkit-appearance:none;
   -moz-appearance:none;
   background: url("/assets/images/header/header-arrow-down.png") no-repeat right #fff;
-  background-position-x: 17rem;
+  background-position: 97% 50%;
   background-size: 3rem 3rem;
+}
+
+.input-select--add-form-category,
+.input-select--add-form-voivodeship {
+  appearance: none;
+  background: url("/assets/images/generic-select/triangle.png") no-repeat right #fff;
+  background-size: 2rem 2rem;
+  background-position: 97% 50%;
 }
 
 .input-select__errorMessage {
@@ -38,14 +46,8 @@
   color: #F92828;
 }
 
-@media (min-width: 768px) {
-  .input-select--custom {
-    background-position-x: 25rem;
-  }
+.input-select__errorMessage--add-offer {
+  bottom: -1.7rem;
 }
 
-@media (min-width: 1025px) {
-  .input-select--custom {
-    background-position-x: 35rem;
-  }
-}
+

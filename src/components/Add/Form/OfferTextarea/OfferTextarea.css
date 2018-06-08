@@ -1,40 +1,60 @@
-.add-form__label {
-  position: relative;
+.offer__label {
+  background: #FADE42;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+  grid-column: 1/2;
+  font-size: 15px;
 }
 
-.add-form__input {
+.offer__label--offerBaseDescription {
+  grid-column: 1/2;
+}
+
+.offer__label--offerExtendedDescription {
+  grid-column: 1/3;
+}
+
+.offer__label--offerExtraDescription {
+  grid-column: 1/4;
+}
+
+.offer__textarea {
   color: inherit;
-  padding: 1rem;
-  margin-top: 1rem;
-  background-color: #E0E0E0;
-  border: none;
+  padding: 1.5rem;
+  margin: 0 0 1rem 0;
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 100%;
+  border: 0.1rem solid #999;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  resize: none;
+  grid-column: 1/4;
+  grid-row: 2/3;
 }
 
-.add-form__input--XL {
-  height: 15rem;
-  width: 90%;
-  margin-bottom: -1rem;
-}
-
-.add-form__input--XL::placeholder {
+.offer__textarea::placeholder {
   text-align: center;
   padding: 5rem 0;
 }
 
-.add-form__input--disabled {
-  background-color: #FFFFFF;
-  border: 0.1rem solid #D0D0D0;
-  color: #D0D0D0;
-}
-
-.add-form__input--disabled::placeholder {
-  color: #D0D0D0;
-}
-
-.add-form__error-message {
-  position: absolute;
-  bottom: -3rem;
-  right: 0;
-  font-size: 1.2rem;
+.offer__textarea-error-message {
+  text-align: right;
+  margin-top: 0.3rem;
+  font-size: 1.3rem;
   color: #F92828;
+  grid-row: 3/4;
+  grid-column: 1/-1;
 }
+
+.offer__textarea--disabled {
+  background-color: #D0D0D040;
+  border: 0.1rem solid #D0D0D040;
+  color: #FFF;
+}
+
+.offer__textarea--disabled::placeholder {
+  color: #999;
+}
+

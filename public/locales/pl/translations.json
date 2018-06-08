@@ -32,11 +32,12 @@
         "phone": "Telefon *",
         "email": "E-mail *",
         "title": "Dodaj Ofertę",
-        "fieldsetTitle": "Zdefiniuj Oferowane Pakiety Usług",
+        "offerFieldsetTitle": "Zdefiniuj Oferowane Pakiety Usług",
+        "offerFieldsetContactData": "Twoje Dane Kontaktowe",
         "caption": "*Pola wymagane",
-        "offerBaseLabel": "Podstawowy *",
-        "offerExtendedLabel": "Rozszerzony",
-        "offerExtraLabel": "Ekstra",
+        "offerBaseLabel": "Usługa podstawowa *",
+        "offerExtendedLabel": "Usługa rozszerzona",
+        "offerExtraLabel": "Usługa ekstra",
         "offerBasePlaceholder": "Podstawowa Usługa",
         "offerExtendedPlaceholder": "Rozszerzona Usługa",
         "offerExtraPlaceholder": "Ekstra Usługa",
@@ -163,7 +164,8 @@
       },
       "priceInput": {
         "errorEmptyField": "Pole wymagane",
-        "currency": "zł"
+        "currency": "zł",
+        "label": "Cena"
       },
       "offerTextarea": {
         "errorEmptyField": "Pole wymagane"

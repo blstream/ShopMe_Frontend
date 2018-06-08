@@ -1,42 +1,57 @@
-.add-form__label {
+.offer-price__label {
+  border-radius: 0.5rem 0 0 0.5rem;
+  grid-column: 1/2;
+  grid-row: 4/5;
+  width: 7rem;
+  border: 0.1rem solid #999;
+  border-right: 0;
+  text-align: center;
+}
+
+.offer-price__input {
   position: relative;
+  right: -7rem;
+  grid-column: 1/2;
+  grid-row: 4/5;
+  width: 9rem;
+  text-align: end;
+  border: 0.1rem solid #999;
+  border-right: 0;
+  outline: none;
 }
 
-.add-form__label--hidden {
-  position: absolute;
-  left: -9999px;
+.offer-price__input-currency {
+  position: relative;
+  right: -16rem;
+  text-align: start;
+  border: 0.1rem solid #999;
+  border-left: 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+  grid-column: 1/2;
+  grid-row: 4/5;
+  width: 3.5rem;
 }
 
-.add-form__input {
-  color: inherit;
-  padding: 1rem;
-  margin-top: 1rem;
-  background-color: #E0E0E0;
-  border: none;
-  font-size: 1.44rem;
+.offer-price__label,
+.offer-price__input,
+.offer-price__input-currency {
+  height: 100%;
+  padding: 1.1rem;
+  align-self: center;
 }
 
-.add-form__input--XS {
-  width: 15rem;
+.offer-price__input--disabled,
+.offer-price__input-currency--disabled,
+.offer-price__label--disabled {
+  color: #999;
+  border-color: #D0D0D040;
+  background-color: #D0D0D040;
 }
 
-.add-form__input--disabled {
-  background-color: #FFFFFF;
-  border: 0.1rem solid #D0D0D0;
-  color: #D0D0D0;
-}
-
-.add-form__error-message {
-  position: absolute;
-  bottom: -3.5rem;
-  right: 0;
-  font-size: 1.2rem;
+.offer-price__error-message {
+  font-size: 1.3rem;
   color: #F92828;
-}
-
-.add-form__input-currency {
-  position: absolute;
-  top: 0;
-  right: 1rem;
-  color: #3F3F3F;
+  grid-column: 1/-1;
+  grid-row: 5/6;
+  margin-top: 0.3rem;
 }

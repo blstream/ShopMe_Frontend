@@ -79,12 +79,14 @@ class OfferTextarea extends Component {
 
   render() {
     return (
-      <label htmlFor="this.props.name" className="add-form__label">
-        <div>{this.props.label}</div>
+      <React.Fragment>
+        <label htmlFor={this.props.name} className={`offer__label offer__label--${this.props.name}`}>
+          <span>{this.props.label}</span>
+        </label>
         <textarea
           className={this.props.disabled
-            ? 'add-form__input add-form__input--XL add-form__input--disabled'
-            : 'add-form__input add-form__input--XL'
+            ? 'offer__textarea offer__textarea--disabled'
+            : 'offer__textarea'
           }
           name={this.props.name}
           value={this.state.value}
@@ -93,10 +95,8 @@ class OfferTextarea extends Component {
           required={this.props.required}
           onChange={this.handleChange}
         />
-        <div className="add-form__error-message">
-          {this.state.errorMessage}
-        </div>
-      </label>
+        <div className="offer__textarea-error-message">{this.state.errorMessage}</div>
+      </React.Fragment>
     );
   }
 }
