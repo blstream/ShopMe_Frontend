@@ -1,10 +1,15 @@
 # ShopeME Front-end
 
+- [Description](#description)
 - [Quickstart](#quickstart)
 - [Wymagania](#wymagania)
 - [Stack technologiczny](#stack-technologiczny)
 - [Struktura projektu](#struktura-projektu)
 - [Skrypty](#skrypty)
+
+## Description
+
+ShopMe is a web application that allows you to add offers for various types of services. 
 
 
 ## Quickstart
@@ -58,24 +63,24 @@ shop-me-frontend/
     index.html
   src/
     components
-      Examples
-        IPAddress
-          IPAddress.jsx
-          IPAddress.test.jsx
+      <nazwa komponentu>
+        <nazwa subkomponentu>
+          <subkomponent>.css
+          <subkomponent>.jsx
+          <subkomponent>.test.jsx
       UI
-        ExampleTitle
-          ExampleTitle.jsx
-          ExampleTitle.test.jsx
+        <nazwa elementu UI>
+          <element UI>.css
+          <element UI>.jsx
+          <element UI>.test.jsx
     core
       App.jsx
       i18n.js
       Router.jsx
     screens
-      Examples
-        Fetch.jsx
-        Fetch.test.jsx
-        Hello.jsx
-        Hello.test.jsx
+      <nazwa screena>
+        <nazwa screena>.jsx
+        <nazwa screena>.test.jsx
     index.js
     setupTests.js
   swagger/
@@ -107,10 +112,6 @@ shop-me-frontend/
 
 W katalogu projektu można uruchomić:
 
-### `yarn run start:dev`
-
-Uruchamia jednocześnie serwer mockowy oraz aplikację kliencką.
-
 ### `yarn run start:prod`
 
 Uruchamia aplikację kliencką z dostępem do serwera produkcyjnego
@@ -119,22 +120,22 @@ Uruchamia aplikację kliencką z dostępem do serwera produkcyjnego
 
 Uruchamia aplikację kliencką. Wymaga ustawienia zmiennej środowiskowej REACT_APP_API
 
-### `yarn run client:dev`
+### `yarn run test`
 
-Uruchamia aplikację kliencką z dostępem do serwera mockowego
-
-### `yarn run client:prod`
-
-Uruchamia aplikację kliencką z dostępem do serwera produkcyjnego
-
-### `yarn run server`
-
-Uruchamia serwer mockowy
+Uruchamia testy jednostkowe
 
 ### `yarn run test`
 
-Uruchamia testy jednostkowe.
+Uruchamia testy jednostkowe i pokazuje tabelę pokrycia kodu testami
 
 ### `yarn run build`
 
 Tworzy build produkcyjny w katalogu `build`
+
+### `yarn storybook`
+
+Uruchamia serwer storybook'a
+
+### `yarn eslint`
+
+Uruchamia eslinta dla plików .js i .jsx
