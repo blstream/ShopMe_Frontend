@@ -80,7 +80,7 @@ class Layout extends Component {
         <div className="content">
           <Header
             onClick={this.logout}
-            isHomepage={this.props.children.type.name === 'Home'}
+            isHomepage={this.props.children.type.name === 'HomeScreen'}
             isResults={this.props.children.type.name === 'SearchScreen'}
           />
           <main className={this.props.className}>
