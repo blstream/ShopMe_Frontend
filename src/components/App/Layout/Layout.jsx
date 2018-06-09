@@ -29,7 +29,7 @@ class Layout extends Component {
   displayError(thrownError) {
     if (thrownError) {
       this.setState({
-        error: thrownError,
+        error: thrownError.message,
         hasError: true,
       });
     } else {
@@ -65,7 +65,7 @@ class Layout extends Component {
 
     let content;
     const token = localStorage.getItem('userToken');
-    if (this.state.hasError && this.state.errorStatus >= 500) {
+    if (this.state.hasError && this.state.error >= 500) {
       content = <FullScreenError error={this.state.error} />;
     } else if (this.props.requiresAuthorization && !token) {
       content = <FullScreenError hasLoginLink message="components.forbidden.text" errorImg="nonFatalError" />;
