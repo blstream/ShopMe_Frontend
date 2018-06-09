@@ -13,6 +13,7 @@ class Layout extends Component {
       hasError: false,
       fireRedirect: false,
       error: '',
+      errorStatus: '',
     };
     this.http = {
       get: (...rest) => httpHelper.get(...rest).catch(this.displayError),
@@ -29,12 +30,14 @@ class Layout extends Component {
   displayError(thrownError) {
     if (thrownError) {
       this.setState({
-        error: thrownError.message,
+        error: thrownError,
+        errorStatus: thrownError.message,
         hasError: true,
       });
     } else {
       this.setState({
         error: '',
+        errorStatus: '',
         hasError: false,
       });
     }
@@ -65,7 +68,7 @@ class Layout extends Component {
 
     let content;
     const token = localStorage.getItem('userToken');
-    if (this.state.hasError && this.state.error >= 500) {
+    if (this.state.hasError && this.state.errorStatus >= 500) {
       content = <FullScreenError error={this.state.error} />;
     } else if (this.props.requiresAuthorization && !token) {
       content = <FullScreenError hasLoginLink message="components.forbidden.text" errorImg="nonFatalError" />;
