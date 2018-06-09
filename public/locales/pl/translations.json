@@ -50,7 +50,8 @@
       }
     },
     "errorMessage": {
-      "text": "Coś poszło nie tak"
+      "text": "Coś poszło nie tak",
+      "404": "Ups... Taka strona nie istnieje"
     },
     "forbidden": {
       "text": "Nie masz uprawnień do przeglądania tej strony.",

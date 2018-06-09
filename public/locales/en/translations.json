@@ -50,7 +50,8 @@
       }
     },
     "errorMessage": {
-      "text": "Something went wrong"
+      "text": "Something went wrong",
+      "404": "Sorry, that page does not exist..."
     },
     "forbidden": {
       "text": "You do not have permission to view this page.",

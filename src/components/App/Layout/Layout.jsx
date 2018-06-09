@@ -13,6 +13,7 @@ class Layout extends Component {
       hasError: false,
       fireRedirect: false,
       error: '',
+      errorStatus: '',
     };
     this.http = {
       get: (...rest) => httpHelper.get(...rest).catch(this.displayError),
@@ -30,11 +31,13 @@ class Layout extends Component {
     if (thrownError) {
       this.setState({
         error: thrownError,
+        errorStatus: thrownError.message,
         hasError: true,
       });
     } else {
       this.setState({
         error: '',
+        errorStatus: '',
         hasError: false,
       });
     }

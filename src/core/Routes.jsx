@@ -11,6 +11,7 @@ import RegisterScreen from 'screens/Register/Register';
 import SuccessAddScreen from 'screens/Add/SuccessAdd/SuccessAdd';
 import SuccessRegisterScreen from 'screens/Register/SuccessRegister/SuccessRegister';
 import ArticleScreen from 'screens/Article/Article';
+import NotFoundScreen from 'screens/NotFound/NotFound';
 import Layout from 'components/App/Layout/Layout';
 
 const wrapInLayout = (Screen, options) => props => (
@@ -32,6 +33,7 @@ export default() => (
         <Route exact path="/signup" render={wrapInLayout(SignUpScreen, { requiresAuthorization: false })} />
         <Route exact path="/register" render={wrapInLayout(RegisterScreen, { requiresAuthorization: false })} />
         <Route exact path="/articles/:article" render={wrapInLayout(ArticleScreen, { requiresAuthorization: false })} />
+        <Route path="*" render={wrapInLayout(NotFoundScreen, { requiresAuthorization: false })} />
       </Switch>
     </ScrollToTop>
   </BrowserRouter>

@@ -38,7 +38,7 @@ class OfferDetailsScreen extends React.Component {
   render() {
     return (
       <div>
-        {this.props.hasError ? <FullScreenError message="endpointError.offers.get.404" errorImg="NonFatalError" /> : <OfferDetails service={this.state.service} /> }
+        {this.props.hasError ? <FullScreenError message="endpointError.offers.get.404" errorImg="nonFatalError" /> : <OfferDetails service={this.state.service} /> }
       </div>
     );
   }
