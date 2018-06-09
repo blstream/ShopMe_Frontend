@@ -6,10 +6,6 @@
   margin-top: 5rem;
 }
 
-.login-form--errortrue {
-  margin-top: 0;
-}
-
 .login-form__title {
   font-size: 2rem;
   text-align: center;
@@ -50,10 +46,6 @@
 @media (min-width: 768px) {
   .login-form {
     font-size: 1.5rem;
-  }
-
-  .login-form--errorfalse {
-    margin-top: 20rem;
   }
 
   .login-form--errortrue {

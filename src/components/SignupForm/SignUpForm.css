@@ -6,10 +6,6 @@
   margin-top: 5rem;
 }
 
-.signup-form--errortrue {
-  margin-top: 0;
-}
-
 .signup-form__title {
   font-size: 2rem;
   text-align: center;
@@ -62,10 +58,6 @@
     font-size: 1.5rem;
   }
 
-  .signup-form--errorfalse {
-    margin-top: 20rem;
-  }
-
   .signup-form--errortrue {
     margin-top: 5rem;
   }
@@ -73,6 +65,7 @@
   .signup-form__item--input {
     width: 40rem;
   }
+
   .signup-form__item--button, .signup-form__login-link-container {
     width: 28rem;
   }
