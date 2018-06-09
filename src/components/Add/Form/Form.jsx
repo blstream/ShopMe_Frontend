@@ -289,7 +289,7 @@ class AddForm extends Component {
                 spanClassName="select_span--block"
                 labelClassName=".select_span--yellow"
                 selectClassName="input-select input-select--yellow"
-                selectItemClassName="input-select__itemw-option--yellow"
+                selectItemClassName="input-select__item-option--yellow"
                 errorClassName="input-select__errorMessage input-select__errorMessage--add-offer"
                 disableChange={this.setCityEnable}
                 required
