@@ -32,6 +32,7 @@
   resize: none;
   grid-column: 1/4;
   grid-row: 2/3;
+  outline: none;
 }
 
 .offer__textarea::placeholder {
@@ -57,4 +58,3 @@
 .offer__textarea--disabled::placeholder {
   color: #999;
 }
-

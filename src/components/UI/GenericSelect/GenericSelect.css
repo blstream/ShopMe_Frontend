@@ -19,6 +19,7 @@
   border-bottom-right-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   padding-left: 1rem;
+  outline: none;
 }
 
 .input-select--custom {
@@ -49,5 +50,3 @@
 .input-select__errorMessage--add-offer {
   bottom: -1.7rem;
 }
-
-
