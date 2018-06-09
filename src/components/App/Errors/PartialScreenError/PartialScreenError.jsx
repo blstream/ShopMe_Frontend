@@ -17,7 +17,7 @@ const PartialScreenError = (props) => {
     <div className="non-fatal-error__container">
       <img
         className="non-fatal-error__img"
-        src={`${process.env.PUBLIC_URL}/assets/images/errors/nonfatalError.png`}
+        src={`${process.env.PUBLIC_URL}/assets/images/errors/nonFatalError.png`}
         alt="Non fatal error"
       />
       <span className="non-fatal-error__response-message">
