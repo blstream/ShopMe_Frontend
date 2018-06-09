@@ -101,9 +101,9 @@ nav a {
 
 .header__link {
   display: block;
-  padding: 1rem 1.5rem 1rem 1rem;
+  padding: 1rem 3rem 1rem 1rem;
   text-align: right;
-  width: 11rem;
+  width: 13.5rem;
 }
 
 .header__link:hover {
@@ -208,6 +208,11 @@ nav a {
   .header__links{
     margin: -1.4rem 0.8rem 0 0;
   }
+
+  .header__link {
+    padding: 1rem 4rem 1rem 1rem;
+    width: 15.5rem;
+  }
 }
 
 @media (min-width: 1025px) {
@@ -284,10 +289,16 @@ nav a {
     top: auto;
     margin: 0;
   }
+
   .header__link {
     width: auto;
     padding-right: 1rem;
   }
+
+  .header__link:first-child{
+    width: 11rem;
+  }
+
   .header__arrow {
     margin: 0 1rem 0 0;
   }
