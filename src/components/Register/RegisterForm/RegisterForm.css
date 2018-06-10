@@ -1,6 +1,6 @@
 .register-form {
   font-size: 1.2rem;
-  margin-top: 5rem;
+  margin: 5rem 2rem;
 }
 
 .register-form__title {
@@ -11,10 +11,6 @@
 .register-form__item {
   height: 4rem;
   margin: 4rem auto 0rem auto;
-}
-
-.register-form__item--input {
-  width: 29rem;
 }
 
 .register-form__item--textarea {
@@ -82,7 +78,7 @@
 }
 
 .register-form__item--input {
-  min-width: 32rem;
+  width: 100%;
 }
 
 .register__checkbox--error-message {
@@ -121,7 +117,7 @@ input[type="checkbox"]:checked + label:before {
     font-size: 1.3rem;
   }
   .register-form__item--input, .register-form__item--checkbox, .register__checkbox--error-message {
-    width: 40rem;
+    width: 55rem;
   }
   .register-form__item--button, .register-form__login-link {
     width: 28rem;
@@ -131,8 +127,5 @@ input[type="checkbox"]:checked + label:before {
 @media (min-width: 1025px) {
   .register-form {
     font-size: 1.4rem;
-  }
-  .register-form__item--input, .register-form__item--checkbox, .register__checkbox--error-message {
-    width: 55rem;
   }
 }
