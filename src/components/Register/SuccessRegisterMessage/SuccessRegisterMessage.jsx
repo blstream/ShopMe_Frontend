@@ -9,7 +9,9 @@ const SuccessRegisterMessage = props => (
       <h1 className="success-register-message__text success-register-message__text--green">
         {props.t('components.register.successRegisterMessage')}
       </h1>
-      <LoginButton />
+      <div className="success-register-message__button--center">
+        <LoginButton />
+      </div>
     </div>
   </section>
 );
