@@ -34,9 +34,11 @@ class SearchForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    const searchQueryValue = new URLSearchParams(window.location.search);
+    const category = searchQueryValue.get('category');
     if (!this.state.isValidPhrase && (this.props.isHomepage || this.props.isResults)) return;
     if (this.state.isValidPhrase) this.fireRedirect = true;
-    this.setState({});
+    this.setState({ category });
   }
 
   updateSearchPhrase(phrase, isValidPhrase) {
