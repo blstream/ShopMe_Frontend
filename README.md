@@ -1,42 +1,44 @@
 # ShopeME Front-end
 
+- [Description](#description)
 - [Quickstart](#quickstart)
-- [Wymagania](#wymagania)
-- [Stack technologiczny](#stack-technologiczny)
-- [Struktura projektu](#struktura-projektu)
-- [Skrypty](#skrypty)
+- [Requirements](#requirements)
+- [Technological stack](#Technological-stack)
+- [Project structure](#project-structure)
+- [Scripts](#scripts)
+- [App preview](#app-preview)
+
+## Description
+
+ShopMe is a web application that allows you to add offers for various types of services. 
 
 
 ## Quickstart
 
-Jednorazowo: `yarn install`
+Once: `yarn install`
 
-Wersja deweloperska: `yarn run server` i `yarn run client:dev`
+Development version: `yarn run server` and `yarn run client:dev`
 
-Wersja produkcyjna: `yarn run client:prod`
+Production version: `yarn run client:prod`
 
-Dostępne adresy:
+App adress:
 
-- [http://localhost:3000](http://localhost:3000) aplikacja frontowa
-- [http://localhost:3001](http://localhost:3001) serwer mockowy
-- [http://localhost:3001/ui](http://localhost:3001/ui) przeglądarka Swaggera (z serwer mockowy)
+- [http://localhost:3000](http://localhost:3000) front-end application
 
-
-## Wymagania
+## Requirements
 
 - [Node.js](https://nodejs.org)
 - [Yarn](https://yarnpkg.com)
 
 
-## Stack technologiczny 
+## Technological stack 
 
 - [Create React App](https://github.com/facebookincubator/create-react-app)
 - [React Router V4](https://github.com/ReactTraining/react-router)
 - [react-i18next](https://github.com/i18next/react-i18next)
-- [pokemock](https://github.com/mobilcom-debitel/pokemock)
 
 
-## Pliki konfiguracyjne
+## Configuration files
 
 - [.editorconfig](http://editorconfig.org)
 - [.env](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-development-environment-variables-in-env)
@@ -44,97 +46,101 @@ Dostępne adresy:
 - [jsconfig.json](https://code.visualstudio.com/docs/languages/jsconfig)
 
 
-## Struktura projektu
+## Project structure
 
-Struktua projektu została oparta na pomyśle zaprezentowanym na (https://hackernoon.com/structuring-projects-and-naming-components-in-react-1261b6e18d76)
+The structure of the project was based on the idea presented on(https://hackernoon.com/structuring-projects-and-naming-components-in-react-1261b6e18d76)
 
 ```
 shop-me-frontend/
   docs/
   public/
     locales/
-      <język>/
+      <language>/
         translations.json
     index.html
   src/
     components
-      Examples
-        IPAddress
-          IPAddress.jsx
-          IPAddress.test.jsx
+      <component name>
+        <subcomponent name>
+          <subcomponent>.css
+          <subcomponent>.jsx
+          <subcomponent>.test.jsx
       UI
-        ExampleTitle
-          ExampleTitle.jsx
-          ExampleTitle.test.jsx
+        <UI element name>
+          <UI element>.css
+          <UI element>.jsx
+          <UI element>.test.jsx
     core
       App.jsx
       i18n.js
       Router.jsx
     screens
-      Examples
-        Fetch.jsx
-        Fetch.test.jsx
-        Hello.jsx
-        Hello.test.jsx
+      <screen name>
+        <screen>.jsx
+        <screen>.test.jsx
     index.js
     setupTests.js
   swagger/
-    <specyfikacja>.<yaml|json>
+    <specification>.<yaml|json>
   package.json
   README.md
 ```
 
-`docs/` to dodatkowa, bardziej szczegółowa dokumentacja poszczególnych modułów
+`docs/` additional, more detailed documentation of individual modules
 
-`public/locales` zawiera subkatalogi odpowiadające wsperianym językom aplikacji. Tłumaczenia przechowywane są w plikach `translations.json` których struktura odpowiada strukturze aplikacji.
+`public/locales` contains subdirectories corresponding to supported application languages. Translations are stored in files `translations.json` whose structure corresponds to the structure of the application.
 
-`src/components` w katalogach odpowiadającym modułom lub funkcnjonalnościom aplikacji przechowuje ich komponenty. Komponenty nazwa są relatywnie do katalogu components lub UI, np. src/components/UI/ExampleTitle/ExampleTitle.jsx nazywać będzie się ExampleTitle, a src/components/Examples/IPAddress/IPAddress.jsx ExamplesIPAddress
+`src/components` in the catalogs corresponding to the modules or functionalities of the application, their components are stored. The components are named relatively to the components or UI directory, eg src / components / UI / ExampleTitle / ExampleTitle.jsx will be called ExampleTitle, and src / components / Examples / IPAddress / IPAddress.jsx ExamplesIPAddress
 
-`src/components/UI` przetrzymuje generyczne komponenty używane przez komponenty ekranów jak i same ekrany. Komponenty UI nigdy nie powinny ładować komponentów spoza katalogu UI.
+`src/components/UI` it holds generic components used by screen components as well as screens themselves. UI components should never load components outside of the UI directory.
 
-`src/screens` przetrzymuje ekrany zgodnie ze ścieżką routingu, np. /examples/hello znajdzie się w src/screens/Examples/Hello, a komponenty nazywane się zgodnie z relatywną ścieżką od src/, np ScreensExamplesHello (pozwala to uniknąć możliwej kolizji nazw z src/components)
+`src/screens` keeps screens according to the routing path, eg / examples / hello will be found in src / screens / Examples / Hello
 
-`src/core/App.jsx` to głowny komponent
+`src/core/App.jsx` main component
 
-`src/core/i18n.js` to kofiguracja i18next-react
+`src/core/i18n.js` i18next-react configuration
 
-`src/core/Router.jsx` to konfiguracja/komponent routingu
+`src/core/Router.jsx` configuration / routing component
 
-`*.test.jsx` to test zarówno komponentów jak i ekranow
+`*.test.jsx` it is a test of both components and screens
 
 
-## Skrypty
+## Scripts
 
-W katalogu projektu można uruchomić:
-
-### `yarn run start:dev`
-
-Uruchamia jednocześnie serwer mockowy oraz aplikację kliencką.
-
-### `yarn run start:prod`
-
-Uruchamia aplikację kliencką z dostępem do serwera produkcyjnego
-
-### `yarn run client`
-
-Uruchamia aplikację kliencką. Wymaga ustawienia zmiennej środowiskowej REACT_APP_API
-
-### `yarn run client:dev`
-
-Uruchamia aplikację kliencką z dostępem do serwera mockowego
+In the project directory, you can run:
 
 ### `yarn run client:prod`
 
-Uruchamia aplikację kliencką z dostępem do serwera produkcyjnego
+Starts the client application with access to the production server
 
-### `yarn run server`
+### `yarn run client:dev`
 
-Uruchamia serwer mockowy
+Starts the client application. Requires setting the REACT_APP_API environment variable
 
-### `yarn run test`
+### `yarn test`
 
-Uruchamia testy jednostkowe.
+Runs unit tests
+
+### `yarn coverage`
+
+Runs unit tests and shows the code coverage table with tests
 
 ### `yarn run build`
 
-Tworzy build produkcyjny w katalogu `build`
+Creates a production build in the `build` directory
+
+### `yarn storybook`
+
+Starts the storybook server
+
+### `yarn eslint`
+
+Starts the eslint for .js and .jsx files
+
+
+## App preview
+
+<img src="docs/homepage_printscreen.png" width="20%" height="20%" />
+<img src="docs/offer_details_printscreen.png" width="20%" height="20%" />
+<img src="docs/register_printscreen.png" width="20%" height="20%" />
+<img src="docs/search_list_printscreen.png" width="20%" height="20%" />
