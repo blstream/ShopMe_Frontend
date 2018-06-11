@@ -27,3 +27,8 @@ section {
 .success-register-message__text--green {
   color: #5CB85C;
 }
+
+.success-register-message__button--center {
+  text-align: center;
+  margin-top: 2rem;
+}
