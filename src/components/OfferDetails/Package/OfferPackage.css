@@ -4,7 +4,7 @@
   margin-top: 5rem;
   display: grid;
   font-size: 1.8rem;
-  grid-template-columns: 50% 20% 30%;
+  grid-auto-columns: auto 15% 15%;
   grid-template-rows: 4.5rem minmax(5rem,max-content) 4.5rem;
 }
 
@@ -17,7 +17,7 @@
 .package__header{
   background: #FADE42;
   border-radius: 8px;
-  padding: 0.8rem 1rem 1rem 2rem;
+  padding: 0.8rem 2rem;
 }
 
 .package__header--base{
@@ -70,6 +70,18 @@
   width: 15rem;
   text-align: end;
   padding-right: 2rem;
+}
+
+@media (min-width: 420px) {
+  .package__container {
+    grid-template-columns: auto 25% 25%;
+  }
+}
+
+@media (min-width: 630px) {
+  .package__container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 @media (min-width: 768px){

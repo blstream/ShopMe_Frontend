@@ -22,17 +22,7 @@
   outline: none;
 }
 
-.input-select--custom {
-  appearance:none;
-  -webkit-appearance:none;
-  -moz-appearance:none;
-  background: url("/assets/images/header/header-arrow-down.png") no-repeat right #fff;
-  background-position: 97% 50%;
-  background-size: 3rem 3rem;
-}
-
-.input-select--add-form-category,
-.input-select--add-form-voivodeship {
+.input-select__dropdown-arrow {
   appearance: none;
   background: url("/assets/images/generic-select/triangle.png") no-repeat right #fff;
   background-size: 2rem 2rem;

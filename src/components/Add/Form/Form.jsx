@@ -198,7 +198,6 @@ class AddForm extends Component {
               errorClassName="input-select__errorMessage input-select__errorMessage--add-offer"
               labelClassName="input__wrapper--relative"
               required
-              selectStyle="add-form-category"
               onValidate={this.state.doValidate}
               doValidate={this.setIsValid}
               setValue={this.setValue}
@@ -293,7 +292,6 @@ class AddForm extends Component {
                 errorClassName="input-select__errorMessage input-select__errorMessage--add-offer"
                 disableChange={this.setCityEnable}
                 required
-                selectStyle="add-form-voivodeship"
                 onValidate={this.state.doValidate}
                 doValidate={this.setIsValid}
                 setValue={this.setValue}
