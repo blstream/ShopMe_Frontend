@@ -52,7 +52,7 @@ const validator = {
     return !pattern.test(value) ? 'helpers.validator.errorOnlyNumeric' : undefined;
   },
 
-  useOnlyNumericStartWithZero(value) {
+  useOnlyNumericMayStartWithZero(value) {
     const pattern = /^(\d{9}|0\d{9})$/;
     return !pattern.test(value) ? 'helpers.validator.errorOnlyNumeric' : undefined;
   },
@@ -110,7 +110,7 @@ const validator = {
 
   validatePhoneNumber(required, value) {
     return validator.isRequired(required, value) ||
-    validator.useOnlyNumericStartWithZero(value) ||
+    validator.useOnlyNumericMayStartWithZero(value) ||
     validator.hasMinLength(9, value) ||
     undefined;
   },
