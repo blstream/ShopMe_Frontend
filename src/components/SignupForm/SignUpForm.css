@@ -1,13 +1,6 @@
 .signup-form {
   font-size: 1.4rem;
-}
-
-.signup-form--errorfalse {
-  margin-top: 5rem;
-}
-
-.signup-form--errortrue {
-  margin-top: 0;
+  margin: 5rem 2rem;
 }
 
 .signup-form__title {
@@ -21,7 +14,7 @@
 }
 
 .signup-form__item--input {
-  width: 29rem;
+  width: 100%;
 }
 
 .signup-form__item--button {
@@ -62,24 +55,15 @@
     font-size: 1.5rem;
   }
 
-  .signup-form--errorfalse {
-    margin-top: 20rem;
-  }
-
   .signup-form--errortrue {
     margin-top: 5rem;
   }
 
   .signup-form__item--input {
-    width: 40rem;
+    width: 55rem;
   }
+
   .signup-form__item--button, .signup-form__login-link-container {
     width: 28rem;
-  }
-}
-
-@media (min-width: 1025px) {
-  .signup-form__item--input {
-    width: 55rem;
   }
 }

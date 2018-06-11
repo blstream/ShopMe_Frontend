@@ -93,7 +93,7 @@
       "localityInputLabel": "City",
       "zipCodeInputLabel": "Zip Code",
       "companyNameInputLabel": "Company Name",
-      "nipInputLabel": "Taxpayer Identification Number",
+      "nipInputLabel": "TIN",
       "voivodeships": "Voivodeship",
       "submitButtonLabel": "Sign Up",
       "formTitle": "Register",

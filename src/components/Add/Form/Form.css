@@ -1,6 +1,6 @@
 .add-form {
   font-size: 1.2rem;
-  margin: 0 2rem;
+  margin: 5rem 2rem;
 }
 
 .add-form__item {
@@ -39,7 +39,7 @@
 .add-form__fieldset {
   position: relative;
   border: none;
-  margin-top: 4rem;
+  margin-top: 5rem;
   padding-bottom: 6rem;
   border-bottom: 1px solid;
 }
@@ -100,7 +100,7 @@
     font-size: 1.3rem;
   }
 
-  .add-form__item--input, 
+  .add-form__item--input,
   .add-form__fieldset-wrapper,
   .add-form__offer-container {
     width: 55rem;

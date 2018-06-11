@@ -1,9 +1,9 @@
-.contact__container  {
+.contact__container {
   width: 92%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 15rem minmax(min-content,max-content) minmax(10rem,max-content);
+  grid-template-rows: 15rem minmax(min-content,max-content) minmax(min-content ,max-content);
   grid-template-areas:
   "category"
   "data"
@@ -14,15 +14,15 @@
   word-wrap: break-word;
 }
 
-.contact__section--category{
+.contact__section--category {
   grid-area: category;
 }
 
-.contact__section--data{
+.contact__section--data {
   grid-area: data;
 }
 
-.contact__section--aboutme{
+.contact__section--aboutme {
   grid-area: aboutme;
 }
 
@@ -32,7 +32,7 @@
   max-height: 65%;
 }
 
-.contact__category--img-name{
+.contact__category--img-name {
   padding-top:2rem;
   text-align: center;
   text-transform: uppercase;
@@ -41,33 +41,34 @@
   font-weight: bold;
 }
 
-.contact__header--data{
+.contact__header--data {
   text-transform: uppercase;
   padding: 1rem 0 2rem 0;
   font-size: 2rem;
 }
 
-.contact__header--aboutme{
+.contact__header--aboutme {
   text-transform: uppercase;
   padding: 1rem 0 2rem 0;
   font-size: 2rem;
 }
 
-.contact__p--big{
+.contact__p--big {
   padding-bottom: 0.4rem;
   font-size: 1.8rem;
   font-family: 'Lato-Thin', sans-serif;
 }
 
-.contact__p--small{
+.contact__p--small {
   font-size: 1.5rem;
   font-family: 'Lato-Thin', sans-serif;
   font-weight: bold;
   text-align: justify;
   line-height: 1.4;
+  margin-bottom: 2rem;
 }
 
-.contact__button--unhide{
+.contact__button--unhide {
   background-color: #FADE42;
   border: none;
   margin-top:1rem;
@@ -79,21 +80,25 @@
   font-weight: bold;
 }
 
-@media (min-width: 768px){
+.contact__button--unhide:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
   .contact__container  {
     width: 70rem;
     grid-template-columns: minmax(30rem,max-content)  minmax(30rem,max-content);
-    grid-template-rows: 30rem minmax(10rem,max-content);
+    grid-template-rows: 30rem minmax(min-content,max-content);
     grid-column-gap: 0.5em;
     grid-template-areas:
     "category data"
     "aboutme aboutme";
   }
-  .contact__section--category{
+  .contact__section--category {
     align-self: center;
     justify-self: stretch;
   }
-  .contact__section--data{
+  .contact__section--data {
     padding-left: 15%;
   }
   .contact__category--img {
@@ -101,22 +106,22 @@
     margin: auto;
     max-height: 55%;
   }
-  .contact__button--unhide{
+  .contact__button--unhide {
     margin-top: 2rem;
   }
-  .contact__p--small{
+  .contact__p--small {
     font-size: 1.8rem;
   }
-  .contact__p--big,.contact__category--img-name{
+  .contact__p--big,.contact__category--img-name {
     font-size: 2.5rem;
   }
-  .contact__header--data,.contact__header--aboutme{
+  .contact__header--data,.contact__header--aboutme {
     font-size: 2.4rem;
   }
 }
 
-@media (min-width: 1025px){
-  .contact__container  {
+@media (min-width: 1025px) {
+  .contact__container {
     padding: 3rem;
   }
 }
