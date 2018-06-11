@@ -140,6 +140,6 @@ Starts the eslint for .js and .jsx files
 
 ## App preview
 
-<img src="docs/homepage_printscreen.png" width="450px" height="700px" /> <img src="docs/search_list_printscreen.png" width="450px" height="700px" />
+<img src="docs/homepage_printscreen.png" width="400px" height="650px" /> <img src="docs/search_list_printscreen.png" width="400px" height="650px" />
 
-<img src="docs/offer_details_printscreen.png" width="450px" height="700px" /> <img src="docs/register_printscreen.png" width="450px" height="700px" />
+<img src="docs/offer_details_printscreen.png" width="400px" height="650px" /> <img src="docs/register_printscreen.png" width="400px" height="650px" />
