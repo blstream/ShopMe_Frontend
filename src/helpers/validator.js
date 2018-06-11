@@ -52,6 +52,11 @@ const validator = {
     return !pattern.test(value) ? 'helpers.validator.errorOnlyNumeric' : undefined;
   },
 
+  useOnlyNumericStartWithZero(value) {
+    const pattern = /^(\d{9}|0\d{9})$/;
+    return !pattern.test(value) ? 'helpers.validator.errorOnlyNumeric' : undefined;
+  },
+
   isValidEmail(value) {
     const pattern = /^\S+@\S+\.\S+$/;
     return !pattern.test(value) ? 'helpers.validator.errorEmailRegex' : undefined;
@@ -105,7 +110,7 @@ const validator = {
 
   validatePhoneNumber(required, value) {
     return validator.isRequired(required, value) ||
-    validator.useOnlyNumeric(value) ||
+    validator.useOnlyNumericStartWithZero(value) ||
     validator.hasMinLength(9, value) ||
     undefined;
   },
