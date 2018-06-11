@@ -43,7 +43,7 @@ export default class SearchScreen extends React.Component {
       this.setState({
         category,
         paginationData: { pageNumber: 1 },
-        page: searchQueryValue.get('page'),
+        page: searchQueryValue.get('page') ? searchQueryValue.get('page') : 1,
         phrase: searchQueryValue.get('title'),
       }, getDataWithReceivedProps);
     }
