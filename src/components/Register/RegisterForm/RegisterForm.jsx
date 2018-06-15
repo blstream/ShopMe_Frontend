@@ -1,116 +1,168 @@
 import React, { Component } from 'react';
 import { translate } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import validator from 'helpers/validator';
 import Input from 'components/UI/Input/Input';
+import GenericCheckbox from 'components/UI/GenericCheckbox/GenericCheckbox';
 import GenericSelect from 'components/UI/GenericSelect/GenericSelect';
 import AboutMeTextarea from 'components/Register/AboutMeTextarea/AboutMeTextarea';
 import FormButton from 'components/UI/FormButton/FormButton';
-import PersonalDataConfirm from './PersonalDataConfirm/PersonalDataConfirm';
-import InvoiceInputGroup from './InvoiceInputGroup/InvoiceInputGroup';
-import TermsAndConditionsCheckbox from './TermsAndConditionsCheckbox/TermsAndConditionsCheckbox';
 import './RegisterForm.css';
 
 class RegisterForm extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      doValidate: undefined,
+      isFormValid: undefined,
+      showInvoice: false,
+      inputsValue: {
+        userName: undefined,
+        userSurname: undefined,
+        userEmail: undefined,
+        userPassword: undefined,
+        userPhoneNumber: undefined,
+        userBankAccount: undefined,
+        userAddressStreet: undefined,
+        userAddressNumber: undefined,
+        userAddressZipCode: undefined,
+        userVoivodeship: undefined,
+        userAddressCity: undefined,
+        userAdditionalInfo: undefined,
+        personalDataConfirm: undefined,
+        companyName: undefined,
+        companyNip: undefined,
+        companyStreet: undefined,
+        companyNumber: undefined,
+        companyCity: undefined,
+        companyZipCode: undefined,
+      },
+      inputsValidationResult: {
+        userName: undefined,
+        userSurname: undefined,
+        userEmail: undefined,
+        userPassword: undefined,
+        userPhoneNumber: undefined,
+        userBankAccount: undefined,
+        userAddressStreet: undefined,
+        userAddressNumber: undefined,
+        userAddressZipCode: undefined,
+        userVoivodeship: undefined,
+        userAddressCity: undefined,
+        userAdditionalInfo: undefined,
+        personalDataConfirm: undefined,
+        companyName: undefined,
+        companyNip: undefined,
+        companyStreet: undefined,
+        companyNumber: undefined,
+        companyCity: undefined,
+        companyZipCode: undefined,
+      },
+    };
 
-    this.checkFormValidity = this.checkFormValidity.bind(this);
-    this.getInputReferences = this.getInputReferences.bind(this);
-    this.setFormData = this.setFormData.bind(this);
+    this.setFieldStateValue = this.setFieldStateValue.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.gatherFormData = this.gatherFormData.bind(this);
     this.sendFormData = this.sendFormData.bind(this);
+    this.setIsValid = this.setIsValid.bind(this);
+    this.checkIsFormValid = this.checkIsFormValid.bind(this);
+    this.setValue = this.setValue.bind(this);
+    this.setFormState = this.setFormState.bind(this);
+    this.showInvoice = this.showInvoice.bind(this);
   }
 
-  getInputReferences() {
-    return [
-      this.users__name,
-      this.users__surname,
-      this.users__email,
-      this.users__password,
-      this.users__phoneNumber,
-      this.users__bankAccount,
-      this.users__addressStreet,
-      this.users__addressNumber,
-      this.users__addressCity,
-      this.voivodeshipSelect,
-      this.users__addressZipCode,
-      this.users__personalDataProcessing,
-      this.users__termsAndConditionsCheckbox,
-      this.users__additionalInfo,
-    ];
-  }
-
-  setFormData(isInvoiceRequired) {
-    let formData;
-
-    const allVoivodeships = this.voivodeshipSelect.getWrappedInstance().props.selectData;
-    const voivodeshipName = this.voivodeshipSelect.getWrappedInstance().state.value;
-    const targetVoivodeship =
-    allVoivodeships.find(voivodeship => voivodeship.name === voivodeshipName);
-
-    formData =
-      {
-        name: this.users__name.getWrappedInstance().state.value,
-        surname: this.users__surname.getWrappedInstance().state.value,
-        email: this.users__email.getWrappedInstance().state.value,
-        password: this.users__password.getWrappedInstance().state.value,
-        phoneNumber: this.users__phoneNumber.getWrappedInstance().state.value,
-        bankAccount: this.users__bankAccount.getWrappedInstance().state.value,
-        address: {
-          street: this.users__addressStreet.getWrappedInstance().state.value,
-          number: this.users__addressNumber.getWrappedInstance().state.value,
-          city: this.users__addressCity.getWrappedInstance().state.value,
-          zipCode: this.users__addressZipCode.getWrappedInstance().state.value,
-        },
-        voivodeship: {
-          id: targetVoivodeship.id,
-          name: voivodeshipName,
-        },
-        invoiceRequest: false,
-      };
-
-    if (isInvoiceRequired) {
-      formData.invoiceRequest = true;
-      const invoceData = this.users__invoiceInputGroup.getWrappedInstance().getFormInvoiceData();
-      const invoicePostData =
-        {
-          invoice: {
-            companyName: invoceData.companyName,
-            nip: invoceData.nip,
-            invoiceAddress: {
-              street: invoceData.invoiceAddress.street,
-              number: invoceData.invoiceAddress.number,
-              city: invoceData.invoiceAddress.city,
-              zipCode: invoceData.invoiceAddress.zipCode,
-            },
-          },
-        };
-      formData = Object.assign({}, formData, invoicePostData);
+  componentDidUpdate() {
+    if (this.state.isFormValid) {
+      this.gatherFormData();
     }
-    const additionalInfo = this.users__additionalInfo.getWrappedInstance().state.value;
-    if (additionalInfo) formData.additionalInfo = additionalInfo;
+  }
 
-    return formData;
+  onSubmit(e) {
+    e.preventDefault();
+    this.setState({ doValidate: true });
+  }
+
+  setFieldStateValue(field, value) {
+    if (this.state[field] !== value) {
+      this.setState({ [field]: value });
+    }
+  }
+
+  setFormState(obj, key, val, callback) {
+    this.setState(prevState => ({
+      ...prevState,
+      doValidate: undefined,
+      [obj]: {
+        ...prevState[obj],
+        [key]: val,
+      },
+    }), callback);
+  }
+
+  setIsValid(name, val) {
+    this.setFormState('inputsValidationResult', name, val, this.checkIsFormValid);
+  }
+
+  setValue(name, val) {
+    this.setFormState('inputsValue', name, val);
+  }
+
+  showInvoice() {
+    this.setState({ showInvoice: !this.state.showInvoice });
+  }
+
+  checkIsFormValid() {
+    const inputsValidationResult = Object.assign({}, this.state.inputsValidationResult);
+    const isFormIncludesErrors = Object.values(inputsValidationResult).includes(false);
+
+    this.setState({ errorMessage: isFormIncludesErrors, isFormValid: !isFormIncludesErrors });
+  }
+
+  gatherFormData() {
+    this.setState({ isFormValid: undefined });
+
+    const inputsValue = Object.assign({}, this.state.inputsValue);
+    const formData = {
+      name: inputsValue.userName,
+      surname: inputsValue.userSurname,
+      email: inputsValue.userEmail,
+      password: inputsValue.userPassword,
+      phoneNumber: inputsValue.userPhoneNumber,
+      bankAccount: inputsValue.userBankAccount,
+      address: {
+        street: inputsValue.userAddressStreet,
+        number: inputsValue.userAddressNumber,
+        city: inputsValue.userAddressCity,
+        zipCode: inputsValue.userAddressZipCode,
+      },
+      voivodeship: {
+        name: inputsValue.userVoivodeship,
+      },
+    };
+
+    if (inputsValue.userAdditionalInfo) {
+      formData.additionalInfo = inputsValue.userAdditionalInfo;
+    }
+
+    if (this.state.showInvoice) {
+      formData.invoiceRequest = true;
+      formData.invoice = {
+        companyName: inputsValue.companyName,
+        nip: inputsValue.companyNip,
+        invoiceAddress: {
+          street: inputsValue.companyStreet,
+          number: inputsValue.companyNumber,
+          city: inputsValue.companyCity,
+          zipCode: inputsValue.companyZipCode,
+        },
+      };
+    }
+
+    this.sendFormData(formData);
   }
 
   sendFormData(data) {
     this.props.fetchData(data);
-  }
-
-  checkFormValidity(e) {
-    e.preventDefault();
-    const isInvoiceChecked = this.users__invoiceInputGroup.getWrappedInstance().state.checked;
-    const refs = this.getInputReferences();
-    const isRefsValid = refs.map(ref => ref.getWrappedInstance().checkValidity());
-    if (isInvoiceChecked) {
-      const isInvoiceValid = this.users__invoiceInputGroup.getWrappedInstance().handleSubmit();
-      if (!isRefsValid.includes(false) && isInvoiceValid) {
-        const postData = this.setFormData(true);
-        this.sendFormData(postData);
-      }
-    } else if (!isRefsValid.includes(false)) {
-      const postData = this.setFormData();
-      this.sendFormData(postData);
-    }
   }
 
   render() {
@@ -118,113 +170,133 @@ class RegisterForm extends Component {
     return (
       <form
         className="register-form"
-        onSubmit={this.checkFormValidity}
+        onSubmit={this.onSubmit}
         noValidate
       >
         <h1 className="register-form__title">{t('components.register.formTitle')}</h1>
         <div className="register-form__item register-form__item--input">
           <Input
-            name="users__name"
+            name="userName"
             type="text"
             label={t('components.register.firstNameInputLabel')}
             maxLength={20}
             required
             validation={validator.validateNameInput}
             value={this.props.location.state ? this.props.location.state.name : ''}
-            ref={(v) => { this.users__name = v; }}
+            onValidate={this.state.doValidate}
+            doValidate={this.setIsValid}
+            setValue={this.setValue}
           />
         </div>
         <div className="register-form__item register-form__item--input">
           <Input
-            name="users__surname"
+            name="userSurname"
             type="text"
             label={t('components.register.lastNameInputLabel')}
             maxLength={50}
             required
             validation={validator.validateSurnameInput}
             value={this.props.location.state ? this.props.location.state.surname : ''}
-            ref={(v) => { this.users__surname = v; }}
+            onValidate={this.state.doValidate}
+            doValidate={this.setIsValid}
+            setValue={this.setValue}
           />
         </div>
         <div className="register-form__item register-form__item--input">
           <Input
-            name="users__email"
+            name="userEmail"
             type="text"
             label={t('components.register.emailInputLabel')}
             required
             validation={validator.validateEmailInput}
             value={this.props.location.state ? this.props.location.state.email : ''}
-            ref={(v) => { this.users__email = v; }}
+            onValidate={this.state.doValidate}
+            doValidate={this.setIsValid}
+            setValue={this.setValue}
           />
         </div>
         <div className="register-form__item register-form__item--input">
           <Input
-            name="users__password"
+            name="userPassword"
             type="password"
             label={t('components.register.passwordInputLabel')}
             maxLength={30}
             required
             validation={validator.validatePassword}
-            ref={(v) => { this.users__password = v; }}
+            onValidate={this.state.doValidate}
+            doValidate={this.setIsValid}
+            setValue={this.setValue}
           />
         </div>
         <div className="register-form__item register-form__item--input">
           <Input
-            name="users__phone-number"
+            name="userPhoneNumber"
             type="text"
             label={t('components.register.phoneNumberInputLabel')}
             maxLength={10}
             required
             validation={validator.validatePhoneNumber}
-            ref={(v) => { this.users__phoneNumber = v; }}
+            onValidate={this.state.doValidate}
+            doValidate={this.setIsValid}
+            setValue={this.setValue}
           />
         </div>
         <div className="register-form__item register-form__item--input">
           <Input
-            name="users__bank-account"
+            name="userBankAccount"
             type="text"
             label={t('components.register.bankAccountInputLabel')}
             maxLength={26}
             required
             validation={validator.validateBankAccount}
-            ref={(v) => { this.users__bankAccount = v; }}
+            onValidate={this.state.doValidate}
+            doValidate={this.setIsValid}
+            setValue={this.setValue}
           />
         </div>
         <div className="register-form__item register-form__item--input">
           <Input
-            name="users__address-street"
+            name="userAddressStreet"
             type="text"
             label={t('components.register.streetInputLabel')}
             required
             validation={validator.validateStreet}
-            ref={(v) => { this.users__addressStreet = v; }}
+            onValidate={this.state.doValidate}
+            doValidate={this.setIsValid}
+            setValue={this.setValue}
           />
         </div>
         <div className="register-form__item register-form__item--input">
           <Input
-            name="users__address-number"
+            name="userAddressNumber"
             type="text"
             label={t('components.register.houseNumberInputLabel')}
             required
             validation={validator.validateHouseNumber}
-            ref={(v) => { this.users__addressNumber = v; }}
+            onValidate={this.state.doValidate}
+            doValidate={this.setIsValid}
+            setValue={this.setValue}
           />
         </div>
         <div className="register-form__item register-form__item--input">
           <Input
-            name="users__address-zip-code"
+            name="userAddressZipCode"
             type="text"
             label={t('components.register.zipCodeInputLabel')}
             maxLength={6}
             required
             validation={validator.validateZipCode}
-            ref={(v) => { this.users__addressZipCode = v; }}
+            onValidate={this.state.doValidate}
+            doValidate={this.setIsValid}
+            setValue={this.setValue}
           />
         </div>
         <div className="register-form__item register-form__item--input">
           <GenericSelect
-            name="offer__voivodeship"
-            ref={(v) => { this.voivodeshipSelect = v; }}
+            name="userVoivodeship"
+            onValidate={this.state.doValidate}
+            doValidate={this.setIsValid}
+            setValue={this.setValue}
             label={t('components.register.voivodeships')}
             selectData={this.props.voivodeships}
             selectNamePath="components.register.voivodeships"
@@ -236,32 +308,147 @@ class RegisterForm extends Component {
         </div>
         <div className="register-form__item register-form__item--input">
           <Input
-            name="users__address-city"
+            name="userAddressCity"
             type="text"
             label={t('components.register.cityInputLabel')}
             maxLength={50}
             required
             validation={validator.validateCity}
-            ref={(v) => { this.users__addressCity = v; }}
+            onValidate={this.state.doValidate}
+            doValidate={this.setIsValid}
+            setValue={this.setValue}
           />
         </div>
         <div className="register-form__item--input register-form__item--textarea">
           <AboutMeTextarea
-            name="users__additionalInfo"
+            name="userAdditionalInfo"
             maxLength={800}
-            ref={(v) => { this.users__additionalInfo = v; }}
+            ref={(v) => { this.userAdditionalInfo = v; }}
           />
         </div>
-        <InvoiceInputGroup
-          ref={(v) => { this.users__invoiceInputGroup = v; }}
-        />
-        <TermsAndConditionsCheckbox
-          ref={(v) => { this.users__termsAndConditionsCheckbox = v; }}
-        />
-        <PersonalDataConfirm
-          validation={validator.validateCheckbox}
-          ref={(v) => { this.users__personalDataProcessing = v; }}
-        />
+        <div className="register-form__item--checkbox">
+          <input
+            name="invoiceRequest"
+            type="checkbox"
+            className="register-form__checkbox"
+            onChange={this.showInvoice}
+          />
+          <label
+            htmlFor="invoiceRequest"
+            className="invoice-request__label"
+          >
+            {t('components.register.invoiceDataLabel')}
+          </label>
+        </div>
+        {this.state.showInvoice &&
+        <div>
+          <div className="register-form__item register-form__item--input">
+            <Input
+              name="companyName"
+              type="text"
+              label={t('components.register.companyNameInputLabel')}
+              required
+              validation={validator.validateCompanyName}
+              onValidate={this.state.doValidate}
+              doValidate={this.setIsValid}
+              setValue={this.setValue}
+
+            />
+          </div>
+          <div className="register-form__item register-form__item--input">
+            <Input
+              name="companyNip"
+              type="text"
+              label={t('components.register.nipInputLabel')}
+              maxLength={13}
+              required
+              validation={validator.validateNip}
+              onValidate={this.state.doValidate}
+              doValidate={this.setIsValid}
+              setValue={this.setValue}
+            />
+          </div>
+          <div className="register-form__item register-form__item--input">
+            <Input
+              name="companyStreet"
+              type="text"
+              label={t('components.register.streetInputLabel')}
+              required
+              validation={validator.validateStreet}
+              onValidate={this.state.doValidate}
+              doValidate={this.setIsValid}
+              setValue={this.setValue}
+            />
+          </div>
+          <div className="register-form__item register-form__item--input">
+            <Input
+              name="companyNumber"
+              type="text"
+              label={t('components.register.houseNumberInputLabel')}
+              required
+              validation={validator.validateHouseNumber}
+              onValidate={this.state.doValidate}
+              doValidate={this.setIsValid}
+              setValue={this.setValue}
+            />
+          </div>
+          <div className="register-form__item register-form__item--input">
+            <Input
+              name="companyZipCode"
+              type="text"
+              label={t('components.register.zipCodeInputLabel')}
+              maxLength={6}
+              required
+              validation={validator.validateZipCode}
+              onValidate={this.state.doValidate}
+              doValidate={this.setIsValid}
+              setValue={this.setValue}
+            />
+          </div>
+          <div className="register-form__item register-form__item--input">
+            <Input
+              name="companyCity"
+              type="text"
+              label={t('components.register.localityInputLabel')}
+              maxLength={50}
+              required
+              validation={validator.validateCity}
+              onValidate={this.state.doValidate}
+              doValidate={this.setIsValid}
+              setValue={this.setValue}
+            />
+          </div>
+        </div>
+        }
+        <div className="register-form__item--checkbox">
+          <GenericCheckbox
+            name="termsAndConditions"
+            label={t('components.register.termsAndConditions')}
+            validation={validator.validateCheckbox}
+            onValidate={this.state.doValidate}
+            doValidate={this.setIsValid}
+            setValue={this.setValue}
+          >
+            <Link
+              className="register__checkbox--link"
+              href="/articles/conditions"
+              to="/articles/conditions"
+              target="_blank"
+            >
+              {t('components.register.termsAndConditionsLink')}
+            </Link>
+          </GenericCheckbox>
+        </div>
+        <div className="register-form__item--checkbox">
+          <GenericCheckbox
+            name="personalDataConfirm"
+            label={t('components.register.personalDataProcessing')}
+            validation={validator.validateCheckbox}
+            onValidate={this.state.doValidate}
+            doValidate={this.setIsValid}
+            setValue={this.setValue}
+          />
+        </div>
         <div className="register-form__item register-form__item--button">
           <FormButton
             id="users__register-submit"
