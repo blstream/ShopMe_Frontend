@@ -138,6 +138,7 @@ class RegisterForm extends Component {
       voivodeship: {
         name: inputsValue.userVoivodeship,
       },
+      invoiceRequest: false,
     };
 
     if (inputsValue.userAdditionalInfo) {
@@ -147,6 +148,7 @@ class RegisterForm extends Component {
     if (this.state.showInvoice) {
       formData.invoiceRequest = true;
       formData.invoice = {
+        invoiceRequest: true,
         companyName: inputsValue.companyName,
         nip: inputsValue.companyNip,
         invoiceAddress: {
@@ -327,18 +329,11 @@ class RegisterForm extends Component {
           />
         </div>
         <div className="register-form__item--checkbox">
-          <input
+          <GenericCheckbox
             name="invoiceRequest"
-            type="checkbox"
-            className="register-form__checkbox"
+            label={t('components.register.invoiceDataLabel')}
             onChange={this.showInvoice}
           />
-          <label
-            htmlFor="invoiceRequest"
-            className="invoice-request__label"
-          >
-            {t('components.register.invoiceDataLabel')}
-          </label>
         </div>
         {this.state.showInvoice &&
         <div>

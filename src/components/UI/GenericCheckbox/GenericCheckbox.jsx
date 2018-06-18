@@ -60,9 +60,10 @@ class GenericCheckbox extends Component {
         <div className={this.props.wrapperName}>
           <input
             name={this.props.name}
+            id={this.props.name}
             type="checkbox"
             className="register-form__checkbox"
-            checked={this.state.checked}
+            checked={this.state.value}
             onChange={this.handleChange}
           />
           <label
