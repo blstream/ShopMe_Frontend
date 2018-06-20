@@ -6,41 +6,25 @@ import './AboutMeTextarea.css';
 class AboutMeTextArea extends Component {
   constructor(props) {
     super(props);
-
-    this.checkValidity = this.checkValidity.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-
     this.state = {
       value: '',
       errorMessage: '',
-      isRequired: this.props.required,
     };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.onValidate) {
-      const isValid = this.checkValidity();
-      this.props.doValidate(this.props.name, isValid);
-      if (isValid) {
-        this.props.setValue(this.props.name, this.state.value);
-      }
-    }
+    this.handleChange = this.handleChange.bind(this);
+    this.resetInput = this.resetInput.bind(this);
   }
 
   handleChange(event) {
+    const { value } = event.target;
+    this.setState({ value });
+    if (this.props.onChange) {
+      this.props.onChange(this.props.name, value);
+    }
     this.setState({ errorMessage: '' });
-    if (event.target.value.length <= 800) this.setState({ value: event.target.value });
   }
 
-  checkValidity() {
-    const { t } = this.props;
-    const isValid = true;
-
-    if (this.state.isRequired && this.state.value.trim() === '') {
-      this.setState({ errorMessage: t('components.UI.aboutMeTextarea.errorEmptyField') });
-      return false;
-    }
-    return isValid;
+  resetInput() {
+    this.setState({ value: '' });
   }
 
   render() {

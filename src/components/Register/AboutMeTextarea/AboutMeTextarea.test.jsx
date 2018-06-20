@@ -33,27 +33,3 @@ describe('component', () => {
     expect(aboutMeTextArea.find('.add-form__error-message').text()).toEqual('');
   });
 });
-
-describe('method', () => {
-  let aboutMeTextArea;
-  let textarea;
-
-  beforeEach(() => {
-    aboutMeTextArea = mount(<AboutMeTextArea name="test" />);
-    textarea = aboutMeTextArea.find('textarea');
-  });
-
-  describe('checkValidity', () => {
-    it('displays no error if there is no value in the textarea', () => {
-      textarea.simulate('change', { target: { value: '' } });
-      aboutMeTextArea.instance().checkValidity();
-      expect(aboutMeTextArea.find('.add-form__error-message').text()).toEqual('');
-    });
-
-    it('displays no error if there is a value in the textarea', () => {
-      textarea.simulate('change', { target: { value: 'test' } });
-      aboutMeTextArea.instance().checkValidity();
-      expect(aboutMeTextArea.find('.add-form__error-message').text()).toEqual('');
-    });
-  });
-});
