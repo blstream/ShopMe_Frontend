@@ -33,13 +33,3 @@ describe('component', () => {
     expect(aboutMeTextArea.find('.add-form__error-message').text()).toEqual('');
   });
 });
-
-describe('method', () => {
-  let aboutMeTextArea;
-  let textarea;
-
-  beforeEach(() => {
-    aboutMeTextArea = mount(<AboutMeTextArea name="test" />);
-    textarea = aboutMeTextArea.find('textarea');
-  });
-});
