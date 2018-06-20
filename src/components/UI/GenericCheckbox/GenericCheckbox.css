@@ -1,0 +1,30 @@
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label:before {
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  content: "\00a0";
+  display: inline-block;
+  font: 16px/1em sans-serif;
+  height: 16px;
+  margin-right: 1rem;
+  padding: 0;
+  vertical-align: top;
+  width: 16px;
+}
+
+input[type="checkbox"]:checked + label:before {
+  background: #fff;
+  color: #000;
+  content: "\2713";
+  font-weight: bold;
+  text-align: center;
+}
+
+.register__checkbox--error-message {
+  color: #F92828;
+  margin: 0 auto 1rem auto;
+  width: 29rem;
+}
