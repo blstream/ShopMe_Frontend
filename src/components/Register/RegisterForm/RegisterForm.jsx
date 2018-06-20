@@ -49,7 +49,6 @@ class RegisterForm extends Component {
         userAddressZipCode: undefined,
         userVoivodeship: undefined,
         userAddressCity: undefined,
-        userAdditionalInfo: undefined,
         personalDataConfirm: undefined,
         companyName: undefined,
         companyNip: undefined,
@@ -325,7 +324,7 @@ class RegisterForm extends Component {
           <AboutMeTextarea
             name="userAdditionalInfo"
             maxLength={800}
-            ref={(v) => { this.userAdditionalInfo = v; }}
+            onChange={this.setValue}
           />
         </div>
         <div className="register-form__item--checkbox">
